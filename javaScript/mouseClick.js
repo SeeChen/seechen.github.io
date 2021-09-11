@@ -26,7 +26,7 @@ function mouseClick(){
 		},1000);
 	},false);
 }
-function stopRightClick(){
+function rightClick(){
 	document.oncontextmenu=function(){
 		return false;
 	};
