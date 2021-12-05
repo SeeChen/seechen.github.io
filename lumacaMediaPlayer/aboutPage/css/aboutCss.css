@@ -1,0 +1,62 @@
+html, body{
+	padding: 0;
+	margin: 0;
+	height:100%;
+	cursor:url(../materials/cursor.png), default;
+	background:#ffffff;
+	overflow: scroll;
+	font-family: Verdana;
+}
+body::-webkit-scrollbar{
+	display:none;
+}
+#titleBack{
+	box-shadow: 1px 1px 5px #546868;
+	position: fixed;
+	width: 100%;
+	height: 15%;
+	background-color: #fff;
+	margin: 0;
+	z-index: 999;
+	transition: all 0.5s;
+}
+#title{
+	height:90%;
+	margin-left: 5%;
+	margin-top: 0.25em;
+}
+fieldset{
+	padding:2em 3em;
+	border:0.25em dashed gray;
+	border-radius:2em;
+	margin: 2em 5%;
+}
+legend{
+	font-size:1.5em;
+	padding:0 1em;
+	font-family:"ink free";
+	font-weight:bold;
+}
+hr{
+	background: #C1C1C1;
+}
+#licenceContent{
+	overflow: hidden;
+	transition: all 0.5s;
+}
+table{
+	width: 90%;
+	text-align: center;
+	table-layout: fixed;
+	border-spacing: 0 1em;
+	margin:0 auto;
+}
+table .profilePicture{
+	width: 8em;
+	height: 8em;
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px #000;
+}
+.left_side{
+	text-align: right;
+}

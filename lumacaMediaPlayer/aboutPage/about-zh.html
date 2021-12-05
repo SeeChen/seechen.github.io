@@ -2,104 +2,8 @@
 	<head>
 		<title>About | Lumaca</title>
 		<link rel="icon" href="../materials/logo.png" type="image/jpg"/>
-		<style>
-		html{
-		}
-		html, body{
-			padding: 0;
-			margin: 0;
-			height:100%;
-			cursor:url(../materials/cursor.png), default;
-			background:#ffffff;
-			overflow: scroll;
-			font-family: Verdana, SimSun;
-		}
-		body::-webkit-scrollbar{
-			display:none;
-		}
-		#titleBack{
-			box-shadow: 1px 1px 5px #546868;
-			position: fixed;
-			width: 100%;
-			height: 15%;
-			background-color: #fff;
-			margin: 0;
-			z-index: 999;
-			transition: all 0.5s;
-		}
-		#title{
-			height:90%;
-			margin-left: 5%;
-			margin-top: 0.25em;
-		}
-		fieldset{
-			padding:2em 3em;
-			border:0.25em dashed gray;
-			border-radius:2em;
-			margin: 2em 5%;
-		}
-		legend{
-			font-size:1.5em;
-			padding:0 1em;
-			font-family:"KaiTi";
-			font-weight:bold;
-		}
-		hr{
-			background: #C1C1C1;
-		}
-		#licenceContent{
-			overflow: hidden;
-			transition: all 0.5s;
-		}
-		table{
-			width: 90%;
-			text-align: center;
-			table-layout: fixed;
-			border-spacing: 0 1em;
-			margin:0 auto;
-		}
-		table .profilePicture{
-			width: 8em;
-			height: 8em;
-			border-radius: 100%;
-			box-shadow: 1px 1px 5px #000;
-		}
-		.left_side{
-			text-align: right;
-		}
-		</style>
-		<script>
-			window.onload = function(){
-				setNavScrollResponse();
-				document.getElementById("top").style.marginTop = document.getElementById("titleBack").clientHeight * 1.2  + "px";
-				licenceOnShow = 0;
-			}
-			
-			function showLicenceContent(){
-				if(licenceOnShow == 0){
-					document.getElementById("licenceContent").style.height = document.getElementById("Content").clientHeight * 1.1 + "px";
-					licenceOnShow = 1;
-				}else{
-					document.getElementById("licenceContent").style.height = 0;
-					licenceOnShow = 0;
-				}
-			}
-			
-			function setNavScrollResponse(){
-				var prevScrollpos = window.pageYOffset;
-				document.body.addEventListener('scroll', () => {
-					var currentScrollPos = window.pageYOffset;
-					if(prevScrollpos > currentScrollPos){
-					}else{
-						document.getElementById("titleBack").style.height = "5%";
-					}
-					prevScrollpos = currentScrollPos;
-					if(document.body.scrollTop == 0 && document.documentElement.scrollTop == 0){
-						document.getElementById("titleBack").style.height = "15%";
-					}
-				});
-			}
-		</script>
+		<link href="./css/aboutCss.css" type="text/css" rel="stylesheet"/>
+		<script type="text/javascript" src="./js/aboutJs.js"></script>
 	</head>
 	<body>
 		<div id="titleBack">
@@ -164,5 +68,7 @@
 			<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 			</div></div>
 		</fieldset>
+		<p style="text-align: center;">哇，这个 Bug 真新颖，居然还可以播放媒体文件。</p>
+		</br>
 	</body>
 </html>
