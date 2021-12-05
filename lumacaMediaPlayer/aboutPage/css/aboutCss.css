@@ -2,7 +2,7 @@ html, body{
 	padding: 0;
 	margin: 0;
 	height:100%;
-	cursor:url(../materials/cursor.png), default;
+	cursor:url(../../materials/cursor.png), default;
 	background:#ffffff;
 	overflow: scroll;
 	font-family: Verdana;
