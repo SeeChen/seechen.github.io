@@ -1,6 +1,7 @@
 window.onload = function(){
 	setNavScrollResponse();
 	document.getElementById("top").style.marginTop = document.getElementById("titleBack").clientHeight * 1.2  + "px";
+	pictureZoom();
 }
 			
 function setNavScrollResponse(){
@@ -16,4 +17,17 @@ function setNavScrollResponse(){
 			document.getElementById("titleBack").style.height = "15%";
 		}
 	});
+}
+
+function pictureZoom(){
+	var classNum = document.getElementsByClassName("example-picture").length;
+	for(var i = 0; i < classNum; i++){
+		document.getElementsByClassName("example-picture")[i].onclick = function(){
+			var currentHeight = this.clientHeight;
+			if(currentHeight == 160)
+				this.style.height = "20em";
+			else
+				this.style.height = "10em"
+		}
+	}
 }
