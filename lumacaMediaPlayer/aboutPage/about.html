@@ -57,11 +57,14 @@
 			table-layout: fixed;
 			border-spacing: 0 1em;;
 		}
-		table img{
+		table .profilePicture{
 			width: 8em;
 			height: 8em;
 			border-radius: 100%;
 			box-shadow: 1px 1px 5px #000;
+		}
+		.left_side{
+			text-align: right;
 		}
 		</style>
 		<script>
@@ -102,19 +105,37 @@
 			<img id="Title" src="../materials/about.png"/>
 		</div>
 		<fieldset id="top">
-			<legend>hahahah</legend>
+			<legend><img src="../materials/title.png" style="width: 8em;"/></legend>
+			<table>
+				<tr>
+					<td class="left_side">Project Name :</td>
+					<td colspan=2><img src="../materials/name.png" style="width: 10em;"/></td>
+				</tr>
+				<tr>
+					<td class="left_side">JDK Version :</td>
+					<td colspan=2>Windows JDK 1.8_301</td>
+				</tr>
+				<tr>
+					<td class="left_side">JFoenix Version :</td>
+					<td colspan=2>jfoenix-8.0.10</td>
+				</tr>
+				<tr>
+					<td class="left_side">IntelliJ IDEA Version :</td>
+					<td colspan=2>IntelliJ IDEA 2021.3 (Community Edition) Build #IC-213.5744.223</td>
+				</tr>
+			</table>
 		</fieldset>
 		
 		<fieldset id="members">
-			<legend>GROUP MEMBERS</legend>
-			<p> The Grobrp Members of Lumaca Project:</p>
+			<legend>DEVELOPERS</legend>
+			<p> The Developers of Lumaca Project:</p>
 			<hr/><br/>
 			<table border=0>
 				<tr>
-					<td><img src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>SeeChen</td>
+					<td><img class="profilePicture" src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>SeeChen</td>
 				</tr>
 				<tr>
-					<td><img src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>SeeChen</td>
+					<td><img class="profilePicture" src="https://avatars.githubusercontent.com/u/93914414?v=4"/></td><td>LAU LE YE</td>
 				</tr>
 			</table>
 			<br/><hr/>
