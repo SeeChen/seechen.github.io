@@ -12,6 +12,7 @@
 			cursor:url(../materials/cursor.png), default;
 			background:#ffffff;
 			overflow: scroll;
+			font-family: Verdana;
 		}
 		body::-webkit-scrollbar{
 			display:none;
@@ -43,11 +44,24 @@
 			font-family:"ink free";
 			font-weight:bold;
 		}
-		
-		
+		hr{
+			background: #C1C1C1;
+		}
 		#licenceContent{
 			overflow: hidden;
 			transition: all 0.5s;
+		}
+		table{
+			width: 90%;
+			text-align: center;
+			table-layout: fixed;
+			border-spacing: 0 1em;;
+		}
+		table img{
+			width: 8em;
+			height: 8em;
+			border-radius: 100%;
+			box-shadow: 1px 1px 5px #000;
 		}
 		</style>
 		<script>
@@ -93,13 +107,24 @@
 		
 		<fieldset id="members">
 			<legend>GROUP MEMBERS</legend>
+			<p> The Grobrp Members of Lumaca Project:</p>
+			<hr/><br/>
+			<table border=0>
+				<tr>
+					<td><img src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>SeeChen</td>
+				</tr>
+				<tr>
+					<td><img src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>SeeChen</td>
+				</tr>
+			</table>
+			<br/><hr/>
 		</fieldset>
 		
 		<fieldset id="licence">
 			<legend id = "LICENCE">LICENCE</legend>
 			<span style="color: blue; cursor: pointer; font-family: Verdana;" onclick = "showLicenceContent()">MIT &copy; SeeChen , LAU LE YE</span>
 			<div style="height:0;" id = "licenceContent">
-			<div id="Content" style="font-family: Verdana;">
+			<div id="Content">
 			
 			<p>MIT License</p>
 			
