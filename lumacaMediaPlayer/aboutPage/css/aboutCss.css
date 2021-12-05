@@ -6,9 +6,13 @@ html, body{
 	background:#ffffff;
 	overflow: scroll;
 	font-family: Verdana;
+	user-select:none;
 }
 body::-webkit-scrollbar{
 	display:none;
+}
+img{
+	-webkit-user-drag:none;
 }
 #titleBack{
 	box-shadow: 1px 1px 5px #546868;
