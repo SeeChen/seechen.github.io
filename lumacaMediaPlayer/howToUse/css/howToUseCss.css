@@ -1,3 +1,7 @@
+*{
+	margin: 0;
+	padding: 0;
+}
 html, body{
 	padding: 0;
 	margin: 0;
@@ -5,8 +9,9 @@ html, body{
 	cursor:url(../../materials/cursor.png), default;
 	background:#ffffff;
 	overflow: scroll;
-	font-family: Verdana;
+	font-family: Verdana, KaiTi;
 	user-select:none;
+	scroll-behavior: smooth;
 }
 body::-webkit-scrollbar{
 	display:none;
@@ -30,49 +35,55 @@ img{
 	margin-top: 0.25em;
 }
 .tutorial-title{
-	font-family: "ink free";
+	font-family: "ink free", "FangSong";
 	font-size: 2.5em;
 	font-weight: bold;
 	margin-left: 1em;
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
 }
 .inline-point{
 	background: #D3D3D3;
 	border-radius: 0.25em;
-	padding: 0 0.25em;
+	padding: 0.25em;
 	box-shadow: 1px 1px 1px #000;
 	font-family: NSimSun;
 }
 hr{
-	background: #C1C1C1;
+	background: none;
+	margin: 1em 0;
 }
 .example-picture{
 	height: 10em;
 	display: block;
-	margin: auto;
+	margin: 1em auto;
 	transition: all 0.5s;
 }
 
-
-
-
-
-#licenceContent{
-	overflow: hidden;
-	transition: all 0.5s;
-}
-table{
-	width: 90%;
+#footPage{
+	background: #F5F5F5;
+	border-top: 1px solid #ccc;
+	padding: 1em;
 	text-align: center;
-	table-layout: fixed;
-	border-spacing: 0 1em;
-	margin:0 auto;
 }
-table .profilePicture{
-	width: 8em;
-	height: 8em;
-	border-radius: 100%;
-	box-shadow: 1px 1px 5px #000;
+a{
+	text-decoration: none;
 }
-.left_side{
-	text-align: right;
+ul{
+	list-style-type: none;
+	display: block;
+	width: 100%;
+	height: 2em;
+	line-height: 2em;
+	margin-top: 1em;
+}
+li{
+	float: left;
+	width: 10%;
+	text-align: center;
+	border-left: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	cursor: pointer;
+	font-family: "ink free","FangSong";
+	font-weight: bold;
 }

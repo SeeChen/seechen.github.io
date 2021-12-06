@@ -1,16 +1,16 @@
 window.onload = function(){
 	setNavScrollResponse();
 	document.getElementById("top").style.marginTop = document.getElementById("titleBack").clientHeight * 1.2  + "px";
-	licenceOnShow = 0;
+	licenseOnShow = 0;
 }
 		
 function showLicenceContent(){
-	if(licenceOnShow == 0){
-		document.getElementById("licenceContent").style.height = document.getElementById("Content").clientHeight * 1.1 + "px";
-		licenceOnShow = 1;
+	if(licenseOnShow == 0){
+		document.getElementById("licenseContent").style.height = document.getElementById("Content").clientHeight * 1.1 + "px";
+		licenseOnShow = 1;
 	}else{
-		document.getElementById("licenceContent").style.height = 0;
-		licenceOnShow = 0;
+		document.getElementById("licenseContent").style.height = 0;
+		licenseOnShow = 0;
 	}
 }
 			

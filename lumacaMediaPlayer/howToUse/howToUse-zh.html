@@ -1,74 +1,54 @@
 <html>
 	<head>
-		<title>About | Lumaca</title>
+		<title>Tutorial | Lumaca</title>
 		<link rel="icon" href="../materials/logo.png" type="image/jpg"/>
 		<link href="./css/howToUseCss.css" type="text/css" rel="stylesheet"/>
 		<script type="text/javascript" src="./js/howToUseJs.js"></script>
 	</head>
 	<body>
 		<div id="titleBack">
-			<img id="Title" src="../materials/about-zh.png"/>
+			<img id="title" src="../materials/tutorial-zh.png"/>
 		</div>
-		<fieldset id="top">
-			<legend><img src="../materials/title.png" style="width: 8em;"/></legend>
-			<table>
-				<tr>
-					<td class="left_side">项目名称 :</td>
-					<td colspan=2><img src="../materials/name.png" style="width: 10em;"/></td>
-				</tr>
-				<tr>
-					<td colspan=3 style="border: 0.15em solid #000;padding: 1em 0; border-radius: 1em;">
-						<p>这是一个随着 Bugs 产生的媒体播放器。</p>
-						<p>在使用的过程中，可能会遇到许多未知的特性，但别担心，这均属于正常现象。</p>
-					</td>
-				</tr>
-				<tr>
-					<td class="left_side">JDK 版本 :</td>
-					<td colspan=2>Windows JDK 1.8_301</td>
-				</tr>
-				<tr>
-					<td class="left_side">JFoenix 版本 :</td>
-					<td colspan=2>jfoenix-8.0.10</td>
-				</tr>
-				<tr>
-					<td class="left_side">IntelliJ IDEA 版本 :</td>
-					<td colspan=2>IntelliJ IDEA 2021.3 (Community Edition) Build #IC-213.5744.223</td>
-				</tr>
-			</table>
-		</fieldset>
-		
-		<fieldset id="members">
-			<legend>项目开发者</legend>
-			<p> Lumaca 的开发者 ：</p>
-			<hr/><br/>
-			<table border=0>
-				<tr>
-					<td><img class="profilePicture" src="https://avatars.githubusercontent.com/u/39422761?v=4"/></td><td>李思净</td>
-				</tr>
-				<tr>
-					<td><img class="profilePicture" src="https://avatars.githubusercontent.com/u/93914414?v=4"/></td><td>刘乐也</td>
-				</tr>
-			</table>
+		<div id="top"></div>
+		<h1 style="text-align:center;color: red;">警告 : 页面尚未完成 !</h1>
+		<div id="contentArea" style="margin: 1em auto; width: 90%;">
+			<img src="../materials/title.png" style="width:15em;display: block;margin: auto;"/>
+			<div><ul>
+				<li class="menu" id="toMain">主视图</li>
+				<li class="menu" id="toOpen">开启</li>
+				<li class="menu" id="toMenu">菜单</li>
+			</ul></div><hr/>
+			<p class="tutorial-title" id="Main">主视窗</p>
+			<img class="example-picture" src="../tutorialRe/mainWindow.png"></img>
+			<p class="content">01.&nbsp;&nbsp;&nbsp;&nbsp;播放按钮</p>
+			<p class="content">02.&nbsp;&nbsp;&nbsp;&nbsp;停止播放按钮</p>
+			<p class="content">03.&nbsp;&nbsp;&nbsp;&nbsp;播放进度条</p>
+			<p class="content">04.&nbsp;&nbsp;&nbsp;&nbsp;播放速率</p>
+			<p class="content">05.&nbsp;&nbsp;&nbsp;&nbsp;音量控制</p>
+			<p class="content">06.&nbsp;&nbsp;&nbsp;&nbsp;全屏设置</p>
+			<p class="content">07.&nbsp;&nbsp;&nbsp;&nbsp;播放器</p>
+			<p class="content">08.&nbsp;&nbsp;&nbsp;&nbsp;菜单栏</p>
+			<hr/>
+			<p class="tutorial-title" id="Open">如何打开文件</p>
+			<p class="content">您可以使用快捷键 <span class="inline-point">Crtl + O</span> 来打开媒体文件。</p>
+			<img class="example-picture" src="../tutorialRe/crtl+o.png"></img>
+			<p class="content">或者您可以使用右键以及菜单栏中的 <span class="inline-point">Open file</span> 栏目以打开媒体文件:</p>
+			<img class="example-picture" src="../tutorialRe/menu-openFile.png"></img>
+			<img class="example-picture" src="../tutorialRe/right-openFile.png"></img>
+			<p class="content">其实，在没有媒体文件播放的时候您可以直接点击 <span class="inline-point">播放</span> 按钮来打开您要打开的媒体文件</p>
+			<img class="example-picture" src="../tutorialRe/playBtn.png"></img>
+			<p class="content">还有还有，你也可以直接拖动媒体文件到应用里面来播放吖。</p>
+			<img class="example-picture" src="../tutorialRe/dragFile.png"></img>
 			<br/><hr/>
-		</fieldset>
-		
-		<fieldset id="licence">
-			<legend id = "LICENCE">开源许可证</legend>
-			<span style="color: blue; cursor: pointer; font-family: Verdana;" onclick = "showLicenceContent()">MIT &copy; SeeChen , LAU LE YE</span>
-			<div style="height:0;" id = "licenceContent">
-			<div id="Content">
-			
-			<p>MIT License</p>
-			
-			<p>Copyright &copy; 2021 SeeChen Lee , LAU LE YE</p>
-
-			<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
-			
-			<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
-			<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-			</div></div>
-		</fieldset>
-		<p style="text-align: center;">哇，这个 Bug 真新颖，居然还可以播放媒体文件。</p>
-		</br>
+			<p class="tutorial-title" id="Menu">菜单栏以及右键菜单</p>
+			<p class="content">菜单一共被划分为三个区域，即 <span class="inline-point">File</span> , <span class="inline-point">View</span> , 以及 <span class="inline-point">Help</span> 。</p>
+			<img class="example-picture" src="../tutorialRe/menubar.png"></img>
+			<img class="example-picture" src="../tutorialRe/rightclick.png"></img>
+		</div>
+		<div id="footPage">
+			<img src="../materials/title.png" style="width:10em;display: block;margin: auto;"/>
+			<br/>
+			<p>版权所有 &copy; 2021 <a href="https://github.com/SeeChen">李思净</a>, <a href ="https://github.com/Leosta0807">刘乐也</a> 保留所有权利。</p>
+		</div>
 	</body>
 </html>
