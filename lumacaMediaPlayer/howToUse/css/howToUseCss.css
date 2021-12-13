@@ -10,7 +10,7 @@ html, body{
 	background:#ffffff;
 	overflow: scroll;
 	font-family: Verdana, KaiTi;
-	user-select:none;
+	/* user-select:none; */
 	scroll-behavior: smooth;
 }
 body::-webkit-scrollbar{
