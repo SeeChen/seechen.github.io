@@ -2,10 +2,57 @@ html, body {
 	padding:0;
 	margin:0;
 	background:#494949;
+	color: #fff;
+	overflow: hidden scroll;
 }
 
 #Logo {
 	width: 50%;
 	display: block;
-	margin: auto;
+	margin: 1% auto 2%;
+}
+
+.title {
+	color: #fff;
+	font-size: 2.5em;
+	margin: 1% 2%;
+	font-family: "Ink free", "Simsun";
+}
+
+.title:before, .title:after {
+	content: " = ";
+}
+
+.content {
+	font-size: 2em;
+	margin: 0.5em 1.5em 1em;
+	color: #fff;
+	font-family: "Verdana", "Kaiti";
+}
+
+a {
+	text-decoration: none;
+}
+
+hr{
+	background: linear-gradient(to right, #00000000, #000000ff, #00000000);
+	height: 1px;
+	border: none;
+	margin: 1em;
+}
+
+table{
+	width: 90%;
+	text-align: center;
+	table-layout: fixed;
+	border-spacing: 0 1em;
+	margin:0 auto;
+	font-size: 2em;
+}
+
+table .profilePicture{
+	width: 8em;
+	height: 8em;
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px #000;
 }
