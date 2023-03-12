@@ -12,8 +12,7 @@ function loadPageLanguage() {
 	$.getJSON(languageUrl, function(data) {
 		
 		let languageObj = data["zh"][0];
-		console.log(languageObj);
 		
-		$("title:eq(0)").text(languageObj.title);
+		$("title:eq(0)").text(languageObj._title_);
 	});
 }
