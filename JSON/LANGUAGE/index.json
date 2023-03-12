@@ -1,9 +1,15 @@
 {
   "zh" : [{
-    "_title_" : "SeeChen 网页"
+    "_title_"   : "SeeChen 的网页",
+	"_home_"    : "主页",
+	"_about_"   : "关于",
+	"_project_" : "项目"
   }],
 
   "en" : [{
-	"_title_" : "SeeChen Website"
+	"_title_" : "SeeChen's Website",
+	"_home_"    : "Home",
+	"_about_"   : "About",
+	"_project_" : "Project"
   }]
 }
