@@ -5,6 +5,8 @@ window.onload = function (){
 
 function loadPageLanguage() {
 	
+	alert("test");
+	
 	let languageUrl = "./JSON/LANGUAGE/index.json";
 	
 	$.getJSON(languageUrl, function(data) {
