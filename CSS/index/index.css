@@ -1,35 +1,64 @@
-/* https://seechen.github.io */
-/* index */
-* {
-	margin  : 0;
-	padding : 0;
+*, html {
+    padding: 0;
+    margin : 0;
 }
 
-html, body {
-	background : #1AA;
+#header_bar {    
+    height         : 4em;
+    position       : fixed;
+    width          : 80%;
+    background     : rgba(200, 200, 200, 0.5);
+    backdrop-filter: blur(0.5em);
+    border-radius  : 1em;
+    margin         : 0.5em auto;
+    left           : 0;
+    right          : 0;
+    box-shadow     : 0.25em 0.25em 0.25em #ccc;
+    overflow       : hidden;
+    transition     : all 0.5s;
+    z-index        : 999;
 }
 
-#Navbar {
-	height          : 4em;
-	width           : 100%;
-	background      : rgba(255, 255, 255, 0.3);
-	backdrop-filter : blur(0.5em);
-	position        : fixed;
-	box-shadow      : 1px 2px 2px #000;
+.nav_list {
+    color          : #1aa260;
+    font-size      : 1.25em;
+    font-weight    : bold;
+    text-align     : center;
+    float          : left;
+    list-style-type: none;
+    width          : calc(1 / 2 * 100%);
+    border-radius  : 1em;
+    cursor         : pointer;
+
+    transition: all 0.5s;
 }
 
-#Navbar table {
-	width        : 100%;
-	height       : 100%;
-	table-layout : fixed;
+.nav_list:hover {
+    background: #ccc;
 }
 
-#Navbar .menu1 {
-	float       : left;
-	list-style  : none;
+#header_bar-bottom {
+
+    padding : 1em;
+    margin  : 1em;
 }
 
-#Navbar .menu1 {
-	margin : 0 0.5em;
-	background:red;
+#language_module {
+
+    display: none;
+}
+
+.language {
+
+    color        : #1aa260;
+    margin       : 0.5em;
+    padding      : 1em;
+    cursor       : pointer;
+    border-radius: 10em;
+    transition   : all 0.5s;
+}
+
+.language:hover {
+
+    background: #ccc;
 }

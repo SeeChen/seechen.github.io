@@ -1,15 +1,13 @@
 {
-  "zh" : [{
-    "_title_"   : "SeeChen 的网页",
-	"_home_"    : "主页",
-	"_about_"   : "关于",
-	"_project_" : "项目"
-  }],
-
-  "en" : [{
-	"_title_" : "SeeChen's Website",
-	"_home_"    : "Home",
-	"_about_"   : "About",
-	"_project_" : "Project"
-  }]
-}
+    "zh" : [{
+      "_title_"   : "SeeChen 的网页",
+      "_nav_home_": "主页",
+      "_language_": "切换语言"
+    }],
+  
+    "en" : [{
+      "_title_"   : "SeeChen's Website",
+      "_nav_home_": "Home",
+      "_language_": "Language"
+    }]
+  }
