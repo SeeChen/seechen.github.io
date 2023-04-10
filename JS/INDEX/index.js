@@ -30,6 +30,20 @@ function _hover() {
         function() {
 
             $("#language_module").css("display", "block");
+            $("#project_module").css("display", "none");
+            $("#header_bar").css("height", $("#nav_home").innerHeight() + $("#header_bar-bottom").innerHeight() + 32 + "px");
+        },
+
+        function() {
+            
+        }
+    );
+
+    $("#nav_project").hover(
+        function() {
+
+            $("#project_module").css("display", "block");
+            $("#language_module").css("display", "none");
             $("#header_bar").css("height", $("#nav_home").innerHeight() + $("#header_bar-bottom").innerHeight() + 32 + "px");
         },
 
