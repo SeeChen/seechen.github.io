@@ -10,6 +10,7 @@
     border-radius: 1em;
     backdrop-filter: blue(1em);
     box-shadow: 1px 1px 0.25em #ccc;
+    z-index: 1000;
 }
 
 #navigation_bar table {

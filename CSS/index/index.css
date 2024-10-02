@@ -14,7 +14,10 @@ body {
     overflow-y: hidden;
 }
 
-#content_area table {
+#content_area #main_content_table {
+    position: fixed;
+    top: 0;
+    z-index: 1;
     width: 500%;
     height: 100vh;
     table-layout: fixed;

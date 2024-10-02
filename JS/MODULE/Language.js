@@ -34,7 +34,7 @@ export class _language {
 
             for (let i = 0; i < $("._switch_lang_").length; i++) {
 
-                $("._switch_lang_:eq(" + i + ")").text(languageObj[$("._switch_lang_:eq(" + i + ")").attr("lang_obj")]);
+                $("._switch_lang_:eq(" + i + ")").html(languageObj[$("._switch_lang_:eq(" + i + ")").attr("lang_obj")]);
             }
         });
     }

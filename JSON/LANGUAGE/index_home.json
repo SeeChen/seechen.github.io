@@ -1,0 +1,13 @@
+{
+    "zh" : [{
+      "_home_welcome_": "花径不曾缘客扫，蓬门今始为君开.",
+      "_home_name_": "您好，我是 <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
+      "_home_my_name_": "李思净。"
+    }],
+  
+    "en" : [{
+      "_home_welcome_": "Delighted to have the honor of your visit.",
+      "_home_name_": "HERE'S <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
+      "_home_my_name_": "SEECHEN LEE."
+    }]
+  }
