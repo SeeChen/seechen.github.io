@@ -9,6 +9,8 @@ window.onload = function() {
 
     _hover();
     _click_bind();
+
+    
 }
 
 function _click_bind() {
@@ -21,6 +23,11 @@ function _click_bind() {
     $("#lang_zh").click(function() {
 
         language.loadPageLanguage(lang_url, "zh");
+    });
+
+    $("#nav_home").click(function() {
+
+        $("#content_area table").css("margin-left", "-100%")
     });
 }
 

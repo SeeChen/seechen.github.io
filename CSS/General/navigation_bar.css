@@ -1,0 +1,50 @@
+#navigation_bar {
+    position: fixed;
+    height: 5em;
+    width: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    bottom: 1em;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 1em;
+    backdrop-filter: blue(1em);
+}
+
+#navigation_bar table {
+    position: absolute;
+    width: 100%;
+    table-layout: fixed;
+    height: 100%;
+}
+
+#navigation_bar table tr td {
+    text-align: center;
+    color: rgba(255, 255, 255, 0);
+    text-shadow: 1px 1px 1px #00000000;
+    transition: all 0.5s;
+    font-size: 1em;
+}
+
+#navigation_bar table tr td:hover {
+    color: rgba(255, 255, 255, 1);
+    background-size: 100%;
+    text-shadow: 1px 1px 1px #000000FF;
+    font-size: 2em;
+}
+
+#nav_home {
+    background: url('../../MATERIALS/ico_home.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    transition: all 0.5s;
+}
+
+#nav_language {
+    background: url('../../MATERIALS/ico_language.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    transition: all 0.5s;
+}
