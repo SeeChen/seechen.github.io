@@ -1,0 +1,17 @@
+{
+    "zh" : [{
+      "_home_": "我的主页",
+      "_trips_": "我的旅行",
+      "_camera_": "我的方框",
+      "_projects_": "我的项目",
+      "_language_": "切换语言"
+    }],
+  
+    "en" : [{
+      "_home_": "Home",
+      "_trips_": "Travel",
+      "_camera_": "Lens",
+      "_projects_": "Projects",
+      "_language_": "Language"
+    }]
+  }

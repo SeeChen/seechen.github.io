@@ -9,6 +9,7 @@
     margin: auto;
     border-radius: 1em;
     backdrop-filter: blue(1em);
+    box-shadow: 1px 1px 0.25em #ccc;
 }
 
 #navigation_bar table {
@@ -21,24 +22,70 @@
 #navigation_bar table tr td {
     text-align: center;
     color: rgba(255, 255, 255, 0);
-    text-shadow: 1px 1px 1px #00000000;
     transition: all 0.5s;
     font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    -webkit-text-stroke: 2px #00000000;
 }
 
 #navigation_bar table tr td:hover {
     color: rgba(255, 255, 255, 1);
     background-size: 100%;
-    text-shadow: 1px 1px 1px #000000FF;
     font-size: 2em;
+    -webkit-text-stroke: 1px #000000F0;
 }
 
 #nav_home {
-    background: url('../../MATERIALS/ico_home.png');
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_home.png'), 100%);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 3em;
     transition: all 0.5s;
+}
+#nav_home:hover {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_home.png'), 40%);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#nav_trips {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_trip.png'), 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    transition: all 0.5s;
+}
+#nav_trips:hover {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_trip.png'), 40%);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#nav_camera {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_camera.png'), 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    transition: all 0.5s;
+}
+#nav_camera:hover {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_camera.png'), 40%);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#nav_projects {
+    background: url('../../MATERIALS/ico_projects.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 3em;
+    transition: all 0.5s;
+}
+#nav_projects:hover {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_projects.png'), 40%);
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #nav_language {
@@ -47,4 +94,9 @@
     background-repeat: no-repeat;
     background-size: 3em;
     transition: all 0.5s;
+}
+#nav_language:hover {
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_language.png'), 40%);
+    background-position: center;
+    background-repeat: no-repeat;
 }

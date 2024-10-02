@@ -1,0 +1,46 @@
+#td_language {
+    overflow: hidden;
+    height: 100%;
+}
+
+#top-icon {
+    width: 10em;
+    height: 10em;
+    position: relative;
+    top: 1em;
+    left: 1em;
+    display: inline-block;
+
+    background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_language.png'), 40%);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#top-bar {
+    display: inline-block;
+    position: relative;
+    top: -0.25em;
+    left: -1em;
+    font-size: 4em;
+    font-weight: bolder;
+    color: #FFF;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#td_language #language_option {
+    width: 80%;
+    height: 50vw;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#td_language #language_option p {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1em;
+    color: #FFF;
+    text-shadow: 1px 1px 2px #000;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+}
