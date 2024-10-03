@@ -78,6 +78,7 @@
     width: 70%;
     height: 40vh;
     margin: auto;
+    margin-bottom: 2em;
     text-align: center;
     position: relative;
     padding: 1em;
@@ -110,7 +111,8 @@
     transition: all 1s;
 }
 #main_timeline div img {
-    height: 90%;
+    width: 100%;
+    max-height: 90%;
     position: absolute;
     left: 0;
     right: 0;
@@ -119,6 +121,10 @@
     margin: auto;
     opacity: 1;
     transition: all 0.5s;
+    pointer-events: none;
+    box-shadow: 0 0 50px 30px #d8dad7 inset;
+    object-fit: contain;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3CforeignObject width='100%25' height='100%25'%3E%3Cbody class='wrap' xmlns='http://www.w3.org/1999/xhtml'%3E%3Cstyle%3E.wrap%7Bbox-sizing:border-box;margin:0;height:100%25;padding:10px%7D.shadow%7Bheight:100%25;background:%23000;border-radius:10px;box-shadow:0 0 5px %23000,0 0 10px %23000,0 0 15px %23000%7D%3C/style%3E%3Cdiv class='shadow'/%3E%3C/body%3E%3C/foreignObject%3E%3C/svg%3E");
 }
 
 #main_timeline div:hover .p_time {
@@ -134,6 +140,7 @@
 
 #main_timeline div:hover img{
     opacity: 0.2;
+    transform: scale(1.5);
 }
 
 #social_media_icon {
@@ -193,6 +200,10 @@
         text-align: center;
         margin: auto;
         margin-top: 1em;
+    }
+
+    #main_timeline div {
+        margin-bottom: 1em;
     }
 
     #main_timeline div .p_time {

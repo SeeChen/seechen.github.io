@@ -5,6 +5,7 @@ var language = new _language();
 var lang_url = "./JSON/LANGUAGE/index.json";
 var nav_lang = "./JSON/LANGUAGE/navigation_bar.json";
 var index_home = "./JSON/LANGUAGE/index_home.json";
+var home_timeline = "./JSON/LANGUAGE/home_timeline.json";
 
 var current_content_margin_left = 0;
 
@@ -19,8 +20,12 @@ window.onload = function() {
     language_click(lang_url)
     language_click(nav_lang)
     language_click(index_home)
+    language_click(home_timeline)
 
     SlideLeftAndRight();
+    loadTimeLine();
+
+    language.loadPageLanguage(home_timeline, language.getLanguage());
     
 }
 

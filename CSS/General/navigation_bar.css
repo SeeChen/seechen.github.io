@@ -9,7 +9,7 @@
     margin: auto;
     border-radius: 1em;
     backdrop-filter: blur(0.35em);
-    box-shadow: 1px 1px 0.25em #ccc;
+    box-shadow: 2px 2px 0.25em #000;
     z-index: 1000;
 }
 
