@@ -2,13 +2,14 @@
 #home_area {
     height: 100vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #home_area::-webkit-scrollbar {
     display: none;
 }
 
-#home_area p:first-child {
+#home_area > p:first-child {
     width: 100%;
     height: 60vh;
     margin: auto;
@@ -27,7 +28,7 @@
     -webkit-text-stroke: 1px #000000;
 }
 
-#home_area p:nth-child(2) {
+#home_area > p:nth-child(2) {
     width: 90%;
     margin: auto;
     font-size: 3em;
@@ -37,19 +38,40 @@
     text-shadow: 2px 2px 2px #000;
 }
 
-#home_area p:nth-child(2) span {
+#home_area > p:nth-child(2) span {
     font-family: 'PPAcma-Black', 'YeZiGongChangTangYingHei';
     font-size: 2em;
     font-style: normal;
     color: #FFFFFF;
 }
 
-#home_area p:nth-child(3) {
+#home_area > p:nth-child(3) {
     font-family: 'PPAcma-Black', 'YeZiGongChangTangYingHei';
     font-size: 1.2em;
     text-align: right;
     width: 90%;
     margin: auto;
+}
+
+#my_timeline {
+    width: 100%;
+    margin-top: 2em;
+}
+
+#my_timeline > p:first-child {
+    font-size: 3em;
+    font-family: 'amelia', 'font-MZD';
+    width: 85%;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#my_timeline > p:first-child::before {
+    content: ' · ';
+}
+
+#my_timeline > p:first-child::after {
+    content: ' · ';
 }
 
 #social_media_icon {
@@ -70,11 +92,11 @@
 
 @media screen and (max-width: 750px) {
 
-    #home_area p:first-child {
+    #home_area > p:first-child {
         font-size: 1em;
     }
 
-    #home_area p:nth-child(2) {
+    #home_area > p:nth-child(2) {
         width: 90%;
         margin: auto;
         font-size: 1.2em;
@@ -85,7 +107,7 @@
         display: grid;
     }
     
-    #home_area p:nth-child(2) span {
+    #home_area > p:nth-child(2) span {
         font-family: 'PPAcma-Black', 'YeZiGongChangTangYingHei';
         font-size: 1.75em;
         font-style: normal;
@@ -93,11 +115,20 @@
         padding-left: 1em;
     }
 
-    #home_area p:nth-child(3) {
+    #home_area > p:nth-child(3) {
         font-family: 'PPAcma-Black', 'YeZiGongChangTangYingHei';
         font-size: 0.6em;
         text-align: right;
         width: 80%;
+        margin: auto;
+        margin-top: 1em;
+    }
+
+    #my_timeline > p:first-child {
+        font-size: 1em;
+        font-family: 'amelia', 'font-MZD';
+        width: 85%;
+        text-align: center;
         margin: auto;
         margin-top: 1em;
     }

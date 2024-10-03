@@ -7,3 +7,18 @@
     font-family: "YeZiGongChangTangYingHei";
     src: url(../../MATERIALS/font/YeZiGongChangTangYingHei-2.ttf);
 }
+
+@font-face {
+    font-family: "font-MZD";
+    src: url(../../MATERIALS/font/font-MZD.ttf);
+}
+
+@font-face {
+    font-family: 'hadimonfreeregular';
+    src: url(../../MATERIALS/font/hadimonfreeregular.otf);
+}
+
+@font-face {
+    font-family: 'amelia';
+    src: url(../../MATERIALS/font/amelia.ttf);
+}

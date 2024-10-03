@@ -3,13 +3,15 @@
       "_home_welcome_": "花径不曾缘客扫，蓬门今始为君开.",
       "_home_name_": "您好，我是 <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
       "_home_my_name_": "李思净。",
-      "_status_": "求职中。。。"
+      "_status_": "求职中。。。",
+      "_timeline_": "我的纪年表"
     }],
   
     "en" : [{
       "_home_welcome_": "Delighted to have the honor of your visit.",
       "_home_name_": "HERE'S <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
       "_home_my_name_": "SEECHEN LEE.",
-      "_status_": "LOOKING for WORK."
+      "_status_": "LOOKING for WORK.",
+      "_timeline_": "My TIMELINE"
     }]
   }
