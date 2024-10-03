@@ -4,7 +4,9 @@
       "_home_name_": "您好，我是 <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
       "_home_my_name_": "李思净。",
       "_status_": "求职中。。。",
-      "_timeline_": "我的纪年表"
+      "_timeline_": "我的纪年表",
+      "_t20000806_01_": "我出生啦！！！",
+      "_t20240630_01_": "在北京理工大学获得数据科学与大数据技术学士学位."
     }],
   
     "en" : [{
@@ -12,6 +14,8 @@
       "_home_name_": "HERE'S <span class='_switch_lang_' lang_obj='_home_my_name_' ></span>",
       "_home_my_name_": "SEECHEN LEE.",
       "_status_": "LOOKING for WORK.",
-      "_timeline_": "My TIMELINE"
+      "_timeline_": "My TIMELINE",
+      "_t20000806_01_": "I was BORN!",
+      "_t20240630_01_": "Received a bachelor's degree in Data Science and Big Data Technology from Beijing Institute of Technology."
     }]
   }

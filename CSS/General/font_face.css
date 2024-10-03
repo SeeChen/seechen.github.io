@@ -22,3 +22,13 @@
     font-family: 'amelia';
     src: url(../../MATERIALS/font/amelia.ttf);
 }
+
+@font-face {
+    font-family: "bailufeiyunshouxieti";
+    src: url(../../MATERIALS/font/bailufeiyunshouxieti.ttf);
+}
+
+@font-face {
+    font-family: "aabairimengxiangjia";
+    src: url(../../MATERIALS/font/aabairimengxiangjia.ttf);
+}
