@@ -44,3 +44,25 @@
     border-bottom: 1px solid #ccc;
     cursor: pointer;
 }
+
+@media screen and (max-width: 750px) {
+
+    #top-icon {
+        width: 6em;
+        height: 6em;
+        position: relative;
+        top: 1em;
+        left: 1em;
+        display: inline-block;
+    }
+
+    #top-bar {
+        font-size: 2.5em;
+        left: -1.5em;
+        top: 0em;
+    }
+
+    #td_language #language_option p {
+        font-size: 1.2em;
+    }
+}
