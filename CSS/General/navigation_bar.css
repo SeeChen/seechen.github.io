@@ -50,6 +50,7 @@
     background-repeat: no-repeat;
 }
 
+
 #nav_trips {
     background: -webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('../../MATERIALS/ico_trip.png'), 100%);
     background-position: center;
@@ -102,6 +103,21 @@
     background-repeat: no-repeat;
 }
 
+@media (any-pointer: coarse) {
+    #navigation_bar table tr td:hover {
+        color: rgba(255, 255, 255, 0);
+        background-size: 100%;
+        font-size: 2em;
+        -webkit-text-stroke: 1px #00000000;
+    }
+
+    #nav_home:hover {
+        background: url('../../MATERIALS/ico_home.png');
+        background-position: top;
+        background-repeat: no-repeat;
+    }
+}
+
 @media screen and (max-width: 750px) {
 
     #navigation_bar {
@@ -109,3 +125,10 @@
         bottom: 0;
     }
 }
+
+/* @media screen and (orientation: portrait) {
+    竖屏
+}
+@media screen and (orientation: landscape) {
+    横屏
+} */
