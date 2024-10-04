@@ -17,7 +17,7 @@
 #lens-top-bar::before {
     content: "";
     position: absolute;
-    filter: grayscale(60%) blur(2px);
+    filter: grayscale(60%) contrast(50%);
     z-index: -1;
     width: 104%;
     height: 104%;

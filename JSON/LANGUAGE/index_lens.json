@@ -1,11 +1,13 @@
 {
     "zh" : [{
         "_seechen_lens_": "李思净的方框",
-        "_seechen_lens_desc_": "记录生活中的瞬间"
+        "_seechen_lens_desc_": "记录生活中的瞬间",
+        "_follow_me_": "我的账号"
     }],
 
     "en" : [{
         "_seechen_lens_": "SeeChen Lens",
-        "_seechen_lens_desc_": "Record the moments in life"
+        "_seechen_lens_desc_": "Record the moments in life",
+        "_follow_me_": "My Account"
     }]
 }
