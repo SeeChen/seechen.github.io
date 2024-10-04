@@ -1,0 +1,91 @@
+#lens_area {
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+#lens_area::-webkit-scrollbar {
+    display: none;
+}
+
+#lens-top-bar {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 3px 3px 5px #888;
+}
+
+#lens-top-bar::before {
+    content: "";
+    position: absolute;
+    filter: grayscale(60%) blur(2px);
+    z-index: -1;
+    width: 104%;
+    height: 104%;
+    bottom: 0;
+    left: -2%;
+    background-image: url(../../MATERIALS/lens-background.avif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+#lens-top-bar > p:first-child {
+    width: 100%;
+    height: 1em;
+    line-height: 1em;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 6em;
+    font-family: "amelia", "font-MZD";
+    color: #d8dad7;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000, -1px -1px 1px #000;
+}
+
+#lens-top-bar > p:nth-child(2) {
+    width: 100%;
+    height: 1em;
+    line-height: 1em;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-top: 8em;
+    text-align: center;
+    font-size: 1.5em;
+    color: #888888;
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 1px #000000;
+}
+
+#lens-top-bar > p:nth-child(2)::before, #lens-top-bar > p:nth-child(2)::after {
+    content: " -- ";
+}
+
+#my_lens_account_icon {
+    opacity: 0.2;
+    text-align: center;
+    margin: 1em auto;
+}
+
+#my_lens_account_icon img {
+    width: 4em;
+    padding: 1em;
+}
+
+@media screen and (max-width: 750px) {
+    #lens-top-bar > p:first-child {
+        font-size: 3em;
+    }
+
+    #lens-top-bar > p:nth-child(2) {
+        font-size: 0.75em;
+    }
+    #my_lens_account_icon img {
+        width: 2em;
+        padding: 0.5em;
+    }
+}

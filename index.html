@@ -8,15 +8,16 @@
         <meta charset = "UTF-8" />
         <meta name = "author"   content = "SeeChen Lee" />
         <meta name = "viewport" content = "width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#d8dad7" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
 
         <link rel = "stylesheet" href = "./CSS/index/index.css?v=2024.1002.2110" type = "text/css">
         <link rel = "stylesheet" href = "./CSS/General/navigation_bar.css?v=2024.1002.2110" type = "text/css">
         <link rel = "stylesheet" href="./CSS/General/font_face.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/General/hr_style.css" type="text/css">
         <link rel = "stylesheet" href="./CSS/index/language.css?v=2024.1002.2110" type="text/css">
         <link rel = "stylesheet" href="./CSS/index/home.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/lens.css" type="text/css">
 
         <script src = "https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
         <script src = "https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
@@ -72,13 +73,35 @@
                     </td>
 
                     <td style="background: #00FFF0;"></td>
-                    <td style="background: #0FFF00;"></td>
+
+
+                    <td id="td_lens">
+                        <div id="lens_area">
+                            <div id="lens-top-bar">
+                                <p class="_switch_lang_" lang_obj="_seechen_lens_">_seechen_lens_</p>
+                                <p class="_switch_lang_" lang_obj="_seechen_lens_desc_">_seechen_lens_desc_</p>
+                            </div>
+
+                            <p id="my_lens_account_icon">
+                                <a href="https://www.instagram.com/seechen_lee/" target="_blank"><img src="./MATERIALS/ico_instagram.png" alt=""></a>
+                                <a href="https://www.facebook.com/SeeChen00/" target="_blank"><img src="./MATERIALS/ico_facebook.png" alt=""></a>
+                                <a href="https://www.xiaohongshu.com/user/profile/6596948d00000000220147b9" target="_blank"><img src="./MATERIALS/ico_xhs.png" alt=""></a>
+                                <a href="https://v.douyin.com/iBhg82su/" target="_blank"><img src="./MATERIALS/ico_dy.png" alt=""></a>
+                                <a href="https://v.kuaishou.com/YgGFTF" target="_blank"><img src="./MATERIALS/ico_ks.png" alt=""></a>
+                            </p>
+                            <hr class="hr_square" style="width: 90%; margin: auto;">
+
+                            <br><br><br><br><br><br>
+                        </div>
+                    </td>
+
+
                     <td style="background: #F0FF0F;"></td>
                     
                     <td id="td_language">
                         <div id="language_area">
-                            <p id="top-icon"></p>
-                            <p id="top-bar" class="_switch_lang_" lang_obj="_language_">_language_</p>
+                            <p id="language-top-icon"></p>
+                            <p id="language-top-bar" class="_switch_lang_" lang_obj="_language_">_language_</p>
                             <div id="language_option">
                                 <p id="choose_english">English</p>
                                 <p id="choose_chinese">中文</p>

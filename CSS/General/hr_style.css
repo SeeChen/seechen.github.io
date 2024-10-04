@@ -1,0 +1,22 @@
+.hr_square {
+    color: #000;
+    border: 0;
+    background: linear-gradient(to right, transparent, #888, #888, transparent) no-repeat center;
+    background-size: 100% 1px;
+    opacity: 0.3;
+}
+.hr_square::before {
+    content: '';
+    display: block;
+    width: .75em; height: .75em;
+    transform: rotate(45deg);
+    background-color: currentColor;
+    margin: 3px auto;
+}
+
+@media screen and (max-width: 750px) {
+    .hr_square::before {
+        width: .5em;
+        height: .5em;
+    }
+}
