@@ -23,10 +23,12 @@ window.onload = function() {
     language_click(home_timeline)
 
     SlideLeftAndRight();
-    loadTimeLine();
+    asyncFunction();
+}
 
+async function asyncFunction() {
+    let _temp = await loadTimeLine();
     language.loadPageLanguage(home_timeline, language.getLanguage());
-    
 }
 
 function SlideLeftAndRight() {

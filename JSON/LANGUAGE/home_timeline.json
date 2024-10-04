@@ -2,12 +2,14 @@
     "zh" : [{
         "_t20000806_01_": "我出生啦！！！",
         "_t20200901_01_": "入学北京理工大学.",
+        "_t20231202_01_": "景山公园眺望故宫.",
         "_t20240630_01_": "在北京理工大学获得数据科学与大数据技术学士学位."
     }],
 
     "en" : [{
         "_t20000806_01_": "I was BORN!",
         "_t20200901_01_": "Admission to Beijing Institute of Technology.",
+        "_t20231202_01_": "Overlooking the Forbidden City from Jingshan Park.",
         "_t20240630_01_": "Received a bachelor's degree in Data Science and Big Data Technology from Beijing Institute of Technology."
     }]
 }

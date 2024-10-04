@@ -113,27 +113,27 @@
 
     #nav_home:hover {
         background: url('../../MATERIALS/ico_home.png');
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
     }
     #nav_trips:hover {
         background: url('../../MATERIALS/ico_trip.png');
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
     }
     #nav_camera:hover {
         background: url('../../MATERIALS/ico_camera.png');
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
     }
     #nav_projects:hover {
         background: url('../../MATERIALS/ico_projects.png');
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
     }
     #nav_language:hover {
         background: url('../../MATERIALS/ico_language.png');
-        background-position: top;
+        background-position: center;
         background-repeat: no-repeat;
     }
     

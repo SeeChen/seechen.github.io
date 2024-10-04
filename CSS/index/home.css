@@ -157,6 +157,7 @@
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
     color: #888;
+    margin-bottom: 10em;
 }
 
 @media screen and (max-width: 750px) {
