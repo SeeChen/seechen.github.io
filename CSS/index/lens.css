@@ -76,6 +76,28 @@
     padding: 1em;
 }
 
+#area_lens_content {
+    width: 80%;
+    padding-bottom: 2em;
+    margin: 2em auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+    grid-auto-rows: 1em;
+    column-gap: 1px;
+
+    border: 1px solid #000;
+}
+
+#area_lens_content .lens_content {
+    
+    padding: 0.5em;
+    grid-row-start: auto;
+    border: 1px solid red;
+    word-break: break-all;
+    word-wrap: break-word;
+}
+
 @media screen and (max-width: 750px) {
     #lens-top-bar > p:first-child {
         font-size: 3em;
@@ -87,5 +109,8 @@
     #my_lens_account_icon img {
         width: 2em;
         padding: 0.5em;
+    }
+    #area_lens_content {
+        grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
     }
 }

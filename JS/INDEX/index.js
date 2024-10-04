@@ -27,6 +27,8 @@ window.onload = function() {
 
     SlideLeftAndRight();
     asyncFunction();
+
+    lensLayout();
 }
 
 async function asyncFunction() {
