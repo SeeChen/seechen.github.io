@@ -19,4 +19,6 @@ function navigation_bar_onclick() {
 
         $('#main_content_table').css('margin-left', '-400%');
     });
+
+    
 }

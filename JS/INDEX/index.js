@@ -29,6 +29,10 @@ window.onload = function() {
     asyncFunction();
 
     lensLayout();
+
+    $(window).resize(function() {
+        lensLayout();
+    });
 }
 
 async function asyncFunction() {
