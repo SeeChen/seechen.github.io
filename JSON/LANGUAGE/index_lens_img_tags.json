@@ -1,0 +1,29 @@
+{
+    "zh" : [{
+        "_moment_": "一瞬千变",
+        "_life_": "人生如梦",
+        "_spring_": "春",
+        "_summer_": "夏",
+        "_autumn_": "秋",
+        "_winter_": "冬",
+        "_beijing_": "北京",
+        "_hebei_": "河北",
+        "_moon_": "月",
+        "_lightning_": "闪电",
+        "_juyongguan_": "居庸关"
+    }],
+
+    "en" : [{
+        "_moment_": "Moment",
+        "_life_": "Hello Life",
+        "_spring_": "Spring",
+        "_summer_": "Summer",
+        "_autumn_": "Autumn",
+        "_winter_": "Winter",
+        "_beijing_": "Beijing",
+        "_hebei_": "Hebei",
+        "_moon_": "The Moon",
+        "_lightning_": "Lightning",
+        "_juyongguan_": "JuYongGuan"
+    }]
+}

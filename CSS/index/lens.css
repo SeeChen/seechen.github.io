@@ -105,6 +105,7 @@
     margin: auto;
     /* border: 0.1em solid rgba(0, 0, 0, 0.2); */
     border-radius: 1em;
+    cursor: pointer;
 }
 
 #area_lens_content .lens_content .img_tag {

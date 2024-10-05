@@ -7,6 +7,7 @@ var nav_lang = "./JSON/LANGUAGE/navigation_bar.json";
 var index_home = "./JSON/LANGUAGE/index_home.json";
 var home_timeline = "./JSON/LANGUAGE/home_timeline.json";
 var index_lens = "./JSON/LANGUAGE/index_lens.json";
+var index_lens_img_tags = "./JSON/LANGUAGE/index_lens_img_tags.json";
 
 var current_content_margin_left = 0;
 
@@ -24,20 +25,23 @@ window.onload = function() {
     language_click(index_home)
     language_click(home_timeline)
     language_click(index_lens)
+    language_click(index_lens_img_tags)
 
     SlideLeftAndRight();
     asyncFunction();
 
-    lensLayout();
-
     $(window).resize(function() {
         lensLayout();
+        language.loadPageLanguage(index_lens_img_tags, language.getLanguage());
     });
 }
 
 async function asyncFunction() {
-    let _temp = await loadTimeLine();
+    let _temp_timeline = await loadTimeLine();
     language.loadPageLanguage(home_timeline, language.getLanguage());
+
+    let _temp_lens_img = await lensLayout();
+    language.loadPageLanguage(index_lens_img_tags, language.getLanguage());
 }
 
 function SlideLeftAndRight() {
