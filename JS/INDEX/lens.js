@@ -147,8 +147,11 @@ function lensClick(obj, str_img_data, currentIndex) {
         `
     );
     $('#details_coordinate').html(
-        `&nbsp;&nbsp;
+        `
+        <a href='https://uri.amap.com/marker?position=${img_data['latitude']},${img_data['longitude']}' target='_blank'>
+        &nbsp;&nbsp;
         ${img_data['longitude'].toFixed(4)},&nbsp;&nbsp;&nbsp;&nbsp;${img_data['latitude'].toFixed(4)}
+        </a>
         `
     );
     $('#details_logo').html(

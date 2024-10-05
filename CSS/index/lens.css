@@ -94,8 +94,13 @@
     font-size: 1.05em;
 }
 
-#lens_details #details_coordinate{
+#lens_details #details_coordinate {
     font-size: 0.85em;
+}
+
+#lens_details #details_coordinate a {
+    text-decoration: none;
+    text-shadow: -1px -1px 1px #CCC;
 }
 
 #details_logo {
