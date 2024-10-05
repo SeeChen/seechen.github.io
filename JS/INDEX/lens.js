@@ -28,8 +28,6 @@ function lensLayout() {
                 + '</p></div>'
             );
 
-            console.log($('.lens_content:eq(' + i + ') img').css('height'))
-
             $('.lens_content:eq(' + i + ')').css("grid-row-end", `span ${Math.floor(newHeight) + 1}`);
         }
     });

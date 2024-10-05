@@ -140,6 +140,6 @@
     }
     #area_lens_content {
         width: 99%;
-        grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(12em, 1fr));
     }
 }
