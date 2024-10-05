@@ -7,6 +7,52 @@
     display: none;
 }
 
+#current_index {
+    opacity: 0;
+}
+
+#lens_details {
+    position: fixed;
+    width: 0;
+    height: 0;
+    z-index: -1;
+    background: rgba(0, 0, 0, 0.0);
+    transition: all 0.5s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#lens_details > div:first-child {
+    position: absolute;
+    background: #d8dad7;
+    border-radius: 1em;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    pointer-events: none;
+}
+
+#lens_details > #details_btn_quit {
+    width: 6em;
+    height: 3em;
+    font-size: 1em;
+    position: absolute;
+    left: 1em;
+    top: 1em;
+    margin: auto;
+    background: #888;
+    text-align: center;
+    line-height: 3em;
+    border-radius: 10em;
+    color: #FFF;
+    cursor: pointer;
+    border: 0.15em solid #CCC;
+    transition: all 0.5s;
+    opacity: 0;
+}
+
 #lens-top-bar {
     height: 100%;
     position: relative;

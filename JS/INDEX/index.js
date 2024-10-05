@@ -8,8 +8,11 @@ var index_home = "./JSON/LANGUAGE/index_home.json";
 var home_timeline = "./JSON/LANGUAGE/home_timeline.json";
 var index_lens = "./JSON/LANGUAGE/index_lens.json";
 var index_lens_img_tags = "./JSON/LANGUAGE/index_lens_img_tags.json";
+var index_lens_details = "./JSON/LANGUAGE/index_lens_details.json";
 
 var current_content_margin_left = 0;
+
+let previousWidth = window.innerWidth;
 
 window.onload = function() {
 
@@ -17,6 +20,7 @@ window.onload = function() {
     language.loadPageLanguage(nav_lang, language.getLanguage());
     language.loadPageLanguage(index_home, language.getLanguage());
     language.loadPageLanguage(index_lens, language.getLanguage());
+    language.loadPageLanguage(index_lens_details, language.getLanguage());
 
     current_content_margin_left = navigation_bar_onclick();
 
@@ -26,13 +30,21 @@ window.onload = function() {
     language_click(home_timeline)
     language_click(index_lens)
     language_click(index_lens_img_tags)
+    language_click(index_lens_details)
 
     SlideLeftAndRight();
     asyncFunction();
 
     $(window).resize(function() {
-        lensLayout();
-        language.loadPageLanguage(index_lens_img_tags, language.getLanguage());
+
+        let currentWidth = window.innerWidth;
+        if (currentWidth !== previousWidth) {
+
+            lensLayout();
+            language.loadPageLanguage(index_lens_img_tags, language.getLanguage());
+
+            previousWidth = currentWidth;
+        }
     });
 }
 
