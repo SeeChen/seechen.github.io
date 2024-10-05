@@ -143,16 +143,16 @@
     transform: scale(1.5);
 }
 
-#social_media_icon {
+.social_media_icon {
     text-align: center;
     opacity: 0.2;
 }
 
-#social_media_icon img {
+.social_media_icon img {
     width: 5em;
 }
 
-#copyright_info {
+.copyright_info {
     padding-top: 1em;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
@@ -228,11 +228,11 @@
         font-size: 1.2em;
     }
 
-    #social_media_icon img {
+    .social_media_icon img {
         width: 2em;
     }
 
-    #copyright_info {
+    .copyright_info {
         padding-top: 1em;
         text-align: center;
         font-family: 'Courier New', Courier, monospace;
