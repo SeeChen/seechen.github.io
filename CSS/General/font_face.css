@@ -32,3 +32,8 @@
     font-family: "aabairimengxiangjia";
     src: url(../../MATERIALS/font/aabairimengxiangjia.ttf);
 }
+
+@font-face {
+    font-family: "GenJyuuGothic-Normal";
+    src: url(../../MATERIALS/font/GenJyuuGothic-Normal.ttf);
+}

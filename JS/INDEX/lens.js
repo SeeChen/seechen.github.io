@@ -125,7 +125,7 @@ function lensClick(obj, str_img_data, currentIndex) {
 
     $('#lens_details').css('pointer-events', 'auto')
     $('#lens_details > div:first-child').css('pointer-events', 'auto')
-
+    
     $('#details_btn_quit').css('opacity', 1)
 
     $('#navigation_bar').css('bottom', '-5em')
@@ -135,18 +135,49 @@ function lensClick(obj, str_img_data, currentIndex) {
     img_height = img_data['height']
     img_width = img_data['width']
 
+    $('#details_img_name').text(img_data['name']);
+    $('#details_img_name').css('opacity', '1');
+
+    $('#details_watermark').css('opacity', 1)
+    $('#details_model_name').text(img_data['camera-model']);
+    $('#details_date_time').text(`${img_data['date']} ${img_data['time']}`);
+    $('#details_parameter').html(
+        `&nbsp;&nbsp;
+        ${img_data['focal-length']}&nbsp;&nbsp;&nbsp;${img_data['f-stop']}&nbsp;&nbsp;&nbsp;${img_data['exposure-time']}&nbsp;&nbsp;&nbsp;${img_data['iso-speed'].replace('-', ' ')}
+        `
+    );
+    $('#details_coordinate').html(
+        `&nbsp;&nbsp;
+        ${img_data['longitude'].toFixed(4)},&nbsp;&nbsp;&nbsp;&nbsp;${img_data['latitude'].toFixed(4)}
+        `
+    );
+    $('#details_logo').html(
+        `<img src="../MATERIALS/COMPANYLOGO/${img_data['camera-make']}.png"/>`
+    )
+
     const media_width_750 = window.matchMedia('(max-width: 750px)')
     if(media_width_750.matches) {
 
         $('#lens_details > div:first-child').css('transform', 'scale(2)')
+        if (img_height >= img_width) {
+
+            $('#details_watermark').css('bottom', '10em')
+        } else {
+
+            $('#details_watermark').css('bottom', '30em')
+        }
     } else {
 
         if (img_height >= img_width) {
 
             $('#lens_details > div:first-child').css('transform', 'scale(1.75)')
+            $('#details_watermark').css('bottom', '2em')
+            $('#details_watermark').css('transform', 'scale(0.6)')
         } else {
 
             $('#lens_details > div:first-child').css('transform', 'scale(2.5)')
+            $('#details_watermark').css('bottom', '5em')
+            $('#details_watermark').css('transform', 'scale(0.75)')
         }
     }
 }
@@ -183,7 +214,10 @@ function quitDetails() {
     $('#lens_details').css('pointer-events', 'none')
     $('#lens_details > div:first-child').css('pointer-events', 'none')
 
+    $('#details_img_name').css('opacity', 0);
+
     $('#details_btn_quit').css('opacity', 0)
+    $('#details_watermark').css('opacity', 0)
 
     $('#navigation_bar').css('bottom', '1em')
     const media_width_750 = window.matchMedia('(max-width: 750px)')
