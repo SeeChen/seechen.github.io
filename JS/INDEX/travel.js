@@ -41,4 +41,17 @@ function travel_background_animation() {
 function loadingTravelMore() {
 
     $('#travel_more').css('top', `${$('#travel_title')[0].getBoundingClientRect().bottom + 10}px`);
+    travelMoreClick();
+}
+
+function travelMoreClick() {
+
+    $('#travel_more').on('click', function() {
+
+        $('#background_animation').css('transition', 'all 0.5s');
+        
+        $('#background_animation').css('top', '100vh');
+        $('#navigation_bar').css('bottom', '-10em');
+        $('#travel_more').css('top', '100vh');
+    })
 }
