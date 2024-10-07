@@ -15,8 +15,8 @@ function travel_background_animation() {
     var travel_bg_p1_width = parseInt(travel_background_p1.css('width'));
 
     travel_background_p1.css('left', `${travel_bg_p1_left - 10}px`)
-    travel_background_p2.css('left', `${travel_bg_p1_left + travel_bg_p1_width - 10}px`)
-    travel_background_p3.css('left', `${travel_bg_p1_left + 2 * travel_bg_p1_width - 10}px`)
+    travel_background_p2.css('left', `${travel_bg_p1_left + travel_bg_p1_width - 10 - 1}px`)
+    travel_background_p3.css('left', `${travel_bg_p1_left + 2 * travel_bg_p1_width - 10 - 1}px`)
 
     var travel_bg_p2_left = parseInt(travel_background_p2.css('left'));
 
@@ -36,4 +36,9 @@ function travel_background_animation() {
 
         travel_background_animation();
     }, 100);
+}
+
+function loadingTravelMore() {
+
+    $('#travel_more').css('top', `${$('#travel_title')[0].getBoundingClientRect().bottom + 10}px`);
 }

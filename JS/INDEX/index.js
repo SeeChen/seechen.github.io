@@ -9,6 +9,7 @@ var home_timeline = "./JSON/LANGUAGE/home_timeline.json";
 var index_lens = "./JSON/LANGUAGE/index_lens.json";
 var index_lens_img_tags = "./JSON/LANGUAGE/index_lens_img_tags.json";
 var index_lens_details = "./JSON/LANGUAGE/index_lens_details.json";
+var travel_lang = "./JSON/LANGUAGE/travel.json";
 
 var current_content_margin_left = 0;
 
@@ -21,6 +22,7 @@ window.onload = function() {
     language.loadPageLanguage(index_home, language.getLanguage());
     language.loadPageLanguage(index_lens, language.getLanguage());
     language.loadPageLanguage(index_lens_details, language.getLanguage());
+    language.loadPageLanguage(travel_lang, language.getLanguage());
 
     current_content_margin_left = navigation_bar_onclick();
 
@@ -31,6 +33,7 @@ window.onload = function() {
     language_click(index_lens)
     language_click(index_lens_img_tags)
     language_click(index_lens_details)
+    language_click(travel_lang)
 
     SlideLeftAndRight();
     asyncFunction();
@@ -50,6 +53,7 @@ window.onload = function() {
     });
 
     travel_background_animation();
+    loadingTravelMore();
 }
 
 async function asyncFunction() {

@@ -1,0 +1,11 @@
+{
+    "zh" : [{
+        "_travel_title_": "我的旅行",
+        "_travel_more_": "点我呀，诶嘿嘿~~"
+    }],
+
+    "en" : [{
+        "_travel_title_": "MY TRAVEL",
+        "_travel_more_": "Click for MORE"
+    }]
+}
