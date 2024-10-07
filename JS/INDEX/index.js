@@ -37,6 +37,8 @@ window.onload = function() {
 
     $(window).resize(function() {
 
+        travel_background_animation()
+
         let currentWidth = window.innerWidth;
         if (currentWidth !== previousWidth) {
 
@@ -46,6 +48,8 @@ window.onload = function() {
             previousWidth = currentWidth;
         }
     });
+
+    travel_background_animation();
 }
 
 async function asyncFunction() {
