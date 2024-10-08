@@ -46,8 +46,17 @@ function mapsAction() {
             });
 
             $('#page_title').text(national_name[language.getLanguage()][0][currentNational]);
-
             
+            let current_rect = element.getBoundingClientRect();
+            let rect_2 = $('#world_maps')[0].getBoundingClientRect();
+            $(`#${element.id}_maps_box`).css({
+                'width': `${current_rect.width}px`,
+                'height': `${current_rect.height}px`,
+                'top': `${current_rect.top + rect_2.top}px`,
+                'left': `${current_rect.left + rect_2.left}px`
+            })
+
+            console.log($('#maps_CN')[0].getBoundingClientRect());
         });
 
         element.addEventListener('mouseout', () => {

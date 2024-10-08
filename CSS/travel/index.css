@@ -57,8 +57,22 @@ body::-webkit-scrollbar {
     margin: auto;
 }
 
-.national_maps {
+.national_maps_box {
+    width: 100%;
+    height: 100vh;
     position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: red;
+    z-index: 1;
+}
+
+.national_maps {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    background: #1aa260;
 }
 
 @media screen and (max-width: 750px) {
