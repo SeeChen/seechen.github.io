@@ -51,6 +51,7 @@
     text-shadow: 1px 1px 1px #000;
     font-weight: bolder;
     font-family: 'YeZiGongChangTangYingHei';
+    transition: all 0.5s;
 }
 
 #travel_more {

@@ -6,3 +6,52 @@
 body {
     background: #d8dad7;
 }
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+#page_title {
+
+    color: #d8dad7;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    text-shadow: 1px 1px 1px #000;
+    margin-top: 0.5em;
+    font-size: 8em;
+    font-family: "YeZiGongChangTangYingHei";
+    font-weight: bolder;
+    position: fixed;
+    height: 1em;
+    line-height: 1em;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 5;
+    transition: all 0.5s;
+}
+
+#maps_box {
+    transition: all 0.5s;
+    width: 100%;
+    height: 100vh;
+    max-height: 660px;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 4;
+    opacity: 0;
+}
+
+#maps_box #world_maps {
+    max-height: 660px;
+    max-width: 1010px;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+}

@@ -53,5 +53,20 @@ function travelMoreClick() {
         $('#background_animation').css('top', '100vh');
         $('#navigation_bar').css('bottom', '-10em');
         $('#travel_more').css('top', '100vh');
+
+        $("#travel_title").css({
+            "color": "#d8dad7",
+            "width": "100%",
+            "text-align": "center",
+            "margin": "auto",
+            "text-shadow": "1px 1px 1px #000",
+            // "font-size": "4em",
+            "font-family": "YeZiGongChangTangYingHei"
+        });
+
+        setTimeout(() => {
+            
+            location.href = "/Travel/"
+        }, 500);
     })
 }
