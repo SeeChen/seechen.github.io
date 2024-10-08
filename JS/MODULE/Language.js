@@ -21,14 +21,38 @@ export class _language {
 
     getLanguage () {
 
-        return this.#FilterLanguage();
+        var cookieLanguage = document.cookie;
+
+        if (cookieLanguage.includes("user_language")) {
+
+            if (cookieLanguage.includes(";")) {
+                var cookieTemp = cookieLanguage[";"];
+            } else {
+    
+                var cookieTemp = [cookieLanguage];
+            }
+            for (let _i = 0; _i < cookieTemp.length; _i++) {
+                var _c = cookieTemp[_i].trim();
+                if (_c.indexOf("user_language=") == 0) {
+                    return _c.split("=")[1];
+                }
+            }
+        } else {
+
+            var d = new Date();
+            d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
+            var expires = `expires=${d.toGMTString()}`;
+            document.cookie = `user_language=${this.#FilterLanguage()};${expires};path=/`;
+
+            return this.#FilterLanguage();
+        }
     }
 
     loadPageLanguage(languageUrl, lang) {
 
-        $.getJSON(languageUrl, function(date) {
+        $.getJSON(languageUrl, function(data) {
 
-            let languageObj = date[lang][0];
+            let languageObj = data[lang][0];
 
             $("title:eq(0)").text(languageObj._title_);
 
