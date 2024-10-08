@@ -5,6 +5,7 @@
 
 body {
     background: #d8dad7;
+    transition: background 0.5s;
 }
 
 body::-webkit-scrollbar {
@@ -54,4 +55,25 @@ body::-webkit-scrollbar {
     height: 100%;
     width: 100%;
     margin: auto;
+}
+
+.national_maps {
+    position: fixed;
+}
+
+@media screen and (max-width: 750px) {
+
+    #maps_box {
+        overflow-x: scroll;
+    }
+
+    #maps_box::-webkit-scrollbar {
+        display: none;
+    }
+
+    #maps_box #world_maps {
+        height: 660px;
+        width: 1010px;
+        margin: 1em;
+    }
 }
