@@ -1,14 +1,12 @@
 {
     "zh" : [{
         "CN": "中国",
-        "TW": "中国",
         "MY": "马来西亚",
         "SG": "新加坡"
     }],
 
     "en" : [{
         "CN": "CHINA",
-        "TW": "CHINA",
         "MY": "MALAYSIA",
         "SG": "SINGAPORE"
     }]
