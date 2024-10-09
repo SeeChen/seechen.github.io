@@ -28,17 +28,21 @@ function mapsAction() {
     })
 
     visitedC.forEach(element => {
+
+        var isClick = false
+
         element.addEventListener('mouseenter', () => {
 
             if (element.id == 'TW') {
 
-                $('body').css('background', `-webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('/MATERIALS/National-Flat/CN.jpg'), 30%)`);
+                // $('body').css('background', `-webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('/MATERIALS/National-Flat/CN.jpg'), 30%)`);
                 currentNational = 'CN';
-
+    
             } else {
-                $('body').css('background', `-webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('/MATERIALS/National-Flat/${element.id}.jpg'), 30%)`);
+                // $('body').css('background', `-webkit-cross-fade(url(data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==), url('/MATERIALS/National-Flat/${element.id}.jpg'), 30%)`);
                 currentNational = element.id;
             }
+
             $('body').css({
                 'background-repeat': 'no-repeat',
                 'background-size': 'cover',
@@ -49,20 +53,45 @@ function mapsAction() {
             
             let current_rect = element.getBoundingClientRect();
             let rect_2 = $('#world_maps')[0].getBoundingClientRect();
-            $(`#${element.id}_maps_box`).css({
-                'width': `${current_rect.width}px`,
-                'height': `${current_rect.height}px`,
-                'top': `${current_rect.top + rect_2.top}px`,
-                'left': `${current_rect.left + rect_2.left}px`
-            })
 
-            console.log($('#maps_CN')[0].getBoundingClientRect());
+            $('#national_maps_box').css({
+                'width': current_rect.width,
+                'height': current_rect.height,
+                'top': current_rect.top + rect_2.top,
+                'left': current_rect.left + rect_2.left
+            });
+
+            $(`#${currentNational}_map`).css('display', 'block')
         });
 
         element.addEventListener('mouseout', () => {
 
-            $('body').css('background', '#d8dad7')
-            language.loadPageLanguage(url_lang, language.getLanguage());
+            if (!isClick) {
+
+                $('body').css('background', '#d8dad7')
+                language.loadPageLanguage(url_lang, language.getLanguage());
+                $(`#${currentNational}_map`).css('display', 'none')
+            }
+        });
+
+        element.addEventListener('click', () => {
+
+            isClick = true
+
+            $('#maps_box').css('opacity', 0);
+            $('#maps_box').css('z-index', -1);
+
+            $('#national_maps_box').css('transition', 'all 0.5s')
+
+            setTimeout(() => {
+                
+                $('#national_maps_box').css({
+                    'width': '80vw',
+                    'height': '80vh',
+                    'top': '10vh',
+                    'left': '10vw'
+                });
+            }, 300);
         });
     });
 }
