@@ -35,6 +35,11 @@ body::-webkit-scrollbar {
     transition: all 0.5s;
 }
 
+#page_title.pagetitle_ready {
+    font-size: 3em;
+    margin-top: 1em;
+}
+
 #maps_box {
     transition: all 0.5s;
     width: 100%;
@@ -144,6 +149,11 @@ body::-webkit-scrollbar {
 }
 
 @media screen and (max-width: 750px) {
+
+    #page_title.pagetitle_ready {
+        font-size: 1.5em;
+        margin-top: 1em;
+    }
 
     #maps_box {
         overflow-x: scroll;

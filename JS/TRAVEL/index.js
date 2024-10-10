@@ -16,6 +16,8 @@ var worldPosition = {
 
 window.onload = function() {
 
+    travelScroll();
+
     window.previousClick = previousClick;
     window.traveledClick = traveledClick;
 
@@ -29,6 +31,14 @@ window.onload = function() {
 
     // traveledClick();
     traveledHover();
+}
+
+function travelScroll() {
+
+    $('html').on('wheel', function(e) {
+
+        console.log(e)
+    })
 }
 
 function nationalMapsAction() {
@@ -124,17 +134,14 @@ function worldMapsAction() {
                 setTimeout(() => {
                     $('#back_previous').css('opacity', '1')
                 }, 500);
-            }, 300);
+            }, 500);
         });
     });
 }
 
 function displayAll() {
 
-    $('#page_title').css({
-        'font-size': '3em',
-        'margin-top': '1em'
-    });
+    $('#page_title').addClass('pagetitle_ready');
 
 
     $('#maps_box').css('opacity', 1);
