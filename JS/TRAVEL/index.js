@@ -27,7 +27,8 @@ window.onload = function() {
     worldMapsAction();
     nationalMapsAction();
 
-    traveledClick();
+    // traveledClick();
+    traveledHover();
 }
 
 function nationalMapsAction() {
@@ -107,7 +108,7 @@ function worldMapsAction() {
             $('#back_previous').css('z-index', '11');
 
             $('#national_list').css({
-                'bottom': '-10em',
+                'bottom': '-5em',
                 'pointer-events': 'none'
             });
 
@@ -189,5 +190,20 @@ export function traveledClick(btn_traveled) {
         
         country_to_show.dispatchEvent(new Event('click'));
         country_to_show.dispatchEvent(new Event('mouseout'));
+
+        $('#national_list').removeClass('hover_national_list');
     }, 100);
+}
+
+function traveledHover() {
+
+    $('#national_list').on('mouseenter', function(){
+
+        $(this).addClass('hover_national_list')
+    });
+
+    $('#national_list').on('mouseleave', function(){
+
+        $(this).removeClass('hover_national_list')
+    });
 }

@@ -101,7 +101,6 @@ body::-webkit-scrollbar {
     border-radius: 1em;
     border: 0.25em solid #888;
     background: rgba(255, 255, 255, 0.3);
-    /* cursor: pointer; */
     transition: all 0.5s;
     z-index: 6;
     overflow: hidden;
@@ -119,7 +118,7 @@ body::-webkit-scrollbar {
     font-family: aabairimengxiangjia;
 }
 
-#national_list:hover {
+#national_list.hover_national_list {
 
     height: 50vh;
     width: 20vw;
@@ -174,7 +173,7 @@ body::-webkit-scrollbar {
         font-family: aabairimengxiangjia;
     }
     
-    #national_list:hover {
+    #national_list.hover_national_list {
         height: 30vh;
         width: 50vw;
         background: rgba(255, 255, 255, 0.9);

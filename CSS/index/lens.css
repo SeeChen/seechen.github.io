@@ -22,6 +22,13 @@
     pointer-events: none;
 }
 
+#lens_details.details_on_phone {
+
+    visibility: hidden;
+    transition: all 0;
+    opacity: 0;
+}
+
 #lens_details > div:first-child {
     position: absolute;
     background: #d8dad7;

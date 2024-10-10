@@ -56,7 +56,9 @@ function lensMouseOver(obj) {
     let top = rect.top;
     let left = rect.left;
 
-    $('#lens_details').css('opacity', '1')
+    if (!window.matchMedia('(max-width: 750px)').matches) {
+        $('#lens_details').css('opacity', '1')
+    }
 
     $('#lens_details').css('top', top)
     $('#lens_details').css('left', left)
@@ -107,6 +109,23 @@ function lensMouseOut(obj) {
 }
 
 function lensClick(obj, str_img_data, currentIndex) {
+
+    if (window.matchMedia('(max-width: 750px)').matches) {
+
+        $('#lens_details').addClass('details_on_phone');
+        obj.dispatchEvent(new Event('mouseenter'));
+        setTimeout(() => {
+            
+            $('#lens_details').removeClass('details_on_phone');
+            lensClickInner(obj, str_img_data, currentIndex);
+        }, 150);
+    } else {
+
+        lensClickInner(obj, str_img_data, currentIndex);
+    }
+}
+
+function lensClickInner(obj, str_img_data, currentIndex) {
 
     details_show = true;
 
