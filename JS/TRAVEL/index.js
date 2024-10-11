@@ -35,9 +35,32 @@ window.onload = function() {
 
 function travelScroll() {
 
-    $('html').on('wheel', function(e) {
+    $('#world_maps')[0].contentDocument.addEventListener('wheel', (e) => {
 
-        console.log(e)
+        if(e.deltaY > 20) {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
+    var start_y, end_y;
+    $('#world_maps')[0].contentDocument.addEventListener('touchstart', (e) => {
+
+        start_y = e.changedTouches[0].pageY;
+        // console.log(start_y)
+    })
+
+    $('#world_maps')[0].contentDocument.addEventListener('touchend', (e) => {
+
+        end_y = e.changedTouches[0].pageY;
+        // console.log(end_y)
+
+        var Y = end_y - start_y;
+        // console.log(Y)
+        if (Y < -250) {
+
+            $('#my_travel_story').css('top', 0);
+        }
     })
 }
 
