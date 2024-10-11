@@ -31,6 +31,11 @@ window.onload = function() {
 
     // traveledClick();
     traveledHover();
+
+    $('#travel_story_close_btn').on('click', function() {
+        
+        $('#my_travel_story').css('top', '100vh');
+    })
 }
 
 function travelScroll() {

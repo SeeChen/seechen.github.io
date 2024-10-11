@@ -2,12 +2,26 @@
     "zh" : [{
         "_title_": "我的旅行",
         "_previous_": "⇦",
-        "_travel_list_": "留痕列表"
+        "_travel_list_": "留痕列表",
+        "_swipe_up_pc_": "向下滑动或按下  ⇩  键查看更多",
+        "_swipe_up_phone_": " ↿ 滑动查看更多 ↾ ",
+        "_back_to_maps_": "查看地图",
+        "_story_title_world_": "足 迹 世 界",
+        "_story_title_china_": "足 迹 中 国",
+        "_story_title_malaysia_": "足 迹 大 马",
+        "_story_title_singapore_": "足 迹 狮 城"
     }],
 
     "en" : [{
         "_title_": "MY TRAVEL",
         "_previous_": "⇦",
-        "_travel_list_": "Traveled"
+        "_travel_list_": "Traveled",
+        "_swipe_up_pc_": "Scroll down or press  ⇩  key for more.",
+        "_swipe_up_phone_": " ↿ SWIPE UP for MORE ↾ ",
+        "_back_to_maps_": "back to map",
+        "_story_title_world_": "Footprints Across the WORLD",
+        "_story_title_china_": "Footprints Across the CHINA",
+        "_story_title_malaysia_": "Footprints Across the MALAYSIA",
+        "_story_title_singapore_": "Footprints Across the SINGAPORE"
     }]
 }

@@ -40,6 +40,22 @@ body::-webkit-scrollbar {
     margin-top: 1em;
 }
 
+.swipe_up {
+    text-align: center;
+    font-size: 0.8em;
+    position: fixed;
+    bottom: 1em;
+    color: #888;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-family: "PPAcma-Black", "YeZiGongChangTangYingHei";
+}
+
+#swipe_up_phone {
+    display: none;
+}
+
 #maps_box {
     transition: all 0.5s;
     width: 100%;
@@ -157,6 +173,41 @@ body::-webkit-scrollbar {
     transition: top 1s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     background: #d8dad7;
+    border-radius: 1em 1em 0 0;
+    padding: 1em;
+    box-shadow: 2px 2px 5px #000;
+}
+
+#travel_story_close_btn {
+    font-size: 1em;
+    color: #888;
+    font-family: "PPAcma-Black", "YeZiGongChangTangYingHei";
+    cursor: pointer;
+    padding: 0.5em;
+}
+
+#travel_story_close_btn::before {
+    content: "↼  ";
+}
+
+.story_title {
+    font-size: 3em;
+    font-family: "aabairimengxiangjia";
+    font-weight: bold;
+    margin-right: 3em;
+    text-align: right;
+    color: #888;
+}
+
+@media (any-pointer: coarse) {
+
+    #swipe_up_pc {
+        display: none;
+    }
+
+    #swipe_up_phone {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -182,6 +233,7 @@ body::-webkit-scrollbar {
 
     #national_list {
         width: 20%;
+        margin-bottom: 1.2em;
     }
 
     #national_list > p:first-child {
