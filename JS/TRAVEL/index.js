@@ -48,6 +48,22 @@ function travelScroll() {
         }
     })
 
+    $('#world_maps')[0].contentDocument.addEventListener('keydown', (e) => {
+
+        if (e.key == "ArrowDown") {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
+    $(window)[0].addEventListener('keydown', (e) => {
+
+        if (e.key == "ArrowDown") {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
     var start_y, end_y;
     $('#world_maps')[0].contentDocument.addEventListener('touchstart', (e) => {
 
@@ -62,7 +78,7 @@ function travelScroll() {
 
         var Y = end_y - start_y;
         // console.log(Y)
-        if (Y < -250) {
+        if (Y < -100) {
 
             $('#my_travel_story').css('top', 0);
         }

@@ -19,9 +19,9 @@
         "_swipe_up_pc_": "Scroll down or press  ⇩  key for more.",
         "_swipe_up_phone_": " ↿ SWIPE UP for MORE ↾ ",
         "_back_to_maps_": "back to map",
-        "_story_title_world_": "Footprints Across the WORLD",
-        "_story_title_china_": "Footprints Across the CHINA",
-        "_story_title_malaysia_": "Footprints Across the MALAYSIA",
-        "_story_title_singapore_": "Footprints Across the SINGAPORE"
+        "_story_title_world_": "Footprints the <span>WORLD</span>",
+        "_story_title_china_": "Footprints the <span>CHINA</span>",
+        "_story_title_malaysia_": "Footprints the <span>MALAYSIA</span>",
+        "_story_title_singapore_": "Footprints the <span>SINGAPORE</span>"
     }]
 }
