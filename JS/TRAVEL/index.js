@@ -154,6 +154,9 @@ function worldMapsAction() {
 
             nationalShow = true
 
+            $('.display_in_more:eq(0)').removeClass('display_in_more')
+            $(`#travel_story_title_${element.id}`).addClass('display_in_more')
+
             $('#maps_box').css('opacity', 0);
             $('#maps_box').css('z-index', -1);
 
@@ -194,6 +197,9 @@ function displayAll() {
 export function previousClick(btn_pre) {
 
     if (nationalShow) {
+
+        $('.display_in_more:eq(0)').removeClass('display_in_more')
+        $(`#travel_story_title`).addClass('display_in_more')
 
         btn_pre.style.opacity = 0;
         btn_pre.style.zIndex = -1;

@@ -197,6 +197,11 @@ body::-webkit-scrollbar {
     margin-right: 3em;
     text-align: right;
     color: #888;
+    display: none;
+}
+
+.display_in_more {
+    display: block;
 }
 
 @media (any-pointer: coarse) {
@@ -273,9 +278,13 @@ body::-webkit-scrollbar {
     }
 
     .story_title {
-        display: grid;
+        display: none;
         font-size: 2em;
         margin-right: 1.5em;
         margin-top: 0.75em;
+    }
+
+    .display_in_more {
+        display: grid;
     }
 }
