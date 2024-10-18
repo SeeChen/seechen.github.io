@@ -32,9 +32,39 @@ window.onload = function() {
     // traveledClick();
     traveledHover();
 
+    travelStoryScroll();
+
     $('#travel_story_close_btn').on('click', function() {
         
         $('#my_travel_story').css('top', '100vh');
+    })
+}
+
+function travelStoryScroll() {
+
+    $('#my_travel_story').scroll(function() {
+
+        var travel_title = $('.display_in_more:eq(0)')
+        
+        if (travel_title.offset().top < -1 * travel_title.outerHeight()) {
+
+            $('#travel_story_top_bar').css('top', '0em');
+            $('#travel_story_top_bar > p:first-child').text(travel_title.text())
+        }
+
+        if (travel_title.offset().top > -1 * travel_title.outerHeight()) {
+
+            $('#travel_story_top_bar').css('top', '-4em');
+        }
+    })
+
+    $('#travel_story_top_bar > p:nth-child(2)').on('click', function () {
+
+        $('#my_travel_story').animate({ scrollTop: 0 }, 'fast')
+
+        setTimeout(() => {
+            $('#travel_story_close_btn')[0].dispatchEvent(new Event('click'))
+        }, 100);
     })
 }
 
@@ -72,6 +102,42 @@ function travelScroll() {
     })
 
     $('#world_maps')[0].contentDocument.addEventListener('touchend', (e) => {
+
+        end_y = e.changedTouches[0].pageY;
+        // console.log(end_y)
+
+        var Y = end_y - start_y;
+        // console.log(Y)
+        if (Y < -100) {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
+    $('body')[0].addEventListener('wheel', (e) => {
+
+        if(e.deltaY > 20) {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
+    $('body')[0].addEventListener('keydown', (e) => {
+
+        if (e.key == "ArrowDown") {
+
+            $('#my_travel_story').css('top', 0);
+        }
+    })
+
+    var start_y, end_y;
+    $('body')[0].addEventListener('touchstart', (e) => {
+
+        start_y = e.changedTouches[0].pageY;
+        // console.log(start_y)
+    })
+
+    $('body')[0].addEventListener('touchend', (e) => {
 
         end_y = e.changedTouches[0].pageY;
         // console.log(end_y)
@@ -151,6 +217,48 @@ function worldMapsAction() {
         });
 
         element.addEventListener('click', () => {
+
+            var national_maps = $(`#${element.id}_map`)[0].contentDocument;
+            national_maps.addEventListener('wheel', (e) => {
+
+                if(e.deltaY > 20) {
+        
+                    $('#my_travel_story').css('top', 0);
+                }
+            })
+            national_maps.addEventListener('keydown', (e) => {
+        
+                if (e.key == "ArrowDown") {
+        
+                    $('#my_travel_story').css('top', 0);
+                }
+            })
+            national_maps.addEventListener('keydown', (e) => {
+        
+                if (e.key == "ArrowDown") {
+        
+                    $('#my_travel_story').css('top', 0);
+                }
+            })
+            var start_y, end_y;
+            national_maps.addEventListener('touchstart', (e) => {
+        
+                start_y = e.changedTouches[0].pageY;
+                // console.log(start_y)
+            })
+            national_maps.addEventListener('touchend', (e) => {
+        
+                end_y = e.changedTouches[0].pageY;
+                // console.log(end_y)
+        
+                var Y = end_y - start_y;
+                // console.log(Y)
+                if (Y < -100) {
+        
+                    $('#my_travel_story').css('top', 0);
+                }
+            })
+
 
             nationalShow = true
 

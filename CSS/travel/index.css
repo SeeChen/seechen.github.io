@@ -166,16 +166,52 @@ body::-webkit-scrollbar {
 
 #my_travel_story {
     position: fixed;
-    width: 100vw;
+    width: calc(100vw - 2em);
     height: 100vh;
     z-index: 1000;
     top: 100vh;
     transition: top 1s;
     transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
     background: #d8dad7;
-    border-radius: 1em 1em 0 0;
+    border-radius: 1em;
     padding: 1em;
     box-shadow: 2px 2px 5px #000;
+    overflow-y: scroll;
+}
+
+#my_travel_story::-webkit-scrollbar {
+    display: none;
+}
+
+#travel_story_top_bar {
+    width: 100%;
+    position: fixed;
+    top: -4em;
+    left: 0;
+    transition: top 0.5s;
+    background: #d8dad7;
+    padding: 0.25em;
+}
+
+#travel_story_top_bar > p:first-child {
+    font-family: "aabairimengxiangjia";
+    font-size: 1.2em;
+    text-align: center;
+    color: #888;
+    font-weight: bold;
+}
+
+#travel_story_top_bar > p:nth-child(2) {
+    font-family: "PPAcma-Black", "YeZiGongChangTangYingHei";
+    font-weight: lighter;
+    font-size: 1.2em;
+    text-align: right;
+    color: #888;
+    position: absolute;
+    top: 0;
+    left: 1em;
+    margin: 0.25em;
+    cursor: pointer;
 }
 
 #travel_story_close_btn {
@@ -184,6 +220,7 @@ body::-webkit-scrollbar {
     font-family: "PPAcma-Black", "YeZiGongChangTangYingHei";
     cursor: pointer;
     padding: 0.5em;
+    position: absolute;
 }
 
 #travel_story_close_btn::before {
@@ -201,6 +238,16 @@ body::-webkit-scrollbar {
 }
 
 .display_in_more {
+    display: block;
+}
+
+.normal_story_content {
+
+    display: none;
+}
+
+.display_story_content {
+
     display: block;
 }
 
