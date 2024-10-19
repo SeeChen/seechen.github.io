@@ -11,4 +11,11 @@ function world_slide_show(x) {
         
         world_slide_show(x);
     }, 5000);
+
+    $('#zh_box_footprint_world_slide_show table').css('margin-left', `${x * -100}%`);
+
+    setTimeout(() => {
+        
+        world_slide_show(x);
+    }, 5000);
 }
