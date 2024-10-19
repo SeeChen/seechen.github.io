@@ -1,5 +1,6 @@
 from PIL import Image
 import pillow_avif
 
-JPGimg = Image.open('convert' + '.jpg')
-JPGimg.save('convert' + '.avif','AVIF', exif=None)
+for i in range(7):
+	JPGimg = Image.open(str(i) + '.jpg')
+	JPGimg.save(str(i) + '.avif','AVIF', exif=None)

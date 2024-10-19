@@ -177,6 +177,7 @@ body::-webkit-scrollbar {
     padding: 1em;
     box-shadow: 2px 2px 5px #000;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 #my_travel_story::-webkit-scrollbar {
@@ -191,6 +192,8 @@ body::-webkit-scrollbar {
     transition: top 0.5s;
     background: #d8dad7;
     padding: 0.25em;
+    z-index: 10;
+    box-shadow: 1px 1px 1px #CCC;
 }
 
 #travel_story_top_bar > p:first-child {

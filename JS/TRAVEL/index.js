@@ -16,6 +16,8 @@ var worldPosition = {
 
 window.onload = function() {
 
+    world_slide_show(-1);
+
     travelScroll();
 
     window.previousClick = previousClick;
@@ -23,6 +25,8 @@ window.onload = function() {
 
     language.loadPageLanguage(url_lang, language.getLanguage());
     language.loadPageLanguage(nationa_name, language.getLanguage());
+
+    $(`#${language.getLanguage()}_box_footprint_world`).addClass('display_story_content')
 
     $(document).ready(displayAll());
 
@@ -60,11 +64,9 @@ function travelStoryScroll() {
 
     $('#travel_story_top_bar > p:nth-child(2)').on('click', function () {
 
-        $('#my_travel_story').animate({ scrollTop: 0 }, 'fast')
-
-        setTimeout(() => {
-            $('#travel_story_close_btn')[0].dispatchEvent(new Event('click'))
-        }, 100);
+        // $('#my_travel_story').animate({ scrollTop: 0 }, 'fast')
+        $('#travel_story_close_btn')[0].dispatchEvent(new Event('click'))
+        $('#travel_story_top_bar').css('top', '-4em');
     })
 }
 
@@ -264,6 +266,8 @@ function worldMapsAction() {
 
             $('.display_in_more:eq(0)').removeClass('display_in_more')
             $(`#travel_story_title_${element.id}`).addClass('display_in_more')
+            $('.display_story_content:eq(0)').removeClass('display_story_content')
+            $(`#${language.getLanguage()}_box_footprint_${element.id}`).addClass('display_story_content')
 
             $('#maps_box').css('opacity', 0);
             $('#maps_box').css('z-index', -1);
@@ -308,6 +312,8 @@ export function previousClick(btn_pre) {
 
         $('.display_in_more:eq(0)').removeClass('display_in_more')
         $(`#travel_story_title`).addClass('display_in_more')
+        $('.display_story_content:eq(0)').removeClass('display_story_content')
+        $(`#${language.getLanguage()}_box_footprint_world`).addClass('display_story_content')
 
         btn_pre.style.opacity = 0;
         btn_pre.style.zIndex = -1;

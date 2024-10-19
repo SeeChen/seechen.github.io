@@ -1,7 +1,138 @@
 #en_box_footprint_world {
-    width: 100%;
+    width: calc(100vw - 6em);
     margin-top: 1em;
     margin-bottom: 2em;
+    padding-left: 3em;
+    padding-right: 3em;
+
+    color: #888;
+    text-shadow: 1px 1px 1px #000;
+    font-family: 'aabairimengxiangjia';
+}
+
+#en_box_footprint_world > h1:first-child {
+    font-size: 4em;
+    margin-top: 1em;
+}
+
+#en_box_footprint_world .en_box_footprint_world_welcome {
+    font-size: 1.5em;
+}
+
+#en_box_footprint_world > .en_box_footprint_world_welcome:nth-child(2) {
+    text-align: left;
+    margin-top: 1em;
+}
+
+#en_box_footprint_world > .en_box_footprint_world_welcome:nth-child(3) {
+    text-align: left;
+    font-size: 2em;
+    padding-top: 0.25em;
+    font-family: 'PPAcma-Black';
+}
+
+#en_box_footprint_world > .en_box_footprint_world_welcome:nth-child(4) {
+    text-align: left;
+}
+
+#en_box_footprint_world_slide_show {
+    width: 40vw;
+    margin: 2em auto;
+    height: calc(40vw * 3 / 4);
+    overflow: hidden;
+    border: 0.25em solid #CCC;
+}
+
+#en_box_footprint_world_slide_show table {
+    table-layout: fixed;
+    height: 100%;
+    width: 700%;
+    margin-left: 0%;
+    transition: margin-left 1s;
+    transition-timing-function: ease;
+}
+
+#en_box_footprint_world_slide_show table tr td {
+    position: relative;
+}
+
+#en_box_footprint_world_slide_show table tr td > div:first-child {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+    text-align: right;
+}
+
+#en_box_footprint_world_slide_show table tr td div p {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: 'YeZiGongChangTangYingHei';
+    font-size: 0.75em;
+    width: auto;
+    display: inline-block;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 0.5em;
+}
+
+#en_box_footprint_world .en_box_footprint_world_paragraph {
+    font-size: 1.2em;
+    text-indent: 6ch;
+    line-height: 1.5em;
+}
+
+#en_box_footprint_world #en_box_footprint_world_tutorial_title {
+    font-size: 3em;
+    text-align: center;
+    margin: 1em auto 0.25em;
+    font-family: 'PPAcma-Black';
+}
+
+#en_box_footprint_world .en_box_footprint_world_tutorial_content {
+    font-size: 1.5em;
+    text-indent: 4ch;
+    line-height: 2em;
+}
+
+#en_box_footprint_world #en_box_footprint_world_bless {
+    text-align: center;
+    font-size: 4em;
+}
+
+#en_box_footprint_world #en_box_footprint_world_bless_img {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 8em;
+}
+
+#en_box_footprint_world #en_box_footprint_world_end {
+    font-size: 2em;
+    margin-top: 1em;
+    font-family: YeZiGongChangTangYingHei;
+}
+
+.hr-solid-content {
+    color: #a2a9b6;
+    border: 0;
+    font-size: 1.5em;
+    padding: 1em 0;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to right, transparent, black, transparent);
+    mask-image: linear-gradient(to right, transparent, black, transparent);
+}
+.hr-solid-content::before {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    content: attr(data-content);
+    position: absolute;
+    padding: 0 1ch;
+    line-height: 1px;
+    border: solid #888;
+    border-width: 0 99vw;
+    width: fit-content;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 #zh_box_footprint_world {
@@ -10,3 +141,66 @@
     margin-bottom: 2em;
 }
 
+@media screen and (max-width: 750px) {
+
+    #en_box_footprint_world {
+        width: calc(100vw - 3em);
+        margin-top: 1em;
+        margin-bottom: 2em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    #en_box_footprint_world > h1:first-child {
+        font-size: 2.5em;
+        margin-top: 0.5em;
+    }
+
+    #en_box_footprint_world_slide_show {
+        width: 80vw;
+        margin: 2em auto;
+        height: calc(80vw * 3 / 4);
+        overflow: hidden;
+        border: 0.25em solid #CCC;
+    }
+
+    #en_box_footprint_world_slide_show table tr td > div:first-child {
+        font-size: 0.6em;
+    }
+
+    #en_box_footprint_world .en_box_footprint_world_paragraph {
+        font-size: 1.2em;
+        text-indent: 3ch;
+        line-height: 1.3em;
+    }
+    
+    #en_box_footprint_world #en_box_footprint_world_tutorial_title {
+        font-size: 1.5em;
+        text-align: center;
+        margin: 1em auto 0.25em;
+        font-family: 'PPAcma-Black';
+    }
+
+    #en_box_footprint_world .en_box_footprint_world_tutorial_content {
+        font-size: 1.2em;
+        text-indent: 4ch;
+        line-height: 1.4em;
+    }
+    
+    #en_box_footprint_world #en_box_footprint_world_bless {
+        font-size: 2em;
+    }
+    
+    #en_box_footprint_world #en_box_footprint_world_bless_img {
+        width: 6em;
+    }
+    
+    #en_box_footprint_world #en_box_footprint_world_end {
+        font-size: 1.5em;
+        margin-top: 1em;
+    }
+    
+    .hr-solid-content {
+        font-size: 1.25em;
+    }
+}
