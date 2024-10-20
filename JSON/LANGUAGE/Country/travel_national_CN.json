@@ -1,0 +1,13 @@
+{
+    "zh" : [{
+        "beijing": "北京",
+        "MY": "马来西亚",
+        "SG": "新加坡"
+    }],
+
+    "en" : [{
+        "beijing": "BEIJING",
+        "MY": "MALAYSIA",
+        "SG": "SINGAPORE"
+    }]
+}

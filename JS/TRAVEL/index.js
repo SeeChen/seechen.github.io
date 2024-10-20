@@ -2,6 +2,9 @@
 import { _language } from "../MODULE/Language.js"
 import { language_click } from "../INDEX/language.js";
 
+import { currentNational } from "./national.js";
+import { nationalMapsAction } from "./national.js";
+
 var language = new _language();
 var url_lang = "../JSON/LANGUAGE/travel_index.json";
 var nationa_name = "/JSON/LANGUAGE/travel_national.json"
@@ -13,6 +16,8 @@ var worldPosition = {
     'width': 0,
     'height': 0
 }
+
+var country_maps = new currentNational();
 
 window.onload = function() {
 
@@ -31,7 +36,8 @@ window.onload = function() {
     $(document).ready(displayAll());
 
     worldMapsAction();
-    nationalMapsAction();
+
+    //  var ___national_maps_action = nationalMapsAction(country_maps);
 
     // traveledClick();
     traveledHover();
@@ -153,14 +159,6 @@ function travelScroll() {
     })
 }
 
-function nationalMapsAction() {
-
-    var svg_obj = $('.national_map')
-    // console.log(svg_obj)
-    // let svgDoc = svg_obj.contentDocument;
-    // let visitedC = svgDoc.querySelectorAll('.visited')
-}
-
 function worldMapsAction() {
 
     var svg_obj = $('#world_maps')[0]
@@ -219,6 +217,9 @@ function worldMapsAction() {
         });
 
         element.addEventListener('click', () => {
+
+            country_maps.set_currentNational(element.id);
+            nationalMapsAction(country_maps)
 
             var national_maps = $(`#${element.id}_map`)[0].contentDocument;
             national_maps.addEventListener('wheel', (e) => {
@@ -307,6 +308,8 @@ function displayAll() {
 }
 
 export function previousClick(btn_pre) {
+
+    country_maps.clear_national();
 
     if (nationalShow) {
 
