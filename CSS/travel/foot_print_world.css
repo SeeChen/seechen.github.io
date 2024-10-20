@@ -122,7 +122,7 @@
     mask-image: linear-gradient(to right, transparent, black, transparent);
 }
 .hr-solid-content::before {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: PPAcma-Black, "YeZiGongChangTangYingHei";
     content: attr(data-content);
     position: absolute;
     padding: 0 1ch;
@@ -215,6 +215,24 @@
     line-height: 2em;
 }
 
+#zh_box_footprint_world #zh_box_footprint_world_bless {
+    text-align: center;
+    font-size: 4em;
+}
+
+#zh_box_footprint_world #zh_box_footprint_world_bless_img {
+    text-align: center;
+    margin: auto;
+    display: block;
+    width: 8em;
+}
+
+#zh_box_footprint_world #zh_box_footprint_world_end {
+    font-size: 2em;
+    margin-top: 1em;
+    font-family: YeZiGongChangTangYingHei;
+}
+
 @media screen and (max-width: 750px) {
 
     #en_box_footprint_world {
@@ -276,5 +294,62 @@
     
     .hr-solid-content {
         font-size: 1.25em;
+    }
+
+    #zh_box_footprint_world {
+        width: calc(100vw - 3em);
+        margin-top: 1em;
+        margin-bottom: 2em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    #zh_box_footprint_world > h1:first-child {
+        font-size: 2.5em;
+        margin-top: 0.5em;
+    }
+
+    #zh_box_footprint_world_slide_show {
+        width: 80vw;
+        margin: 2em auto;
+        height: calc(80vw * 3 / 4);
+        overflow: hidden;
+        border: 0.25em solid #CCC;
+    }
+
+    #zh_box_footprint_world_slide_show table tr td > div:first-child {
+        font-size: 0.6em;
+    }
+
+    #zh_box_footprint_world .zh_box_footprint_world_paragraph {
+        font-size: 1.2em;
+        text-indent: 3ch;
+        line-height: 1.3em;
+    }
+    
+    #zh_box_footprint_world #zh_box_footprint_world_tutorial_title {
+        font-size: 1.5em;
+        text-align: center;
+        margin: 1em auto 0.25em;
+        font-family: 'PPAcma-Black';
+    }
+
+    #zh_box_footprint_world .zh_box_footprint_world_tutorial_content {
+        font-size: 1.2em;
+        text-indent: 4ch;
+        line-height: 1.4em;
+    }
+    
+    #zh_box_footprint_world #zh_box_footprint_world_bless {
+        font-size: 2em;
+    }
+    
+    #zh_box_footprint_world #zh_box_footprint_world_bless_img {
+        width: 6em;
+    }
+    
+    #zh_box_footprint_world #zh_box_footprint_world_end {
+        font-size: 1.5em;
+        margin-top: 1em;
     }
 }
