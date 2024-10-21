@@ -40,10 +40,15 @@ export function nationalMapsAction(country_object) {
     let visitedC = svgDoc.querySelectorAll('.visited')
 
     let Province_Name;
+    let National_Name;
 
     $.getJSON(`/JSON/LANGUAGE/Country/travel_national_${country_object.get_currentNational()}.json`, function(_province_name) {
 
         Province_Name = _province_name;
+    })
+    $.getJSON(`/JSON/LANGUAGE/travel_national.json`, function(_national_name) {
+
+        National_Name = _national_name;
     })
 
     visitedC.forEach(element => {
@@ -51,6 +56,14 @@ export function nationalMapsAction(country_object) {
         element.addEventListener('mouseenter', () => {
 
             $('#page_title').text(Province_Name[language.getLanguage()][0][element.id]);
+        })
+    });
+
+    visitedC.forEach(element => {
+
+        element.addEventListener('mouseout', () => {
+
+            $('#page_title').text(National_Name[language.getLanguage()][0][country_object.get_currentNational()]);
         })
     });
 }

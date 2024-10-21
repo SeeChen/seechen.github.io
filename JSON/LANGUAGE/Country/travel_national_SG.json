@@ -1,0 +1,17 @@
+{
+    "zh" : [{
+        "Central": "中部地区",
+        "NorthEast": "东北区",
+        "NorthWest": "西北区",
+        "SouthEast": "东南区",
+        "SouthWest": "西南区"
+    }],
+
+    "en" : [{
+        "Central": "CENTRAL REGION",
+        "NorthEast": "NORTH EAST",
+        "NorthWest": "NORTH WEST",
+        "SouthEast": "SOUTH EAST",
+        "SouthWest": "SOUTH WEST"
+    }]
+}
