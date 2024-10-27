@@ -59,6 +59,10 @@
     position: relative;
 }
 
+#country_img_area .country_img:hover div {
+    height: 65%;
+}
+
 #country_img_area .country_img div {
     background: #ffffffaa;
     height: 35%;
@@ -70,7 +74,8 @@
     margin: auto;
     border-radius: 1em;
     box-shadow: 2px 2px 2px #CCC;
-    font-family: aabairimengxiangjia;
+    font-family: "aabairimengxiangjia";
+    transition: all 0.5s;
 }
 
 #country_img_area .country_img div > p:first-child {
@@ -119,3 +124,36 @@
 #country_img_area .country_img div > p:nth-child(3):hover::-webkit-scrollbar-thumb {
     background: #888888FF;
 }
+
+#country_img_area .country_img div > p:nth-child(4) {
+    font-family: "aabairimengxiangjia";
+    color: #00000000;
+    font-size: 1.1em;
+    text-align: left;
+    margin: 0.5em 1em;
+    transition: all 0.5s;
+}
+
+#country_img_area .country_img:hover div > p:nth-child(4) {
+    color: #000000aa;
+}
+
+@media screen and (max-width: 750px) {
+
+    #country_img_area .country_img {
+        height: 10em;
+        width: 85%;
+        margin: 0.5em;
+        margin-bottom: 4.5em;
+    }
+
+    #country_img_area .country_img:active div {
+        height: 100%;
+    }
+
+    #country_img_area .country_img div {
+        height: 55%;
+        bottom: -20%;
+    }
+}
+
