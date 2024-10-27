@@ -30,11 +30,92 @@
 #conutry_description {
     font-size: 1.2em;
     width: 80%;
-    height: 1em;
-    line-height: 1em;
     text-align: left;
     margin: 1em auto;
     font-family: "aabairimengxiangjia";
     color: #888;
     text-indent: 2ch;
+}
+
+#country_img_area {
+    width: 80vw;
+    margin: auto;
+    margin-top: -0.5em;
+    text-align: center;
+}
+
+#country_img_area .country_img {
+    height: 15em;
+    display: inline-table;
+    width: calc(100% / 3 - 2.5em);
+    min-width: calc(100vw / 3 - 10vw);
+    background: red;
+    border-radius: 1em;
+    box-shadow: 5px 5px 10px #888;
+    padding: 1em 0;
+    margin: 1em;
+    margin-bottom: 5em;
+    cursor: pointer;
+    position: relative;
+}
+
+#country_img_area .country_img div {
+    background: #ffffffaa;
+    height: 35%;
+    width: 90%;
+    position: absolute;
+    bottom: -15%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 1em;
+    box-shadow: 2px 2px 2px #CCC;
+    font-family: aabairimengxiangjia;
+}
+
+#country_img_area .country_img div > p:first-child {
+    margin: 0.25em 1em 0;
+    text-align: left;
+    color: #000000aa;
+    font-size: 1.2em;
+}
+
+#country_img_area .country_img div > p:nth-child(2) {
+    text-align: left;
+    margin: 0.1em 1em;
+    color: #000000aa
+}
+
+#country_img_area .country_img div > p:nth-child(3) {
+    overflow: scroll hidden;
+    margin: 0.1em 1em;
+    white-space:nowrap;
+    color: #000000aa;
+    position: absolute;
+    bottom: 0.15em;
+    width: 90%;
+    padding: 0.5em 0;
+}
+
+#country_img_area .country_img div > p:nth-child(3) span {
+    border-radius: 0.5em;
+    border: 0.1em solid #888;
+    margin: auto 0.25em;
+    padding: 0.1em 0.25em;
+}
+
+#country_img_area .country_img div > p:nth-child(3)::-webkit-scrollbar {
+    padding: 0.15em;
+    height: 0.5em;
+    margin: 0.15em;
+}
+
+#country_img_area .country_img div > p:nth-child(3)::-webkit-scrollbar-thumb {
+    border-radius: 1em;
+    background: #88888800;
+    transition: all 0.5s;
+}
+
+#country_img_area .country_img div > p:nth-child(3):hover::-webkit-scrollbar-thumb {
+    background: #888888FF;
 }
