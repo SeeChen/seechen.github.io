@@ -66,4 +66,12 @@ export function nationalMapsAction(country_object) {
             $('#page_title').text(National_Name[language.getLanguage()][0][country_object.get_currentNational()]);
         })
     });
+
+    visitedC.forEach(element => {
+
+        element.addEventListener('click', () => {
+
+            
+        })
+    });
 }
