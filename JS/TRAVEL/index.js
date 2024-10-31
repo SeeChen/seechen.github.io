@@ -272,6 +272,7 @@ function worldMapsAction() {
 
             // to add more
             $(`#footprint_content_header p`).text($('#page_title').text());
+            
 
             $('#maps_box').css('opacity', 0);
             $('#maps_box').css('z-index', -1);

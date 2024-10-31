@@ -1,3 +1,28 @@
+#footprint_content_header {
+    height: 60vh;
+    width: 80vw;
+    position: relative;
+    margin: auto;
+    margin-top: 2em;
+}
+
+#footprint_content_header p {
+    font-size: 4em;
+    height: 1em;
+    text-align: center;
+    font-family: 'YeZiGongChangTangYingHei';
+    color: #88888860;
+    -webkit-text-stroke: 1px #888;
+    transform: scale(1.5, 2.5);
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 #country_header {
     background: url(/MATERIALS//travel_story/china/0.avif), #1aa;
     background-position: center bottom;
