@@ -266,13 +266,57 @@ function worldMapsAction() {
             nationalShow = true
 
             $('.display_in_more:eq(0)').removeClass('display_in_more')
+            // $(`#box_footprint_content`).addClass('display_in_more')
             $(`#travel_story_title_${element.id}`).addClass('display_in_more')
             $('.display_story_content:eq(0)').removeClass('display_story_content')
-            $(`#${language.getLanguage()}_box_footprint_${element.id}`).addClass('display_story_content')
+            $(`#box_footprint_content`).addClass('display_story_content')
+            // $(`#${language.getLanguage()}_box_footprint_${element.id}`).addClass('display_story_content')
 
             // to add more
             $(`#footprint_content_header p`).text($('#page_title').text());
-            
+            $.getJSON(`/JSON/LANGUAGE/${element.id}/${element.id}.json`, function(conutry_content) {
+
+                let current_lang = language.getLanguage();
+
+                let bg_setup = conutry_content.bg;
+                $('#footprint_content_header').css({
+                    "background": `url(${bg_setup.url}), #1aa`,
+                    "background-size": "cover",
+                    "background-position": `${bg_setup.x} ${bg_setup.y}`,
+                    "background-repeat": "no-repeat"
+                });
+
+                $('#footprint_content_description').text(conutry_content[current_lang][0]['_description_']);
+
+                let img_list = conutry_content["img-list"];
+                $('#footpring_content_img_area').html("");
+                for (let _i = 0; _i < img_list.length; _i++) {
+
+                    let _label_content = '';
+                    for (let _j = 0; _j < img_list[_i]['label'].length; _j++) {
+
+                        _label_content += `<span>${conutry_content[current_lang][0]['_img_label_'][img_list[_i]['label'][_j]]}</span>`;
+                    }
+
+                    $('#footpring_content_img_area').html( $('#footpring_content_img_area').html() + 
+                        `<div class="footprint_content_img" style="
+                            background-image: url(${img_list[_i]['url']});
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                        ">
+                            <div>
+                                <p>${img_list[_i]['title']}</p>
+                                <p>${img_list[_i]['city']}, ${img_list[_i]['province']}, ${img_list[_i]['country']}.</p>
+                                <p>${_label_content}</p>
+                                <p>${img_list[_i]['desc']}</p>
+                            </div>
+                        </div>`
+                    );
+
+                    // console.log(img_list[_i])
+                }
+            })
 
             $('#maps_box').css('opacity', 0);
             $('#maps_box').css('z-index', -1);

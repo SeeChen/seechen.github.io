@@ -1,0 +1,47 @@
+{
+    "zh" : [{
+        "_description_": "中国，这片充满历史和文化的土地，自古便有“江山如此多娇，引无数英雄竞折腰”的美誉。这里拥有巍峨的长城、壮丽的黄山、悠久的故宫以及数不尽的自然与人文奇观。而我，正幸运地在这片土地上求学，见证着它的现代与传统相融的独特魅力。",
+
+        "_img_label_": [
+            "标签 1",
+            "标签 2",
+            "标签 3",
+            "标签 4"
+        ]
+    }],
+
+    "en" : [{
+        "_description_": "China is a land rich in history and culture, where ancient and modern worlds converge. Known for iconic landmarks like the Great Wall, the Forbidden City, and breathtaking natural landscapes, this country offers endless opportunities for discovery. I am fortunate to study here, immersed in the charm of this dynamic and culturally rich nation.",
+
+        "_img_label_": [
+            "label 1",
+            "label 2",
+            "label 3",
+            "label 4"
+        ]
+    }],
+
+    "bg" : {
+        "url": "/MATERIALS/travel_story/china/0.avif",
+        "x": "center",
+        "y": "bottom"
+    },
+
+    "img-list": [{
+        "url": "/MATERIALS/travel_story/china/0.avif",
+        "title": "title 1",
+        "city": "Beijing",
+        "province": "Beijing",
+        "country": "China",
+        "desc": "desc 1",
+        "label": [0, 2]
+    }, {
+        "url": "/MATERIALS/travel_story/world/1.avif",
+        "title": "title 2",
+        "city": "Tianjin",
+        "province": "Tianjin",
+        "country": "China",
+        "desc": "desc 2",
+        "label": [1, 3]
+    }]
+}

@@ -33,53 +33,14 @@
     text-indent: 2ch;
 }
 
-#country_header {
-    background: url(/MATERIALS//travel_story/china/0.avif), #1aa;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 60vh;
-    width: 80vw;
-    position: relative;
-    margin: auto;
-    margin-top: 2em;
-}
-
-#country_header p {
-    font-size: 4em;
-    height: 1em;
-    text-align: center;
-    font-family: 'YeZiGongChangTangYingHei';
-    color: #88888860;
-    -webkit-text-stroke: 1px #888;
-    transform: scale(1.5, 2.5);
-    font-weight: bold;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-#conutry_description {
-    font-size: 1.2em;
-    width: 80%;
-    text-align: left;
-    margin: 1em auto;
-    font-family: "aabairimengxiangjia";
-    color: #888;
-    text-indent: 2ch;
-}
-
-#country_img_area {
+#footpring_content_img_area {
     width: 80vw;
     margin: auto;
     margin-top: -0.5em;
     text-align: center;
 }
 
-#country_img_area .country_img {
+#footpring_content_img_area .footprint_content_img {
     height: 15em;
     display: inline-table;
     width: calc(100% / 3 - 2.5em);
@@ -94,11 +55,11 @@
     position: relative;
 }
 
-#country_img_area .country_img:hover div {
+#footpring_content_img_area .footprint_content_img:hover div {
     height: 65%;
 }
 
-#country_img_area .country_img div {
+#footpring_content_img_area .footprint_content_img div {
     background: #ffffffaa;
     height: 35%;
     width: 90%;
@@ -113,20 +74,20 @@
     transition: all 0.5s;
 }
 
-#country_img_area .country_img div > p:first-child {
+#footpring_content_img_area .footprint_content_img div > p:first-child {
     margin: 0.25em 1em 0;
     text-align: left;
     color: #000000aa;
     font-size: 1.2em;
 }
 
-#country_img_area .country_img div > p:nth-child(2) {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(2) {
     text-align: left;
     margin: 0.1em 1em;
     color: #000000aa
 }
 
-#country_img_area .country_img div > p:nth-child(3) {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(3) {
     overflow: scroll hidden;
     margin: 0.1em 1em;
     white-space:nowrap;
@@ -137,30 +98,30 @@
     padding: 0.5em 0;
 }
 
-#country_img_area .country_img div > p:nth-child(3) span {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(3) span {
     border-radius: 0.5em;
     border: 0.1em solid #888;
     margin: auto 0.25em;
     padding: 0.1em 0.25em;
 }
 
-#country_img_area .country_img div > p:nth-child(3)::-webkit-scrollbar {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(3)::-webkit-scrollbar {
     padding: 0.15em;
     height: 0.5em;
     margin: 0.15em;
 }
 
-#country_img_area .country_img div > p:nth-child(3)::-webkit-scrollbar-thumb {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(3)::-webkit-scrollbar-thumb {
     border-radius: 1em;
     background: #88888800;
     transition: all 0.5s;
 }
 
-#country_img_area .country_img div > p:nth-child(3):hover::-webkit-scrollbar-thumb {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(3):hover::-webkit-scrollbar-thumb {
     background: #888888FF;
 }
 
-#country_img_area .country_img div > p:nth-child(4) {
+#footpring_content_img_area .footprint_content_img div > p:nth-child(4) {
     font-family: "aabairimengxiangjia";
     color: #00000000;
     font-size: 1.1em;
@@ -169,24 +130,24 @@
     transition: all 0.5s;
 }
 
-#country_img_area .country_img:hover div > p:nth-child(4) {
+#footpring_content_img_area .footprint_content_img:hover div > p:nth-child(4) {
     color: #000000aa;
 }
 
 @media screen and (max-width: 750px) {
 
-    #country_img_area .country_img {
+    #footpring_content_img_area .footprint_content_img {
         height: 10em;
         width: 85%;
         margin: 0.5em;
         margin-bottom: 4.5em;
     }
 
-    #country_img_area .country_img:active div {
+    #footpring_content_img_area .footprint_content_img:active div {
         height: 100%;
     }
 
-    #country_img_area .country_img div {
+    #footpring_content_img_area .footprint_content_img div {
         height: 55%;
         bottom: -20%;
     }

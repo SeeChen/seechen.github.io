@@ -1,0 +1,16 @@
+{
+    "zh" : [{
+        "_description_": "新加坡是一个以多元文化和高度现代化著称的城市国家。作为“花园城市”，新加坡拥有整洁的街道、丰富的绿色空间和高效的城市规划，给人一种独特的和谐感。这里融合了华族、马来族、印度族等多个民族的文化，从多样的美食到传统节庆，展现出包容且丰富的社会风貌。此外，新加坡也是全球金融和科技的中心之一，充满了创新和发展的活力。"
+
+    }],
+
+    "en" : [{
+        "_description_": "Singapore is a city-state known for its multicultural heritage and high level of modernization. Often called the \"Garden City,\" Singapore boasts clean streets, abundant green spaces, and efficient urban planning that give it a unique sense of harmony. With a blend of Chinese, Malay, Indian, and other cultures, Singapore offers a vibrant social scene, from diverse cuisines to traditional festivals. It is also one of the world's leading financial and technology hubs, filled with energy, innovation, and growth."
+    }],
+
+    "bg" : {
+        "url": "/MATERIALS/travel_story/singapore/0.avif",
+        "x": "center",
+        "y": "70%"
+    }
+}

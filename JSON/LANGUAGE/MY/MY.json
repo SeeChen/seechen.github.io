@@ -1,0 +1,16 @@
+{
+    "zh" : [{
+        "_description_": "马来西亚是一个多元文化的国家，我的家乡就坐落在这里。在这片土地上，不同的文化、宗教和语言交织共存，形成了独特的和谐氛围。这里有原始的热带雨林、绵延的海岸线、迷人的历史建筑，以及热情好客的人们。身为马来西亚人，我为自己的家乡感到自豪，并愿意向大家展示它的美丽与多彩。"
+
+    }],
+
+    "en" : [{
+        "_description_": "Malaysia is a multicultural country, and it is my hometown. This land is home to a harmonious blend of cultures, religions, and languages, creating a unique and vibrant atmosphere. Here, you’ll find pristine rainforests, scenic coastlines, charming historical architecture, and warm, welcoming people. As a Malaysian, I am proud of my homeland and eager to share its beauty and diversity with others."
+    }],
+
+    "bg" : {
+        "url": "/MATERIALS/travel_story/malaysia/0.avif",
+        "x": "center",
+        "y": "center"
+    }
+}
