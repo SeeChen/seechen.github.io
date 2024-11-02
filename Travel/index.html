@@ -15,6 +15,7 @@
         <link rel = "stylesheet" href="../CSS/General/font_face.css" type="text/css">
         <link rel = "stylesheet" href="../CSS/travel/foot_print_world.css" type="text/css">
         <link rel = "stylesheet" href="../CSS/travel/footprint_country.css" type="text/css">
+        <link rel = "stylesheet" href="../CSS/travel/footprint_province.css" type="text/css">
 
         <script src="/JS/TRAVEL/footprint_world.js" type="text/javascript"></script>
 
@@ -62,6 +63,8 @@
             <p id="travel_story_title_CN" class="story_title _switch_lang_" lang_obj="_story_title_china_"></p>
             <p id="travel_story_title_MY" class="story_title _switch_lang_" lang_obj="_story_title_malaysia_"></p>
             <p id="travel_story_title_SG" class="story_title _switch_lang_" lang_obj="_story_title_singapore_"></p>
+
+            <p id="travel_story_title_province" class="story_title"></p>
 
             <div id="en_box_footprint_world" class="normal_story_content">
                 <h1>HEY, THERE</h1>
@@ -222,129 +225,14 @@
 
                 <p id="footprint_content_description">Description</p>
                 
-                <div id="footpring_content_img_area">
-                    <!-- <div class="footprint_content_img">
-                        <div>
-                            <p>title</p>
-                            <p>city, province, country.</p>
-                            <p><span>label</span></p>
-                            <p>Description Description</p>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="footpring_content_img_area"></div>
             </div>
 
-            <!-- <div id="en_box_footprint_CN" class="normal_story_content">
-                <div id="country_header">
-                    <p>CHINA</p>
-                </div>
-                <p id="conutry_description">China is a land rich in history and culture, where ancient and modern worlds converge. Known for iconic landmarks like the Great Wall, the Forbidden City, and breathtaking natural landscapes, this country offers endless opportunities for discovery. I am fortunate to study here, immersed in the charm of this dynamic and culturally rich nation.</p>
-                <div id="country_img_area">
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/0.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                            <p>Description Description Description</p>
-                        </div>
-                    </div>
-
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/1.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/2.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/3.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/4.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/5.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                    <div class="country_img" style="
-                        background-image: url(/MATERIALS/travel_story/world/6.avif);
-                        background-size: cover;
-                        background-position: center;
-                        background-repeat: no-repeat;
-                        ">
-                        <div>
-                            <p>Title</p>
-                            <p>city, province, country.</p>
-                            <p><span>Label 1</span><span>Label 2</span><span>Label 3</span><span>Label 4</span><span>Label 5</span><span>Label 5</span><span>Label 7</span></p>
-                        </div>
-                    </div>
-                </div>
+            <div id="box_content_province" class="normal_story_content">
+                <p id="content_province_title"></p>
+                
+                <ul></ul>
             </div>
-            <div id="zh_box_footprint_CN" class="normal_story_content">
-                中国
-            </div>
-
-            <div id="en_box_footprint_MY" class="normal_story_content">
-                Malaysia
-            </div>
-            <div id="zh_box_footprint_MY" class="normal_story_content">
-                马来西亚
-            </div>
-
-            <div id="en_box_footprint_SG" class="normal_story_content">
-                Singapore
-            </div>
-            <div id="zh_box_footprint_SG" class="normal_story_content">
-                新加坡
-            </div> -->
         </div>
     </body>
 </html>

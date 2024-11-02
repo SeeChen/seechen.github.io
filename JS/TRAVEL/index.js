@@ -27,6 +27,7 @@ window.onload = function() {
 
     window.previousClick = previousClick;
     window.traveledClick = traveledClick;
+    window.img_click = img_click;
 
     language.loadPageLanguage(url_lang, language.getLanguage());
     language.loadPageLanguage(nationa_name, language.getLanguage());
@@ -48,6 +49,11 @@ window.onload = function() {
         
         $('#my_travel_story').css('top', '100vh');
     })
+}
+
+function img_click(obj) {
+
+    console.log(obj);
 }
 
 function travelStoryScroll() {
@@ -299,7 +305,7 @@ function worldMapsAction() {
                     }
 
                     $('#footpring_content_img_area').html( $('#footpring_content_img_area').html() + 
-                        `<div class="footprint_content_img" style="
+                        `<div class="footprint_content_img" onclick="img_click(this)" style="
                             background-image: url(${img_list[_i]['url']});
                             background-size: cover;
                             background-position: center;

@@ -29,6 +29,11 @@ export class currentNational {
     }
 }
 
+export function province_img(obj) {
+
+    console.log(obj)
+}
+
 export function nationalMapsAction(country_object) {
 
     if (country_object.get_currentNational === 'worlds') {
@@ -71,7 +76,56 @@ export function nationalMapsAction(country_object) {
 
         element.addEventListener('click', () => {
 
-            
+            $('#travel_story_close_btn').on('click', function() {
+
+                setTimeout(() => {
+                    
+                    $('.display_in_more:eq(0)').removeClass('display_in_more');
+                    $(`#travel_story_title_${country_object.get_currentNational()}`).addClass('display_in_more');
+                    $('.display_story_content:eq(0)').removeClass('display_story_content');
+                    $(`#box_footprint_content`).addClass('display_story_content');
+                }, 500);
+            });
+
+            $('#my_travel_story').css('top', 0);
+
+            $('.display_in_more:eq(0)').removeClass('display_in_more');
+            $('#travel_story_title_province').addClass('display_in_more');
+
+            $('.display_story_content:eq(0)').removeClass('display_story_content');
+            $(`#box_content_province`).addClass('display_story_content');
+
+            $.getJSON(`/JSON/LANGUAGE/Country/travel_national_${country_object.get_currentNational()}.json`, function(province_name) {
+
+                $('#travel_story_title_province').text(province_name[language.getLanguage()][0][element.id]);
+                $('#content_province_title').text(province_name[language.getLanguage()][0][element.id]);
+            });
+
+            $.getJSON(`/JSON/LANGUAGE/${country_object.get_currentNational()}/${element.id}.json`, function(img_data) {
+
+                var img_show = '';
+                for (let _i = 0; _i < img_data['img-path'].length; _i++) {
+                    
+                    img_show += `
+                    <li>
+                        <span class="hex">
+                            <span class="hexIn" onclick="img_click(this)" style="
+                                background: url(${img_data['img-path'][_i]['url']});
+                                background-size: cover;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                position: relative;
+                            ">
+                                <div>
+                                    <p>title</p>
+                                </div>
+                            </span>
+                        </span>
+                    </li>
+                    `;
+                }
+                $('#box_content_province ul').html(`${img_show}<div style="clear: both;"></div>`);
+            });
         })
     });
 }
