@@ -113,7 +113,11 @@ body::-webkit-scrollbar {
     transition: opacity 0.5s;
 }
 
-#national_list {
+#province_list {
+    bottom: -5em;
+}
+
+.traveled_list {
     height: 3em;
     width: 10%;
     position: fixed;
@@ -129,7 +133,7 @@ body::-webkit-scrollbar {
     padding-right: 1em;
 }
 
-#national_list > p:first-child {
+.traveled_list > p:first-child {
     height: 3em;
     line-height: 3em;
     width: 100%;
@@ -139,11 +143,16 @@ body::-webkit-scrollbar {
     font-family: aabairimengxiangjia;
 }
 
-#national_list.hover_national_list {
+.traveled_list.hover_national_list {
 
     height: 50vh;
     width: 20vw;
     background: rgba(255, 255, 255, 0.9);
+}
+
+#province_list.hover_national_list {
+    height: 60vh;
+    width: 25vw;
 }
 
 .traveled_country {

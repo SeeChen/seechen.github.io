@@ -25,23 +25,5 @@
         "url": "/MATERIALS/travel_story/china/0.avif",
         "x": "center",
         "y": "bottom"
-    },
-
-    "img-list": [{
-        "url": "/MATERIALS/travel_story/china/0.avif",
-        "title": "title 1",
-        "city": "Beijing",
-        "province": "Beijing",
-        "country": "China",
-        "desc": "desc 1",
-        "label": [0, 2]
-    }, {
-        "url": "/MATERIALS/travel_story/world/1.avif",
-        "title": "title 2",
-        "city": "Tianjin",
-        "province": "Tianjin",
-        "country": "China",
-        "desc": "desc 2",
-        "label": [1, 3]
-    }]
+    }
 }

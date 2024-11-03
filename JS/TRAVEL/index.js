@@ -27,6 +27,7 @@ window.onload = function() {
 
     window.previousClick = previousClick;
     window.traveledClick = traveledClick;
+    window.traveledProvinceClick = traveledProvinceClick;
     window.img_click = img_click;
 
     language.loadPageLanguage(url_lang, language.getLanguage());
@@ -294,36 +295,70 @@ function worldMapsAction() {
                 });
 
                 $('#footprint_content_description').text(conutry_content[current_lang][0]['_description_']);
-
-                let img_list = conutry_content["img-list"];
-                $('#footpring_content_img_area').html("");
-                for (let _i = 0; _i < img_list.length; _i++) {
-
-                    let _label_content = '';
-                    for (let _j = 0; _j < img_list[_i]['label'].length; _j++) {
-
-                        _label_content += `<span>${conutry_content[current_lang][0]['_img_label_'][img_list[_i]['label'][_j]]}</span>`;
-                    }
-
-                    $('#footpring_content_img_area').html( $('#footpring_content_img_area').html() + 
-                        `<div class="footprint_content_img" onclick="img_click(this)" style="
-                            background-image: url(${img_list[_i]['url']});
-                            background-size: cover;
-                            background-position: center;
-                            background-repeat: no-repeat;
-                        ">
-                            <div>
-                                <p>${img_list[_i]['title']}</p>
-                                <p>${img_list[_i]['city']}, ${img_list[_i]['province']}, ${img_list[_i]['country']}.</p>
-                                <p>${_label_content}</p>
-                                <p>${img_list[_i]['desc']}</p>
-                            </div>
-                        </div>`
-                    );
-
-                    // console.log(img_list[_i])
-                }
             })
+
+            $.getJSON('/JSON/LAYOUT/travel_gallery.json').then(
+
+                imgList => {
+                    
+                    return $.getJSON('/JSON/LANGUAGE/travel_national.json').then(countryName => {
+                        return { imgList, countryName };
+                    });
+                }).then(
+
+                    data => {
+                        
+                        return $.getJSON(`/JSON/LANGUAGE/Country/travel_national_${element.id}.json`).then(provinceName => {
+                            data.provinceName = provinceName;
+                            return data;
+                        });
+                }).then(({ imgList, countryName, provinceName }) => {
+
+                    var province_names = new Set(imgList.filter(item => item.country === element.id).map(item => item.province));
+                    
+                    $('#province_list').html('');
+                    var traveled_province = `<p>${$('#national_list p:first-child').text()}</p>`;
+                    province_names.forEach(function(value) {
+
+                        traveled_province += `
+                            <span id="traveled_${element.id}_${value}" class="traveled_country" onclick="traveledProvinceClick(this)">
+                                ${provinceName[language.getLanguage()][0][value]}
+                            </span>
+                        `;
+
+                    });
+                    $('#province_list').html(traveled_province);
+                    
+
+                    var img_gallery = imgList.filter(item => 
+                        item['country'] === element.id
+                    );
+    
+                    $('#footpring_content_img_area').html("");
+                    for (let _i = 0; _i < img_gallery.length; _i++) {
+                        let _label_content = '';
+                        for (let _j = 0; _j < img_gallery[_i]['label'].length; _j++) {
+    
+                            _label_content += `<span>${img_gallery[_i]['label'][_j]}</span>`;
+                        }
+    
+                        $('#footpring_content_img_area').html( $('#footpring_content_img_area').html() + 
+                            `<div class="footprint_content_img" onclick="img_click(this)" style="
+                                background-image: url(${img_gallery[_i]['url']});
+                                background-size: cover;
+                                background-position: center;
+                                background-repeat: no-repeat;
+                            ">
+                                <div>
+                                    <p>${img_gallery[_i]['title']}</p>
+                                    <p>${img_gallery[_i]['city']}, ${provinceName[language.getLanguage()][0][img_gallery[_i]['province']]}, ${countryName[language.getLanguage()][0][img_gallery[_i]['country']]}.</p>
+                                    <p>${_label_content}</p>
+                                    <p>${img_gallery[_i]['desc']}</p>
+                                </div>
+                            </div>`
+                        );
+                    }
+                });
 
             $('#maps_box').css('opacity', 0);
             $('#maps_box').css('z-index', -1);
@@ -336,6 +371,11 @@ function worldMapsAction() {
                 'bottom': '-5em',
                 'pointer-events': 'none'
             });
+            $('#province_list').css({
+                'bottom': '1em',
+                'pointer-events': 'auto'
+            });
+            
 
             setTimeout(() => {
                 
@@ -400,6 +440,10 @@ export function previousClick(btn_pre) {
                     'bottom': '1em',
                     'pointer-events': 'auto'
                 });
+                $('#province_list').css({
+                    'bottom': '-5em',
+                    'pointer-events': 'none'
+                });
 
             }, 300);
         }, 600);
@@ -424,14 +468,34 @@ export function traveledClick(btn_traveled) {
     }, 100);
 }
 
+export function traveledProvinceClick(btn_traveled) {
+
+    let country_id = btn_traveled.id.split('_')[1]
+    let province_id = btn_traveled.id.split('_')[2]
+
+    var svg_obj = $(`#${country_id}_map`)[0];
+    let svgDoc = svg_obj.contentDocument;
+
+    const province_to_show = svgDoc.getElementById(province_id);
+
+    province_to_show.dispatchEvent(new Event('mouseenter'));
+    setTimeout(() => {
+        
+        province_to_show.dispatchEvent(new Event('click'));
+        province_to_show.dispatchEvent(new Event('mouseout'));
+
+        // $('#national_list').removeClass('hover_national_list');
+    }, 100);
+}
+
 function traveledHover() {
 
-    $('#national_list').on('mouseenter', function(){
+    $('.traveled_list').on('mouseenter', function(){
 
         $(this).addClass('hover_national_list')
     });
 
-    $('#national_list').on('mouseleave', function(){
+    $('.traveled_list').on('mouseleave', function(){
 
         $(this).removeClass('hover_national_list')
     });
