@@ -101,23 +101,31 @@ export function nationalMapsAction(country_object) {
                 $('#content_province_title').text(province_name[language.getLanguage()][0][element.id]);
             });
 
-            $.getJSON(`/JSON/LANGUAGE/${country_object.get_currentNational()}/${element.id}.json`, function(img_data) {
+            $.getJSON(`/JSON/LAYOUT/travel_gallery.json`, function(img_data) {
 
+                var img_gallery = img_data.filter(item =>
+                    item['country'] === country_object.get_currentNational()
+                    && item['province'] === element.id
+                )
                 var img_show = '';
-                for (let _i = 0; _i < img_data['img-path'].length; _i++) {
+                for (let _i = 0; _i < img_gallery.length; _i++) {
                     
                     img_show += `
                     <li>
                         <span class="hex">
                             <span class="hexIn" onclick="img_click(this)" style="
-                                background: url(${img_data['img-path'][_i]['url']});
+                                background: url(${img_gallery[_i]['url']});
                                 background-size: cover;
                                 background-repeat: no-repeat;
                                 background-position: center;
                                 position: relative;
-                            ">
+                            "
+                            img_data="
+                                ${JSON.stringify(img_gallery[_i]).replace(/"/g,'&quot;')}
+                            "
+                            >
                                 <div>
-                                    <p>title</p>
+                                    <p>${img_gallery[_i]['title']}</p>
                                 </div>
                             </span>
                         </span>

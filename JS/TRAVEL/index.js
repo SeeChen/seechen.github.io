@@ -54,6 +54,7 @@ window.onload = function() {
 function img_click(obj) {
 
     console.log(obj);
+    console.log(JSON.parse(obj.getAttribute('img_data')));
 }
 
 function travelStoryScroll() {
