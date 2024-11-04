@@ -37,6 +37,7 @@ window.onload = function() {
 
     SlideLeftAndRight();
     asyncFunction();
+    projects();
 
     $(window).resize(function() {
 
