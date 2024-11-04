@@ -3,9 +3,9 @@
     "country": "CN",
     "province": "YunNan",
     "city": "EShan",
-    "title": "0",
-    "desc": "00",
-    "label": []
+    "title": "峨山彝族自治县",
+    "desc": "中国第一个彝族自治区",
+    "label": ["label1", "label2", "label3", "label4", "label5"]
 }, {
     "url": "/MATERIALS/travel_story/china/0.avif",
     "country": "CN",

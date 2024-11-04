@@ -126,6 +126,7 @@ export function nationalMapsAction(country_object) {
                             >
                                 <div>
                                     <p>${img_gallery[_i]['title']}</p>
+                                    <p>CITY</p>
                                 </div>
                             </span>
                         </span>

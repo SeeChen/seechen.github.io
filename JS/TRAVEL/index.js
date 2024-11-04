@@ -50,12 +50,65 @@ window.onload = function() {
         
         $('#my_travel_story').css('top', '100vh');
     })
+
+    img_show_close_btn();
 }
 
 function img_click(obj) {
 
-    console.log(obj);
-    console.log(JSON.parse(obj.getAttribute('img_data')));
+    let img_data = JSON.parse(obj.getAttribute('img_data'));
+    $('#show_img > p:nth-child(2)').text(img_data['title']);
+    $.getJSON('/JSON/LANGUAGE/travel_national.json').then(
+        countryName => {
+
+            return $.getJSON(`/JSON/LANGUAGE/Country/travel_national_${img_data['country']}.json`).then(provinceName => {
+                return { countryName, provinceName };
+            });
+        }).then(({countryName, provinceName}) => {
+
+            let img_location = '';
+            let current_lang = language.getLanguage();
+            if (current_lang === 'zh') {
+
+                img_location = `${countryName['zh'][0][img_data['country']]}${provinceName['zh'][0][img_data['province']]}${img_data['city']}.`;
+            } else {
+
+                img_location = `${img_data['city']}, ${provinceName[current_lang][0][img_data['province']]}, ${countryName[current_lang][0][img_data['country']]}.`;
+            }
+
+            $('#show_img > p:nth-child(3)').text(img_location);
+        });
+    
+    $('#show_img > img:nth-child(4)').attr('src', img_data['url'])
+
+    let img_labels = img_data['label'];
+    let img_label_html = '';
+    img_labels.forEach(function(img_label) {
+
+        img_label_html += `<span label_id="${img_label}">${img_label}</span>`;
+    });
+    $('#show_img > p:nth-child(5)').html(img_label_html);
+    $('#show_img > p:nth-child(6)').text(img_data['desc']);
+
+    $('#show_img').css({
+        'top': 0,
+        'opacity': 1,
+        'pointer-events': 'auto'
+    });
+}
+
+function img_show_close_btn() {
+
+    $('#show_img p').click(function() {
+
+        $('#show_img').scrollTop(0);
+
+        $('#show_img').css({
+            'top': '5em',
+            'opacity': 0,
+            'pointer-events': 'none'
+        });
+    });
 }
 
 function travelStoryScroll() {
@@ -348,7 +401,11 @@ function worldMapsAction() {
                                 background-size: cover;
                                 background-position: center;
                                 background-repeat: no-repeat;
-                            ">
+                            "
+                            img_data="
+                                ${JSON.stringify(img_gallery[_i]).replace(/"/g,'&quot;')}
+                            "
+                            >
                                 <div>
                                     <p>${img_gallery[_i]['title']}</p>
                                     <p>${img_gallery[_i]['city']}, ${provinceName[language.getLanguage()][0][img_gallery[_i]['province']]}, ${countryName[language.getLanguage()][0][img_gallery[_i]['country']]}.</p>

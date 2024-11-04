@@ -1,0 +1,95 @@
+#show_img {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 5em;
+    margin: auto;
+    z-index: 1000;
+    background: #d8dad7;
+    box-shadow: 5px -5px 5px #CCC;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.2s;
+    pointer-events: none;
+    overflow-y: scroll;
+}
+
+#show_img::-webkit-scrollbar {
+    display: none;
+}
+
+#show_img > p:first-child {
+    background: #CCC;
+    color: #888;
+    font-size: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    text-align: center;
+    border-radius: 1em;
+    top: 0.25em;
+    left: 0.25em;
+    position: sticky;
+    box-shadow: 1px 1px 1px #888;
+    cursor: pointer;
+}
+
+#show_img > p:nth-child(2) {
+    position: absolute;
+    width: 100%;
+    font-size: 3em;
+    text-align: center;
+    pointer-events: none;
+    height: 1.5em;
+    line-height: 1.5em;
+    color: #888;
+    font-family: 'aabairimengxiangjia';
+    margin-top: -0.75em;
+}
+
+#show_img > p:nth-child(3) {
+    font-size: 1em;
+    margin-top: 3em;
+    text-align: center;
+    font-family: 'GenJyuuGothic-Normal';
+    color: #888;
+}
+
+#show_img > img:nth-child(4) {
+    display: block;
+    height: 95vh;
+    width: auto;
+    max-width: 90vw;
+    margin: auto;
+    margin-top: 1em;
+}
+
+#show_img > p:nth-child(5) {
+    width: 80%;
+    margin: auto;
+    padding: 1em;
+    font-size: 1em;
+    color: #888;
+    font-family: 'GenJyuuGothic-Normal';
+}
+
+#show_img > p:nth-child(5) span {
+    padding: 0 0.5em;
+    border-radius: 1em;
+    border: 0.15em solid #888;
+    margin: 0.1em 0.1em;
+    cursor: pointer;
+    display: inline-table;
+}
+
+#show_img > p:nth-child(6) {
+    width: 80%;
+    margin: auto;
+    font-family: 'aabairimengxiangjia';
+    font-size: 1.5em;
+    color: #888;
+    border-top: 0.1em solid #888;
+    padding-top: 0.5em;
+    margin-bottom: 2em;
+}
