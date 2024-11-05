@@ -1,0 +1,19 @@
+:root {
+
+    /* Background */
+    --bg-color: #d8dad7;
+
+    /* Font */
+    --font-size-normal: 1.2em;
+    --font-size-4em: 4em;
+}
+
+@media screen and (max-width: 750px) {
+
+    :root {
+
+        /* Font */
+        --font-size-normal: 1.2em;
+        --font-size-4em: 3em;
+    }
+}
