@@ -1,7 +1,7 @@
 
 window.addEventListener("popstate", () => {
 
-    console.log(window.location.href);
+    route(window.location.pathname);
 });
 
 const routes = {
@@ -11,9 +11,9 @@ const routes = {
         document.title = "HOME";
     },
 
-    "/test": function() {
+    "/home": function() {
 
-        document.title = "TEST";
+        document.title = "home";
     }
 }
 

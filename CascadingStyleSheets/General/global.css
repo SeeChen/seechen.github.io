@@ -3,9 +3,23 @@
     /* Background */
     --bg-color: #d8dad7;
 
-    /* Font */
+    /* Font Size */
     --font-size-normal: 1.2em;
+    --font-size-2em: 2em;
     --font-size-4em: 4em;
+
+    /* Font Color */
+    --font-color-title: #4a4a4a;
+    --font-color-normal: #888888;
+    --font-color-normal-selected: #111111;
+
+    /* Font face */
+    --fontface-title: "PPAcma-Black", "YeZiGongChangTangYingHei-2";
+    --fontface-title-2: "GenJyuuGothic-Normal";
+    
+    --fontface-content: "unifontdianzhenhei";
+
+    --fontface-art: "amelia", "font-MZD";
 }
 
 @media screen and (max-width: 750px) {
@@ -13,7 +27,8 @@
     :root {
 
         /* Font */
-        --font-size-normal: 1.2em;
+        --font-size-normal: 1em;
         --font-size-4em: 3em;
+        --font-size-2em: 1.75em;
     }
 }

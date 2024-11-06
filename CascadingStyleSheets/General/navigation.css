@@ -1,23 +1,32 @@
 /* for navigation only */
 :root {
 
+    --nav-overflow: visible;
+
     --nav-p-height: auto;
+    --nav-p-padding-left: 1em;
     --nav-p-text-align: left;
 
     --nav-ul-width: 60%;
     --nav-ul-padding: 0.5em;
-    --nav-ul-top: 1.5em;
+    --nav-ul-top: 2em;
     --nav-ul-right: 1em;
 
     --nav-ul-li-width: calc(100% / 5);
     --nav-ul-li-height: 1em;
+
+    --nav-ul-li-hover-top: -0.25em;
+    --nav-ul-li-active-top: 0.25em;
 }
 
 @media screen and (max-width: 750px) {
 
     :root {
 
-        --nav-p-height: 100vh;
+        --nav-overflow: hidden;
+
+        --nav-p-height: 8vh;
+        --nav-p-padding-left: 0em;
         --nav-p-text-align: center;
 
         --nav-ul-width: 100%;
@@ -26,11 +35,19 @@
         --nav-ul-right: 0em;
 
         --nav-ul-li-width: 100%;   
-        --nav-ul-li-height: 2em;  
+        --nav-ul-li-height: 2em;
+
+        --nav-ul-li-hover-top: 0em;
     }
 }
 
 #box_navBar {
+
+    overflow: var(--nav-overflow);
+    color: var(--font-color-normal);
+
+    height: calc(1vh + var(--nav-p-height));
+
     width: 100vw;
     position: fixed;
 }
@@ -40,11 +57,16 @@
     position: absolute;
 
     font-size: var(--font-size-4em);
+    font-family: var(--fontface-title);
     height: var(--nav-p-height);
     text-align: var(--nav-p-text-align);
+    padding-left: var(--nav-p-padding-left);
+    color: var(--font-color-title);
 
     width: 100%;
+    padding-top: 0.1em;
     background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0.05em 0.05em 0.05em #999;
 }
 
 #box_navBar ul {
@@ -64,9 +86,24 @@
     width: var(--nav-ul-li-width);
     height: var(--nav-ul-li-height);
     line-height: var(--nav-ul-li-height);
+    font-family: var(--fontface-title-2);
 
     float: left;
     text-align: center;
     background: transparent;
     cursor: pointer;
+
+    transition: color 0.5s, transform 0.15s;
+}
+
+#box_navBar ul li.selected {
+    color: var(--font-color-normal-selected);
+}
+
+#box_navBar ul li:not(.selected):hover {
+    transform: translateY(var(--nav-ul-li-hover-top));
+}
+
+#box_navBar ul li:active {
+    transform: translateY(var(--nav-ul-li-active-top)) ! important;
 }
