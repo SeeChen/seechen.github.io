@@ -19,14 +19,20 @@
 
         <link rel="stylesheet" href="/CascadingStyleSheets/General/loading.css" type="text/css">
 
+        <link rel="stylesheet" href="/CascadingStyleSheets/home/home.css" type="text/css">
         <link rel="stylesheet" href="/CascadingStyleSheets/index/index.css" type="text/css">
 
         <!-- JavaScript -->
+        <!-- <script src = "/JavaScript/webWorker/removeDom.js" type = "text/javascript"></script> -->
+
         <script src = "/JavaScript/General/VirtualDOM.js" type = "module"></script>
         <script src = "/JavaScript/General/route.js" type = "module"></script>
         <script src = "/JavaScript/General/language.js" type = "module"></script>
+        <script src = "/JavaScript/General/deepCopy.js" type = "module"></script>
 
         <script src = "/JavaScript/General/loading.js" type = "module"></script>
+
+        <script src = "/JavaScript/Home/home.js" type = "module"></script>
 
         <script src = "/JavaScript/Index/index.js" type = "module"></script>
     </head>
@@ -36,13 +42,110 @@
         <!-- Loading Pages -->
         <div id="box_loading"></div>
 
+        <div id="contentArea" class="scrollBarNotDisplay">
         <!-- Navigation Bar -->
-        <div id="box_navBar"></div>
+        <div id="box_navBar" class="navHide">
+            <div id="nav_Menu" onclick="window.clickEvent.navigationMenuExpand(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <g stroke-width="6.5" stroke-linecap="round">
+                        <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554" fill="none" stroke="#888"></path>
+                        <path d="M72 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554" fill="none" stroke="#888"></path>
+                        <path d="M100.75 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
 
         <!-- Content Area -->
-        <div id="box_contentArea"></div>
+        <div id="box_contentArea">
+
+            <div id="box_HomePage">
+                <div>
+                    <p>Delighted to have the honor of your visit.</p>
+                    <!-- <p>花径不曾缘客扫，蓬门今始为君开.</p> -->
+                </div>
+
+                <p class="home_MyName">HERE'S</p>
+                <p class="home_MyName">SEECHEN LEE.</p>
+                <!-- <p class="home_MyName">我是</p>
+                <p class="home_MyName">李思净</p> -->
+
+                <p class="home_MyStatus">LOOKING for WORK.</p>
+                <!-- <p class="home_MyStatus">求职中.</p> -->
+
+                <div class="home_ContentSection">
+                    <p class="home_SectionTitle home_ContentSectionAnimation">Education</p>
+
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                </div>
+                <div class="home_ContentSection">
+                    <p class="home_SectionTitle home_ContentSectionAnimation">Projects</p>
+
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                    <h1>a</h1>
+                </div>
+
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+                <h1>a</h1>
+
+            </div>
+
+        </div>
 
         <!-- Footer Area -->
         <div id="box_footerArea"></div>
+        </div>
     </body>
 </html>

@@ -79,7 +79,7 @@ export function vNodeDiff(oldNode, newNode) {
 
 export function vNodePatch(parent, patches, index = 0) {
 
-    const el = parent.childNodes[index];
+    const el = parent.children[index];
 
     patches.forEach(patch => {
         switch(patch.type) {

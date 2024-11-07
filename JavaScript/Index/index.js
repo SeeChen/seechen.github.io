@@ -4,8 +4,9 @@ import { getJson } from "../General/getJson.js";
 import { userLanguage } from "../General/language.js";
 // import { createElement, render, vDOMPatch, vNodeDiff } from "../General/VirtualDOM.js";
 
-import { navigationMenuClick, renderNavigation } from "../General/navigation.js";
+import { navigationMenuClick, navigationMenuExpand, renderNavigation } from "../General/navigation.js";
 import { pageLoaded, pageLoading } from "../General/loading.js";
+import { homeScroll } from "../Home/home.js";
 
 window.globalValues = {
 
@@ -16,6 +17,7 @@ window.globalValues = {
 }
 
 window.clickEvent = {}
+window.webWorker = {}
 
 window.addEventListener("DOMContentLoaded", () => {
 
@@ -33,10 +35,13 @@ window.onload = async function() {
     
     document.title = window.globalValues.translateData.index[window.globalValues.language]._title_;
 
+    window.clickEvent.navigationMenuExpand = navigationMenuExpand;
     window.clickEvent.navigationMenuClick = navigationMenuClick;
 
     renderNavigation();
-    console.log(window.globalValues.currentVDom);
+
+    // Home
+    homeScroll();
 
     await testLoad();
     pageLoaded();
@@ -54,6 +59,9 @@ async function getData() {
     try {
         var translateIndex = await getJson("/Language/Index/index.json");
         window.globalValues.translateData.index = translateIndex;
+
+        var translateNavigation = await getJson("/Language/General/navigation.json");
+        window.globalValues.translateData.navigation = translateNavigation;
     } catch (err) {
         console.error(err);
     }

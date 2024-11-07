@@ -4,37 +4,38 @@ import { vNodeCreate, vNodeRender } from "./VirtualDOM.js";
 
 export function renderNavigation() {
 
-    console.log(window.globalValues.translateData);
+    const navigationContent = window.globalValues.translateData.navigation[window.globalValues.language];
+    console.log(navigationContent);
 
     let domNav = vNodeCreate("div", {}, [
+
         vNodeCreate("p", {}, [window.globalValues.translateData.index[window.globalValues.language]._title_]),
 
         vNodeCreate("ul", {}, [
             vNodeCreate("li", {
                 onclick: "window.clickEvent.navigationMenuClick(this, '/')",
                 class: "selected"
-            }, ["Home"]),
+            }, [navigationContent._home_]),
 
             vNodeCreate("li", {
                 onclick: "window.clickEvent.navigationMenuClick(this, '/travel')",
-            }, ["Travel"]),
+            }, [navigationContent._travel_]),
 
             vNodeCreate("li", {
                 onclick: "window.clickEvent.navigationMenuClick(this, '/lens')",
-            }, ["Lens"]),
+            }, [navigationContent._lens_]),
 
             vNodeCreate("li", {
                 onclick: "window.clickEvent.navigationMenuClick(this, '/projects')",
-            }, ["Projects"]),
+            }, [navigationContent._projects_]),
 
             vNodeCreate("li", {
                 onclick: "window.clickEvent.navigationMenuClick(this, '/about')",
-            }, ["About"]),
+            }, [navigationContent._about_]),
         ]),
     ]);
 
-    window.globalValues.currentVDom = domNav;
-    document.getElementById("box_navBar").appendChild(vNodeRender(window.globalValues.currentVDom));
+    document.getElementById("box_navBar").appendChild(vNodeRender(domNav));
 }
 
 export function navigationMenuClick(obj, path) {
@@ -43,4 +44,10 @@ export function navigationMenuClick(obj, path) {
     obj.classList.add("selected");
 
     route(path);
+}
+
+export function navigationMenuExpand(obj) {
+    
+    obj.classList.toggle("nav_MenuClick");
+    document.querySelector("#box_navBar").classList.toggle("nav_MenuExpand");
 }

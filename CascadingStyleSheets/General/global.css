@@ -3,32 +3,53 @@
     /* Background */
     --bg-color: #d8dad7;
 
+    /* Scroll Bar */
+    --scroll-bar-width: 0.5vw;
+
     /* Font Size */
     --font-size-normal: 1.2em;
     --font-size-2em: 2em;
+    --font-size-2_5em: 2.5em;
+    --font-size-3em: 3em;
     --font-size-4em: 4em;
 
     /* Font Color */
     --font-color-title: #4a4a4a;
     --font-color-normal: #888888;
     --font-color-normal-selected: #111111;
+    --font-color-light-normal: #555555;
 
     /* Font face */
     --fontface-title: "PPAcma-Black", "YeZiGongChangTangYingHei-2";
     --fontface-title-2: "GenJyuuGothic-Normal";
     
     --fontface-content: "unifontdianzhenhei";
+    --fontface-content-2: "bailufeiyunshouxieti";
+    --fontface-content-3: "cangefeibaiw02";
 
     --fontface-art: "amelia", "font-MZD";
+
+    /* Display */
+    --display-phone: none;
+    --display-pc: initial;
 }
 
 @media screen and (max-width: 750px) {
 
     :root {
 
+        /* Scroll Bar */
+        --scroll-bar-width: 2vw;
+
         /* Font */
         --font-size-normal: 1em;
+        --font-size-2em: 1.5em;
+        --font-size-2_5em: 1.75em;
+        --font-size-3em: 2.5em;
         --font-size-4em: 3em;
-        --font-size-2em: 1.75em;
+
+        /* Display */
+        --display-phone: initial;
+        --display-pc: none;
     }
 }

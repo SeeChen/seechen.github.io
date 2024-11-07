@@ -1,0 +1,114 @@
+
+:root {
+
+    --home-font-size-welcome: 3em;
+
+    --home-my-name-margin: 0.8em;
+    --home-my-status-margin: 3em;
+
+    --home-content-title-margin: 1em;
+}
+
+@media screen and (max-width: 750px) {
+
+    :root {
+
+        --home-font-size-welcome: 0.80em;
+
+        --home-my-name-margin: 0.3em;
+        --home-my-status-margin: 1.2em;
+
+        --home-content-title-margin: .5em;
+    }
+}
+
+@keyframes home_entrance_1 {
+
+    from {
+
+        transform: translateY(calc(1.5 * var(--home-my-name-margin)));
+        opacity: 0;
+    }
+
+    to {
+        
+        transform: rotateY(0);
+        opacity: 1;
+    }
+
+}
+
+#box_HomePage > div:first-child {
+
+    margin-bottom: calc(2 * var(--home-my-name-margin));
+    
+    width: 100vw;
+    height: 100vh;
+
+    background: url(/File/Image/Home/home-background.avif);
+    background-size: cover;
+    background-position: top center;
+}
+
+#box_HomePage > div:first-child > p {
+
+    font-size: var(--home-font-size-welcome);
+    font-family: var(--fontface-content-2);
+
+    color: var(--font-color-normal);
+
+    width: 100vw;
+    height: 100vh;
+    line-height: 100vh;
+
+    text-align: center;
+}
+
+#box_HomePage > .home_MyName {
+
+    font-size: var(--font-size-4em);
+    color: var(--font-color-title);
+    font-family: var(--fontface-title);
+    margin-left: var(--home-my-name-margin);
+
+    animation: home_entrance_1 1s linear;
+    animation-timeline: view(85% 0);
+}
+
+#box_HomePage > .home_MyStatus {
+
+    font-size: var(--font-size-normal);
+    color: var(--font-color-light-normal);
+    font-family: var(--fontface-content-3);
+    margin-right: var(--home-my-status-margin);
+
+    text-align: right;
+
+    animation: home_entrance_1 1s linear;
+    animation-timeline: view(85% 0);
+}
+
+#box_HomePage .home_ContentSection {
+    position: relative;
+}
+
+#box_HomePage .home_SectionTitle {
+
+    font-size: var(--font-size-3em);
+    font-family: var(--fontface-title-2);
+    margin-left: var(--home-content-title-margin);
+    margin-top: var(--home-content-title-margin);
+    color: var(--font-color-light-normal);
+}
+
+#box_HomePage .home_ContentSectionAnimation {
+
+    animation: home_entrance_1 1s linear;
+    animation-timeline: view(85% 0);
+}
+
+#box_HomePage p.home_SectionTitle_Sticky {
+    
+    position: sticky;
+    top: 1em;
+}

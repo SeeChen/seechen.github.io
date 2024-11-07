@@ -3,6 +3,8 @@
 
     --loading-content-height: 60vh;
     --loading-content-width: 60vw;
+
+    --loading-progress-text-align: center;
 }
 
 @media screen and (max-width: 750px) {
@@ -11,6 +13,8 @@
 
         --loading-content-height: 80vh;
         --loading-content-width: 80vw;
+
+        --loading-progress-text-align: left;
     }
 }
 
@@ -19,11 +23,21 @@
     background: var(--bg-color);
     font-family: var(--fontface-content);
 
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    opacity: 1;
 
     z-index: 1000;
+    transition: all 0.5s;
+}
+
+#box_loading.hide {
+    opacity: 0;
+    z-index: -1000;
 }
 
 #box_loading div > p:first-child {
@@ -68,4 +82,11 @@
 
     opacity: 0;
     transform: translateX(1em);
+}
+
+#box_loading div > ol:nth-child(2) p {
+
+    color: var(--font-color-normal);
+    font-size: var(--font-size-4em);
+    text-align: var(--loading-progress-text-align);
 }
