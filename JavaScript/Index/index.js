@@ -1,12 +1,21 @@
 
-import { route } from "../General/route.js";
-import { getJson } from "../General/getJson.js";
+import { vDom } from "../General/VirtualDOM.js";
+import { tools } from "../General/tools.js";
+import { router } from "../General/route.js";
 import { userLanguage } from "../General/language.js";
-// import { createElement, render, vDOMPatch, vNodeDiff } from "../General/VirtualDOM.js";
 
-import { navigationMenuClick, navigationMenuExpand, renderNavigation } from "../General/navigation.js";
-import { pageLoaded, pageLoading } from "../General/loading.js";
-import { homeScroll } from "../Home/home.js";
+import { SeeChen_Loading } from "../General/loading.js";
+import { SeeChen_Navigation, SeeChen_Navigation_Click } from "../General/navigation.js";
+
+import { homeScroll, SeeChen_HomePage } from "../Home/home.js";
+
+window.vDom = vDom;
+window.router = router;
+window.myTools = tools;
+
+window.clickEvent = {
+    navigation: SeeChen_Navigation_Click,
+}
 
 window.globalValues = {
 
@@ -16,35 +25,34 @@ window.globalValues = {
     language: ""
 }
 
-window.clickEvent = {}
+window.webpages = {
+    loadingPage: SeeChen_Loading,
+    navigationPage: SeeChen_Navigation,
+
+    currentPages: {}
+}
+
 window.webWorker = {}
-
-window.addEventListener("DOMContentLoaded", () => {
-
-    let PathName = window.location.pathname;
-    console.log(PathName);
-});
 
 window.onload = async function() {
 
-    pageLoading();
+    window.webpages.loadingPage.pageLoading();
 
-    window.route = route;
+    window.webpages.currentPages = SeeChen_HomePage;
+
     window.globalValues.language = new userLanguage().getLanguage();
-    await getData();
+    await window.myTools.getTranslate();
+    await window.webpages.navigationPage.render();
+
+    window.webpages.currentPages.render();
     
     document.title = window.globalValues.translateData.index[window.globalValues.language]._title_;
-
-    window.clickEvent.navigationMenuExpand = navigationMenuExpand;
-    window.clickEvent.navigationMenuClick = navigationMenuClick;
-
-    renderNavigation();
 
     // Home
     homeScroll();
 
     await testLoad();
-    pageLoaded();
+    window.webpages.loadingPage.pageLoaded();
 }
 
 async function testLoad() {
@@ -53,17 +61,5 @@ async function testLoad() {
             resolve("-");
         }, 5000);
     });
-}
-
-async function getData() {
-    try {
-        var translateIndex = await getJson("/Language/Index/index.json");
-        window.globalValues.translateData.index = translateIndex;
-
-        var translateNavigation = await getJson("/Language/General/navigation.json");
-        window.globalValues.translateData.navigation = translateNavigation;
-    } catch (err) {
-        console.error(err);
-    }
 }
 

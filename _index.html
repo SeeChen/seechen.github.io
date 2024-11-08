@@ -19,6 +19,8 @@
 
         <link rel="stylesheet" href="/CascadingStyleSheets/General/loading.css" type="text/css">
 
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/footer.css" type="text/css">
+
         <link rel="stylesheet" href="/CascadingStyleSheets/home/home.css" type="text/css">
         <link rel="stylesheet" href="/CascadingStyleSheets/index/index.css" type="text/css">
 
@@ -28,7 +30,7 @@
         <script src = "/JavaScript/General/VirtualDOM.js" type = "module"></script>
         <script src = "/JavaScript/General/route.js" type = "module"></script>
         <script src = "/JavaScript/General/language.js" type = "module"></script>
-        <script src = "/JavaScript/General/deepCopy.js" type = "module"></script>
+        <script src = "/JavaScript/General/scroll.js" type = "module"></script>
 
         <script src = "/JavaScript/General/loading.js" type = "module"></script>
 
@@ -45,7 +47,7 @@
         <div id="contentArea" class="scrollBarNotDisplay">
         <!-- Navigation Bar -->
         <div id="box_navBar" class="navHide">
-            <div id="nav_Menu" onclick="window.clickEvent.navigationMenuExpand(this)">
+            <div id="nav_Menu" onclick="window.clickEvent.navigation.expandMenu(this)">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
                     <g stroke-width="6.5" stroke-linecap="round">
                         <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
@@ -77,75 +79,94 @@
                 <!-- <p class="home_MyStatus">求职中.</p> -->
 
                 <div class="home_ContentSection">
-                    <p class="home_SectionTitle home_ContentSectionAnimation">Education</p>
+                    <p class="home_toSticky home_SectionTitle home_ContentSectionAnimation">TIMELINE</p>
 
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
+                    <div style="position: relative;">
+                        <p class="home_toSticky home_SectionSecondTitle">2000</p>
+
+                        <div style="position: relative;">
+                            <p class="home_toSticky home_SectionSecondTitle home_SectionSecondTitle2">AUG</p>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">06</p>
+                                <img src="/File/Image/MyTimeline/20000806-01.avif" alt="">
+                                <p class="description">I was BORN.</p>
+                            </div>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">06</p>
+                                <img src="/File/Image/MyTimeline/20000806-01.avif" alt="">
+                                <p class="description">我出生了.</p>
+                            </div>
+
+                        </div>
+
+                        <div style="position: relative;">
+                            <p class="home_toSticky home_SectionSecondTitle home_SectionSecondTitle2">八月</p>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">06</p>
+                                <img src="/File/Image/MyTimeline/20000806-01.avif" alt="">
+                                <p class="description">I was BORN.</p>
+                            </div>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">06</p>
+                                <img src="/File/Image/MyTimeline/20000806-01.avif" alt="">
+                                <p class="description">我出生了.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="position: relative;">
+                        <p class="home_toSticky home_SectionSecondTitle">2024</p>
+
+                        <div style="position: relative;">
+                            <p class="home_toSticky home_SectionSecondTitle home_SectionSecondTitle2">JUN</p>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">30</p>
+                                <img src="/File/Image/MyTimeline/20240630-01.avif" alt="">
+                                <p class="description">Graduate from Beijing Institute of Technology.</p>
+                            </div>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">30</p>
+                                <img src="/File/Image/MyTimeline/20240630-01.avif" alt="">
+                                <p class="description">从北京理工大学毕业</p>
+                            </div>
+                            
+                        </div>
+
+                        <div style="position: relative;">
+                            <p class="home_toSticky home_SectionSecondTitle home_SectionSecondTitle2">六月</p>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">30</p>
+                                <img src="/File/Image/MyTimeline/20240630-01.avif" alt="">
+                                <p class="description">Graduate from Beijing Institute of Technology.</p>
+                            </div>
+
+                            <div class="home_Timeline_Content">
+                                <p class="day">30</p>
+                                <img src="/File/Image/MyTimeline/20240630-01.avif" alt="">
+                                <p class="description">从北京理工大学毕业</p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="home_ContentSection">
-                    <p class="home_SectionTitle home_ContentSectionAnimation">Projects</p>
-
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                    <h1>a</h1>
-                </div>
-
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-                <h1>a</h1>
-
             </div>
 
         </div>
 
         <!-- Footer Area -->
-        <div id="box_footerArea"></div>
+        <div id="box_footerArea">
+            <div>
+
+            </div>
+        </div>
+
         </div>
     </body>
 </html>

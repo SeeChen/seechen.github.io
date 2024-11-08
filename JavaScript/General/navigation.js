@@ -1,53 +1,43 @@
 
-import { route } from "./route.js";
-import { vNodeCreate, vNodeRender } from "./VirtualDOM.js";
+export const SeeChen_Navigation = {
 
-export function renderNavigation() {
+    render: async () => {
 
-    const navigationContent = window.globalValues.translateData.navigation[window.globalValues.language];
-    console.log(navigationContent);
+        var homePageLayout = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
 
-    let domNav = vNodeCreate("div", {}, [
+        let LanguageFile = window.globalValues.translateData.navigation[window.globalValues.language];
+        LanguageFile["_title_"] = window.globalValues.translateData.index[window.globalValues.language]._title_;
+        document.querySelector("#box_navBar").appendChild(
+            window.vDom.Render(
+                window.vDom.Create(homePageLayout, LanguageFile)
+            )
+        );
+    },
 
-        vNodeCreate("p", {}, [window.globalValues.translateData.index[window.globalValues.language]._title_]),
-
-        vNodeCreate("ul", {}, [
-            vNodeCreate("li", {
-                onclick: "window.clickEvent.navigationMenuClick(this, '/')",
-                class: "selected"
-            }, [navigationContent._home_]),
-
-            vNodeCreate("li", {
-                onclick: "window.clickEvent.navigationMenuClick(this, '/travel')",
-            }, [navigationContent._travel_]),
-
-            vNodeCreate("li", {
-                onclick: "window.clickEvent.navigationMenuClick(this, '/lens')",
-            }, [navigationContent._lens_]),
-
-            vNodeCreate("li", {
-                onclick: "window.clickEvent.navigationMenuClick(this, '/projects')",
-            }, [navigationContent._projects_]),
-
-            vNodeCreate("li", {
-                onclick: "window.clickEvent.navigationMenuClick(this, '/about')",
-            }, [navigationContent._about_]),
-        ]),
-    ]);
-
-    document.getElementById("box_navBar").appendChild(vNodeRender(domNav));
+    clearUp: () => {
+        
+        // Navigation never Clear Up.
+        console.log("Never Clearup.");
+    }
 }
 
-export function navigationMenuClick(obj, path) {
+export const SeeChen_Navigation_Click = {
 
-    document.querySelector(".selected").classList.remove("selected");
-    obj.classList.add("selected");
+    clickMenu: (
+        obj, 
+        path
+    ) => {
 
-    route(path);
-}
+        document.querySelector(".selected").classList.remove("selected");
+        obj.classList.add("selected");
 
-export function navigationMenuExpand(obj) {
-    
-    obj.classList.toggle("nav_MenuClick");
-    document.querySelector("#box_navBar").classList.toggle("nav_MenuExpand");
+        window.router.route(path);
+    },
+
+    expandMenu: (
+        obj
+    ) => {
+        obj.classList.toggle("nav_MenuClick");
+        document.querySelector("#box_navBar").classList.toggle("nav_MenuExpand");
+    }
 }

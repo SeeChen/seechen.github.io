@@ -7,6 +7,12 @@
     --home-my-status-margin: 3em;
 
     --home-content-title-margin: 1em;
+
+    --home-section-title-top: 1em;
+    --home-section-second-title-top: 1em;
+
+    --home-timeline-content-width: 80vw;
+    --home-timeline-content-day-border: 0.15em solid #888;
 }
 
 @media screen and (max-width: 750px) {
@@ -19,6 +25,8 @@
         --home-my-status-margin: 1.2em;
 
         --home-content-title-margin: .5em;
+
+        --home-timeline-content-width: 85vw;
     }
 }
 
@@ -34,6 +42,20 @@
         
         transform: rotateY(0);
         opacity: 1;
+    }
+
+}
+
+@keyframes home_entrance_2 {
+
+    from {
+
+        padding-left: 0;
+    }
+
+    to {
+        
+        padding-left: calc(2 * var(--font-size-2_5em));
     }
 
 }
@@ -88,27 +110,155 @@
     animation-timeline: view(85% 0);
 }
 
+#box_HomePage .home_toSticky {
+    background: #d8dad7DD;
+}
+
 #box_HomePage .home_ContentSection {
+    
     position: relative;
+
+    width: 90%;
+    margin: auto;
 }
 
 #box_HomePage .home_SectionTitle {
 
     font-size: var(--font-size-3em);
     font-family: var(--fontface-title-2);
-    margin-left: var(--home-content-title-margin);
-    margin-top: var(--home-content-title-margin);
+    margin: var(--home-content-title-margin) auto 0;
     color: var(--font-color-light-normal);
+
+    width: 100%;
+    border-bottom: 0.15em solid #888;
+    top: var(--home-section-title-top);
+
+    z-index: 10;
 }
 
 #box_HomePage .home_ContentSectionAnimation {
 
     animation: home_entrance_1 1s linear;
-    animation-timeline: view(85% 0);
+    animation-timeline: view(70% 0);
 }
 
 #box_HomePage p.home_SectionTitle_Sticky {
     
     position: sticky;
-    top: 1em;
+}
+
+#box_HomePage p.home_SectionSecondTitle {
+
+    font-size: var(--font-size-2_5em);
+    font-family: var(--fontface-title-3);
+    color: var(--font-color-light-normal);
+    top: var(--home-section-second-title-top);
+
+    width: 95%;
+    margin: auto;
+    box-sizing: border-box;
+
+    z-index: 8;
+}
+
+#box_HomePage p.home_SectionSecondTitle2 {
+
+    padding-left: 0;
+
+    transition: padding 0.5s, border 0.5s, width 0.5s;
+
+    background: #d8dad790;
+
+    z-index: 9;
+}
+
+#box_HomePage p.home_ContentSectionTitle2_Month {
+    padding-left: calc(2 * var(--font-size-2_5em));
+
+    /* width: auto; */
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content {
+
+    position: relative;
+
+    margin: auto;
+    margin-top: var(--font-size-2_5em);
+    width: var(--home-timeline-content-width);
+
+    text-align: center;
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content .day {
+
+    position: absolute;
+
+    font-size: var(--font-size-2em);
+    right: var(--home-content-title-margin);
+    font-family: var(--fontface-title-3);
+    color: var(--font-color-light-normal);
+    padding: var(--home-my-name-margin);
+
+    border-radius: 1.5em .5em 1.5em .5em;
+    border: var(--home-timeline-content-day-border);
+
+    background: rgba(255, 255, 255, 0.5);
+
+    width: auto;
+
+    text-align: right;
+    
+    z-index: 1;
+
+    animation: home_entrance_1 1s linear;
+    animation-timeline: view(75% 0);
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content img {
+    max-height: 45vh;
+    max-width: 80%;
+
+    margin: auto;
+
+    animation: home_entrance_1 1s linear;
+    animation-timeline: view(70% 0);
+
+    transition: filter 0.5s;
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content img:hover {
+    filter: opacity(0.2);
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content img:hover ~ .description {
+
+    transform: scale(1.5);
+    opacity: 1;
+}
+
+#box_HomePage .home_ContentSection .home_Timeline_Content .description {
+
+    position: absolute;
+
+    color: var(--font-color-normal);
+    padding: var(--font-size-2_5em) 0;
+    font-size: var(--font-color-normal);
+    font-family: var(--fontface-content-3);
+
+    text-align: center;
+    display: inline-block;
+    
+    width: 60%;
+    left: 0;
+    right: 0;
+    bottom: var(--font-size-2em);
+    margin: auto;
+
+    transform: scale(1);
+    opacity: 0;
+
+    transition: all 0.5s;
+
+    pointer-events: none;
 }

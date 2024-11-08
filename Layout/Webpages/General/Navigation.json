@@ -1,0 +1,57 @@
+{
+    "tag": "div",
+    "props": {},
+    "children": [{
+        "tag": "p",
+        "props": {},
+        "children": ["_title_"]
+    }, {
+        
+        "tag": "ul",
+        "props": {},
+        "children": [{
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/')",
+                "class": "selected"
+            },
+            "children": ["_home_"]
+        }, {
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/travel')"
+            },
+            "children": ["_travel_"]
+        }, {
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/lens')"
+            },
+            "children": ["_lens_"]
+        }, {
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/post')"
+            },
+            "children": ["_post_"]
+        }, {
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/projects')"
+            },
+            "children": ["_projects_"]
+        }, {
+
+            "tag": "li",
+            "props": {
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/about')"
+            },
+            "children": ["_about_"]
+        }]
+    }]
+}

@@ -1,0 +1,13 @@
+
+#box_footerArea {
+
+    background: var(--bg-color);
+    
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+    margin: auto;
+
+    z-index: 999;
+}

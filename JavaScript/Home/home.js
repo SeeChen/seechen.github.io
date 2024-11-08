@@ -1,11 +1,24 @@
 
+export const SeeChen_HomePage = {
+
+    render: () => {
+
+        console.log("Home Page Render.");
+    },
+
+    clearUp: () => {
+        
+        // Clear Up memory.
+    }
+}
+
+
 export function homeScroll() {
 
     const homeContent = document.querySelector("#contentArea");
-    console.log(homeContent);
     homeContent.addEventListener("scroll", function(event) {
 
-        const homeSectionTitleTag = document.querySelectorAll(".home_SectionTitle");
+        const homeSectionTitleTag = document.querySelectorAll(".home_toSticky");
         homeSectionTitleTag.forEach(target => {
             const rect = target.getBoundingClientRect();
             const isInViewport = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
@@ -21,8 +34,28 @@ export function homeScroll() {
             }
         });
 
+        const homeMonth = document.querySelectorAll(".home_SectionSecondTitle2");
+        homeMonth.forEach(target => {
+            const rect = target.getBoundingClientRect();
+            if (`${rect.top}` <= parseInt(document.documentElement.style.getPropertyValue("--home-section-second-title-top"))) {
+                target.classList.add("home_ContentSectionTitle2_Month");
+            } else {    
+                target.classList.remove("home_ContentSectionTitle2_Month");
+            }
+        });
+
         if (event.target.scrollTop >= document.querySelector("#box_navBar div p").clientHeight) {
             document.querySelector("#box_navBar").classList.add("navShow");
+            document.documentElement.style.setProperty(
+                "--home-section-second-title-top", 
+                `${document.querySelector(".home_SectionTitle").clientHeight
+                     + document.querySelector("#box_navBar div p").clientHeight
+                    + 5}px`
+            );
+            document.documentElement.style.setProperty(
+                "--home-section-title-top", 
+                `${document.querySelector("#box_navBar div p").clientHeight}px`
+            );
         } else if (event.target.scrollTop <= document.querySelector("#box_navBar div p").clientHeight) {
             document.querySelector("#box_navBar").classList.remove("navShow");
         }
@@ -34,50 +67,3 @@ export function homeScroll() {
         }
     });
 }
-
-// export function homeSectionTitlePosition() {
-
-//     const homeSectionTitleTag = document.querySelectorAll(".home_ContentSectionAnimation");
-    
-//     const intersectionObserver = new IntersectionObserver((entries, observer) => {
-//         entries.forEach(entry => {
-//             if (entry.isIntersecting) {
-//                 trackPosition(entry.target);
-//             } else {
-//                 stopTrackingPosition(entry.target);
-//             }
-//         });
-//     }, {
-//         threshold: 0.2
-//     });
-
-//     homeSectionTitleTag.forEach(target => {
-//         intersectionObserver.observe(target);
-//     });
-
-//     const homeSectionPosition = new Map();
-//     function trackPosition(element) {
-    
-//         if (homeSectionPosition.has(element)) return;
-    
-//         function updatePosition() {
-    
-//             const rect = element.getBoundingClientRect();
-//             console.log(element);
-//             console.log(`Element ${element} Position -> Top: ${rect.top}, Left: ${rect.left}`);
-    
-//             if (element.isConnected) {
-//                 homeSectionPosition.set(element, requestAnimationFrame(updatePosition));
-//             }
-//         }
-    
-//         homeSectionPosition.set(element, requestAnimationFrame(updatePosition));
-//     }
-    
-//     function stopTrackingPosition(element) {
-//         if (homeSectionPosition.has(element)) {
-//             cancelAnimationFrame(homeSectionPosition.get(element));
-//             homeSectionPosition.delete(element);
-//         }
-//     }
-// }

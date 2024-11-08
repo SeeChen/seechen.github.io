@@ -3,6 +3,7 @@
         "_home_": "我的主页",
         "_travel_": "我的旅行",
         "_lens_": "我的方框",
+        "_post_": "我的发癫",
         "_projects_": "我的项目",
         "_about_": "关于我的"
     }, 
@@ -11,6 +12,7 @@
         "_home_": "Home",
         "_travel_": "Travel",
         "_lens_": "Lens",
+        "_post_": "Post",
         "_projects_": "Projects",
         "_about_": "About"
     }
