@@ -2,6 +2,7 @@
 import { vDom } from "../General/VirtualDOM.js";
 import { tools } from "../General/tools.js";
 import { router } from "../General/route.js";
+import { EventBus } from "../General/eventBus.js";
 import { userLanguage } from "../General/language.js";
 
 import { SeeChen_Loading } from "../General/loading.js";
@@ -12,6 +13,7 @@ import { homeScroll, SeeChen_HomePage } from "../Home/home.js";
 window.vDom = vDom;
 window.router = router;
 window.myTools = tools;
+window.eventBus = EventBus;
 
 window.clickEvent = {
     navigation: SeeChen_Navigation_Click,
@@ -42,9 +44,16 @@ window.onload = async function() {
 
     window.globalValues.language = new userLanguage().getLanguage();
     await window.myTools.getTranslate();
-    await window.webpages.navigationPage.render();
 
-    window.webpages.currentPages.render();
+    document.querySelector("#contentArea").addEventListener("scroll", (e) => {
+        EventBus.emit("scrollEvent", e);
+    });
+
+    await window.webpages.navigationPage.render();
+    window.webpages.navigationPage.registerEvents();
+
+    await window.webpages.currentPages.render();
+    window.webpages.currentPages.registerEvents();
     
     document.title = window.globalValues.translateData.index[window.globalValues.language]._title_;
 

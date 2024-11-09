@@ -25,7 +25,9 @@ export const SeeChen_Loading = {
                 delete layoutLoading.children[1].children.slice(-2)[0].props.class;
                 layoutLoading.children[1].children.splice(-1, 0, window.vDom.CreateElement("li", {
                     class: "waiting_to_insert"
-                }, [message]));
+                }, 
+                "",
+                [message]));
                 window.vDom.Patch(boxLoading, window.vDom.Diff(oldLoadingContent, layoutLoading));
                 resolve(layoutLoading);
             }, delay);

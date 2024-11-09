@@ -4,6 +4,7 @@
     "children": [{
         "tag": "p",
         "props": {},
+        "lang": "nav",
         "children": ["_title_"]
     }, {
         
@@ -16,6 +17,7 @@
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/')",
                 "class": "selected"
             },
+            "lang": "nav",
             "children": ["_home_"]
         }, {
 
@@ -23,6 +25,7 @@
             "props": {
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/travel')"
             },
+            "lang": "nav",
             "children": ["_travel_"]
         }, {
 
@@ -30,6 +33,7 @@
             "props": {
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/lens')"
             },
+            "lang": "nav",
             "children": ["_lens_"]
         }, {
 
@@ -37,6 +41,7 @@
             "props": {
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/post')"
             },
+            "lang": "nav",
             "children": ["_post_"]
         }, {
 
@@ -44,6 +49,7 @@
             "props": {
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/projects')"
             },
+            "lang": "nav",
             "children": ["_projects_"]
         }, {
 
@@ -51,6 +57,7 @@
             "props": {
                 "onclick": "window.clickEvent.navigation.clickMenu(this, '/about')"
             },
+            "lang": "nav",
             "children": ["_about_"]
         }]
     }]

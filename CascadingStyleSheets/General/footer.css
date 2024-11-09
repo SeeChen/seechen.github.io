@@ -11,3 +11,11 @@
 
     z-index: 999;
 }
+
+#box_footerArea #footer_myName {
+    
+    position: absolute;
+
+    font-size: var(--font-size-5em);
+    color: var(--font-color-title);
+}

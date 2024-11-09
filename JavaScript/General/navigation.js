@@ -3,14 +3,24 @@ export const SeeChen_Navigation = {
 
     render: async () => {
 
-        var homePageLayout = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
+        var navPageLayout = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
 
         let LanguageFile = window.globalValues.translateData.navigation[window.globalValues.language];
         LanguageFile["_title_"] = window.globalValues.translateData.index[window.globalValues.language]._title_;
         document.querySelector("#box_navBar").appendChild(
             window.vDom.Render(
-                window.vDom.Create(homePageLayout, LanguageFile)
+                window.vDom.Create(navPageLayout, {
+                    "nav": LanguageFile
+                })
             )
+        );
+    },
+
+    registerEvents: () => {
+
+        window.eventBus.on(
+            "scrollEvent",
+            nav_Scroll
         );
     },
 
@@ -39,5 +49,46 @@ export const SeeChen_Navigation_Click = {
     ) => {
         obj.classList.toggle("nav_MenuClick");
         document.querySelector("#box_navBar").classList.toggle("nav_MenuExpand");
+    }
+}
+
+const nav_Scroll = (
+    scrollEvent
+) => {
+
+    var navBar = document.querySelector("#box_navBar");
+    var contentArea = document.querySelector("#contentArea");
+    var footerArea = document.querySelector("#box_footerArea");
+
+    var target_scrollTop = scrollEvent.target.scrollTop; 
+    var body_clientHeight = document.querySelector("body").clientHeight;
+    var p_clientHeight = document.querySelector("#box_navBar div p").clientHeight;
+    var footer_rectTop = footerArea.getBoundingClientRect().top;
+
+    if (target_scrollTop >= p_clientHeight) {
+        navBar.classList.add("navShow");
+        document.documentElement.style.setProperty(
+            "--home-section-second-title-top", 
+            `${document.querySelector(".home_SectionTitle").clientHeight
+                 + p_clientHeight + 5}px`
+        );
+        document.documentElement.style.setProperty(
+            "--home-section-title-top", 
+            `${p_clientHeight}px`
+        );
+    } else if (target_scrollTop <= p_clientHeight) {
+        navBar.classList.remove("navShow");
+    }
+
+    if (target_scrollTop >= body_clientHeight) {
+        contentArea.classList.remove("scrollBarNotDisplay");
+    } else if (target_scrollTop <= body_clientHeight) {
+        contentArea.classList.add("scrollBarNotDisplay");
+    }
+
+    if (footer_rectTop <= p_clientHeight) {
+        navBar.classList.add("navHide");
+    } else {
+        navBar.classList.remove("navHide");
     }
 }

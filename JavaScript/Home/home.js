@@ -1,15 +1,39 @@
 
 export const SeeChen_HomePage = {
 
-    render: () => {
+    render: async () => {
 
         console.log("Home Page Render.");
+        var homePageLayout = await window.myTools.getJson("/Layout/Webpages/Home/Home.json");
+        console.log(homePageLayout);
+    },
+
+    home_Scroll: (x) => {
+        console.log(x);
+    },
+
+    registerEvents: () => {
+
+        window.eventBus.on(
+            "scrollEvent",
+            home_Scroll
+        );
     },
 
     clearUp: () => {
         
-        // Clear Up memory.
+        window.eventBus.off(
+            "scrollEvent",
+            home_Scroll
+        )
     }
+}
+
+const home_Scroll = (
+    scrollEvent
+) => {
+
+    const home_SectionTitleTag = document.querySelectorAll(".home_toSticky");
 }
 
 
@@ -43,27 +67,5 @@ export function homeScroll() {
                 target.classList.remove("home_ContentSectionTitle2_Month");
             }
         });
-
-        if (event.target.scrollTop >= document.querySelector("#box_navBar div p").clientHeight) {
-            document.querySelector("#box_navBar").classList.add("navShow");
-            document.documentElement.style.setProperty(
-                "--home-section-second-title-top", 
-                `${document.querySelector(".home_SectionTitle").clientHeight
-                     + document.querySelector("#box_navBar div p").clientHeight
-                    + 5}px`
-            );
-            document.documentElement.style.setProperty(
-                "--home-section-title-top", 
-                `${document.querySelector("#box_navBar div p").clientHeight}px`
-            );
-        } else if (event.target.scrollTop <= document.querySelector("#box_navBar div p").clientHeight) {
-            document.querySelector("#box_navBar").classList.remove("navShow");
-        }
-        
-        if (event.target.scrollTop >= document.querySelector("body").clientHeight) {
-            this.classList.remove("scrollBarNotDisplay");
-        } else if (event.target.scrollTop <= document.querySelector("body").clientHeight) {
-            this.classList.add("scrollBarNotDisplay");
-        }
     });
 }

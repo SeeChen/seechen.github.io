@@ -6,13 +6,14 @@ export const vDom = {
         LanguageFile = {}
     ) => {
 
-        const { tag, props = {}, children = [] } = Layout;
-
+        const { tag, props = {}, lang = "", children = [] } = Layout;
+        
         return vDom.CreateElement(
             tag,
             props,
+            lang,
             children.length === 1 && typeof children[0] === "string"
-            ? [LanguageFile[children[0]] || children[0]]
+            ? [LanguageFile[lang] ? LanguageFile[lang][children[0]] : children[0]]
             : children.map(child => vDom.Create(child, LanguageFile))
         );
     },
@@ -20,12 +21,14 @@ export const vDom = {
     CreateElement: (
         tag,
         props,
+        lang,
         children
     ) => {
 
         return {
             tag,
             props: props || {},
+            lang: lang || "",
             children: children || []
         }
     },

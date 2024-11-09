@@ -1,0 +1,27 @@
+{
+    "tag": "div",
+    "props": {},
+    "children": [{
+        "tag": "p",
+        "props": {},
+        "children": ["seechen.github.io"]
+    }, {
+        "tag": "ol",
+        "props": {
+            "start": "0"
+        },
+        "children": [{
+            "tag": "li",
+            "props": {
+                "class": "waiting_to_insert"
+            },
+            "children": ["Hello World!"]
+        }, {
+            "tag": "p",
+            "props": {
+                "id": "progressBar"
+            },
+            "children": ["0%"]
+        }]
+    }]
+}
