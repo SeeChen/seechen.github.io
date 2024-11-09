@@ -111,13 +111,13 @@
 
 #box_footerArea #footer_content .footer_content_content {
     
-    font-size: var(--font-size-1em);
+    font-size: var(--font-size-normal);
     margin: 0.15em;
 }
 
 p.footer_menu_desc {
     opacity: 0.6;
-    font-size: var(--font-size-_75em);
+    font-size: var(--font-size-1em);
     padding-bottom: var(--font-size-1em);
 }
 
