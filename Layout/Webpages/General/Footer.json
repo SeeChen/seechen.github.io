@@ -1,0 +1,315 @@
+{
+    "tag": "div",
+    "props": {},
+    "children": [{
+        "tag": "p",
+        "props": {
+            "id": "footer_myName"
+        },
+        "lang": "idx",
+        "children": ["_title_"]
+    }, {
+        "tag": "ul",
+        "props": {
+            "id": "footer_socialIcon"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "a",
+                "props": {
+                    "href": "https://www.instagram.com/seechen_lee/",
+                    "target": "_blank"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "img",
+                    "props": {
+                        "src": "./MATERIALS/ico_instagram.png",
+                        "alt": ""
+                    },
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }, {
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "a",
+                "props": {
+                    "href": "https://www.facebook.com/SeeChen00/",
+                    "target": "_blank"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "img",
+                    "props": {
+                        "src": "./MATERIALS/ico_facebook.png",
+                        "alt": ""
+                    },
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }, {
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "a",
+                "props": {
+                    "href": "https://github.com/seechen",
+                    "target": "_blank"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "img",
+                    "props": {
+                        "src": "./MATERIALS/ico_github.png",
+                        "alt": ""
+                    },
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }, {
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "a",
+                "props": {
+                    "href": "mailto:leeseechen@gmail.com",
+                    "target": "_blank"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "img",
+                    "props": {
+                        "src": "./MATERIALS/ico_gmail.png",
+                        "alt": ""
+                    },
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }]
+    }, {
+        "tag": "ul",
+        "props": {
+            "id": "footer_content"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "li",
+            "props": {
+                "id": "footer_content_subscribe"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "footer_content_title"
+                },
+                "lang": "footer",
+                "children": ["_subscribe_"]
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "footer_content_content"
+                },
+                "lang": "footer",
+                "children": ["_subscribe_desc_"]
+            }, {
+                "tag": "p",
+                "props": {},
+                "lang": "footer",
+                "children": ["_btn_subscribe_"]
+            }]
+        }, {
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "footer_content_title"
+                },
+                "lang": "footer",
+                "children": ["_menu_"]
+            }, {
+                "tag": "ul",
+                "props": {
+                    "class": "footer_content_content"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_home_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_home_"]
+                    }]
+                }, {
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/travel')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_travel_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_travel_"]
+                    }]
+                }, {
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/lens')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_lens_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_lens_"]
+                    }]
+                }, {
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/post')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_post_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_post_"]
+                    }]
+                }, {
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/projects')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_projects_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_projects_"]
+                    }]
+                }, {
+                    "tag": "li",
+                    "props": {
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/about')"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "nav",
+                        "children": ["_about_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "display_pc footer_menu_desc"
+                        },
+                        "lang": "footer",
+                        "children": ["_menu_desc_about_"]
+                    }]
+                }]
+            }]
+        }, {
+            "tag": "li",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "footer_content_title"
+                },
+                "lang": "footer",
+                "children": ["_about_page_"]
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "footer_content_content"
+                },
+                "lang": "footer",
+                "children": ["_about_page_desc_"]
+            }]
+        }]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "footer_foot"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "hr",
+            "props": {},
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": ["seechen.github.io"]
+        }, {
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": ["Copyright &copy; 2024 SeeChen. All rights reserved."]
+        }, {
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": ["版权所有 &copy; 2024 SeeChen."]
+        }]
+    }]
+}

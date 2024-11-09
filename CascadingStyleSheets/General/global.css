@@ -7,6 +7,8 @@
     --scroll-bar-width: 0.5vw;
 
     /* Font Size */
+    --font-size-_75em: .75em;
+    --font-size-1em: 1em;
     --font-size-normal: 1.2em;
     --font-size-2em: 2em;
     --font-size-2_5em: 2.5em;
@@ -24,6 +26,7 @@
     --fontface-title: "PPAcma-Black", "YeZiGongChangTangYingHei-2";
     --fontface-title-2: "GenJyuuGothic-Normal";
     --fontface-title-3: "GenJyuuGothic-Normal";
+    --fontface-title-4: "YeZiGongChangTangYingHei-2";
     
     --fontface-content: "unifontdianzhenhei";
     --fontface-content-2: "bailufeiyunshouxieti";
@@ -44,6 +47,8 @@
         --scroll-bar-width: 2vw;
 
         /* Font */
+        --font-size-_75em: .5em;
+        --font-size-1em: 0.75em;
         --font-size-normal: 1em;
         --font-size-2em: 1.5em;
         --font-size-2_5em: 1.75em;
@@ -55,4 +60,8 @@
         --display-phone: initial;
         --display-pc: none;
     }
+}
+
+.display_pc {
+    display: var(--display-pc);
 }

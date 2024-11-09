@@ -73,6 +73,9 @@ export const tools = {
     
             var translateNavigation = await tools.getJson("/Language/General/navigation.json");
             window.globalValues.translateData.navigation = translateNavigation;
+
+            var translateFooter = await tools.getJson("/Language/General/footer.json");
+            window.globalValues.translateData.footer = translateFooter;
         } catch (err) {
             console.error(err);
         }

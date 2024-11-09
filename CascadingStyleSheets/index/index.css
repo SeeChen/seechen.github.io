@@ -3,6 +3,7 @@
     padding: 0;
     margin: 0;
     user-select: none;
+    scroll-behavior: smooth;
 }
 
 html, body {
@@ -20,6 +21,7 @@ html, body {
     height: 100vh;
     width: 100vw;
     overflow: hidden overlay;
+    scroll-behavior: smooth;
 }
 
 #contentArea::-webkit-scrollbar {

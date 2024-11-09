@@ -9,6 +9,7 @@ import { SeeChen_Loading } from "../General/loading.js";
 import { SeeChen_Navigation, SeeChen_Navigation_Click } from "../General/navigation.js";
 
 import { homeScroll, SeeChen_HomePage } from "../Home/home.js";
+import { SeeChen_Footer } from "../General/footer.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -30,6 +31,7 @@ window.globalValues = {
 window.webpages = {
     loadingPage: SeeChen_Loading,
     navigationPage: SeeChen_Navigation,
+    footerPage: SeeChen_Footer,
 
     currentPages: {}
 }
@@ -49,6 +51,7 @@ window.onload = async function() {
         EventBus.emit("scrollEvent", e);
     });
 
+    await window.webpages.footerPage.render();
     await window.webpages.navigationPage.render();
     window.webpages.navigationPage.registerEvents();
 

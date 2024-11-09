@@ -86,9 +86,16 @@ const nav_Scroll = (
         contentArea.classList.add("scrollBarNotDisplay");
     }
 
-    if (footer_rectTop <= p_clientHeight) {
-        navBar.classList.add("navHide");
+
+    if (footer_rectTop < p_clientHeight) {
+        navBar.style.top = `-${p_clientHeight - footer_rectTop + 5}px`;
     } else {
-        navBar.classList.remove("navHide");
+        navBar.style.top = "";
+    }
+
+    if (footer_rectTop <= (body_clientHeight / 1.25)) {
+        footerArea.classList.remove("notInDisplay");
+    } else if (footer_rectTop > (body_clientHeight / 1.25)) {
+        footerArea.classList.add("notInDisplay");
     }
 }

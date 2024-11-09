@@ -7,7 +7,7 @@ export const vDom = {
     ) => {
 
         const { tag, props = {}, lang = "", children = [] } = Layout;
-        
+
         return vDom.CreateElement(
             tag,
             props,
@@ -46,7 +46,11 @@ export const vDom = {
         }
     
         vNode.children.forEach(child => {
-            el.appendChild(vDom.Render(child));
+            if (typeof child === "string") {
+                el.innerHTML += child;
+            } else {
+                el.appendChild(vDom.Render(child));
+            }
         });
     
         return el;

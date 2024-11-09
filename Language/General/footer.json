@@ -1,0 +1,35 @@
+{
+    "zh": {
+        "_subscribe_": "订阅",
+        "_subscribe_desc_": "随时获取本页的最新帖子、Lens 作品和旅行故事更新。",
+        "_btn_subscribe_": "点击订阅",
+
+        "_menu_": "网站导航",
+        "_menu_desc_home_": "欢迎来到网站首页！",
+        "_menu_desc_travel_": "探索我旅行中的珍贵记忆",
+        "_menu_desc_lens_": "捕捉的精彩瞬间",
+        "_menu_desc_post_": "随笔与心灵的涌动",
+        "_menu_desc_projects_": "我参与开发的项目",
+        "_menu_desc_about_": "关于本站、我本人或网站设置",
+
+        "_about_page_": "关于此站",
+        "_about_page_desc_": "本网站建立于 GitHub Pages（github.io）平台，采用 HTML5、CSS3 和原生 JavaScript 开发。本站为单页面应用（SPA），所有代码由本站作者独立完成。如遇问题，请在 GitHub 上提交 Issues。"
+    }, 
+
+    "en": {
+        "_subscribe_": "Subscribe",
+        "_subscribe_desc_": "Stay updated with the latest posts, lens works, and travel stories from this page.",
+        "_btn_subscribe_": "SUBSCRIBE",
+
+        "_menu_": "Menu",
+        "_menu_desc_home_": "Welcome to the homepage of the site !",
+        "_menu_desc_travel_": "Explore the cherished memories from my travels",
+        "_menu_desc_lens_": "Captured moments of charm",
+        "_menu_desc_post_": "Spontaneous thoughts and musings",
+        "_menu_desc_projects_": "Projects I am working on",
+        "_menu_desc_about_": "About this site, myself, or site settings",
+
+        "_about_page_": "About this Sites",
+        "_about_page_desc_": "This site is hosted on GitHub Pages (github.io) and developed using HTML5, CSS3, and native JavaScript. It is a Single Page Application (SPA), and all code has been independently developed by the site author. If you encounter any issues, please submit them on GitHub Issues."
+    }
+}
