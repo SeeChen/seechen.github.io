@@ -3,9 +3,121 @@ export const SeeChen_HomePage = {
 
     render: async () => {
 
-        console.log("Home Page Render.");
         var homePageLayout = await window.myTools.getJson("/Layout/Webpages/Home/Home.json");
-        console.log(homePageLayout);
+        var homePageDom = window.vDom.Create(homePageLayout, {
+            home: window.globalValues.translateData.home[window.globalValues.language],
+            month: window.globalValues.translateData.month[window.globalValues.language]
+        });
+
+        var homeTimeline = await window.myTools.getJson("/Layout/Webpages/Home/Timeline.json");        
+        let homeTimeline_Year = Object.keys(homeTimeline).filter(item => item != "title");
+
+        homePageDom.children[4].children.push(
+            window.vDom.Create(
+                {
+                    tag: "p",
+                    props: {
+                        class: "home_toSticky home_SectionTitle home_ContentSectionAnimation"
+                    },
+                    lang: "timeline",
+                    children: [homeTimeline.title]
+                }
+            )
+        )
+
+        for (const year of homeTimeline_Year) {
+
+            const data_Year = homeTimeline[year];
+            let homeTimeline_Month = Object.keys(data_Year);
+
+            let timeline_Layout = {
+                tag: "div",
+                props: {
+                    style: "position: relative;"
+                },
+                lang: "",
+                children: [{
+                    tag: "p",
+                    props: {
+                        class: "home_toSticky home_SectionSecondTitle"
+                    },
+                    lang: "",
+                    children: [year]
+                }]
+            }
+
+            for (const month of homeTimeline_Month) {
+
+                const data_Month = data_Year[month];
+                let homeTimeline_Day = Object.keys(data_Month);
+
+                timeline_Layout.children.push({
+                    tag: "div",
+                    props: {
+                        style: "position: relative;"
+                    },
+                    lang: "",
+                    children: [{
+                        tag: "p",
+                        props: {
+                            class: "home_toSticky home_SectionSecondTitle home_SectionSecondTitle2"
+                        },
+                        lang: "month",
+                        children: [month]
+                    }]
+                });
+
+                for (const day of homeTimeline_Day) {
+
+                    const day_Data = data_Month[day];
+                    day_Data.forEach(item => {
+
+                        timeline_Layout.children[1].children.push({
+                            tag: "div",
+                            props: {
+                                class: "home_Timeline_Content"
+                            },
+                            lang: "",
+                            children: [{
+                                tag: "p",
+                                props: {
+                                    class: "day"
+                                },
+                                lang: "",
+                                children: [day.replace("d", "")]
+                            }, {
+                                tag: "img",
+                                props: {
+                                    src: item.src,
+                                    alt: item.alt
+                                },
+                                lang: "",
+                                children: []
+                            }, {
+                                tag: "p",
+                                props: {
+                                    class: "description"
+                                },
+                                lang: "timeline",
+                                children: [item.alt]
+                            }]
+                        });
+                    });
+                }
+            }
+
+            homePageDom.children[4].children.push(
+                window.vDom.Create(timeline_Layout)
+            );
+        }
+
+        console.log(homePageDom);
+         
+        document.querySelector("#box_contentArea").appendChild(
+            window.vDom.Render(
+                homePageDom
+            )
+        );
     },
 
     home_Scroll: (x) => {
@@ -25,7 +137,15 @@ export const SeeChen_HomePage = {
         window.eventBus.off(
             "scrollEvent",
             home_Scroll
-        )
+        );
+
+        const boxContent = document.querySelector("#box_contentArea");
+        const homeContent = boxContent.querySelector("#box_HomePage");
+        homeContent.style.opacity = 0;
+
+        setTimeout(() => {
+            boxContent.removeChild(homeContent);
+        }, 1000);
     }
 }
 

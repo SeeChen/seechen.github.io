@@ -7,11 +7,7 @@ export const SeeChen_Footer = {
 
         document.querySelector("#box_footerArea").appendChild(
             window.vDom.Render(
-                window.vDom.Create(footerLayout, {
-                    nav: window.globalValues.translateData.navigation[window.globalValues.language],
-                    idx: window.globalValues.translateData.index[window.globalValues.language],
-                    footer: window.globalValues.translateData.footer[window.globalValues.language]
-                })
+                window.vDom.Create(footerLayout)
             )
         );
     },

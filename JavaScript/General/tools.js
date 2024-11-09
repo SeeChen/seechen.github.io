@@ -68,14 +68,23 @@ export const tools = {
 
     getTranslate: async () => {
         try {
+            var translateMonth = await tools.getJson("/Language/General/month.json");
+            window.globalValues.translateData.month = translateMonth;
+
             var translateIndex = await tools.getJson("/Language/Index/index.json");
-            window.globalValues.translateData.index = translateIndex;
+            window.globalValues.translateData.idx = translateIndex;
     
             var translateNavigation = await tools.getJson("/Language/General/navigation.json");
-            window.globalValues.translateData.navigation = translateNavigation;
+            window.globalValues.translateData.nav = translateNavigation;
 
             var translateFooter = await tools.getJson("/Language/General/footer.json");
             window.globalValues.translateData.footer = translateFooter;
+
+            var translateHome = await tools.getJson("/Language/Home/home.json");
+            window.globalValues.translateData.home = translateHome;
+
+            var translateTimeline = await tools.getJson("/Language/Home/timeline.json");
+            window.globalValues.translateData.timeline = translateTimeline;
         } catch (err) {
             console.error(err);
         }

@@ -60,6 +60,10 @@
 
 }
 
+#box_HomePage {
+    transition: opacity 0.5s;
+}
+
 #box_HomePage > div:first-child {
 
     margin-bottom: calc(2 * var(--home-my-name-margin));

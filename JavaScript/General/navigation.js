@@ -5,13 +5,9 @@ export const SeeChen_Navigation = {
 
         var navPageLayout = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
 
-        let LanguageFile = window.globalValues.translateData.navigation[window.globalValues.language];
-        LanguageFile["_title_"] = window.globalValues.translateData.index[window.globalValues.language]._title_;
         document.querySelector("#box_navBar").appendChild(
             window.vDom.Render(
-                window.vDom.Create(navPageLayout, {
-                    "nav": LanguageFile
-                })
+                window.vDom.Create(navPageLayout)
             )
         );
     },

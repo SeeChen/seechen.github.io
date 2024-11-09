@@ -1,19 +1,31 @@
 {
     "zh": {
-        "_jan_": "一月",
-        "_feb_": "二月",
-        "_lens_": "我的方框",
-        "_post_": "我的发癫",
-        "_projects_": "我的项目",
-        "_about_": "关于我的"
+        "_jan_": "一月份",
+        "_feb_": "二月份",
+        "_mar_": "三月份",
+        "_apr_": "四月份",
+        "_may_": "五月份",
+        "_jun_": "六月份",
+        "_jul_": "七月份",
+        "_aug_": "八月份",
+        "_sep_": "九月份",
+        "_oct_": "十月份",
+        "_nav_": "十一月",
+        "_dec_": "十二月"
     }, 
 
     "en": {
-        "_home_": "Home",
-        "_travel_": "Travel",
-        "_lens_": "Lens",
-        "_post_": "Post",
-        "_projects_": "Projects",
-        "_about_": "About"
+        "_jan_": "January",
+        "_feb_": "February",
+        "_mar_": "March",
+        "_apr_": "April",
+        "_may_": "May",
+        "_jun_": "June",
+        "_jul_": "July",
+        "_aug_": "August",
+        "_sep_": "September",
+        "_oct_": "October",
+        "_nav_": "November",
+        "_dec_": "December"
     }
 }

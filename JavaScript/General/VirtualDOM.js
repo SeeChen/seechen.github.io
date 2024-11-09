@@ -2,19 +2,20 @@
 export const vDom = {
 
     Create: (
-        Layout,
-        LanguageFile = {}
+        Layout
     ) => {
 
         const { tag, props = {}, lang = "", children = [] } = Layout;
+
+        let LanguageObj = window.globalValues.translateData;
 
         return vDom.CreateElement(
             tag,
             props,
             lang,
             children.length === 1 && typeof children[0] === "string"
-            ? [LanguageFile[lang] ? LanguageFile[lang][children[0]] : children[0]]
-            : children.map(child => vDom.Create(child, LanguageFile))
+            ? [LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][children[0]] : children[0]]
+            : children.map(child => vDom.Create(child))
         );
     },
 
@@ -46,6 +47,7 @@ export const vDom = {
         }
     
         vNode.children.forEach(child => {
+
             if (typeof child === "string") {
                 el.innerHTML += child;
             } else {

@@ -4,7 +4,7 @@
     "children": [{
         "tag": "p",
         "props": {},
-        "lang": "nav",
+        "lang": "idx",
         "children": ["_title_"]
     }, {
         

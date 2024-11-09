@@ -1,27 +1,48 @@
 {
     "tag": "div",
-    "props": {},
-    "children": [{
-        "tag": "p",
-        "props": {},
-        "children": ["seechen.github.io"]
-    }, {
-        "tag": "ol",
-        "props": {
-            "start": "0"
-        },
-        "children": [{
-            "tag": "li",
-            "props": {
-                "class": "waiting_to_insert"
-            },
-            "children": ["Hello World!"]
+    "props": {
+        "id": "box_HomePage"
+    },
+    "lang": "",
+    "children": [
+        {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {},
+                "lang": "home",
+                "children": ["_home_welcome_"]
+            }]
         }, {
             "tag": "p",
             "props": {
-                "id": "progressBar"
+                "class": "home_MyName"
             },
-            "children": ["0%"]
-        }]
-    }]
+            "lang": "home",
+            "children": ["_home_name_1_"]
+        }, {
+            "tag": "p",
+            "props": {
+                "class": "home_MyName"
+            },
+            "lang": "home",
+            "children": ["_home_name_2_"]
+        }, {
+            "tag": "p",
+            "props": {
+                "class": "home_MyStatus"
+            },
+            "lang": "home",
+            "children": ["_home_status_"]
+        }, {
+            "tag": "div",
+            "props": {
+                "class": "home_ContentSection"
+            },
+            "lang": "",
+            "children": []
+        }
+    ]
 }

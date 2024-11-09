@@ -58,7 +58,7 @@ window.onload = async function() {
     await window.webpages.currentPages.render();
     window.webpages.currentPages.registerEvents();
     
-    document.title = window.globalValues.translateData.index[window.globalValues.language]._title_;
+    document.title = window.globalValues.translateData.idx[window.globalValues.language]._title_;
 
     // Home
     homeScroll();
