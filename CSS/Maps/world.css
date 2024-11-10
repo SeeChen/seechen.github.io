@@ -8,11 +8,11 @@
 }
 
 .visited {
-    fill: #888;
+    fill: #CCCCCC;
     transition: all 0.5s;
 }
 
 .visited:hover {
     cursor: pointer;
-    fill: #00000075;
+    fill: #FFFFFF00;
 }

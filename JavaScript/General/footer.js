@@ -1,6 +1,11 @@
 
 export const SeeChen_Footer = {
 
+    init: async () => {
+
+        await SeeChen_Footer.render();
+    },
+
     render: async () => {
 
         var footerLayout = await window.myTools.getJson("/Layout/Webpages/General/Footer.json");

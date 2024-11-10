@@ -1,6 +1,12 @@
 
 export const SeeChen_Navigation = {
 
+    init: async () => {
+
+        await SeeChen_Navigation.render();
+        SeeChen_Navigation.registerEvents();
+    },
+
     render: async () => {
 
         var navPageLayout = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");

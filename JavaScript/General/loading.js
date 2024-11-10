@@ -10,7 +10,7 @@ export const SeeChen_Loading = {
     updateProgress: (
         progress
     ) => {
-        document.querySelector("#progressBar").innerText = progress;
+        document.querySelector("#progressBar").innerText = `${progress}%`;
     },
 
     pageLoadingMessage: async (
@@ -53,14 +53,14 @@ export const SeeChen_Loading = {
             layoutLoading = await SeeChen_Loading.pageLoadingMessage(boxLoading, layoutLoading, msg, 500);
         }
 
-        SeeChen_Loading.updateProgress("10%");
+        SeeChen_Loading.updateProgress(10);
     },
 
     pageLoaded: () => {
 
         const boxLoading = document.querySelector("#box_loading");
         const childLoading = boxLoading.querySelector("div");
-        SeeChen_Loading.updateProgress("100%");
+        SeeChen_Loading.updateProgress(100);
         boxLoading.classList.add("hide");
 
         document.querySelector("#box_navBar").classList.remove("navHide");

@@ -67,27 +67,36 @@ export const tools = {
     },
 
     getTranslate: async () => {
-        try {
-            var translateMonth = await tools.getJson("/Language/General/month.json");
-            window.globalValues.translateData.month = translateMonth;
 
-            var translateIndex = await tools.getJson("/Language/Index/index.json");
-            window.globalValues.translateData.idx = translateIndex;
-    
-            var translateNavigation = await tools.getJson("/Language/General/navigation.json");
-            window.globalValues.translateData.nav = translateNavigation;
+        const translatePaths = {
 
-            var translateFooter = await tools.getJson("/Language/General/footer.json");
-            window.globalValues.translateData.footer = translateFooter;
+            month: "/Language/General/month.json",
+            idx: "/Language/Index/index.json",
+            nav: "/Language/General/navigation.json",
+            footer: "/Language/General/footer.json",
 
-            var translateHome = await tools.getJson("/Language/Home/home.json");
-            window.globalValues.translateData.home = translateHome;
+            home: "/Language/Home/home.json",
+            timeline: "/Language/Home/timeline.json",
 
-            var translateTimeline = await tools.getJson("/Language/Home/timeline.json");
-            window.globalValues.translateData.timeline = translateTimeline;
-        } catch (err) {
-            console.error(err);
-        }
+            country: "/Language/Area/country.json",
+            countryCN: "/Language/Area/CN.json",
+            countryMY: "/Language/Area/MY.json",
+            countrySG: "/Language/Area/SG.json"
+        };
+
+        const translateEntries = await Promise.all(
+            Object.entries(translatePaths).map(async ([key, path]) => {
+                try {
+                    const translateData = await tools.getJson(path);
+                    return [key, translateData];
+                } catch (err) {
+                    console.log(err);
+                    return [key, {}];
+                }
+            })
+        );
+
+        window.globalValues.translateData = Object.fromEntries(translateEntries);
     },
     
 }

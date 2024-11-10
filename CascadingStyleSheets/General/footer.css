@@ -160,6 +160,8 @@ p.footer_menu_desc {
     margin: auto;
 
     list-style-type: none;
+
+    z-index: 11;
 }
 
 #box_footerArea #footer_socialIcon li {

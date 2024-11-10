@@ -1,0 +1,39 @@
+{
+    "zh": {
+        "Johor": "柔佛州",
+        "Kedah": "吉打州",
+        "Kelantan": "吉兰丹",
+        "Melaka": "马六甲",
+        "Sembilan": "森美兰",
+        "Pahang": "彭亨州",
+        "Pinang": "槟城",
+        "Perak": "霹雳州",
+        "Perlis": "玻璃市",
+        "Selangor": "雪兰莪州",
+        "Terengganu": "登嘉楼",
+        "Sabah": "沙巴州",
+        "Sarawak": "砂拉越",
+        "KL": "吉隆坡",
+        "Labuan": "纳闽岛",
+        "Putrajaya": "布特拉再也"
+    },
+
+    "en": {
+        "Johor": "JOHOR",
+        "Kedah": "KEDAH",
+        "Kelantan": "KELANTAN",
+        "Melaka": "MELAKA",
+        "Sembilan": "SEMBILAN",
+        "Pahang": "PAHANG",
+        "Pinang": "PULAU PINANG",
+        "Perak": "PERAK",
+        "Perlis": "PERLIS",
+        "Selangor": "SELANGOR",
+        "Terengganu": "TERENGGANU",
+        "Sabah": "SABAH",
+        "Sarawak": "SARAWAK",
+        "KL": "KUALA LUMPUR",
+        "Labuan": "LABUAN",
+        "Putrajaya": "PUTRAJAYA"
+    }
+}

@@ -1,33 +1,72 @@
+import { SeeChen_HomePage } from "../Home/home.js";
 
 window.addEventListener("popstate", () => {
     router.route(window.location.pathname);
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    router.route(window.location.pathname);
-});
+const routesFunction = {
+
+    home: async () => {
+
+        document.title = "SEECHEN";
+
+        if (SeeChen_HomePage !== window.webpages.currentPages) {
+
+            window.webpages.currentPages = SeeChen_HomePage;
+            await window.webpages.currentPages.init();
+        }
+    },
+
+}
 
 const routes = {
 
-    "/": function () {
-        document.title = "HOME";
+    "/": async () => {
+        await routesFunction.home();
+    },
+    "/spa.html": async () => {
+        await routesFunction.home();
+    },
+    "/index": async () => {
+        await routesFunction.home();
+    },
+    "/index.html": async () => {
+        await routesFunction.home();
+    },
+    "/home": async () => {
+        await routesFunction.home();
+    },
+    "/home.html": async () => {
+        await routesFunction.home();
     },
 
-    "/post/:id": function (params) {
-        document.title = `ID: ${params.id}`;
-    }
+    "/travel": async () => {
+        
+    },
+    "/lens": async () => {
+
+    },
+    "/post": async () => {
+
+    },
+    "/projects": async () => {
+
+    },
+    "/about": async () => {
+
+    },
 }
 
 export const router = {
 
-    route: (
+    route: async (
         path
     ) => {
         const routeMatch = router.matchRoute(path);
     
         if (routeMatch) {
             const params = routeMatch.params;
-            routeMatch.handler(params);
+            await routeMatch.handler(params);
         } else {
             document.title = "404 Page Not Found!";
         }
@@ -45,7 +84,7 @@ export const router = {
             
             if (match) {
                 return {
-                    handler: routes[route],
+                    handler: async (params) => { await routes[route](params); },
                     params: router.extractParams(route, match)
                 };
             }

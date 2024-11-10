@@ -347,3 +347,7 @@ body::-webkit-scrollbar {
         display: grid;
     }
 }
+
+svg {
+    will-change: transform;
+}

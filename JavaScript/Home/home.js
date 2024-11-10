@@ -1,6 +1,12 @@
 
 export const SeeChen_HomePage = {
 
+    init: async () => {
+
+        await SeeChen_HomePage.render();
+        SeeChen_HomePage.registerEvents();
+    },
+
     render: async () => {
 
         var homePageLayout = await window.myTools.getJson("/Layout/Webpages/Home/Home.json");
@@ -46,8 +52,10 @@ export const SeeChen_HomePage = {
                 }]
             }
 
+            let month_index = 0;
             for (const month of homeTimeline_Month) {
 
+                month_index += 1;
                 const data_Month = data_Year[month];
                 let homeTimeline_Day = Object.keys(data_Month);
 
@@ -72,7 +80,7 @@ export const SeeChen_HomePage = {
                     const day_Data = data_Month[day];
                     day_Data.forEach(item => {
 
-                        timeline_Layout.children[1].children.push({
+                        timeline_Layout.children[month_index].children.push({
                             tag: "div",
                             props: {
                                 class: "home_Timeline_Content"
@@ -89,7 +97,8 @@ export const SeeChen_HomePage = {
                                 tag: "img",
                                 props: {
                                     src: item.src,
-                                    alt: item.alt
+                                    alt: item.alt,
+                                    loading: "lazy"
                                 },
                                 lang: "",
                                 children: []
@@ -111,17 +120,13 @@ export const SeeChen_HomePage = {
             );
         }
 
-        console.log(homePageDom);
+        window.globalValues.currentVDom = homePageDom;
          
         document.querySelector("#box_contentArea").appendChild(
             window.vDom.Render(
                 homePageDom
             )
         );
-    },
-
-    home_Scroll: (x) => {
-        console.log(x);
     },
 
     registerEvents: () => {
@@ -154,6 +159,30 @@ const home_Scroll = (
 ) => {
 
     const home_SectionTitleTag = document.querySelectorAll(".home_toSticky");
+    home_SectionTitleTag.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        const isInViewport = rect.top >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+        if (isInViewport) {
+
+            if (rect.top <= (document.querySelector("body").clientHeight / 3)) {
+                target.classList.remove("home_ContentSectionAnimation");
+                target.classList.add("home_SectionTitle_Sticky");
+            } else {
+                target.classList.add("home_ContentSectionAnimation");
+                target.classList.remove("home_SectionTitle_Sticky");
+            }
+        }
+    });
+
+    const home_Month = document.querySelectorAll(".home_SectionSecondTitle2");
+    home_Month.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        if (`${rect.top}` <= parseInt(document.documentElement.style.getPropertyValue("--home-section-second-title-top"))) {
+            target.classList.add("home_ContentSectionTitle2_Month");
+        } else {    
+            target.classList.remove("home_ContentSectionTitle2_Month");
+        }
+    });
 }
 
 

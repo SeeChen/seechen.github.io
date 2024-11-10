@@ -8,8 +8,8 @@ import { userLanguage } from "../General/language.js";
 import { SeeChen_Loading } from "../General/loading.js";
 import { SeeChen_Navigation, SeeChen_Navigation_Click } from "../General/navigation.js";
 
-import { homeScroll, SeeChen_HomePage } from "../Home/home.js";
 import { SeeChen_Footer } from "../General/footer.js";
+import { SeeChen_TravelPage } from "../Travel/travel.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -40,10 +40,8 @@ window.webWorker = {}
 
 window.onload = async function() {
 
-    window.webpages.loadingPage.pageLoading();
-
-    window.webpages.currentPages = SeeChen_HomePage;
-
+    await window.webpages.loadingPage.pageLoading();
+    
     window.globalValues.language = new userLanguage().getLanguage();
     await window.myTools.getTranslate();
 
@@ -51,17 +49,19 @@ window.onload = async function() {
         EventBus.emit("scrollEvent", e);
     });
 
-    await window.webpages.footerPage.render();
-    await window.webpages.navigationPage.render();
-    window.webpages.navigationPage.registerEvents();
+    window.webpages.loadingPage.updateProgress(25);
 
-    await window.webpages.currentPages.render();
-    window.webpages.currentPages.registerEvents();
+    await window.webpages.footerPage.init();
+    await window.webpages.navigationPage.init();
+
+    await window.router.route(window.location.pathname);
+
+    // await SeeChen_TravelPage.init();
+    // SeeChen_TravelPage.registerEvents();
+
+    window.webpages.loadingPage.updateProgress(50);
     
     document.title = window.globalValues.translateData.idx[window.globalValues.language]._title_;
-
-    // Home
-    homeScroll();
 
     await testLoad();
     window.webpages.loadingPage.pageLoaded();

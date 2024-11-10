@@ -10,7 +10,7 @@
         "_aug_": "八月份",
         "_sep_": "九月份",
         "_oct_": "十月份",
-        "_nav_": "十一月",
+        "_nov_": "十一月",
         "_dec_": "十二月"
     }, 
 
@@ -25,7 +25,7 @@
         "_aug_": "August",
         "_sep_": "September",
         "_oct_": "October",
-        "_nav_": "November",
+        "_nov_": "November",
         "_dec_": "December"
     }
 }
