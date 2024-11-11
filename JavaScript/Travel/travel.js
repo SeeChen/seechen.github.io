@@ -16,11 +16,21 @@ export const SeeChen_TravelPage = {
                 element.addEventListener("mouseout", (e) => {
                     window.eventBus.emit("mapsMouseOut", {e, element, baseID: obj.id});
                 });
+
+                element.addEventListener("click", (e) => {
+                    window.eventBus.emit("mapsClick", { e, element, baseID: obj.id, obj });
+                });
             });
         });
 
         document.querySelector("#travel_TraveledList").addEventListener("scroll", (e) => {
             window.eventBus.emit("traveledScroll", { e });
+        });
+
+        document.querySelector("#travel_CountryMapsBox").classList.add("MapCountryHide");
+        document.querySelectorAll("#travel_CountryMapsBox object").forEach(obj => {
+
+            obj.classList.add("MapIsHide");
         });
     },
 
@@ -36,6 +46,7 @@ export const SeeChen_TravelPage = {
             scrollEvent: travel_Scroll,
             mapsMouseEnter: travel_MapsMouseEnter,
             mapsMouseOut: travel_MapsMouseOut,
+            mapsClick: travel_MapsClick,
 
             traveledScroll: traveled_Scroll
         }
@@ -109,6 +120,21 @@ const travel_MapsMouseOut = (
 
     const { e, element, baseID } = hoverEvent;
     travel_ChangeAreaName(baseID, "WORLD");
+}
+
+const travel_MapsClick = (
+    clickEvent
+) => {
+
+    const { e, element, baseID, obj } = clickEvent;
+    
+    obj.classList.add("WorldMapsHide");
+    document.querySelector(`#travel_CountryMapsBox`).classList.remove("MapCountryHide");
+    document.querySelector(`#${element.id}_Maps`).classList.add("MapIsShow");
+
+    setTimeout(() => {
+        obj.classList.add("WorldMapsHideDisplay");
+    }, 1000);
 }
 
 const travel_ChangeAreaName = (

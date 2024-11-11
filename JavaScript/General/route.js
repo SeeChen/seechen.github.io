@@ -13,7 +13,7 @@ const routesFunction = {
         if (SeeChen_HomePage !== window.webpages.currentPages) {
 
             window.webpages.currentPages = SeeChen_HomePage;
-            await window.webpages.currentPages.init();
+            // await window.webpages.currentPages.init();
         }
     },
 

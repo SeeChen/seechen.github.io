@@ -63,6 +63,46 @@
     max-height: var(--travel-MapsBox-Object-max-height);
 
     min-height: var(--travel-MapsBox-Object-min-height);
+
+    content-visibility: auto;
+
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+#box_TravelPage #travel_MapsBox object.WorldMapsHide {
+    opacity: 0;
+}
+#box_TravelPage #travel_MapsBox object.WorldMapsHideDisplay {
+    display: none;
+}
+
+#box_TravelPage #travel_CountryMapsBox.MapCountryHide {
+    display: none;
+}
+
+#box_TravelPage #travel_CountryMapsBox object {
+
+    will-change: transform !important;
+
+    position: fixed;
+}
+
+#box_TravelPage #travel_CountryMapsBox object.MapIsHide {
+    
+    display: none;
+}
+#box_TravelPage #travel_CountryMapsBox object.MapIsShow {
+
+    display: initial;
+    opacity: 1;
+
+    transition: 1s;
+
+    @starting-style {
+
+        opacity: 0;
+    }
 }
 
 #box_TravelPage #box_AreaName {
