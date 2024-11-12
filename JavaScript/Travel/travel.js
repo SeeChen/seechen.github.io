@@ -27,6 +27,10 @@ export const SeeChen_TravelPage = {
             window.eventBus.emit("traveledScroll", { e });
         });
 
+        document.querySelector("#travel_btn_MapsBack").addEventListener("click", (e) => {
+            window.eventBus.emit("travelMapsBtnClick", { e });
+        });
+
         document.querySelector("#travel_CountryMapsBox").classList.add("MapCountryHide");
         document.querySelectorAll("#travel_CountryMapsBox object").forEach(obj => {
 
@@ -47,6 +51,8 @@ export const SeeChen_TravelPage = {
             mapsMouseEnter: travel_MapsMouseEnter,
             mapsMouseOut: travel_MapsMouseOut,
             mapsClick: travel_MapsClick,
+
+            travelMapsBtnClick: travel_MapsBtnClick,
 
             traveledScroll: traveled_Scroll
         }
@@ -100,7 +106,7 @@ const traveled_Scroll = (
     traveled_TraveledList.classList.remove("at_left", "at_right");
     if (e.target.scrollLeft === 0) {
         traveled_TraveledList.classList.add("at_left");
-    } else if (traveled_TraveledList.scrollWidth <= (traveled_TraveledList.scrollLeft + traveled_TraveledList.clientWidth)) {
+    } else if (traveled_TraveledList.scrollWidth <= 1.1 * (traveled_TraveledList.scrollLeft + traveled_TraveledList.clientWidth)) {
 
         traveled_TraveledList.classList.add("at_right");
     }
@@ -119,7 +125,8 @@ const travel_MapsMouseOut = (
 ) => {
 
     const { e, element, baseID } = hoverEvent;
-    travel_ChangeAreaName(baseID, "WORLD");
+
+    travel_ChangeAreaName(baseID, baseID.split("_")[1].toUpperCase());
 }
 
 const travel_MapsClick = (
@@ -127,13 +134,66 @@ const travel_MapsClick = (
 ) => {
 
     const { e, element, baseID, obj } = clickEvent;
+
+    sessionStorage.setItem("WorldMapsScrollLeft", document.querySelector("#travel_MapsBox").scrollLeft);
     
     obj.classList.add("WorldMapsHide");
     document.querySelector(`#travel_CountryMapsBox`).classList.remove("MapCountryHide");
-    document.querySelector(`#${element.id}_Maps`).classList.add("MapIsShow");
+    document.querySelector(`#Maps_${element.id}`).classList.add("MapIsShow");
+
+    let current_rect = element.getBoundingClientRect();
+    let rect_2 = obj.getBoundingClientRect();
+
+    var worldPosition = {
+        'top': 0,
+        'left': 0,
+        'width': 0,
+        'height': 0
+    }
+
+    worldPosition['width'] = current_rect.width;
+    worldPosition['height'] = current_rect.height;
+    worldPosition['top'] = current_rect.top + rect_2.top;
+    worldPosition['left'] = current_rect.left + rect_2.left;
+
+    document.documentElement.style.setProperty("--travel-before-scale-height", `${worldPosition["height"]}px`);
+    document.documentElement.style.setProperty("--travel-before-scale-width", `${worldPosition["width"]}px`);
+    document.documentElement.style.setProperty("--travel-before-scale-top", `${worldPosition["top"]}px`);
+    document.documentElement.style.setProperty("--travel-before-scale-left", `${worldPosition["left"]}px`);
 
     setTimeout(() => {
-        obj.classList.add("WorldMapsHideDisplay");
+
+        document.querySelector(`#travel_CountryMapsBox`).classList.add("withAnimation");
+        document.querySelector(`#travel_CountryMapsBox`).classList.add("afterScale");
+        setTimeout(() => {
+            
+            obj.classList.add("WorldMapsHideDisplay");
+            document.querySelector("#travel_btn_MapsBack").classList.remove("btn_Hide");
+        }, 500);
+    }, 500);
+}
+
+const travel_MapsBtnClick = (
+    clickEvent
+) => {
+
+    const { e } = clickEvent;
+
+    document.querySelector(`#travel_CountryMapsBox`).classList.remove("afterScale");
+    document.querySelector("#Map_World").classList.remove("WorldMapsHideDisplay");
+    document.querySelector("#travel_MapsBox").scrollLeft = sessionStorage.getItem("WorldMapsScrollLeft");
+    document.querySelector("#travel_btn_MapsBack").classList.add("btn_Hide");
+
+    setTimeout(() => {
+
+        document.querySelector("#Map_World").classList.remove("WorldMapsHide");
+        
+        setTimeout(() => {
+            document.querySelector(`#travel_CountryMapsBox`).classList.remove("withAnimation");
+            document.querySelector(`#travel_CountryMapsBox`).classList.add("MapCountryHide");
+
+            document.querySelector(`.MapIsShow`).classList.remove("MapIsShow");
+        }, 500);
     }, 1000);
 }
 
@@ -142,13 +202,10 @@ const travel_ChangeAreaName = (
     areaID
 ) => {
 
-    let areaName = "";
-    baseID = baseID.split("_")[1];
-    if (baseID === "World") {
-        areaName = window.globalValues.translateData.country[window.globalValues.language][areaID];
-    } else {
-        areaName = window.globalValues.translateData[`country${baseID}`][[window.globalValues.language]][areaID];
-    }
+    baseID = baseID.split("_")[1].toUpperCase();
+    let areaName = 
+        window.globalValues.translateData.country[window.globalValues.language][areaID] ||
+        window.globalValues.translateData[`country${baseID}`][[window.globalValues.language]][areaID];
 
     document.querySelector(".p_AreaName:not(.areaNameDisplay)").innerText = areaName;
     document.querySelectorAll(".p_AreaName").forEach(el => {

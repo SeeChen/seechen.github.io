@@ -8,7 +8,15 @@
     --travel-MapsBox-Object-max-height: 100%;
     --travel-MapsBox-Object-min-height: auto;
 
+    --travel-CountryMapsBox-Object-left: 10vw;
+    --travel-CountryMapsBox-Object-width: 80vw;
+
     --travel-Traveled-List-font-size: var(--font-size-normal);
+
+    --travel-before-scale-top: 0;
+    --travel-before-scale-left: 0;
+    --travel-before-scale-width: 50vw;
+    --travel-before-scale-height: 50vh;
 }
 
 @media screen and (max-width: 750px) {
@@ -21,6 +29,9 @@
         --travel-MapsBox-Object-max-width: auto;
         --travel-MapsBox-Object-max-height: 100%;
         --travel-MapsBox-Object-min-height: 100%;
+
+        --travel-CountryMapsBox-Object-left: 3vw;
+        --travel-CountryMapsBox-Object-width: 94vw;
 
         --travel-Traveled-List-font-size: var(--font-size-2em);
     }
@@ -81,11 +92,51 @@
     display: none;
 }
 
+#box_TravelPage #travel_CountryMapsBox {
+
+    position: fixed;
+
+    max-width: var(--travel-MapsBox-max-width);
+    max-height: var(--travel-MapsBox-max-height);
+
+    top: var(--travel-before-scale-top);
+    left: var(--travel-before-scale-left);
+    width: var(--travel-before-scale-width);
+    height: var(--travel-before-scale-height);
+
+    bottom: auto;
+    right: auto;
+
+    text-align: center;
+
+    overflow: scroll hidden;
+
+    margin: auto;
+}
+
+#box_TravelPage #travel_CountryMapsBox.withAnimation {
+
+    transition: all 1s;
+}
+
+#box_TravelPage #travel_CountryMapsBox.afterScale {
+    
+    top: 20vh;
+    left: var(--travel-CountryMapsBox-Object-left);
+
+    width: var(--travel-CountryMapsBox-Object-width);
+    height: 60vh;
+
+    transform: scale(1);
+}
+
+#box_TravelPage #travel_CountryMapsBox::-webkit-scrollbar {
+    display: none;
+}
+
 #box_TravelPage #travel_CountryMapsBox object {
 
     will-change: transform !important;
-
-    position: fixed;
 }
 
 #box_TravelPage #travel_CountryMapsBox object.MapIsHide {
@@ -96,6 +147,11 @@
 
     display: initial;
     opacity: 1;
+
+    max-width: var(--travel-MapsBox-Object-max-width);
+    max-height: var(--travel-MapsBox-Object-max-height);
+
+    min-height: var(--travel-MapsBox-Object-min-height);
 
     transition: 1s;
 
@@ -228,4 +284,29 @@
     margin: auto auto 0.1em;
 
     border-bottom: 0.05em solid #CCC;
+}
+
+#travel_btn_MapsBack {
+
+    position: fixed;
+
+    top: var(--font-size-5em);
+    left: var(--font-size-2em);
+
+    color: var(--font-color-normal);
+    font-size: var(--font-size-1em);
+    font-family: var(--fontface-content-3);
+
+    transition: left 1s;
+
+    cursor: pointer;
+}
+
+#travel_btn_MapsBack::before {
+    content: "< ";
+}
+
+#travel_btn_MapsBack.btn_Hide {
+
+    left: -10em;
 }
