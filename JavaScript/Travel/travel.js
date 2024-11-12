@@ -3,6 +3,8 @@ export const SeeChen_TravelPage = {
 
     init: async () => {
 
+        window.myData.travel.TravelList = await window.myTools.getJson("/Data/Travel/TraveledList.json");
+
         const obj_Maps = document.querySelectorAll("object");
 
         obj_Maps.forEach(obj => {
@@ -106,7 +108,7 @@ const traveled_Scroll = (
     traveled_TraveledList.classList.remove("at_left", "at_right");
     if (e.target.scrollLeft === 0) {
         traveled_TraveledList.classList.add("at_left");
-    } else if (traveled_TraveledList.scrollWidth <= 1.1 * (traveled_TraveledList.scrollLeft + traveled_TraveledList.clientWidth)) {
+    } else if (traveled_TraveledList.scrollWidth <= 1.05 * (traveled_TraveledList.scrollLeft + traveled_TraveledList.clientWidth)) {
 
         traveled_TraveledList.classList.add("at_right");
     }
@@ -129,11 +131,10 @@ const travel_MapsMouseOut = (
     travel_ChangeAreaName(baseID, baseID.split("_")[1].toUpperCase());
 }
 
-const travel_MapsClick = (
-    clickEvent
+const travel_MapsClick_World  = (
+    obj,
+    element
 ) => {
-
-    const { e, element, baseID, obj } = clickEvent;
 
     sessionStorage.setItem("WorldMapsScrollLeft", document.querySelector("#travel_MapsBox").scrollLeft);
     
@@ -173,11 +174,72 @@ const travel_MapsClick = (
     }, 500);
 }
 
-const travel_MapsBtnClick = (
+const travel_UpdateTraveledList = async (
+    eleID
+) => {
+
+    let TraveledListName = eleID === "World" 
+        ? Object.keys(window.myData.travel.TravelList)
+        : Object.keys(window.myData.travel.TravelList[eleID]);
+
+    const temp_Span = document.querySelector("#travel_TraveledList").querySelectorAll("span");
+    temp_Span.forEach( element => {
+        element.classList.add("spanHide");
+    });
+
+    setTimeout( async () => {
+
+        temp_Span.forEach( element => {
+            document.querySelector("#travel_TraveledList").removeChild(element);
+        });
+
+        setTimeout( async () => {
+
+            for (var i = 0; i < TraveledListName.length; i++) {
+
+                let areaName = TraveledListName[i];
+
+                let a = document.createElement("span");
+                a.classList.add("span_LoadingToShow");
+                a.textContent = 
+                    window.globalValues.translateData.country[window.globalValues.language][areaName]
+                    || window.globalValues.translateData[`country${eleID}`][[window.globalValues.language]][areaName]
+        
+                document.querySelector("#travel_TraveledList").appendChild(a);
+
+                await new Promise(r => setTimeout(r, 50));
+
+                setTimeout(() => {
+                    a.classList.remove("span_LoadingToShow");
+                }, 1500);
+            }
+
+        }, 250);
+    }, 250);
+
+}
+
+const travel_MapsClick = async (
+    clickEvent
+) => {
+
+    const { e, element, baseID, obj } = clickEvent;
+
+    await travel_UpdateTraveledList(element.id);
+    if (baseID === "Map_World") {
+    
+        travel_MapsClick_World(obj, element);
+    } else {
+    }
+}
+
+const travel_MapsBtnClick = async (
     clickEvent
 ) => {
 
     const { e } = clickEvent;
+
+    await travel_UpdateTraveledList("World");
 
     document.querySelector(`#travel_CountryMapsBox`).classList.remove("afterScale");
     document.querySelector("#Map_World").classList.remove("WorldMapsHideDisplay");

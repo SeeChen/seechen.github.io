@@ -36,6 +36,13 @@ window.webpages = {
     currentPages: {}
 }
 
+window.myData = {
+
+    travel: {
+        TravelList: {}
+    }
+}
+
 window.webWorker = {}
 
 window.onload = async function() {

@@ -1,0 +1,43 @@
+{
+    "CN": {
+        "BeiJing": {},
+        "ChongQing": {},
+        "FuJian": {},
+        "GuangDong": {},
+        "GuangXi": {},
+        "GuiZhou": {},
+        "HeBei": {},
+        "HeNan": {},
+        "HongKong": {},
+        "HuNan": {},
+        "HuBei": {},
+        "JiangSu": {},
+        "JiangXi": {},
+        "Macau": {},
+        "InnerMongolia": {},
+        "NingXia": {},
+        "ShaanXi": {},
+        "SiChuan": {},
+        "ShanDong": {},
+        "ShangHai": {},
+        "ShanXi": {},
+        "TianJin": {},
+        "YunNan": {},
+        "ZheJiang": {}
+    },
+
+    "MY": {
+        "Johor": {},
+        "Pinang": {},
+        "Selangor": {},
+        "KL": {}
+    },
+
+    "SG": {
+        "Central": {},
+        "NorthEast": {},
+        "NorthWest": {},
+        "SouthEast": {},
+        "SouthWest": {}
+    }
+}

@@ -13,6 +13,8 @@
 
     --travel-Traveled-List-font-size: var(--font-size-normal);
 
+    --travel-btn-MapsBack: 5em;
+
     --travel-before-scale-top: 0;
     --travel-before-scale-left: 0;
     --travel-before-scale-width: 50vw;
@@ -34,6 +36,8 @@
         --travel-CountryMapsBox-Object-width: 94vw;
 
         --travel-Traveled-List-font-size: var(--font-size-2em);
+
+        --travel-btn-MapsBack: 6em;
     }
 }
 
@@ -205,6 +209,8 @@
 
 #box_TravelPage #travel_TraveledList {
 
+    white-space: nowrap;
+
     box-sizing: border-box;
     
     position: fixed;
@@ -245,6 +251,29 @@
     border: 0.1em solid var(--font-color-normal);
 
     cursor: pointer;
+
+    transition: 0.25s;
+}
+
+#box_TravelPage #travel_TraveledList span.span_LoadingToShow {
+
+    transform: translateX(0);
+    opacity: 1;
+    transition: 1s;
+
+    @starting-style {
+        transform: translateX(2em);
+        opacity: 0;
+    }
+}
+
+#box_TravelPage #travel_TraveledList span.spanHide {
+
+    opacity: 0;
+
+    @starting-style {
+        opacity: 1;
+    }
 }
 
 #box_TravelPage #travel_TraveledList::-webkit-scrollbar {
@@ -290,7 +319,7 @@
 
     position: fixed;
 
-    top: var(--font-size-5em);
+    top: var(--travel-btn-MapsBack);
     left: var(--font-size-2em);
 
     color: var(--font-color-normal);
