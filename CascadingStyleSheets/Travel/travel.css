@@ -12,6 +12,12 @@
     --travel-CountryMapsBox-Object-width: 80vw;
 
     --travel-Traveled-List-font-size: var(--font-size-normal);
+    --travel-Traveled-List-Selected-Span-left: 0;
+
+    --travel-ContentExpand-left: 0;
+    --travel-ContentExpand-right: 0;
+    --travel-ContentExpand-width: 10vw;
+    --travel-ContentExpand-bottom: calc(2.2 * var(--travel-Traveled-List-font-size));
 
     --travel-btn-MapsBack: 5em;
 
@@ -36,6 +42,11 @@
         --travel-CountryMapsBox-Object-width: 94vw;
 
         --travel-Traveled-List-font-size: var(--font-size-2em);
+
+        --travel-ContentExpand-left: auto;
+        --travel-ContentExpand-right: 5vw;
+        --travel-ContentExpand-width: auto;
+        --travel-ContentExpand-bottom: calc(2.1 * var(--travel-Traveled-List-font-size));
 
         --travel-btn-MapsBack: 6em;
     }
@@ -207,6 +218,47 @@
     transform: translateY(0);
 }
 
+#box_TravelPage #travel_ContentExpand {
+
+    position: fixed;
+    display: flex;
+
+    color: var(--font-color-normal);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-3);
+    bottom: var(--travel-ContentExpand-bottom);
+    
+    left: var(--travel-ContentExpand-left);
+    right: var(--travel-ContentExpand-right);
+
+    text-align: center;
+    width: var(--travel-ContentExpand-width);
+
+    margin: auto;
+
+    cursor: pointer;
+
+    z-index: 12;
+}
+
+#box_TravelPage #travel_ContentExpand span {
+
+    padding: 0 1vw;
+
+    transform: rotate(0);
+
+    transition: transform 1s;
+}
+
+#box_TravelPage #travel_ContentExpand span.contentExpand {
+    
+    padding: 0 1vw;
+
+    transform: rotate(180deg);
+
+    transition: transform 1s;
+}
+
 #box_TravelPage #travel_TraveledList {
 
     white-space: nowrap;
@@ -292,6 +344,19 @@
 #box_TravelPage #travel_TraveledList:hover::-webkit-scrollbar-thumb {
 
     background: rgba(88 ,88 ,88 ,1);
+}
+
+#box_TravelPage #travel_TraveledList span.areaSelectedwithAniamtion {
+
+    position: absolute;
+
+    left: var(--travel-Traveled-List-Selected-Span-left);;
+    transition: left 1s;
+}
+
+#box_TravelPage #travel_TraveledList span.areaSelected {
+
+    left: 0 !important;
 }
 
 #box_TravelPage #travel_TraveledList_title {

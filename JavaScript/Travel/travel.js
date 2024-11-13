@@ -38,6 +38,13 @@ export const SeeChen_TravelPage = {
 
             obj.classList.add("MapIsHide");
         });
+
+        document.querySelector("#travel_ContentExpand").addEventListener("click", (e) => {
+
+            document.querySelectorAll("#travel_ContentExpand span").forEach(el => {
+                el.classList.toggle("contentExpand");
+            });
+        });
     },
 
     render: async () => {
@@ -178,6 +185,33 @@ const travel_UpdateTraveledList = async (
     eleID
 ) => {
 
+    if (!Object.keys(window.myData.travel.TravelList).includes(eleID) && eleID !== "World") {
+
+        let traveledList = document.querySelector("#travel_TraveledList");
+        let selectedArea = document.querySelector(`#${eleID}_span`);
+
+        let TraveledList_rect = traveledList.getBoundingClientRect();
+        let selectedArea_rect = selectedArea.getBoundingClientRect();
+
+        document.documentElement.style.setProperty(
+            "--travel-Traveled-List-Selected-Span-left",
+            `${selectedArea_rect.left - TraveledList_rect.left + traveledList.scrollLeft - 2}px`
+        );
+
+        document.querySelectorAll(`#travel_TraveledList span:not(#${eleID}_span)`).forEach( element => {
+            element.style.opacity = "0";
+        });
+
+        selectedArea.classList.add("areaSelectedwithAniamtion");
+
+        setTimeout(() => {
+
+            selectedArea.classList.add("areaSelected");
+        }, 500);
+
+        return;
+    }
+
     let TraveledListName = eleID === "World" 
         ? Object.keys(window.myData.travel.TravelList)
         : Object.keys(window.myData.travel.TravelList[eleID]);
@@ -200,6 +234,7 @@ const travel_UpdateTraveledList = async (
                 let areaName = TraveledListName[i];
 
                 let a = document.createElement("span");
+                a.id = `${areaName}_span`;
                 a.classList.add("span_LoadingToShow");
                 a.textContent = 
                     window.globalValues.translateData.country[window.globalValues.language][areaName]
@@ -224,6 +259,9 @@ const travel_MapsClick = async (
 ) => {
 
     const { e, element, baseID, obj } = clickEvent;
+
+    console.log(document.querySelector("#Map_World").contentDocument.querySelector("#CN"));
+    console.log(element);
 
     await travel_UpdateTraveledList(element.id);
     if (baseID === "Map_World") {
