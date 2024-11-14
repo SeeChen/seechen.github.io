@@ -21,7 +21,7 @@
 
     --travel-ContentExpand-Expanded-btn-right: 0;
     --travel-ContentExpand-Expanded-btn-bottom: 0.25em;
-    --travel-ContentExpand-Expanded-TraveledList-bottom: calc(100vh - 5.5em);
+    --travel-ContentExpand-Expanded-TraveledList-top: 0.5em;
 
     --travel-btn-MapsBack: 5em;
 
@@ -54,7 +54,7 @@
 
         --travel-ContentExpand-Expanded-btn-right: calc(100vw / 3);
         --travel-ContentExpand-Expanded-btn-bottom: 0.5em;
-        --travel-ContentExpand-Expanded-TraveledList-bottom: calc(100vh - 4em);
+        --travel-ContentExpand-Expanded-TraveledList-top: 0.01em;
 
         --travel-btn-MapsBack: 6em;
     }
@@ -271,26 +271,27 @@
 
 div:has(> #travel_ContentExpand) {
 
-    background: #FFFFFF80;
+    background: #FFFFFF00;
 
     width: 100vw;
     height: calc(100vh - var(--font-size-3em));
     
     position: fixed;
 
-    top: 100vh;
+    top: calc(100vh - 1.1 * var(--font-size-3em));
 
     transition: all 1s;
 }
 
 div:has(> #travel_ContentExpand.contentExpand) {
 
+    background: #FFFFFF80;
     top: var(--font-size-3em);
 }
 
 div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
 
-    bottom: var(--travel-ContentExpand-Expanded-TraveledList-bottom)
+    top: var(--travel-ContentExpand-Expanded-TraveledList-top);
 }
 
 #box_TravelPage #travel_TraveledList {
@@ -299,7 +300,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
 
     box-sizing: border-box;
     
-    position: fixed;
+    position: absolute;
     display: flex;
 
     font-size: var(--travel-Traveled-List-font-size);
@@ -310,7 +311,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
     padding: 0 0.25em;
     overflow-x: scroll;
 
-    bottom: 0;
+    top: var(--travel-ContentExpand-Expanded-TraveledList-top);
 
     left: 0;
     right: 0;
