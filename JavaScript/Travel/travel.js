@@ -4,26 +4,7 @@ export const SeeChen_TravelPage = {
     init: async () => {
 
         window.myData.travel.TravelList = await window.myTools.getJson("/Data/Travel/TraveledList.json");
-
-        const obj_Maps = document.querySelectorAll("object");
-
-        obj_Maps.forEach(obj => {
-
-            obj.contentDocument.querySelectorAll(".visited").forEach(element => {
-
-                element.addEventListener("mouseenter", (e) => {
-                    window.eventBus.emit("mapsMouseEnter", {e, element, baseID: obj.id});
-                });
-
-                element.addEventListener("mouseout", (e) => {
-                    window.eventBus.emit("mapsMouseOut", {e, element, baseID: obj.id});
-                });
-
-                element.addEventListener("click", (e) => {
-                    window.eventBus.emit("mapsClick", { e, element, baseID: obj.id, obj });
-                });
-            });
-        });
+        await SeeChen_TravelPage.bindEvent();
 
         document.querySelector("#travel_TraveledList").addEventListener("scroll", (e) => {
             window.eventBus.emit("traveledScroll", { e });
@@ -41,25 +22,79 @@ export const SeeChen_TravelPage = {
 
         document.querySelector("#travel_ContentExpand").addEventListener("click", (e) => {
 
-            document.querySelectorAll("#travel_ContentExpand span").forEach(el => {
-                el.classList.toggle("contentExpand");
-            });
+            document.querySelector("#travel_ContentExpand").classList.toggle("contentExpand");
+
+            // const t = document.querySelector("div:has(> #travel_TraveledStory)");
+
+            document.querySelector("#box_navBar").classList.toggle("navShow");
+            
         });
     },
 
     render: async () => {
 
-        
+    },
+
+    bindEvent: async () => {
+
+        const obj_Maps = document.querySelectorAll("Object");
+        obj_Maps.forEach( obj => {
+
+            const container = obj.contentDocument;
+            container.addEventListener("click", (e) => {
+
+                if (e.target.classList.contains("visited")) {
+
+                    window.eventBus.emit("mapMouseClick", {
+                        e,
+                        baseMapId: obj.id,
+                        targetMapId: e.target.id
+                    });
+                }
+            });
+            container.addEventListener("mouseover", (e) => {
+
+                if (e.target.classList.contains("visited")) {
+
+                    window.eventBus.emit("mapMouseEnter", {
+                        e,
+                        baseMapId: obj.id,
+                        targetMapId: e.target.id
+                    });
+                }
+            });
+            container.addEventListener("mouseout", (e) => {
+
+                if (e.target.classList.contains("visited")) {
+
+                    window.eventBus.emit("mapMouseLeave", {
+                        e,
+                        baseMapId: obj.id,
+                        targetMapId: e.target.id
+                    });
+                }
+            });
+        });
+
+        const obj_TraveledList = document.querySelector("#travel_TraveledList");
+        obj_TraveledList.addEventListener("click", (e) => {
+
+            let [ _, baseMapId, targetMapId ] = e.target.id.split("_");
+            window.eventBus.emit("mapMouseClick", {
+                e,
+                baseMapId: `Map_${baseMapId}`,
+                targetMapId
+            });
+        });
     },
 
     registerEvents: () => {
 
         const travel_EventHandler = {
-            
-            scrollEvent: travel_Scroll,
-            mapsMouseEnter: travel_MapsMouseEnter,
-            mapsMouseOut: travel_MapsMouseOut,
-            mapsClick: travel_MapsClick,
+
+            mapMouseClick: SeeChen_TravelPage_MapsAction.mouseClick,
+            mapMouseEnter: SeeChen_TravelPage_MapsAction.mouseEnter,
+            mapMouseLeave: SeeChen_TravelPage_MapsAction.mouseLeave,
 
             travelMapsBtnClick: travel_MapsBtnClick,
 
@@ -75,12 +110,8 @@ export const SeeChen_TravelPage = {
     clearUp: () => {
 
         const travel_EventHandler = {
-            
-            scrollEvent: travel_Scroll,
-            mapsMouseEnter: travel_MapsMouseEnter,
-            mapsMouseOut: travel_MapsMouseOut,
+        
 
-            traveledScroll: traveled_Scroll
         }
 
         Object.entries(travel_EventHandler).forEach(([event, handler]) => {
@@ -98,10 +129,47 @@ export const SeeChen_TravelPage = {
     }
 }
 
-const travel_Scroll = (
-    scrollEvent
-) => {
+const SeeChen_TravelPage_MapsAction = {
 
+    mouseEnter: (
+        mouseEvent
+    ) => {
+
+        const { e, baseMapId, targetMapId } = mouseEvent;
+        travel_ChangeAreaName(baseMapId, targetMapId);
+    },
+
+    mouseLeave: (
+        mouseEvent
+    ) => {
+
+        const { e, baseMapId, targetMapId } = mouseEvent;
+        travel_ChangeAreaName(baseMapId, baseMapId.split("_")[1].toUpperCase());
+    },
+
+    mouseClick: async (
+        clickEvent
+    ) => {
+
+        const { e, baseMapId, targetMapId } = clickEvent;
+
+        const baseMap = document.querySelector(`#${baseMapId}`);
+        const targetMap = baseMap.contentDocument.querySelector(`#${targetMapId}`);
+
+        await travel_UpdateTraveledList(baseMapId, targetMapId);
+
+        if (baseMapId === "Map_World") {
+
+            travel_MapsClick_World(baseMap, targetMap);
+        } else {}
+    }
+}
+
+const SeeChen_TravelPage_TraveledList = {
+
+    updateList: async () => {
+
+    }
 }
 
 const traveled_Scroll = (
@@ -121,23 +189,6 @@ const traveled_Scroll = (
     }
 }
 
-const travel_MapsMouseEnter = (
-    hoverEvent
-) => {
-
-    const { e, element, baseID } = hoverEvent;
-    travel_ChangeAreaName(baseID, element.id);
-}
-
-const travel_MapsMouseOut = (
-    hoverEvent
-) => {
-
-    const { e, element, baseID } = hoverEvent;
-
-    travel_ChangeAreaName(baseID, baseID.split("_")[1].toUpperCase());
-}
-
 const travel_MapsClick_World  = (
     obj,
     element
@@ -147,7 +198,7 @@ const travel_MapsClick_World  = (
     
     obj.classList.add("WorldMapsHide");
     document.querySelector(`#travel_CountryMapsBox`).classList.remove("MapCountryHide");
-    document.querySelector(`#Maps_${element.id}`).classList.add("MapIsShow");
+    document.querySelector(`#Map_${element.id}`).classList.add("MapIsShow");
 
     let current_rect = element.getBoundingClientRect();
     let rect_2 = obj.getBoundingClientRect();
@@ -182,13 +233,14 @@ const travel_MapsClick_World  = (
 }
 
 const travel_UpdateTraveledList = async (
+    baseMapId,
     eleID
 ) => {
 
     if (!Object.keys(window.myData.travel.TravelList).includes(eleID) && eleID !== "World") {
 
         let traveledList = document.querySelector("#travel_TraveledList");
-        let selectedArea = document.querySelector(`#${eleID}_span`);
+        let selectedArea = document.querySelector(`#span_${baseMapId.split("_")[1]}_${eleID}`);
 
         let TraveledList_rect = traveledList.getBoundingClientRect();
         let selectedArea_rect = selectedArea.getBoundingClientRect();
@@ -198,15 +250,15 @@ const travel_UpdateTraveledList = async (
             `${selectedArea_rect.left - TraveledList_rect.left + traveledList.scrollLeft - 2}px`
         );
 
-        document.querySelectorAll(`#travel_TraveledList span:not(#${eleID}_span)`).forEach( element => {
+        document.querySelectorAll(`#travel_TraveledList span:not(#span_${baseMapId.split("_")[1]}_${eleID}`).forEach( element => {
             element.style.opacity = "0";
         });
 
-        selectedArea.classList.add("areaSelectedwithAniamtion");
-
-        setTimeout(() => {
-
+        setTimeout( async () => {
+            selectedArea.classList.add("areaSelectedwithAniamtion");
+            await new Promise(r => setTimeout(r, 50));
             selectedArea.classList.add("areaSelected");
+            traveledList.scrollTo(0, 0);
         }, 500);
 
         return;
@@ -234,7 +286,7 @@ const travel_UpdateTraveledList = async (
                 let areaName = TraveledListName[i];
 
                 let a = document.createElement("span");
-                a.id = `${areaName}_span`;
+                a.id = `span_${eleID}_${areaName}`;
                 a.classList.add("span_LoadingToShow");
                 a.textContent = 
                     window.globalValues.translateData.country[window.globalValues.language][areaName]
@@ -254,30 +306,13 @@ const travel_UpdateTraveledList = async (
 
 }
 
-const travel_MapsClick = async (
-    clickEvent
-) => {
-
-    const { e, element, baseID, obj } = clickEvent;
-
-    console.log(document.querySelector("#Map_World").contentDocument.querySelector("#CN"));
-    console.log(element);
-
-    await travel_UpdateTraveledList(element.id);
-    if (baseID === "Map_World") {
-    
-        travel_MapsClick_World(obj, element);
-    } else {
-    }
-}
-
 const travel_MapsBtnClick = async (
     clickEvent
 ) => {
 
     const { e } = clickEvent;
 
-    await travel_UpdateTraveledList("World");
+    await travel_UpdateTraveledList("World", "World");
 
     document.querySelector(`#travel_CountryMapsBox`).classList.remove("afterScale");
     document.querySelector("#Map_World").classList.remove("WorldMapsHideDisplay");

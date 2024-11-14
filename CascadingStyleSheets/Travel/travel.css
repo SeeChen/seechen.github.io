@@ -16,8 +16,12 @@
 
     --travel-ContentExpand-left: 0;
     --travel-ContentExpand-right: 0;
-    --travel-ContentExpand-width: 10vw;
+    --travel-ContentExpand-width: 1em;
     --travel-ContentExpand-bottom: calc(2.2 * var(--travel-Traveled-List-font-size));
+
+    --travel-ContentExpand-Expanded-btn-right: 0;
+    --travel-ContentExpand-Expanded-btn-bottom: 0.25em;
+    --travel-ContentExpand-Expanded-TraveledList-bottom: calc(100vh - 5.5em);
 
     --travel-btn-MapsBack: 5em;
 
@@ -45,8 +49,12 @@
 
         --travel-ContentExpand-left: auto;
         --travel-ContentExpand-right: 5vw;
-        --travel-ContentExpand-width: auto;
+        --travel-ContentExpand-width: 1em;
         --travel-ContentExpand-bottom: calc(2.1 * var(--travel-Traveled-List-font-size));
+
+        --travel-ContentExpand-Expanded-btn-right: calc(100vw / 3);
+        --travel-ContentExpand-Expanded-btn-bottom: 0.5em;
+        --travel-ContentExpand-Expanded-TraveledList-bottom: calc(100vh - 4em);
 
         --travel-btn-MapsBack: 6em;
     }
@@ -221,7 +229,6 @@
 #box_TravelPage #travel_ContentExpand {
 
     position: fixed;
-    display: flex;
 
     color: var(--font-color-normal);
     font-size: var(--font-size-normal);
@@ -238,25 +245,52 @@
 
     cursor: pointer;
 
+    transform: rotateX(0deg) scaleX(3);
+
+    border-top: 0em solid #00000000;
+    border-bottom: 0em solid #00000000;
+
+    transition: all 1s;
     z-index: 12;
 }
 
-#box_TravelPage #travel_ContentExpand span {
+#box_TravelPage #travel_ContentExpand.contentExpand {
 
-    padding: 0 1vw;
+    transform: rotateX(180deg) scaleX(3);
+    right: var(--travel-ContentExpand-Expanded-btn-right);
+    bottom: var(--travel-ContentExpand-Expanded-btn-bottom);
 
-    transform: rotate(0);
+    width: calc(100vw / 3);
 
-    transition: transform 1s;
+    box-sizing: border-box;
+
+    border-top: 0.15em solid #888;
+    border-bottom: 0.15em solid #888;
+    border-radius: 0.1em;
 }
 
-#box_TravelPage #travel_ContentExpand span.contentExpand {
+div:has(> #travel_ContentExpand) {
+
+    background: #FFFFFF80;
+
+    width: 100vw;
+    height: calc(100vh - var(--font-size-3em));
     
-    padding: 0 1vw;
+    position: fixed;
 
-    transform: rotate(180deg);
+    top: 100vh;
 
-    transition: transform 1s;
+    transition: all 1s;
+}
+
+div:has(> #travel_ContentExpand.contentExpand) {
+
+    top: var(--font-size-3em);
+}
+
+div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
+
+    bottom: var(--travel-ContentExpand-Expanded-TraveledList-bottom)
 }
 
 #box_TravelPage #travel_TraveledList {
@@ -284,7 +318,7 @@
 
     mask: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
 
-    transition: mask 0.5s;
+    transition: mask 0.5s, bottom 1s;
 }
 
 #box_TravelPage #travel_TraveledList.at_right {
