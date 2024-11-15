@@ -39,7 +39,9 @@ window.webpages = {
 window.myData = {
 
     travel: {
-        TravelList: {}
+        TravelList: {},
+        LabelsMap: {},
+        CityName: {}
     }
 }
 
@@ -66,7 +68,7 @@ window.onload = async function() {
     await SeeChen_TravelPage.init();
     SeeChen_TravelPage.registerEvents();
 
-    window.webpages.loadingPage.updateProgress(50);
+    window.webpages.loadingPage.updateProgress(99);
     
     document.title = window.globalValues.translateData.idx[window.globalValues.language]._title_;
 

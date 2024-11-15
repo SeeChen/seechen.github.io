@@ -19,16 +19,22 @@
     --travel-ContentExpand-width: 1em;
     --travel-ContentExpand-bottom: calc(2.2 * var(--travel-Traveled-List-font-size));
 
-    --travel-ContentExpand-Expanded-btn-right: 0;
-    --travel-ContentExpand-Expanded-btn-bottom: 0.25em;
-    --travel-ContentExpand-Expanded-TraveledList-top: 0.5em;
-
     --travel-btn-MapsBack: 5em;
 
     --travel-before-scale-top: 0;
     --travel-before-scale-left: 0;
     --travel-before-scale-width: 50vw;
     --travel-before-scale-height: 50vh;
+
+    --travel-Country-Story-height: 50vh;
+
+    --travel-Story-Country-Name-font-size: var(--font-size-5em);
+    --travel-Story-Country-Name-top: 0.25em;
+
+    --travel-Story-Country-Desc-margin: 1em;
+
+    --travel-Story-Country-img-left: auto;
+    --travel-Story-Country-img-right: 0;
 }
 
 @media screen and (max-width: 750px) {
@@ -52,11 +58,32 @@
         --travel-ContentExpand-width: 1em;
         --travel-ContentExpand-bottom: calc(2.1 * var(--travel-Traveled-List-font-size));
 
-        --travel-ContentExpand-Expanded-btn-right: calc(100vw / 3);
-        --travel-ContentExpand-Expanded-btn-bottom: 0.5em;
-        --travel-ContentExpand-Expanded-TraveledList-top: 0.01em;
-
         --travel-btn-MapsBack: 6em;
+
+        --travel-Country-Story-height: 30vh;
+
+        --travel-Story-Country-Name-font-size: var(--font-size-3em);
+        --travel-Story-Country-Name-top: 0.4em;
+
+        --travel-Story-Country-Desc-margin: 0.5em;
+
+        --travel-Story-Country-img-left: 0;
+        --travel-Story-Country-img-right: 0;
+    }
+}
+
+@keyframes travel_entrance_1 {
+
+    from {
+
+        transform: translateY(calc(1.5 * var(--home-my-name-margin)));
+        opacity: 0;
+    }
+
+    to {
+        
+        transform: rotateY(0);
+        opacity: 1;
     }
 }
 
@@ -257,16 +284,6 @@
 #box_TravelPage #travel_ContentExpand.contentExpand {
 
     transform: rotateX(180deg) scaleX(3);
-    right: var(--travel-ContentExpand-Expanded-btn-right);
-    bottom: var(--travel-ContentExpand-Expanded-btn-bottom);
-
-    width: calc(100vw / 3);
-
-    box-sizing: border-box;
-
-    border-top: 0.15em solid #888;
-    border-bottom: 0.15em solid #888;
-    border-radius: 0.1em;
 }
 
 div:has(> #travel_ContentExpand) {
@@ -274,11 +291,11 @@ div:has(> #travel_ContentExpand) {
     background: #FFFFFF00;
 
     width: 100vw;
-    height: calc(100vh - var(--font-size-3em));
+    height: 99vh;
     
     position: fixed;
 
-    top: calc(100vh - 1.1 * var(--font-size-3em));
+    top: 101vh;
 
     transition: all 1s;
 }
@@ -286,12 +303,111 @@ div:has(> #travel_ContentExpand) {
 div:has(> #travel_ContentExpand.contentExpand) {
 
     background: #FFFFFF80;
-    top: var(--font-size-3em);
+    top: 0;
 }
 
-div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
+div:has(> #travel_ContentExpand) #travel_TraveledStory {
 
-    top: var(--travel-ContentExpand-Expanded-TraveledList-top);
+    height: 90vh;
+    padding-top: var(--font-size-5em);
+    padding-bottom: var(--font-size-1em);
+
+    box-sizing: border-box;
+
+    overflow: hidden scroll;
+
+    transition: all 1s;
+}
+
+div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
+    display: none;
+}
+
+#traveled_World {
+    opacity: 1;
+
+    display: initial;
+    transition: 0.75s;
+}
+
+#traveled_World.traveled_WorldHide {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+#travel_TraveledStory .travel_Country_Story {
+
+    position: relative;
+
+    height: var(--travel-Country-Story-height);
+    width: 95vw;
+
+    margin: auto;
+    margin-bottom: var(--font-size-1em);
+
+    border: 0.15em solid #CCC;
+
+    animation: travel_entrance_1 1s linear;
+    animation-timeline: view(95% 0);
+
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+#travel_TraveledStory .travel_Country_Story .travel_Story_Country_Name {
+
+    position: absolute;
+
+    text-shadow: 1px 1px 2px var(--bg-color);
+
+    font-family: var(--fontface-title);
+    font-size: var(--travel-Story-Country-Name-font-size);
+    color: var(--font-color-title);
+
+    top: var(--travel-Story-Country-Name-top);
+    left: var(--travel-Story-Country-Name-top);
+}
+
+#travel_TraveledStory .travel_Country_Story .travel_Story_Country_Desc {
+
+    position: absolute;
+
+    width: 80%;
+    text-align: right;
+
+    text-shadow: 1px 1px 2px var(--bg-color);
+
+    color: var(--font-color-title);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-art-2);
+
+    right: var(--travel-Story-Country-Desc-margin);
+    bottom: var(--travel-Story-Country-Desc-margin);
+}
+
+#travel_TraveledStory .travel_Country_Story img {
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    filter: grayscale(0) blur(0);
+
+    margin: auto;
+
+    transition: filter 0.5s, transform 1s;
+}
+
+#travel_TraveledStory .travel_Country_Story:hover img {
+
+    filter: grayscale(1) blur(0.15em);
+
+    transform: scale(1.1);
 }
 
 #box_TravelPage #travel_TraveledList {
@@ -300,7 +416,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
 
     box-sizing: border-box;
     
-    position: absolute;
+    position: fixed;
     display: flex;
 
     font-size: var(--travel-Traveled-List-font-size);
@@ -311,7 +427,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
     padding: 0 0.25em;
     overflow-x: scroll;
 
-    top: var(--travel-ContentExpand-Expanded-TraveledList-top);
+    bottom: 0;
 
     left: 0;
     right: 0;
@@ -339,7 +455,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
 
     cursor: pointer;
 
-    transition: 0.25s;
+    transition: all 1s;
 }
 
 #box_TravelPage #travel_TraveledList span.span_LoadingToShow {
@@ -386,12 +502,16 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
     position: absolute;
 
     left: var(--travel-Traveled-List-Selected-Span-left);;
-    transition: left 1s;
+    transition: left 1s, background 1s, color 1s;
 }
 
 #box_TravelPage #travel_TraveledList span.areaSelected {
 
     left: 0 !important;
+
+    color: var(--bg-color);
+    background: var(--font-color-normal);
+
 }
 
 #box_TravelPage #travel_TraveledList_title {
@@ -429,6 +549,7 @@ div:has(> #travel_ContentExpand.contentExpand) #travel_TraveledList {
     transition: left 1s;
 
     cursor: pointer;
+    z-index: 15;
 }
 
 #travel_btn_MapsBack::before {

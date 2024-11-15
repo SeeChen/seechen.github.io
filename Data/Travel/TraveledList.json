@@ -1,6 +1,38 @@
 {
     "CN": {
-        "BeiJing": {},
+        "BeiJing": {
+            "img": [{
+                "src": "",
+                "alt": "",
+                "city": "_city0_",
+                "labels": ["_test0_", "_test1_", "_test2_", "_test3_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city1_",
+                "labels": ["_test0_", "_test2_", "_test4_", "_test6_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city2_",
+                "labels": ["_test1_", "_test3_", "_test5_", "_test7_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city0_",
+                "labels": ["_test1_", "_test4_", "_test7_", "_test9_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city1_",
+                "labels": ["_test2_", "_test1_", "_test4_", "_test6_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city2_",
+                "labels": ["_test2_", "_test4_", "_test6_", "_test8_"]
+            }]
+        },
         "ChongQing": {},
         "FuJian": {},
         "GuangDong": {},
