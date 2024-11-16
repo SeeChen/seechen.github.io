@@ -410,6 +410,68 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     transform: scale(1.1);
 }
 
+#traveled_Area #traveled_Area_AreaList {
+
+    position: relative;
+
+    width: 90vw;
+
+    font-size: var(--font-size-1em);
+    font-family: var(--fontface-art-2);
+    color: var(--font-color-normal);
+
+    margin: 2em auto;
+
+    table-layout: fixed;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td {
+    padding: 0.5em;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_left {
+
+    text-align: center;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_left::after {
+    content: ":";
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right {
+
+    white-space: nowrap;
+
+    overflow: scroll hidden;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right::-webkit-scrollbar {
+    
+    display: var(--display-pc);
+    height: 0.25em;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right::-webkit-scrollbar-thumb {
+    
+    border-radius: 1em;
+    background: rgba(88 ,88 ,88 ,0);
+
+    transition: 1s;
+}
+#traveled_Area #traveled_Area_AreaList tr td.table_right:hover::-webkit-scrollbar-thumb {
+
+    background: rgba(88 ,88 ,88 ,1);
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right span {
+
+    border: 0.15em solid var(--font-color-normal);
+    padding: 0.05em 1em;
+    border-radius: 1em;
+
+    cursor: pointer;
+}
+
 #box_TravelPage #travel_TraveledList {
 
     white-space: nowrap;
