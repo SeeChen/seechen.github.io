@@ -12,21 +12,8 @@ export const SeeChen_TravelPage = {
             obj.classList.add("MapIsHide");
         });
 
-        document.querySelector("#travel_ContentExpand").addEventListener("click", (e) => {
-
-            document.querySelector("#travel_ContentExpand").classList.toggle("contentExpand");
-
-            document.querySelector("#box_navBar").classList.toggle("navShow");
-
-            if (document.querySelector("#travel_ContentExpand").classList.contains("contentExpand")) {
-                window.router.route("/travel?expand=true");
-            } else {
-                window.router.route("/travel");
-            }
-            
-        });
-
         await SeeChen_TravelPage_ImgLabels.buildRelationshipMap();
+
     },
 
     render: async () => {
@@ -121,6 +108,10 @@ export const SeeChen_TravelPage = {
         document.querySelector("#travel_btn_MapsBack").addEventListener("click", (e) => {
             window.eventBus.emit("travelMapsBackBtnClick", { e });
         });
+
+        document.querySelector("#traveled_Area_AreaList").addEventListener("click", (e) => {
+            window.eventBus.emit("cityLabelClick", { e });
+        });
     },
 
     registerEvents: () => {
@@ -133,7 +124,9 @@ export const SeeChen_TravelPage = {
 
             travelMapsBackBtnClick: SeeChen_TravelPage_Click.mapBackBtn,
 
-            traveledBottomScroll: SeeChen_TravelPage_Traveled.bottomListScroll
+            traveledBottomScroll: SeeChen_TravelPage_Traveled.bottomListScroll,
+
+            cityLabelClick: SeeChen_TravelPage_ImgLabels_Event.click_label
         }
 
         Object.entries(travel_EventHandler).forEach(([event, handler]) => {
@@ -193,15 +186,59 @@ const SeeChen_TravelPage_MapsAction = {
 
         await SeeChen_TravelPage_Traveled.bottomListUpdate(baseMapId, targetMapId);
 
+        const traveled_AreaList = document.querySelector("#traveled_Area_AreaList");
+        let DisplayCityLabel;
+        if (window.myData.travel.SelectedLabel.includes(targetMapId)) {
+            window.myData.travel.SelectedLabel.splice(window.myData.travel.SelectedLabel.indexOf(targetMapId), 1);
+            DisplayCityLabel = window.myData.travel.CityName[targetMapId] || window.myData.travel.CityName[window.myData.travel.SelectedLabel[0]];
+        } else {
+            window.myData.travel.SelectedLabel.push(targetMapId);
+            DisplayCityLabel = window.myData.travel.CityName[targetMapId] || window.myData.travel.CityName[window.myData.travel.SelectedLabel[0]][targetMapId];
+        }
+
         if (baseMapId === "Map_World") {
 
             await window.router.route(`/travel/${targetMapId}`);
             SeeChen_TravelPage_MapsAction.mapAnimation(baseMap, targetMap);
             document.querySelector("#traveled_World").classList.add("traveled_WorldHide");
+            document.querySelector("#traveled_Area").style.display = "initial";
+
             await new Promise(r => setTimeout(r, 500));
+            document.querySelector("#traveled_Area").classList.add("isShow")
             document.querySelector("#traveled_World").style.display = "none";
         } else {
 
+            if (window.myData.travel.SelectedLabel.length > 1) {
+                const toRemoveCity = traveled_AreaList.querySelectorAll("#table_city span");
+                const toRemoveLabel = traveled_AreaList.querySelectorAll("#table_label span");
+                toRemoveCity.forEach(element => {
+                    traveled_AreaList.querySelector("#table_city").removeChild(element);
+                });
+                toRemoveLabel.forEach(element => {
+                    traveled_AreaList.querySelector("#table_label").removeChild(element);
+                });
+                DisplayCityLabel = Array.isArray(DisplayCityLabel) ? DisplayCityLabel : Object.values(DisplayCityLabel).flat();
+                DisplayCityLabel.forEach(city => {
+
+                let label_city = document.createElement("span");
+                label_city.id = `LabelCity_${city}`;
+                label_city.classList.add("stay");
+                label_city.textContent = city;
+                document.querySelector("#table_city").appendChild(label_city);
+                });
+                let DisplayLabelLabel = SeeChen_TravelPage_ImgLabels.filterLabel(window.myData.travel.SelectedLabel)
+                let LabelProvince = Object.keys(window.myData.travel.CityName[targetMapId] || window.myData.travel.CityName[window.myData.travel.SelectedLabel[0]]);
+                const DisplayLabelRemoveEle = new Set([...DisplayCityLabel, ...LabelProvince, window.myData.travel.SelectedLabel[0]]);
+                DisplayLabelLabel = DisplayLabelLabel.filter(element => !DisplayLabelRemoveEle.has(element));
+                DisplayLabelLabel.forEach(label => {
+
+                    let label_label = document.createElement("span");
+                    label_label.id = `LabelLabel_${label}`;
+                    label_label.classList.add("stay");
+                    label_label.textContent = label;
+                    document.querySelector("#table_label").appendChild(label_label);
+                });
+            }
         }
     },
 
@@ -284,6 +321,9 @@ const SeeChen_TravelPage_Traveled = {
 
         if (!Object.keys(window.myData.travel.TravelList).includes(targetId) && targetId !== "World") {
 
+            document.querySelector("#travel_ContentExpand").classList.remove("contentExpand");
+            document.querySelector("#box_navBar").classList.remove("navShow");
+
             let traveledList = document.querySelector("#travel_TraveledList");
             let selectedArea = document.querySelector(`#span_${baseID}_${targetId}`);
 
@@ -308,6 +348,9 @@ const SeeChen_TravelPage_Traveled = {
                 return;
             }
 
+            document.querySelector("#travel_ContentExpand").classList.add("contentExpand");
+            document.querySelector("#box_navBar").classList.add("navShow");
+
             await window.router.route(`/travel/${baseID}/${targetId}`);
 
             let TraveledList_Rect = traveledList.getBoundingClientRect();
@@ -331,6 +374,10 @@ const SeeChen_TravelPage_Traveled = {
             }, 500);
     
             return;
+        }
+
+        if (baseMapId === "World" && targetId === "World") {
+            window.myData.travel.SelectedLabel = [];
         }
     
         let TraveledListName = targetId === "World" 
@@ -373,6 +420,59 @@ const SeeChen_TravelPage_Traveled = {
             }, 250);
         }, 250);
     },
+}
+
+const SeeChen_TravelPage_ImgLabels_Event = {
+
+    click_label: (
+        clickEvent
+    ) => {
+
+        const { e } = clickEvent;
+
+        e.target.classList.toggle("selected");
+
+        const current_SelectedLabel = `_${e.target.id.split("_")[2]}_`;
+
+        if (window.myData.travel.SelectedLabel.includes(current_SelectedLabel)) {
+            window.myData.travel.SelectedLabel.splice(window.myData.travel.SelectedLabel.indexOf(current_SelectedLabel), 1);
+        } else {
+            window.myData.travel.SelectedLabel.push(current_SelectedLabel);
+        }
+
+        const Label_Filter_Full = SeeChen_TravelPage_ImgLabels.filterLabel(window.myData.travel.SelectedLabel);
+        const current_City = Label_Filter_Full.filter(element => (Object.keys(window.myData.travel.CityName[Label_Filter_Full[0]]).includes(element)))[0];
+        let Label_Filter = Label_Filter_Full.filter(element => (
+            element !== Label_Filter_Full[0]
+            && element !== current_City
+        ));
+        const Label_Filter_City = Label_Filter.filter(element => (
+            window.myData.travel.CityName[Label_Filter_Full[0]][current_City].includes(element)
+        ));
+        const Label_Filter_Label = Label_Filter.filter(element => (
+            !window.myData.travel.CityName[Label_Filter_Full[0]][current_City].includes(element)
+        ));
+
+        const table_city = document.querySelector("#table_city");
+        const table_label = document.querySelector("#table_label");
+
+        table_city.querySelectorAll("span").forEach(element => {
+
+            if (Label_Filter_City.includes(`_${element.id.split("_")[2]}_`)) {
+                element.classList.add("stay");
+            } else if (element.classList.contains("stay")) {
+                element.classList.remove("stay");
+            }
+        });
+        table_label.querySelectorAll("span").forEach(element => {
+
+            if (Label_Filter_Label.includes(`_${element.id.split("_")[2]}_`)) {
+                element.classList.add("stay");
+            } else if (element.classList.contains("stay")) {
+                element.classList.remove("stay");
+            }
+        });
+    }
 }
 
 const SeeChen_TravelPage_ImgLabels = {
@@ -420,9 +520,9 @@ const SeeChen_TravelPage_ImgLabels = {
             window.myData.travel.LabelsMap[key] = Array.from(values);
         });
 
-        console.log(window.myData.travel.LabelsMap);
-        console.log(window.myData.travel.CityName);
-        SeeChen_TravelPage_ImgLabels.filterLabel(["CN", "BeiJing", "_city0_", "_city1_", "MY"]);
+        // console.log(window.myData.travel.LabelsMap);
+        // console.log(window.myData.travel.CityName);
+        // SeeChen_TravelPage_ImgLabels.filterLabel(["CN", "BeiJing", "_city0_", "_city1_", "MY"]);
     },
 
     filterLabel: (
@@ -433,18 +533,17 @@ const SeeChen_TravelPage_ImgLabels = {
             const relatedLabel = window.myData.travel.LabelsMap[label];
             return new Set([label, ...relatedLabel]);
         });
-        console.log(relatedSets);
 
         const intersectedLabels = SeeChen_TravelPage_ImgLabels.getIntersection(relatedSets);
 
-        console.log(intersectedLabels);
+        return intersectedLabels;
     },
 
 
     getIntersection: (
         arrays
     ) => {
-        if (arrays.length === 0 || arrays.length === 1) {
+        if (arrays.length === 0) {
             return arrays;
         }
         return arrays.reduce((acc, set) => acc.filter(x => set.has(x)), [...arrays[0]]);
@@ -462,6 +561,8 @@ const SeeChen_TravelPage_Click = {
         const selectedArea = document.querySelector(".areaSelected");
         if (selectedArea) {
 
+            window.myData.travel.SelectedLabel = [window.myData.travel.SelectedLabel[0], window.myData.travel.SelectedLabel[1]];
+
             let [ _, baseMapId, targetMapId ] = selectedArea.id.split("_");
             window.eventBus.emit("mapMouseClick", {
                 e,
@@ -473,7 +574,9 @@ const SeeChen_TravelPage_Click = {
         }
 
         document.querySelector("#traveled_World").style.display = "initial";
+        document.querySelector("#traveled_Area").classList.remove("isShow");
         await new Promise(r => setTimeout(r, 50));
+        document.querySelector("#traveled_Area").style.display = "none";
         document.querySelector("#traveled_World").classList.remove("traveled_WorldHide");
 
         await SeeChen_TravelPage_Traveled.bottomListUpdate("World", "World");

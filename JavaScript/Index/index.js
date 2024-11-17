@@ -41,7 +41,8 @@ window.myData = {
     travel: {
         TravelList: {},
         LabelsMap: {},
-        CityName: {}
+        CityName: {},
+        SelectedLabel: []
     }
 }
 

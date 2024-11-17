@@ -33,7 +33,39 @@
                 "labels": ["_test2_", "_test4_", "_test6_", "_test8_"]
             }]
         },
-        "ChongQing": {},
+        "ChongQing": {
+            "img": [{
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test11_", "_test12_", "_test13_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test12_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test11_", "_test13_", "_test15_", "_test17_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test11_", "_test14_", "_test17_", "_test19_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test12_", "_test11_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test2_", "_test4_", "_test6_", "_test8_"]
+            }]
+        },
         "FuJian": {},
         "GuangDong": {},
         "GuangXi": {},

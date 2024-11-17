@@ -257,6 +257,9 @@
 
     position: fixed;
 
+    opacity: 0;
+    pointer-events: none;
+
     color: var(--font-color-normal);
     font-size: var(--font-size-normal);
     font-family: var(--fontface-content-3);
@@ -278,7 +281,7 @@
     border-bottom: 0em solid #00000000;
 
     transition: all 1s;
-    z-index: 12;
+    z-index: -999;
 }
 
 #box_TravelPage #travel_ContentExpand.contentExpand {
@@ -308,7 +311,9 @@ div:has(> #travel_ContentExpand.contentExpand) {
 
 div:has(> #travel_ContentExpand) #travel_TraveledStory {
 
-    height: 90vh;
+    position: relative;
+
+    height: calc(90vh - 2em);
     padding-top: var(--font-size-5em);
     padding-bottom: var(--font-size-1em);
 
@@ -324,6 +329,11 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
 }
 
 #traveled_World {
+
+    position: absolute;
+
+    width: 100vw;
+
     opacity: 1;
 
     display: initial;
@@ -410,6 +420,21 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     transform: scale(1.1);
 }
 
+#traveled_Area {
+
+    position: absolute;
+
+    width: 100vw;
+
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#traveled_Area.isShow {
+
+    opacity: 1;
+}
+
 #traveled_Area #traveled_Area_AreaList {
 
     position: relative;
@@ -469,7 +494,31 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     padding: 0.05em 1em;
     border-radius: 1em;
 
+    margin: auto 0.1em;
     cursor: pointer;
+
+    transform: scaleX(1);
+
+    display: inline-block;
+
+    transition: all 1s;
+}
+#traveled_Area #traveled_Area_AreaList tr td.table_right span.selected {
+
+    background: var(--font-color-normal);
+    color: var(--bg-color);
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right span:not(.stay) {
+
+    transform: scaleX(0);
+    height: 0%;
+    font-size: 0;
+    padding: 0 0;
+    margin: 0.15em 0em;
+    border: 0 solid var(--font-color-normal);
+    color: #00000000;
+    opacity: 0;
 }
 
 #box_TravelPage #travel_TraveledList {
