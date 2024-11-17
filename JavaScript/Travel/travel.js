@@ -460,16 +460,32 @@ const SeeChen_TravelPage_ImgLabels_Event = {
 
             if (Label_Filter_City.includes(`_${element.id.split("_")[2]}_`)) {
                 element.classList.add("stay");
+                setTimeout(() => {
+                    if (element.classList.contains("loadingToHide")) {
+                        element.classList.remove("loadingToHide");
+                    }
+                }, 500);
             } else if (element.classList.contains("stay")) {
-                element.classList.remove("stay");
+                element.classList.add("loadingToHide");
+                setTimeout(() => {
+                    element.classList.remove("stay");
+                }, 500);
             }
         });
         table_label.querySelectorAll("span").forEach(element => {
 
             if (Label_Filter_Label.includes(`_${element.id.split("_")[2]}_`)) {
                 element.classList.add("stay");
+                setTimeout(() => {
+                    if (element.classList.contains("loadingToHide")) {
+                        element.classList.remove("loadingToHide");
+                    }
+                }, 500);
             } else if (element.classList.contains("stay")) {
-                element.classList.remove("stay");
+                element.classList.add("loadingToHide");
+                setTimeout(() => {
+                    element.classList.remove("stay");
+                }, 500);
             }
         });
     }

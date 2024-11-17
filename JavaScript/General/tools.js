@@ -81,7 +81,9 @@ export const tools = {
             country: "/Language/Area/country.json",
             countryCN: "/Language/Area/CN.json",
             countryMY: "/Language/Area/MY.json",
-            countrySG: "/Language/Area/SG.json"
+            countrySG: "/Language/Area/SG.json",
+
+            cityCN: "/Language/Area/City/CN.json"
         };
 
         const translateEntries = await Promise.all(

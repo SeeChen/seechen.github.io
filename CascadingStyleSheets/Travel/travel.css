@@ -35,6 +35,9 @@
 
     --travel-Story-Country-img-left: auto;
     --travel-Story-Country-img-right: 0;
+
+    --travel-Story-Img-Area-Box-width: 85%;
+    --travel-Story-Img-Area-Img-width: calc(100% / 4.01);
 }
 
 @media screen and (max-width: 750px) {
@@ -69,6 +72,9 @@
 
         --travel-Story-Country-img-left: 0;
         --travel-Story-Country-img-right: 0;
+
+        --travel-Story-Img-Area-Box-width: 90%;
+        --travel-Story-Img-Area-Img-width: calc(100% / 2.01);
     }
 }
 
@@ -301,6 +307,8 @@ div:has(> #travel_ContentExpand) {
     top: 101vh;
 
     transition: all 1s;
+
+    overflow: hidden;
 }
 
 div:has(> #travel_ContentExpand.contentExpand) {
@@ -319,7 +327,7 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory {
 
     box-sizing: border-box;
 
-    overflow: hidden scroll;
+    overflow: hidden hidden;
 
     transition: all 1s;
 }
@@ -448,6 +456,8 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     margin: 2em auto;
 
     table-layout: fixed;
+
+    z-index: 10;
 }
 
 #traveled_Area #traveled_Area_AreaList tr td {
@@ -501,7 +511,7 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
 
     display: inline-block;
 
-    transition: all 1s;
+    transition: all 0.5s;
 }
 #traveled_Area #traveled_Area_AreaList tr td.table_right span.selected {
 
@@ -519,6 +529,67 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     border: 0 solid var(--font-color-normal);
     color: #00000000;
     opacity: 0;
+    display: inline;
+}
+
+#traveled_Area #traveled_Area_AreaList tr td.table_right span.loadingToHide {
+    opacity: 0;
+}
+
+#traveled_ImgArea {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    overflow: hidden scroll;
+
+    padding-top: 12em;
+
+    width: 100vw;
+    height: 100%;
+
+    z-index: 9;
+}
+
+#traveled_ImgArea > div {
+    width: var(--travel-Story-Img-Area-Box-width);
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+}
+
+#traveled_ImgArea .img_area {
+
+    width: var(--travel-Story-Img-Area-Img-width);
+}
+
+#traveled_ImgArea .traveled_story_img {
+
+    width: 100%;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    max-height: 1000vh;
+
+    transition: all 1s;
+}
+
+#traveled_ImgArea img.test {
+    width: 0;
+    margin: 0;
+    padding: 0;
+    max-height: 0;
+    position: absolute;
+    transform: scale(0);
+    /* display: inline; */
+}
+
+#traveled_ImgArea::-webkit-scrollbar {
+    display: none;
 }
 
 #box_TravelPage #travel_TraveledList {

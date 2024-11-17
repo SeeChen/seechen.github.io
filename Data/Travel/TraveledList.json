@@ -2,9 +2,9 @@
     "CN": {
         "BeiJing": {
             "img": [{
-                "src": "",
+                "src": "0.avif",
                 "alt": "",
-                "city": "_city0_",
+                "city": "_dongcheng_",
                 "labels": ["_test0_", "_test1_", "_test2_", "_test3_"]
             }, {
                 "src": "",
