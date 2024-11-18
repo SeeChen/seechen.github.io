@@ -83,7 +83,11 @@ export const tools = {
             countryMY: "/Language/Area/MY.json",
             countrySG: "/Language/Area/SG.json",
 
-            cityCN: "/Language/Area/City/CN.json"
+            cityCN: "/Language/Area/City/CN.json",
+            cityMY: "/Language/Area/City/MY.json",
+            citySG: "/Language/Area/City/SG.json",
+
+            imageLabel: "/Language/Image/Label.json"
         };
 
         const translateEntries = await Promise.all(
@@ -99,6 +103,8 @@ export const tools = {
         );
 
         window.globalValues.translateData = Object.fromEntries(translateEntries);
+
+        console.log(window.globalValues.translateData);
     },
     
 }
