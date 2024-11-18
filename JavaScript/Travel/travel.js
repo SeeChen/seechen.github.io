@@ -13,6 +13,54 @@ export const SeeChen_TravelPage = {
         });
 
         await SeeChen_TravelPage_ImgLabels.buildRelationshipMap();
+
+        document.querySelector("#traveled_ImgArea").addEventListener("click", (e) => {
+
+            if (e.target.tagName !== "IMG") {
+                return;
+            }
+
+            const detailsArea = document.querySelector("#img_clicked_details");
+
+            detailsArea.querySelector("img").src = e.target.src;
+            detailsArea.scrollTo(0, 0);
+
+            const currentRect = e.target.getBoundingClientRect();
+
+            let current_top = currentRect.top;
+            let current_left = currentRect.left;
+            let current_width = e.target.offsetWidth;
+            let current_height = e.target.offsetHeight;
+
+            document.documentElement.style.setProperty("--travel-Img-Clicked-Details-Box-top", `${current_top}px`);
+            document.documentElement.style.setProperty("--travel-Img-Clicked-Details-Box-left", `${current_left}px`);
+            document.documentElement.style.setProperty("--travel-Img-Clicked-Details-Box-width", `${current_width}px`);
+            document.documentElement.style.setProperty("--travel-Img-Clicked-Details-Box-height", `${current_height}px`);
+
+            setTimeout(() => {
+
+                detailsArea.classList.remove("hideNoAnimation");
+                setTimeout(() => {
+
+                    e.target.classList.add("imgClicked");
+                    detailsArea.classList.remove("hideInView");
+                }, 250);
+            }, 250);
+        });
+
+        document.querySelector("#img_clicked_details").addEventListener("click", (e) => {
+
+            if (e.target.tagName === "IMG" || e.target.classList.contains("img_details")) {
+                return;
+            }
+
+            document.querySelector("#img_clicked_details").classList.add("hideInView");
+
+            setTimeout(() => {
+                document.querySelector("#img_clicked_details").classList.add("hideNoAnimation");
+                document.querySelector(".imgClicked").classList.remove("imgClicked");
+            }, 500);
+        });
     },
 
     render: async () => {
@@ -529,7 +577,7 @@ const SeeChen_TravelPage_ImgLabels_Event = {
                 img.classList.add("no-in-choose-animation");
                 setTimeout(() => {
                     img.classList.add("no-in-choose");
-                }, 1000);
+                }, 500);
             } else {
                 img.classList.remove("no-in-choose");
                 setTimeout(() => {

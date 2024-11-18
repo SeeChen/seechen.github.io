@@ -38,6 +38,13 @@
 
     --travel-Story-Img-Area-Box-width: 85%;
     --travel-Story-Img-Area-Img-width: calc(100% / 4.01);
+
+    --travel-Img-Clicked-Details-width: 75vw;
+
+    --travel-Img-Clicked-Details-Box-top: 0;
+    --travel-Img-Clicked-Details-Box-left: 0;
+    --travel-Img-Clicked-Details-Box-width: 0;
+    --travel-Img-Clicked-Details-Box-height: 0;
 }
 
 @media screen and (max-width: 750px) {
@@ -75,6 +82,8 @@
 
         --travel-Story-Img-Area-Box-width: 90%;
         --travel-Story-Img-Area-Img-width: calc(100% / 2.01);
+
+        --travel-Img-Clicked-Details-width: 90vw;
     }
 }
 
@@ -112,6 +121,20 @@
         filter: opacity(0) grayscale(1) blur(1em);
     }
 
+}
+
+@keyframes img_details {
+    from {
+
+        border-radius: 0em;
+        max-height: 75vh;
+    }
+
+    to {
+        top: 0;
+        max-height: 30vh;
+        border-radius: 1em;
+    }
 }
 
 #box_TravelPage {
@@ -600,10 +623,125 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     max-height: 1000vh;
     opacity: 1;
 
-    transition: all 0.5s;
+    transition: all 0.5s, opacity 0s;
 
     animation: travel_animation_1 1s linear;
     animation-timeline: view();
+
+    cursor: pointer;
+}
+
+#traveled_ImgArea img.imgClicked {
+
+    transition: opacity 0s;
+    opacity: 0;
+}
+
+#img_clicked_details {
+    position: fixed;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    width: 100vw;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+
+    z-index: 9999 !important;
+
+    overflow: hidden scroll;
+
+    text-align: center;
+
+    transition: all 0.5s;
+
+    display: block;
+}
+
+#img_clicked_details.hideInView {
+
+    top: var(--travel-Img-Clicked-Details-Box-top);
+    left: var(--travel-Img-Clicked-Details-Box-left);
+    width: var(--travel-Img-Clicked-Details-Box-width);
+    height: var(--travel-Img-Clicked-Details-Box-height);
+
+    overflow: visible visible;
+
+    transition: all 0.5s;
+
+    display: block;
+}
+
+#img_clicked_details.hideNoAnimation {
+
+    display: none !important;
+    transition: all 0s !important;
+    overflow: hidden;
+}
+
+#img_clicked_details.hideInView img {
+    position: absolute;
+    top: 0;
+    width: var(--travel-Img-Clicked-Details-Box-width);
+    height: var(--travel-Img-Clicked-Details-Box-height);
+}
+
+#img_clicked_details::-webkit-scrollbar {
+    display: none;
+}
+
+#img_clicked_details span {
+    position: sticky;
+
+    top: 1em;
+    left: 1em;
+
+    display: block;
+
+    width: var(--font-size-3em);
+    height: var(--font-size-3em);
+    line-height: var(--font-size-3em);
+
+    background: var(--bg-color);
+
+    border: 0.15em solid var(--font-color-title);
+    border-radius: 10em;
+
+    cursor: pointer;
+}
+
+#img_clicked_details img {
+
+    position: sticky;
+
+    top: calc(25vh / 2);
+    left: 0;
+    right: 0;
+
+    max-width: var(--travel-Img-Clicked-Details-width);
+    max-height: 75vh;
+
+    box-shadow: 0.15em 0.15em 0.15em #888;
+
+    margin: auto;
+
+    animation: img_details 1s linear;
+    animation-timeline: scroll();
+}
+
+#img_clicked_details > div {
+    position: absolute;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    top: 90vh;
+
+    width: 100vw;
+    height: 90vh;
+
+    box-shadow: -0.15em -0.15em 0.15em var(--bg-color);
+    border-radius: 1em;
 }
 
 #traveled_ImgArea .traveled_story_img.no-in-choose-animation {
