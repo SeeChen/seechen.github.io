@@ -78,6 +78,8 @@ export const tools = {
             home: "/Language/Home/home.json",
             timeline: "/Language/Home/timeline.json",
 
+            travel: "/Language/Travel/travel.json",
+
             country: "/Language/Area/country.json",
             countryCN: "/Language/Area/CN.json",
             countryMY: "/Language/Area/MY.json",

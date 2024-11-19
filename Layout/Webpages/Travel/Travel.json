@@ -1,0 +1,263 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "box_TravelPage"
+    },
+    "lang": "",
+    "children": [
+        {
+            "tag": "div",
+            "props": {
+                "id": "img_clicked_details",
+                "class": "hideInView hideNoAnimation"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "span",
+                "props": {},
+                "lang": "",
+                "children": ["x"]
+            }, {
+                "tag": "img",
+                "props": {},
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "img_details"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }, {
+            "tag": "div",
+            "props": {
+                "id": "travel_MapsBox"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "object",
+                "props": {
+                    "id": "Map_World",
+                    "data": "/File/Maps/WorldHigh.svg"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }, {
+            "tag": "div",
+            "props": {
+                "id": "travel_CountryMapsBox"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "object",
+                "props": {
+                    "id": "Map_CN",
+                    "data": "/File/Maps/CN_High.svg"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "object",
+                "props": {
+                    "id": "Map_MY",
+                    "data": "/File/Maps/MY_High.svg"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "object",
+                "props": {
+                    "id": "Map_SG",
+                    "data": "/File/Maps/SG_High.svg"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }, {
+            "tag": "div",
+            "props": {
+                "id": "box_AreaName"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "p_AreaName areaNameDisplay"
+                },
+                "lang": "country",
+                "children": ["WORLD"]
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "p_AreaName"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }, {
+            "tag": "p",
+            "props": {
+                "id": "travel_btn_MapsBack",
+                "class": "btn_Hide"
+            },
+            "lang": "travel",
+            "children": ["_back_"]
+        }, {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "id": "travel_ContentExpand"
+                },
+                "lang": "",
+                "children": ["▲"]
+            }, {
+                "tag": "p",
+                "props": {
+                    "id": "travel_TraveledList_title"
+                },
+                "lang": "travel",
+                "children": ["_traveled_"]
+            }, {
+                "tag": "div",
+                "props": {
+                    "id": "travel_TraveledList",
+                    "class": "at_left"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "div",
+                "props": {
+                    "id": "travel_TraveledStory"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "div",
+                    "props": {
+                        "id": "traveled_World"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "traveled_Area"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "table",
+                        "props": {
+                            "id": "traveled_Area_AreaList"
+                        },
+                        "lang": "",
+                        "children": [{
+                            "tag": "tr",
+                            "props": {},
+                            "lang": "",
+                            "children": [{
+                                "tag": "td",
+                                "props": {
+                                    "class": "table_left"
+                                },
+                                "lang": "travel",
+                                "children": ["_city_"]
+                            }, {
+                                "tag": "td",
+                                "props": {
+                                    "id": "table_city",
+                                    "class": "table_right",
+                                    "colspan": "6"
+                                },
+                                "lang": "",
+                                "children": [{
+                                    "tag": "span",
+                                    "props": {},
+                                    "lang": "",
+                                    "children": ["____"]
+                                }]
+                            }]
+                        }, {
+                            "tag": "tr",
+                            "props": {},
+                            "lang": "",
+                            "children": [{
+                                "tag": "td",
+                                "props": {
+                                    "class": "table_left"
+                                },
+                                "lang": "travel",
+                                "children": ["_label_"]
+                            }, {
+                                "tag": "td",
+                                "props": {
+                                    "id": "table_label",
+                                    "class": "table_right",
+                                    "colspan": "6"
+                                },
+                                "lang": "",
+                                "children": [{
+                                    "tag": "span",
+                                    "props": {},
+                                    "lang": "",
+                                    "children": ["____"]
+                                }]
+                            }]
+                        }]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "traveled_ImgArea"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "div",
+                        "props": {},
+                        "lang": "",
+                        "children": [{
+                            "tag": "div",
+                            "props": {
+                                "class": "img_area"
+                            },
+                            "lang": "",
+                            "children": []
+                        }, {
+                            "tag": "div",
+                            "props": {
+                                "class": "img_area"
+                            },
+                            "lang": "",
+                            "children": []
+                        }]
+                    }]
+                }]
+            }]
+        }
+    ]
+}

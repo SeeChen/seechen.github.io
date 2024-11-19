@@ -1,0 +1,15 @@
+{
+    "zh": {
+        "_back_": "返回",
+        "_traveled_": "留痕列表",
+        "_city_": "都邑",
+        "_label_": "标签"
+    }, 
+
+    "en": {
+        "_back_": "back",
+        "_traveled_": "My Trace",
+        "_city_": "City",
+        "_label_": "Labels"
+    }
+}

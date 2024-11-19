@@ -45,6 +45,8 @@
     --travel-Img-Clicked-Details-Box-left: 0;
     --travel-Img-Clicked-Details-Box-width: 0;
     --travel-Img-Clicked-Details-Box-height: 0;
+
+    --travel-Img-Clicked-Details-Details-Desc-margin: 5em;
 }
 
 @media screen and (max-width: 750px) {
@@ -84,6 +86,8 @@
         --travel-Story-Img-Area-Img-width: calc(100% / 2.01);
 
         --travel-Img-Clicked-Details-width: 90vw;
+
+        --travel-Img-Clicked-Details-Details-Desc-margin: 1em;
     }
 }
 
@@ -131,9 +135,20 @@
     }
 
     to {
-        top: 0;
-        max-height: 30vh;
+        top: var(--font-size-3em);
+        max-height: 50vh;
         border-radius: 1em;
+    }
+}
+
+@keyframes img_details_desc {
+    from {
+
+        
+    }
+
+    to {
+        margin-top: 17.5vh;
     }
 }
 
@@ -623,12 +638,16 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     max-height: 1000vh;
     opacity: 1;
 
-    transition: all 0.5s, opacity 0s;
+    transition: all 0.5s;
 
     animation: travel_animation_1 1s linear;
     animation-timeline: view();
 
     cursor: pointer;
+}
+
+#traveled_ImgArea img.imgClicked_NoAnimation {
+    transition: opacity 0s;
 }
 
 #traveled_ImgArea img.imgClicked {
@@ -682,9 +701,13 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
 
 #img_clicked_details.hideInView img {
     position: absolute;
-    top: 0;
+    top: 0 !important;
     width: var(--travel-Img-Clicked-Details-Box-width);
     height: var(--travel-Img-Clicked-Details-Box-height);
+
+    max-height: 75vh;
+
+    transition: all 0.5s;
 }
 
 #img_clicked_details::-webkit-scrollbar {
@@ -702,6 +725,8 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     width: var(--font-size-3em);
     height: var(--font-size-3em);
     line-height: var(--font-size-3em);
+
+    font-family: var(--fontface-content-3);
 
     background: var(--bg-color);
 
@@ -728,20 +753,70 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
 
     animation: img_details 1s linear;
     animation-timeline: scroll();
+
+    z-index: 10;
 }
 
 #img_clicked_details > div {
     position: absolute;
 
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(223, 223, 223, 0.9);
 
     top: 90vh;
 
     width: 100vw;
-    height: 90vh;
+    height: 60vh;
 
     box-shadow: -0.15em -0.15em 0.15em var(--bg-color);
     border-radius: 1em;
+}
+
+#img_clicked_details > div >  p {
+
+    color: var(--font-color-normal);
+    font-family: var(--fontface-art-2);
+}
+
+#img_clicked_details > div >  p:first-child {
+    font-size: var(--font-size-2_5em);
+
+    animation: img_details_desc 1s linear;
+    animation-timeline: scroll();
+    
+}
+
+#img_clicked_details > div >  p:nth-child(2) {
+    font-size: var(--font-size-normal);
+}
+
+#img_clicked_details > div >  p:nth-child(3) {
+
+    margin: 0.5em var(--travel-Img-Clicked-Details-Details-Desc-margin);
+    padding: 0.5em;
+
+    box-sizing: border-box;
+
+    border-top: 0.05em solid var(--font-color-normal);
+}
+
+#img_clicked_details > div >  p:nth-child(3) span {
+
+    display: inline-block;
+
+    border-radius: 1em;
+    border: 0.1em solid var(--font-color-normal);
+
+    font-size: var(--font-size-1em);
+    font-family: var(--fontface-art-2);
+
+    height: var(--font-size-1em);
+    line-height: var(--font-size-1em);
+    padding: 0.15em 1.2em;
+}
+
+#img_clicked_details > div >  p:nth-child(4) {
+
+    font-size: var(--font-size-normal);
 }
 
 #traveled_ImgArea .traveled_story_img.no-in-choose-animation {

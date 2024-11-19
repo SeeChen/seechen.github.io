@@ -4,6 +4,8 @@ export const SeeChen_TravelPage = {
     init: async () => {
 
         window.myData.travel.TravelList = await window.myTools.getJson("/Data/Travel/TraveledList.json");
+        await SeeChen_TravelPage.render();
+
         await SeeChen_TravelPage.bindEvent();
 
         document.querySelector("#travel_CountryMapsBox").classList.add("MapCountryHide");
@@ -23,7 +25,18 @@ export const SeeChen_TravelPage = {
             const detailsArea = document.querySelector("#img_clicked_details");
 
             detailsArea.querySelector("img").src = e.target.src;
-            detailsArea.scrollTo(0, 0);
+            
+            detailsArea.querySelector("div p:first-child").innerHTML = e.target.dataset.title;
+            detailsArea.querySelector("div p:nth-child(3)").innerHTML = "";
+            detailsArea.querySelector("div p:nth-child(4)").innerHTML = e.target.dataset.desc;
+
+            e.target.dataset.labels.split(",").forEach(label => {
+                let _label = document.createElement("span");
+                _label.innerHTML = label;
+                detailsArea.querySelector("div p:nth-child(3)").appendChild(_label);
+            });
+
+            detailsArea.querySelector("div p:nth-child(2)").innerHTML = e.target.dataset.country + e.target.dataset.province + e.target.dataset.city;
 
             const currentRect = e.target.getBoundingClientRect();
 
@@ -44,6 +57,7 @@ export const SeeChen_TravelPage = {
 
                     e.target.classList.add("imgClicked");
                     detailsArea.classList.remove("hideInView");
+                    detailsArea.scrollTo(0, 0);
                 }, 250);
             }, 250);
         });
@@ -53,18 +67,46 @@ export const SeeChen_TravelPage = {
             if (e.target.tagName === "IMG" || e.target.classList.contains("img_details")) {
                 return;
             }
-
             document.querySelector("#img_clicked_details").classList.add("hideInView");
+            document.querySelector(".imgClicked").classList.add("imgClicked_NoAnimation");
 
             setTimeout(() => {
                 document.querySelector("#img_clicked_details").classList.add("hideNoAnimation");
                 document.querySelector(".imgClicked").classList.remove("imgClicked");
+                setTimeout(() => {
+                    document.querySelector(".imgClicked_NoAnimation").classList.remove("imgClicked_NoAnimation");
+                }, 100);
             }, 500);
         });
     },
 
     render: async () => {
 
+        var travelPageLayout = await window.myTools.getJson("/Layout/Webpages/Travel/Travel.json");
+
+        Object.keys(window.myData.travel.TravelList).forEach(CountryName => {
+            travelPageLayout.children[5].children[2].children.push({
+                tag: "span",
+                props: {
+                    id: `span_World_${CountryName}`
+                },
+                lang: "country",
+                children: [CountryName]
+            })
+        });
+
+        var travelPageDom = window.vDom.Create(travelPageLayout, {
+            travel: window.globalValues.translateData.travel[window.globalValues.language],
+            country: window.globalValues.translateData.country[window.globalValues.language]
+        });
+
+        window.globalValues.currentVDom = travelPageLayout;
+         
+        document.querySelector("#box_contentArea").appendChild(
+            window.vDom.Render(
+                travelPageDom
+            )
+        );
     },
 
     bindEvent: async () => {
@@ -72,39 +114,42 @@ export const SeeChen_TravelPage = {
         const obj_Maps = document.querySelectorAll("Object");
         obj_Maps.forEach( obj => {
 
-            const container = obj.contentDocument;
-            container.addEventListener("click", (e) => {
+            obj.addEventListener("load", () => {
 
-                if (e.target.classList.contains("visited")) {
+                const container = obj.contentDocument;
+                container.addEventListener("click", (e) => {
 
-                    window.eventBus.emit("mapMouseClick", {
-                        e,
-                        baseMapId: obj.id,
-                        targetMapId: e.target.id
-                    });
-                }
-            });
-            container.addEventListener("mouseover", (e) => {
+                    if (e.target.classList.contains("visited")) {
 
-                if (e.target.classList.contains("visited")) {
+                        window.eventBus.emit("mapMouseClick", {
+                            e,
+                            baseMapId: obj.id,
+                            targetMapId: e.target.id
+                        });
+                    }
+                });
+                container.addEventListener("mouseover", (e) => {
 
-                    window.eventBus.emit("mapMouseEnter", {
-                        e,
-                        baseMapId: obj.id,
-                        targetMapId: e.target.id
-                    });
-                }
-            });
-            container.addEventListener("mouseout", (e) => {
+                    if (e.target.classList.contains("visited")) {
 
-                if (e.target.classList.contains("visited")) {
+                        window.eventBus.emit("mapMouseEnter", {
+                            e,
+                            baseMapId: obj.id,
+                            targetMapId: e.target.id
+                        });
+                    }
+                });
+                container.addEventListener("mouseout", (e) => {
 
-                    window.eventBus.emit("mapMouseLeave", {
-                        e,
-                        baseMapId: obj.id,
-                        targetMapId: e.target.id
-                    });
-                }
+                    if (e.target.classList.contains("visited")) {
+
+                        window.eventBus.emit("mapMouseLeave", {
+                            e,
+                            baseMapId: obj.id,
+                            targetMapId: e.target.id
+                        });
+                    }
+                });
             });
         });
 
@@ -300,6 +345,13 @@ const SeeChen_TravelPage_MapsAction = {
                 const img_current_country_pro = window.myData.travel.TravelList[window.myData.travel.SelectedLabel[0]][targetMapId]["img"];
                 for (var i = 0; i < img_current_country_pro.length; i++) {
                     let img = document.createElement("img");
+                    img.dataset.title = img_current_country_pro[i]["title"];
+                    img.dataset.desc = img_current_country_pro[i]["alt"];
+                    img.dataset.country = window.myData.travel.SelectedLabel[0];
+                    img.dataset.province = targetMapId;
+                    img.dataset.city = img_current_country_pro[i]["city"];
+                    img.dataset.labels = img_current_country_pro[i]["labels"]
+
                     img.classList.add(
                         "traveled_story_img", 
                         `Label-${window.myData.travel.SelectedLabel[0]}`, 
