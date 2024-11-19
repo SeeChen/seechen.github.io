@@ -1,77 +1,74 @@
+<!-- https://seechen.github.io -->
 <!DOCTYPE html>
-<html lang="zh-CN">
-	<head>
-		<title>Page Not Found</title>
-		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script type="text/javascript" src="./javaScript/mouseClick.js"></script>
-		<script type="text/javascript" src="./javaScript/snow.js"></script>
-		<script>
-			console.log('%c 何以解忧，唯有暴富！','color:red;font-size:5em;font-family:kaiti;text-shadow:1px 1px 5px #fff;');
-			window.onload=function(){
-				setContentHeight();
-				backOnclick();
-				whenResize();
-				mouseClick();
-				rightClick();
-			}
-			function setContentHeight(){
-				document.getElementById('content').style.height=window.innerHeight/2+'px';
-				document.getElementById('descript').style.marginTop=
-					document.getElementById('content').clientHeight*0.45+'px';
-			}
-			function backOnclick(){
-				document.getElementById('back').onclick=function(){
-					window.close();
-				}
-			}
-			function whenResize(){
-				let h = window.innerHeight;
-				let w = window.innerWidth;
-				window.onresize=function(){
-					if(h!=window.innerHeight || w!=window.innerWidth){
-						location.reload();
-					}
-				}
-			}
-		</script>
-		<style>
-			html,body{
-				height:100%;
-				cursor:url(./materials/cursor.jpg),default;
-				background:#edf1ec;
-				overflow:hidden;
-			}
-			#content{
-				border-radius: 50px;
-				background:#f5f5f5;
-				box-shadow:inset 1em 1em 1em #d9d9d9,inset -1em -1em 1em #ffffff;
-				width:60%;
-				margin:auto;
-				position:absolute;
-				left:0;
-				right:0;
-				top:0;
-				bottom:0;
-				text-align:center;
-			}
-			#descript{
-				color:#fff;
-				text-shadow:2px 2px 2px #d9d9d9,-2px -2px 2px #ffffff;
-				font-size:2em;
-			}
-			#back{
-				cursor:url(./materials/hover.png),pointer;
-				text-shadow:1px 1px 1px #d9d9d9,-1px -1px 1px #ffffff;
-				color:#fff;
-				font-size:1.5em;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="content">
-			<p id="descript">哎呀妈呀，你到了渺无人烟的清冷地带了</p>
-			<span id="back">点我返回主页</span>
-		</div>
-	</body>
+<html>
+    <head>
+
+        <title>SEECHEN's Website</title>
+
+        <!-- Meta -->
+        <meta charset = "UTF-8" />
+        <meta name = "author"   content = "SeeChen Lee" />
+        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <!-- Caseading Style Sheet -->
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/fontface.css" type="text/css">
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/global.css" type="text/css">
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/navigation.css" type="text/css">
+
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/loading.css" type="text/css">
+
+        <link rel="stylesheet" href="/CascadingStyleSheets/General/footer.css" type="text/css">
+
+        <link rel="stylesheet" href="/CascadingStyleSheets/Home/home.css" type="text/css">
+        <link rel="stylesheet" href="/CascadingStyleSheets/Travel/travel.css" type="text/css">
+        <link rel="stylesheet" href="/CascadingStyleSheets/Index/index.css" type="text/css">
+
+        <!-- JavaScript -->
+        <script src = "/JavaScript/General/VirtualDOM.js" type = "module"></script>
+        <script src = "/JavaScript/General/route.js" type = "module"></script>
+        <script src = "/JavaScript/General/language.js" type = "module"></script>
+        <script src = "/JavaScript/General/eventBus.js" type = "module"></script>
+        <script src = "/JavaScript/General/optimization.js" type = "module"></script>
+
+        <script src = "/JavaScript/General/loading.js" type = "module"></script>
+
+        <script src = "/JavaScript/Home/home.js" type = "module"></script>
+
+        <script src = "/JavaScript/Index/index.js" type = "module"></script>
+
+        <script src = "/JavaScript/Travel/travel.js" type = "module"></script>
+    </head>
+
+    <body>
+
+        <!-- Loading Pages -->
+        <div id="box_loading"></div>
+
+        <div id="contentArea" class="scrollBarNotDisplay">
+        <!-- Navigation Bar -->
+        <div id="box_navBar" class="navHide">
+            <div id="nav_Menu" onclick="window.clickEvent.navigation.expandMenu(this)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <g stroke-width="6.5" stroke-linecap="round">
+                        <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554" fill="none" stroke="#888"></path>
+                        <path d="M72 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554" fill="none" stroke="#888"></path>
+                        <path d="M100.75 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                        <path d="M100.75 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Content Area -->
+        <div id="box_contentArea"></div>
+
+        <!-- Footer Area -->
+        <div id="box_footerArea" class="notInDisplay"></div>
+
+        </div>
+    </body>
 </html>

@@ -25,29 +25,38 @@
             }, {
                 "tag": "div",
                 "props": {
+                    "id": "imgDetailsBox",
                     "class": "img_details"
                 },
                 "lang": "",
                 "children": [{
                     "tag": "p",
-                    "props": {},
+                    "props": {
+                        "id": "imgDetailsTitle"
+                    },
+                    "lang": "",
+                    "children": ["----"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "id": "imgDetailsAddress"
+                    },
                     "lang": "",
                     "children": []
                 }, {
                     "tag": "p",
-                    "props": {},
+                    "props": {
+                        "id": "imgDetailsLabel"
+                    },
                     "lang": "",
                     "children": []
                 }, {
                     "tag": "p",
-                    "props": {},
+                    "props": {
+                        "id": "imgDetailsDesc"
+                    },
                     "lang": "",
-                    "children": []
-                }, {
-                    "tag": "p",
-                    "props": {},
-                    "lang": "",
-                    "children": []
+                    "children": ["----"]
                 }]
             }]
         }, {
@@ -243,6 +252,7 @@
                         "children": [{
                             "tag": "div",
                             "props": {
+                                "id": "col_1",
                                 "class": "img_area"
                             },
                             "lang": "",
@@ -250,6 +260,7 @@
                         }, {
                             "tag": "div",
                             "props": {
+                                "id": "col_2",
                                 "class": "img_area"
                             },
                             "lang": "",

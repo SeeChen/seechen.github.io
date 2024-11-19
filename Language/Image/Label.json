@@ -1,9 +1,17 @@
 {
     "zh": {
-        "_dongcheng_": "东城区"
+        "_forbiddenCity_": "紫禁城",
+        "_winterElegance_": "冬日雪韵",
+        "_ancientChina_": "古韵中国",
+        "_jingshanView_": "景山俯瞰",
+        "_sereneBeauty_": "静谧之美"
     },
 
     "en": {
-        "_dongcheng_": "Dongcheng District"
+        "_forbiddenCity_": "Forbidden City ",
+        "_winterElegance_": "Winter Elegance",
+        "_ancientChina_": "Ancient China",
+        "_jingshanView_": "Jingshan View",
+        "_sereneBeauty_": "Serene Beauty"
     }
 }

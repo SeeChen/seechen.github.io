@@ -1,0 +1,207 @@
+<!-- https://seechen.github.io -->
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title>_title_</title>
+
+        <meta charset = "UTF-8" />
+        <meta name = "author"   content = "SeeChen Lee" />
+        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <link rel = "stylesheet" href = "./CSS/index/index.css" type = "text/css">
+        <link rel = "stylesheet" href = "./CSS/General/navigation_bar.css" type = "text/css">
+        <link rel = "stylesheet" href="./CSS/General/font_face.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/General/hr_style.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/language.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/home.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/lens.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/travel.css" type="text/css">
+        <link rel = "stylesheet" href="./CSS/index/projects.css" type="text/css">
+
+        <link rel="preload" href="/Travel/index.html" as="text">
+
+        <script src="/JQUERY/v1.10.2/jquery.min.js"></script>
+        <!-- <script src = "https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script> -->
+        
+        <script src = "./JS/General/navigation_bar.js" type="text/javascript"></script>
+        <script src = "./JS/INDEX/home.js" type="text/javascript"></script>
+        <script src = "./JS/INDEX/lens.js" type="text/javascript"></script>
+        <script src = "./JS/INDEX/travel.js" type="text/javascript"></script>
+        <script src = "./JS/INDEX/projects.js" type="text/javascript"></script>
+        <script src = "./JS/INDEX/language.js" type="module"></script>
+
+        <script src = "./JS/MODULE/Language.js" type = "module"></script>
+        <script src = "./JS/INDEX/index.js"     type = "module"></script>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C522VVXBTT"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-C522VVXBTT');
+        </script>
+    </head>
+
+    <body>
+        <div id="navigation_bar">
+            <table cellspacing="0">
+                <tr>
+                    <td id="nav_home" class="_switch_lang_" lang_obj="_home_">_home_</td>
+                    <td id="nav_trips" class="_switch_lang_" lang_obj="_trips_">_trips_</td>
+                    <td id="nav_camera" class="_switch_lang_" lang_obj="_camera_">_camera_</td>
+                    <td id="nav_projects" class="_switch_lang_" lang_obj="_projects_">_projects_</td>
+                    <td id="nav_language" class="_switch_lang_" lang_obj="_language_">_language_</td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="content_area">
+            <table id="main_content_table" cellspacing="0">
+                <tr>
+                    <td id="td_home">
+                        <div id="home_area">
+                            <p class="_switch_lang_" lang_obj="_home_welcome_">_home_welcome_</p>
+                            <p class="_switch_lang_" lang_obj="_home_name_"><span class="_switch_lang_" lang_obj="_home_my_name_" ></span></p>
+                            <p class="_switch_lang_" lang_obj="_status_">_status_</p>
+                            <div id="my_timeline">
+                                <p class="_switch_lang_" lang_obj="_timeline_">_timeline_</p>
+                                <div id="main_timeline"></div>
+                            </div>
+                            
+                            <br>
+                            <hr style="width: 90%; margin: auto;">
+                            <br/>
+                            <p class="social_media_icon">
+                                <a href="https://www.instagram.com/seechen_lee/" target="_blank"><img src="./MATERIALS/ico_instagram.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="https://www.facebook.com/SeeChen00/" target="_blank"><img src="./MATERIALS/ico_facebook.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="https://github.com/seechen" target="_blank"><img src="./MATERIALS/ico_github.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="mailto:leeseechen@gmail.com" target="_blank"><img src="./MATERIALS/ico_gmail.png" alt=""></a>
+                            </p>
+                            <p class="copyright_info">Copyright &copy; 2024 SeeChen. All rights reserved.</br>版权所有 &copy; 2024 SeeChen.</p>
+                        </div>
+                    </td>
+
+                    <td id="td_travel">
+                        <div id="travel_area">
+                            <p id="travel_title" class="_switch_lang_" lang_obj="_travel_title_"></p>
+                            <span id="travel_more" class="_switch_lang_" lang_obj="_travel_more_"></span>
+                            <div id="background_animation">
+                                <p class="travel_bg_p1 background_earth" style="left:0"></p>
+                                <p class="travel_bg_p2 background_earth"></p>
+                                <p class="travel_bg_p3 background_earth"></p>
+                            </div>
+                        </div>
+                    </td>
+
+
+                    <td id="td_lens">
+                        <div id="lens_area">
+                            <div id="lens_details">
+                                <div></div>
+                                <span id="current_index"></span>
+                                <p id="details_btn_quit" class="_switch_lang_" lang_obj="_quit_" onclick="quitDetails()">_quit_</p>
+                                <p id="details_img_name"></p>
+                                <table id="details_watermark">
+                                    <tr>
+                                        <td id="details_model_name" class="details_left" colspan="2">_model_name_</td>
+                                        <td id="details_logo" colspan="2" rowspan="2"></td>
+                                        <td id="details_parameter" class="details_left" colspan="3"></td>
+                                    </tr>
+                                    <tr>
+                                        <td id="details_date_time" class="details_left" colspan="2">_date_ _time_</td>
+                                        <td id="details_coordinate" class="details_left" colspan="3"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="lens-top-bar">
+                                <p class="_switch_lang_" lang_obj="_seechen_lens_">_seechen_lens_</p>
+                                <p class="_switch_lang_" lang_obj="_seechen_lens_desc_">_seechen_lens_desc_</p>
+                            </div>
+
+                            <p id="my_lens_account_icon">
+                                <span class="_switch_lang_" lang_obj="_follow_me_">_follow_me_</span><br>
+                                <a href="https://www.instagram.com/seechen.lens/" target="_blank"><img src="./MATERIALS/ico_instagram.png" alt=""></a>
+                                <a href="https://www.facebook.com/Lens.SeeChen/" target="_blank"><img src="./MATERIALS/ico_facebook.png" alt=""></a>
+                                <a href="https://www.xiaohongshu.com/user/profile/6596948d00000000220147b9" target="_blank"><img src="./MATERIALS/ico_xhs.png" alt=""></a>
+                                <a href="https://v.douyin.com/iBhg82su/" target="_blank"><img src="./MATERIALS/ico_dy.png" alt=""></a>
+                                <a href="https://v.kuaishou.com/YgGFTF" target="_blank"><img src="./MATERIALS/ico_ks.png" alt=""></a>
+                            </p>
+                            <hr class="hr_square" style="width: 90%; margin: auto;">
+                            
+                            <div id="area_lens_content">
+                                <div class="lens_content" style="grid-row-end: span 20;">
+                                    <img src="./MATERIALS/LENS/1.avif" alt="">
+                                    <p class="img_tag">
+                                        <span>Huawei P50 Pro</span>
+                                        <span>BeiJing</span>
+                                        <span>Moment</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <br>
+                            <hr style="width: 90%; margin: auto;">
+                            <br/>
+                            <p class="social_media_icon">
+                                <a href="https://www.instagram.com/seechen_lee/" target="_blank"><img src="./MATERIALS/ico_instagram.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="https://www.facebook.com/SeeChen00/" target="_blank"><img src="./MATERIALS/ico_facebook.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="https://github.com/seechen" target="_blank"><img src="./MATERIALS/ico_github.png" alt=""></a>
+                                &nbsp;&nbsp;
+                                <a href="mailto:leeseechen@gmail.com" target="_blank"><img src="./MATERIALS/ico_gmail.png" alt=""></a>
+                            </p>
+                            <p class="copyright_info">Copyright &copy; 2024 SeeChen. All rights reserved.</br>版权所有 &copy; 2024 SeeChen.</p>
+                        </div>
+                    </td>
+
+
+                    <td id="td_projects">
+                        <div id="projects_area">
+                            <div class="box_project">
+                                <p class="project_title">Project-title</p>
+                                <p class="project_desc">Project-desc</p>
+                                <p class="project_label">
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                    <a href="#">label1</a>
+                                </p>
+                                <p class="project_language">
+                                    <span><img src="https://static-00.iconduck.com/assets.00/java-icon-256x256-k4ufhihr.png" alt="">java</span>
+                                    <span><img src="https://static-00.iconduck.com/assets.00/java-icon-256x256-k4ufhihr.png" alt="">java</span>
+                                    <span><img src="https://static-00.iconduck.com/assets.00/java-icon-256x256-k4ufhihr.png" alt="">java</span>
+                                    <span><img src="https://static-00.iconduck.com/assets.00/java-icon-256x256-k4ufhihr.png" alt="">java</span>
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                    
+                    <td id="td_language">
+                        <div id="language_area">
+                            <p id="language-top-icon"></p>
+                            <p id="language-top-bar" class="_switch_lang_" lang_obj="_language_">_language_</p>
+                            <div id="language_option">
+                                <p id="choose_english">English</p>
+                                <p id="choose_chinese">中文</p>
+                            </div>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

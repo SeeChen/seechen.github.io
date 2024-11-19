@@ -24,19 +24,52 @@ export const SeeChen_TravelPage = {
 
             const detailsArea = document.querySelector("#img_clicked_details");
 
-            detailsArea.querySelector("img").src = e.target.src;
-            
-            detailsArea.querySelector("div p:first-child").innerHTML = e.target.dataset.title;
-            detailsArea.querySelector("div p:nth-child(3)").innerHTML = "";
-            detailsArea.querySelector("div p:nth-child(4)").innerHTML = e.target.dataset.desc;
+            let OldImgDetails = window.myTools.deepCopy(window.myData.travel.CurrentImgDetails);
+            window.myData.travel.CurrentImgDetails.children[1].props["src"] = e.target.src;
+            window.myData.travel.CurrentImgDetails.children[2].children[0].lang = "imageTitle";
+            window.myData.travel.CurrentImgDetails.children[2].children[0].children = [e.target.dataset.title];
+            window.myData.travel.CurrentImgDetails.children[2].children[3].lang = "imageDesc";
+            window.myData.travel.CurrentImgDetails.children[2].children[3].children = [e.target.dataset.desc];
 
+            let fullAddress = "";
+            let currentCountry = e.target.dataset.country;
+            let provinceObj = `country${currentCountry}`;
+            let cityObj = `city${currentCountry}`;
+            if (window.globalValues.language === "zh") {
+                fullAddress = `
+                    ${window.globalValues.translateData["country"][window.globalValues.language][currentCountry]}${window.globalValues.translateData[provinceObj][window.globalValues.language][e.target.dataset.province]}${window.globalValues.translateData[cityObj][window.globalValues.language][e.target.dataset.city]}.
+                `;
+            } else {
+                fullAddress = `
+                    ${window.globalValues.translateData[cityObj][window.globalValues.language][e.target.dataset.city]}, ${window.globalValues.translateData[provinceObj][window.globalValues.language][e.target.dataset.province]}, ${window.globalValues.translateData["country"][window.globalValues.language][currentCountry]}.
+                `;
+            }
+            window.myData.travel.CurrentImgDetails.children[2].children[1].children = [fullAddress];
+
+            window.myData.travel.CurrentImgDetails.children[2].children[2].children = []
             e.target.dataset.labels.split(",").forEach(label => {
-                let _label = document.createElement("span");
-                _label.innerHTML = label;
-                detailsArea.querySelector("div p:nth-child(3)").appendChild(_label);
+                
+                window.myData.travel.CurrentImgDetails.children[2].children[2].children.push({
+                    tag: "span",
+                    props: {},
+                    lang: "imageLabel",
+                    children: [label]
+                });
             });
 
-            detailsArea.querySelector("div p:nth-child(2)").innerHTML = e.target.dataset.country + e.target.dataset.province + e.target.dataset.city;
+            window.vDom.Patch(
+                document.querySelector("#box_TravelPage"),
+                window.vDom.Diff(
+                    OldImgDetails,
+                    window.myData.travel.CurrentImgDetails
+                )
+            );
+            window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                if (!el) return;
+                document.querySelector(`#${parent}`).removeChild(el);
+            });
+            window.globalValues.nodeToRemove = [];
 
             const currentRect = e.target.getBoundingClientRect();
 
@@ -78,11 +111,17 @@ export const SeeChen_TravelPage = {
                 }, 100);
             }, 500);
         });
+
+        await SeeChen_TravelPage.registerEvents();
     },
 
     render: async () => {
 
         var travelPageLayout = await window.myTools.getJson("/Layout/Webpages/Travel/Travel.json");
+
+        window.myData.travel.CurrentImgList = travelPageLayout.children[5].children[3].children[2].children[0];
+        window.myData.travel.CurrentImgTopBar = travelPageLayout.children[5].children[3].children[1].children[0];
+        window.myData.travel.CurrentImgDetails = travelPageLayout.children[0];
 
         Object.keys(window.myData.travel.TravelList).forEach(CountryName => {
             travelPageLayout.children[5].children[2].children.push({
@@ -206,7 +245,7 @@ export const SeeChen_TravelPage = {
         });
     },
 
-    registerEvents: () => {
+    registerEvents: async () => {
 
         const travel_EventHandler = {
 
@@ -231,7 +270,15 @@ export const SeeChen_TravelPage = {
 
         const travel_EventHandler = {
         
+            mapMouseClick: SeeChen_TravelPage_MapsAction.mouseClick,
+            mapMouseEnter: SeeChen_TravelPage_MapsAction.mouseEnter,
+            mapMouseLeave: SeeChen_TravelPage_MapsAction.mouseLeave,
 
+            travelMapsBackBtnClick: SeeChen_TravelPage_Click.mapBackBtn,
+
+            traveledBottomScroll: SeeChen_TravelPage_Traveled.bottomListScroll,
+
+            cityLabelClick: SeeChen_TravelPage_ImgLabels_Event.click_label
         }
 
         Object.entries(travel_EventHandler).forEach(([event, handler]) => {
@@ -305,67 +352,104 @@ const SeeChen_TravelPage_MapsAction = {
 
             if (window.myData.travel.SelectedLabel.length > 1) {
 
-                const toRemoveCity = traveled_AreaList.querySelectorAll("#table_city span");
-                const toRemoveLabel = traveled_AreaList.querySelectorAll("#table_label span");
-                toRemoveCity.forEach(element => {
-                    traveled_AreaList.querySelector("#table_city").removeChild(element);
-                });
-                toRemoveLabel.forEach(element => {
-                    traveled_AreaList.querySelector("#table_label").removeChild(element);
-                });
                 DisplayCityLabel = Array.isArray(DisplayCityLabel) ? DisplayCityLabel : Object.values(DisplayCityLabel).flat();
+
+                let oldTorLabelBar = window.myTools.deepCopy(window.myData.travel.CurrentImgTopBar);
+                window.myData.travel.CurrentImgTopBar.children[0].children[1].children = [];
                 DisplayCityLabel.forEach(city => {
 
-                    let label_city = document.createElement("span");
-                    label_city.id = `LabelCity_${city}`;
-                    label_city.classList.add("stay");
-                    label_city.textContent = city;
-                    document.querySelector("#table_city").appendChild(label_city);
+                    let newCityLabel = {
+                        tag: "span",
+                        props: {
+                            id: `LabelCity_${city}`,
+                            class: "stay"
+                        },
+                        lang: `city${window.myData.travel.SelectedLabel[0]}`,
+                        children: [city]
+                    }
+
+                    window.myData.travel.CurrentImgTopBar.children[0].children[1].children.push(newCityLabel);
                 });
+
                 let DisplayLabelLabel = SeeChen_TravelPage_ImgLabels.filterLabel(window.myData.travel.SelectedLabel)
                 let LabelProvince = Object.keys(window.myData.travel.CityName[targetMapId] || window.myData.travel.CityName[window.myData.travel.SelectedLabel[0]]);
                 const DisplayLabelRemoveEle = new Set([...DisplayCityLabel, ...LabelProvince, window.myData.travel.SelectedLabel[0]]);
                 DisplayLabelLabel = DisplayLabelLabel.filter(element => !DisplayLabelRemoveEle.has(element));
+
+                window.myData.travel.CurrentImgTopBar.children[1].children[1].children = [];
                 DisplayLabelLabel.forEach(label => {
 
-                    let label_label = document.createElement("span");
-                    label_label.id = `LabelLabel_${label}`;
-                    label_label.classList.add("stay");
-                    label_label.textContent = label;
-                    document.querySelector("#table_label").appendChild(label_label);
-                });
+                    let newLabelLabel = {
+                        tag: "span",
+                        props: {
+                            id: `LabelLabel_${label}`,
+                            class: "stay"
+                        },
+                        lang: "imageLabel",
+                        children: [label]
+                    }
 
-                const img_area_to_show = document.querySelectorAll(".img_area");
-                img_area_to_show.forEach(element => {
-                    element.querySelectorAll(".traveled_story_img").forEach(eleImg => {
-                        element.removeChild(eleImg);
-                    });
+                    window.myData.travel.CurrentImgTopBar.children[1].children[1].children.push(newLabelLabel);
+                });
+                window.vDom.Patch(
+                    document.querySelector("#traveled_Area"),
+                    window.vDom.Diff(
+                        oldTorLabelBar,
+                        window.myData.travel.CurrentImgTopBar
+                    )
+                );
+                window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                    if (!el) return;
+                    document.querySelector(`#${parent}`).removeChild(el);
+                });
+                window.globalValues.nodeToRemove = [];
+
+                var oldImgList = window.myTools.deepCopy(window.myData.travel.CurrentImgList);
+                window.myData.travel.CurrentImgList.children.forEach(child => {
+                    child["children"] = [];
                 });
                 await new Promise(r => setTimeout(r, 1500));
                 const img_current_country_pro = window.myData.travel.TravelList[window.myData.travel.SelectedLabel[0]][targetMapId]["img"];
+
                 for (var i = 0; i < img_current_country_pro.length; i++) {
-                    let img = document.createElement("img");
-                    img.dataset.title = img_current_country_pro[i]["title"];
-                    img.dataset.desc = img_current_country_pro[i]["alt"];
-                    img.dataset.country = window.myData.travel.SelectedLabel[0];
-                    img.dataset.province = targetMapId;
-                    img.dataset.city = img_current_country_pro[i]["city"];
-                    img.dataset.labels = img_current_country_pro[i]["labels"]
 
-                    img.classList.add(
-                        "traveled_story_img", 
-                        `Label-${window.myData.travel.SelectedLabel[0]}`, 
-                        `Label-${targetMapId}`, 
-                        `Label-${img_current_country_pro[i]["city"]}`
-                    );
+                    let newImgClass = `traveled_story_img Label-${window.myData.travel.SelectedLabel[0]} Label-${targetMapId} Label-${img_current_country_pro[i]["city"]}`;
                     img_current_country_pro[i]['labels'].forEach(label => {
-                        img.classList.add(`Label-${label}`);
+                        newImgClass = `${newImgClass} Label-${label}`
                     });
-                    img.loading = "lazy";
-                    img.src = `/File/Image/Travel/${window.myData.travel.SelectedLabel[0]}/${targetMapId}/${img_current_country_pro[i]["src"]}`;
+                    let newImg = {
+                        tag: "img",
+                        props: {
+                            src: `/File/Image/Travel/${window.myData.travel.SelectedLabel[0]}/${targetMapId}/${img_current_country_pro[i]["src"]}`,
+                            loading: "lazy",
+                            class: newImgClass,
+                            "data-title": img_current_country_pro[i]["title"],
+                            "data-desc": img_current_country_pro[i]["alt"],
+                            "data-country": window.myData.travel.SelectedLabel[0],
+                            "data-province": targetMapId,
+                            "data-city": img_current_country_pro[i]["city"],
+                            "data-labels": img_current_country_pro[i]["labels"]
+                        },
+                        lang: "",
+                        children: []
+                    }
 
-                    img_area_to_show[i % 2].appendChild(img);
+                    window.myData.travel.CurrentImgList.children[i % 2].children.push(newImg);
                 }
+                window.vDom.Patch(
+                    document.querySelector("#traveled_ImgArea"),
+                    window.vDom.Diff(
+                        oldImgList,
+                        window.myData.travel.CurrentImgList
+                    )
+                );
+                window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                    if (!el) return;
+                    document.querySelector(`#${parent}`).removeChild(el);
+                });
+                window.globalValues.nodeToRemove = [];
             }
         }
     },

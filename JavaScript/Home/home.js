@@ -144,6 +144,8 @@ export const SeeChen_HomePage = {
             home_Scroll
         );
 
+        document.querySelector("#contentArea").scrollTo(0, 0);
+
         const boxContent = document.querySelector("#box_contentArea");
         const homeContent = boxContent.querySelector("#box_HomePage");
         homeContent.style.opacity = 0;

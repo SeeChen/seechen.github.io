@@ -89,7 +89,9 @@ export const tools = {
             cityMY: "/Language/Area/City/MY.json",
             citySG: "/Language/Area/City/SG.json",
 
-            imageLabel: "/Language/Image/Label.json"
+            imageLabel: "/Language/Image/Label.json",
+            imageTitle: "/Language/Image/Title.json",
+            imageDesc: "/Language/Image/Desc.json",
         };
 
         const translateEntries = await Promise.all(

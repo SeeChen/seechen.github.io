@@ -714,7 +714,7 @@ div:has(> #travel_ContentExpand) #travel_TraveledStory::-webkit-scrollbar {
     display: none;
 }
 
-#img_clicked_details span {
+#img_clicked_details > span {
     position: sticky;
 
     top: 1em;

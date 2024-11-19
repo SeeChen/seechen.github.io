@@ -24,6 +24,8 @@ window.globalValues = {
 
     currentVDom: {},
 
+    nodeToRemove: [],
+
     translateData: {},
     language: ""
 }
@@ -42,7 +44,11 @@ window.myData = {
         TravelList: {},
         LabelsMap: {},
         CityName: {},
-        SelectedLabel: []
+        SelectedLabel: [],
+
+        CurrentImgTopBar: {},
+        CurrentImgList: {},
+        CurrentImgDetails: {}
     }
 }
 
@@ -66,8 +72,8 @@ window.onload = async function() {
 
     await window.router.route(window.location.pathname);
 
-    await SeeChen_TravelPage.init();
-    SeeChen_TravelPage.registerEvents();
+    // await SeeChen_TravelPage.init();
+    // SeeChen_TravelPage.registerEvents();
 
     window.webpages.loadingPage.updateProgress(99);
     

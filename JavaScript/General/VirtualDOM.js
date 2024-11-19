@@ -49,7 +49,8 @@ export const vDom = {
         vNode.children.forEach(child => {
 
             if (typeof child === "string") {
-                el.innerHTML += child;
+                let LanguageObj = window.globalValues.translateData;
+                el.innerHTML += LanguageObj[vNode.lang] ? LanguageObj[vNode.lang][window.globalValues.language][child] || child : child;
             } else {
                 el.appendChild(vDom.Render(child));
             }
@@ -60,9 +61,11 @@ export const vDom = {
 
     Diff: (
         oldNode,
-        newNode
+        newNode,
+        lang
     ) => {
         const patches = [];
+
         if (oldNode === undefined || newNode === undefined) {
 
             if (newNode !== undefined) {
@@ -74,8 +77,11 @@ export const vDom = {
 
         else if (typeof oldNode === "string" && typeof newNode === "string") {
 
+            let LanguageObj = window.globalValues.translateData;
+            let newText = LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][newNode] || newNode : newNode;
+
             if (oldNode !== newNode) {
-                patches.push({ type: "TEXT", text: newNode });
+                patches.push({ type: "TEXT", text: newText });
             }
         }
         
@@ -104,7 +110,7 @@ export const vDom = {
             const childPatch = []
             const maxChildrenLength = Math.max(oldNode.children.length, newNode.children.length);
             for (let i = 0; i < maxChildrenLength; i++) {
-                childPatch.push(vDom.Diff(oldNode.children[i], newNode.children[i]));
+                childPatch.push(vDom.Diff(oldNode.children[i], newNode.children[i], newNode.lang));
             }
             patches.push({ type: "CHILDREN", children: childPatch });
         }
@@ -126,10 +132,13 @@ export const vDom = {
                     parent.appendChild(vDom.Render(patch.newNode));
                     break;
                 case "REMOVE":
-                    parent.removeChild(el);
+                    window.globalValues.nodeToRemove.push({
+                        parent: parent.id,
+                        el
+                    });
                     break;
                 case "TEXT":
-                    el.textContent = patch.text;
+                    parent.innerHTML = patch.text;
                     break;
                 case "REPLACE":
                     parent.replaceChild(vDom.Render(patch.newNode), el);

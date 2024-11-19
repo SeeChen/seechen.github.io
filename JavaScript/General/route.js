@@ -1,4 +1,5 @@
 import { SeeChen_HomePage } from "../Home/home.js";
+import { SeeChen_TravelPage } from "../Travel/travel.js";
 
 window.addEventListener("popstate", () => {
     router.route(window.location.pathname);
@@ -12,8 +13,21 @@ const routesFunction = {
 
         if (SeeChen_HomePage !== window.webpages.currentPages) {
 
+            if (Object.keys(window.webpages.currentPages).length !== 0) window.webpages.currentPages.clearUp();
             window.webpages.currentPages = SeeChen_HomePage;
-            // await window.webpages.currentPages.init();
+            await window.webpages.currentPages.init();
+        }
+    },
+
+    travel: async () => {
+
+        document.title = "SEECHEN";
+
+        if (SeeChen_TravelPage !== window.webpages.currentPages) {
+            
+            if (Object.keys(window.webpages.currentPages).length !== 0) window.webpages.currentPages.clearUp();
+            window.webpages.currentPages = SeeChen_TravelPage;
+            await window.webpages.currentPages.init();
         }
     },
 
@@ -41,7 +55,7 @@ const routes = {
     },
 
     "/travel": async () => {
-        
+        await routesFunction.travel();
     },
     "/lens": async () => {
 

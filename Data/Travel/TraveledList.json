@@ -3,10 +3,10 @@
         "BeiJing": {
             "img": [{
                 "src": "0.avif",
-                "title": "test",
-                "alt": "test test test",
+                "title": "_avif0_",
+                "alt": "_avif0_",
                 "city": "_dongcheng_",
-                "labels": ["_test0_", "_test1_", "_test2_", "_test3_"]
+                "labels": ["_forbiddenCity_", "_winterElegance_", "_ancientChina_", "_jingshanView_", "_sereneBeauty_"]
             }, {
                 "src": "1.avif",
                 "title": "test",
