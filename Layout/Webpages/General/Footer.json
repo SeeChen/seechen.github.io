@@ -28,7 +28,7 @@
                 "children": [{
                     "tag": "img",
                     "props": {
-                        "src": "./MATERIALS/ico_instagram.png",
+                        "src": "/File/Icon/ico_instagram.png",
                         "alt": ""
                     },
                     "lang": "",
@@ -49,7 +49,7 @@
                 "children": [{
                     "tag": "img",
                     "props": {
-                        "src": "./MATERIALS/ico_facebook.png",
+                        "src": "/File/Icon/ico_facebook.png",
                         "alt": ""
                     },
                     "lang": "",
@@ -70,7 +70,7 @@
                 "children": [{
                     "tag": "img",
                     "props": {
-                        "src": "./MATERIALS/ico_github.png",
+                        "src": "/File/Icon/ico_github.png",
                         "alt": ""
                     },
                     "lang": "",
@@ -91,7 +91,7 @@
                 "children": [{
                     "tag": "img",
                     "props": {
-                        "src": "./MATERIALS/ico_gmail.png",
+                        "src": "/File/Icon/ico_gmail.png",
                         "alt": ""
                     },
                     "lang": "",

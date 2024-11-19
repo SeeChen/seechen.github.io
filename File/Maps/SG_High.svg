@@ -3,7 +3,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 799.99 496.21">
 	<defs>
 		<style type="text/css">
-			 @import url('../../CSS/Maps/world.css');
+			 @import url('/CascadingStyleSheets/world.css');
 		</style>
 
 		<amcharts:ammap projection="mercator" leftLongitude="103.618748" topLatitude="1.470961" rightLongitude="104.084977" bottomLatitude="1.179887"></amcharts:ammap>

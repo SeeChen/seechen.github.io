@@ -1,0 +1,18 @@
+.land {
+    fill: rgba(255, 255, 255, 0.2);
+    fill-opacity: 1;
+    stroke:white;
+    stroke-opacity: 1;
+    stroke-width:0.5;
+    transition: all 0.5s;
+}
+
+.visited {
+    fill: #CCCCCC;
+    transition: all 0.5s;
+}
+
+.visited:hover {
+    cursor: pointer;
+    fill: #FFFFFF00;
+}
