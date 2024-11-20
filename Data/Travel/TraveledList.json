@@ -8,17 +8,11 @@
                 "city": "_dongcheng_",
                 "labels": ["_forbiddenCity_", "_winterElegance_", "_ancientChina_", "_jingshanView_", "_sereneBeauty_"]
             }, {
-                "src": "1.avif",
-                "title": "test",
-                "alt": "",
-                "city": "_city1_",
-                "labels": ["_test0_", "_test2_", "_test4_", "_test6_"]
-            }, {
                 "src": "2.avif",
-                "title": "test",
-                "alt": "",
-                "city": "_city2_",
-                "labels": ["_test1_", "_test3_", "_test5_", "_test7_"]
+                "title": "_avif2_",
+                "alt": "_avif2_",
+                "city": "_fangshan_",
+                "labels": ["_outskirts_", "_skyview_", "_moon_", "_planesilhouette_", "_natureandhumanity_", "_sereneBeauty_"]
             }, {
                 "src": "3.avif",
                 "title": "test",
@@ -142,11 +136,75 @@
         "Johor": {},
         "Pinang": {},
         "Selangor": {},
-        "KL": {}
+        "KL": {
+            "img": [{
+                "src": "0.avif",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test11_", "_test12_", "_test13_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test12_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test11_", "_test13_", "_test15_", "_test17_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test11_", "_test14_", "_test17_", "_test19_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test12_", "_test11_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test2_", "_test4_", "_test6_", "_test8_"]
+            }]
+        }
     },
 
     "SG": {
-        "Central": {},
+        "Central": {
+            "img": [{
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test11_", "_test12_", "_test13_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test10_", "_test12_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city3_",
+                "labels": ["_test11_", "_test13_", "_test15_", "_test17_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test11_", "_test14_", "_test17_", "_test19_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test12_", "_test11_", "_test14_", "_test16_"]
+            }, {
+                "src": "",
+                "alt": "",
+                "city": "_city4_",
+                "labels": ["_test2_", "_test4_", "_test6_", "_test8_"]
+            }]
+        },
         "NorthEast": {},
         "NorthWest": {},
         "SouthEast": {},

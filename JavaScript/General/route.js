@@ -1,4 +1,5 @@
 import { SeeChen_HomePage } from "../Home/home.js";
+import { SeeChen_LensPages } from "../Lens/lens.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
 
 window.addEventListener("popstate", () => {
@@ -13,8 +14,15 @@ const routesFunction = {
 
         if (SeeChen_HomePage !== window.webpages.currentPages) {
 
-            if (Object.keys(window.webpages.currentPages).length !== 0) window.webpages.currentPages.clearUp();
+            if (Object.keys(window.webpages.currentPages).length !== 0) {
+
+                window.webpages.currentPages.clearUp();
+
+                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
+                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
+            } 
             window.webpages.currentPages = SeeChen_HomePage;
+
             await window.webpages.currentPages.init();
         }
     },
@@ -25,8 +33,36 @@ const routesFunction = {
 
         if (SeeChen_TravelPage !== window.webpages.currentPages) {
             
-            if (Object.keys(window.webpages.currentPages).length !== 0) window.webpages.currentPages.clearUp();
+            if (Object.keys(window.webpages.currentPages).length !== 0) {
+
+                window.webpages.currentPages.clearUp();
+                
+                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
+                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
+            }
+
             window.webpages.currentPages = SeeChen_TravelPage;
+
+            await window.webpages.currentPages.init();
+        }
+    },
+
+    lens: async () => {
+
+        document.title = "SEECHEN";
+
+        if (SeeChen_LensPages !== window.webpages.currentPages) {
+            
+            if (Object.keys(window.webpages.currentPages).length !== 0) {
+
+                window.webpages.currentPages.clearUp();
+                
+                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
+                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
+            }
+
+            window.webpages.currentPages = SeeChen_LensPages;
+
             await window.webpages.currentPages.init();
         }
     },
@@ -38,16 +74,28 @@ const routes = {
     "/": async () => {
         await routesFunction.home();
     },
+    "/spa": async () => {
+        await routesFunction.home();
+    },
+    "/spa/": async () => {
+        await routesFunction.home();
+    },
     "/spa.html": async () => {
         await routesFunction.home();
     },
     "/index": async () => {
         await routesFunction.home();
     },
+    "/index/": async () => {
+        await routesFunction.home();
+    },
     "/index.html": async () => {
         await routesFunction.home();
     },
     "/home": async () => {
+        await routesFunction.home();
+    },
+    "/home/": async () => {
         await routesFunction.home();
     },
     "/home.html": async () => {
@@ -57,8 +105,12 @@ const routes = {
     "/travel": async () => {
         await routesFunction.travel();
     },
-    "/lens": async () => {
+    "/travel/": async () => {
+        await routesFunction.travel();
+    },
 
+    "/lens": async () => {
+        await routesFunction.lens();
     },
     "/post": async () => {
 
@@ -66,9 +118,9 @@ const routes = {
     "/projects": async () => {
 
     },
-    "/about": async () => {
+    // "/about": async () => {
 
-    },
+    // },
 }
 
 export const router = {
@@ -83,6 +135,7 @@ export const router = {
             await routeMatch.handler(params);
         } else {
             document.title = "404 Page Not Found!";
+            console.log(path);
         }
     
         window.history.pushState({}, path, window.location.origin + path);

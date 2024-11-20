@@ -1,9 +1,19 @@
 {
     "zh": {
-        "_avif0_": "从景山公园远眺，白雪为故宫披上银装，金顶辉映，苍穹宁静，仿佛时光凝固在这一刻。"
+        "_avif0_": "从景山公园远眺，白雪为故宫披上银装，金顶辉映，苍穹宁静，仿佛时光凝固在这一刻。",
+        "_avif2_": "房山郊外的一角，仰望蓝天，左上角的月亮与右下角划过天际的飞机相映成趣，构成了一幅动静结合的画面。",
+
+        "_train_to_spring_": "一辆辆列车缓缓驶过在春天的粉色花海",
+        "_dance_of_lightning_": "夜空被电闪雷鸣划破，这一刻，感受到天地间的律动与磅礴",
+        "_full_moon_illuminates_the_ages": "月圆之夜，明月高悬夜空，雄伟的古建筑与之交相辉映，营造出一幅古韵悠长的画卷"
     },
 
     "en": {
-        "_avif0_": "From Jingshan Park, the Forbidden City is seen cloaked in snow, its golden roofs shining under a tranquil sky, as if time has frozen in this moment."
+        "_avif0_": "From Jingshan Park, the Forbidden City is seen cloaked in snow, its golden roofs shining under a tranquil sky, as if time has frozen in this moment.",
+        "_avif2_": "A glimpse of the outskirts of Fangshan, gazing at the sky. The moon in the upper left corner and a plane crossing the lower right create a harmonious blend of stillness and motion.",
+
+        "_train_to_spring_": "Trains slowly pass through the pink sea of flowers in spring",
+        "_dance_of_lightning_": "The summer night sky is torn apart by lightning",
+        "_full_moon_illuminates_the_ages": "On a full moon night, the bright moon and the majestic ancient buildings complement each other"
     }
 }

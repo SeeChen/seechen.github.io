@@ -156,6 +156,8 @@
     
     width: 100vw;
     height: 100vh;
+
+    transition: opacity 0.5s;
 }
 
 #box_TravelPage #travel_MapsBox {

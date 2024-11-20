@@ -80,6 +80,8 @@ export const tools = {
 
             travel: "/Language/Travel/travel.json",
 
+            lens: "/Language/Lens/lens.json",
+
             country: "/Language/Area/country.json",
             countryCN: "/Language/Area/CN.json",
             countryMY: "/Language/Area/MY.json",

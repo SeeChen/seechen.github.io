@@ -1,0 +1,318 @@
+
+:root {
+
+    --lens-Title-font-size: 5em;
+
+    --lens-Section-Content-Params-left: 4vw;
+    --lens-Section-Content-Params-height: 50vh;
+    --lens-Section-Content-Params-width: 30vw;
+
+    --lens-Section-Content-Img-max-height: 75vh;
+    --lens-Section-Content-Img-max-width: 60vw;
+
+}
+
+@keyframes img_animation {
+
+    0%,
+    30% {
+        transform: translate(0, 0);
+    }
+
+    45% {
+        transform: translate(35vw, -5vh);
+    }
+
+    60% {
+        transform: translate(35vw, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(35vw, 25vh);
+        opacity: 0;
+    }
+}
+
+@keyframes params_animation {
+
+    0%,
+    30% {
+        transform: translate(0, 0);
+    }
+
+    45% {
+        transform: translate(0, 0);
+    }
+
+    60% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    :root {
+
+        --lens-Title-font-size: 2.5em;
+
+        --lens-Section-Content-Params-left: 10vw;
+        --lens-Section-Content-Params-height: 20vh;
+        --lens-Section-Content-Params-width: 80vw;
+
+        --lens-Section-Content-Img-max-height: 50vh;
+        --lens-Section-Content-Img-max-width: calc(100vw - 2.1 * var(--font-size-2em));
+    }
+
+    @keyframes img_animation {
+
+        0%,
+        70% {
+            transform: translate(0, 0);
+        }
+
+        93% {
+            transform: translate(0, 20vh);
+            opacity: 1;
+        }
+
+        95% {
+            transform: translate(0, 25vh);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(0, 50vh);
+            opacity: 0;
+        }
+    }
+
+    @keyframes params_animation {
+
+        0%,
+        30% {
+            transform: translate(0, 0);
+        }
+
+        35% {
+            transform: translate(0, 10vh);
+        }
+    
+        45% {
+            transform: translate(0, 20vh);
+        }
+
+        50% {
+            transform: translate(0, 25vh);
+        }
+
+        55% {
+            transform: translate(0, 30vh);
+        }
+
+        60% {
+            transform: translate(0, 35vh);
+        }
+
+        65% {
+            transform: translate(0, 40vh);
+        }
+
+        70% {
+            transform: translate(0, 45vh);
+        }
+
+        75% {
+            transform: translate(0, 50vh);
+        }
+
+        80% {
+            transform: translate(0, 55vh);
+        }
+
+        85% {
+            transform: translate(0, 60vh);
+        }
+    
+        90% {
+            opacity: 1;
+            transform: translate(0, 60vh);
+        }
+
+        100% {
+            transform: translate(0, 60vh);
+            opacity: 0;
+        }
+    }
+}
+
+#box_LensPages {
+    
+    opacity: 0;
+    width: 100vw;
+
+    transition: all 1s;
+}
+#box_LensPages::-webkit-scrollbar {
+    display: none;
+}
+
+#box_LensPages #lensHeader {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: url(/File/Image/Lens/bg.jpg);
+    background-size: cover;
+    background-position: 37% bottom;
+    background-repeat: no-repeat;
+}
+
+#box_LensPages #lensHeader p {
+
+    position: absolute;
+
+    font-size: var(--lens-Title-font-size);
+    font-family: var(--fontface-art);
+
+    height: var(--font-size-1em);
+    line-height: var(--font-size-1em);
+    color: var(--font-color-title);
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    text-align: center;
+}
+
+#box_LensPages .box_lens_section {
+
+    position: relative;
+
+    width: 100vw;
+}
+
+#box_LensPages .box_lens_section::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#box_LensPages .box_lens_section .lens_Section_Content {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+}
+
+#box_LensPages .box_lens_section .lens_Section_Content .lens_Section_Content_Params {
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: var(--lens-Section-Content-Params-height);
+    width: var(--lens-Section-Content-Params-width);
+
+    top: 0;
+    bottom: 0;
+    left: var(--lens-Section-Content-Params-left);
+
+    background: rgba(0, 0, 0, 0.3);
+
+    border-radius: 0.5em;
+
+    font-size: var(--font-size-1em);
+    font-family: var(--fontface-content-3);
+    color: var(--font-color-title);
+
+    padding: 1em;
+    box-sizing: border-box;
+
+    margin: auto;
+
+    animation: params_animation 1s linear;
+    animation-timeline: view();
+}
+
+#box_LensPages .box_lens_section .lens_Section_Content img {
+
+    position: absolute;
+
+    max-width: var(--lens-Section-Content-Img-max-width);
+    max-height: var(--lens-Section-Content-Img-max-height);
+
+    top: 0;
+    bottom: 0;
+    left: var(--font-size-2em);
+
+    margin: auto;
+
+    transform: translateX(0);
+    will-change: transform;
+
+    border-radius: 0.5em;
+    box-shadow: 0.15em 0.15em 0.15em #000;
+
+    transition: transform 0.5s;
+
+    animation: img_animation 1s linear;
+    animation-timeline: view();
+}
+
+#box_LensPages .box_lens_section .lens_Section_Content img:hover {
+
+    transform: translateX(35vw);
+}
+
+#box_LensPages .box_lens_section .lens_Section_Intro {
+
+    position: sticky;
+    
+    text-align: right;
+
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+
+    width: 50vw;
+
+    left: 50vw;
+    bottom: 0;
+
+    pointer-events: none;
+}
+
+#box_LensPages .box_lens_section .lens_Section_Intro .lens_Section_Title {
+
+    font-size: var(--font-size-3em);
+    font-family: var(--fontface-title);
+    color: var(--font-color-normal-selected);
+    text-shadow: 0.1em 0.1em 0.1em var(--font-color-title);
+}
+
+#box_LensPages .box_lens_section .lens_Section_Intro .lens_Section_Desc {
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-3);
+    color: var(--font-color-normal);
+    text-shadow: 0.1em 0.1em 0.1em var(--font-color-title);
+}

@@ -10,6 +10,7 @@ import { SeeChen_Navigation, SeeChen_Navigation_Click } from "../General/navigat
 
 import { SeeChen_Footer } from "../General/footer.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
+import { SeeChen_LensPages } from "../Lens/lens.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -74,6 +75,7 @@ window.onload = async function() {
 
     // await SeeChen_TravelPage.init();
     // SeeChen_TravelPage.registerEvents();
+    // await SeeChen_LensPages.init();
 
     window.webpages.loadingPage.updateProgress(99);
     

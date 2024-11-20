@@ -68,16 +68,20 @@ const nav_Scroll = (
     var footer_rectTop = footerArea.getBoundingClientRect().top;
 
     if (target_scrollTop >= p_clientHeight) {
+
         navBar.classList.add("navShow");
-        document.documentElement.style.setProperty(
-            "--home-section-second-title-top", 
-            `${document.querySelector(".home_SectionTitle").clientHeight
-                 + p_clientHeight + 5}px`
-        );
-        document.documentElement.style.setProperty(
-            "--home-section-title-top", 
-            `${p_clientHeight}px`
-        );
+
+        if (document.querySelector(".home_SectionTitle")) {
+            document.documentElement.style.setProperty(
+                "--home-section-second-title-top", 
+                `${document.querySelector(".home_SectionTitle").clientHeight
+                     + p_clientHeight + 5}px`
+            );
+            document.documentElement.style.setProperty(
+                "--home-section-title-top", 
+                `${p_clientHeight}px`
+            );
+        }
     } else if (target_scrollTop <= p_clientHeight) {
         navBar.classList.remove("navShow");
     }

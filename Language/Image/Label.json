@@ -4,7 +4,12 @@
         "_winterElegance_": "冬日雪韵",
         "_ancientChina_": "古韵中国",
         "_jingshanView_": "景山俯瞰",
-        "_sereneBeauty_": "静谧之美"
+        "_sereneBeauty_": "静谧之美",
+        "_outskirts_": "郊野",
+        "_skyview_": "仰视天空",
+        "_moon_": "月",
+        "_planesilhouette_": "飞机剪影",
+        "_natureandhumanity_": "自然 · 人类"
     },
 
     "en": {
@@ -12,6 +17,11 @@
         "_winterElegance_": "Winter Elegance",
         "_ancientChina_": "Ancient China",
         "_jingshanView_": "Jingshan View",
-        "_sereneBeauty_": "Serene Beauty"
+        "_sereneBeauty_": "Serene Beauty",
+        "_outskirts_": "Outskirts",
+        "_skyview_": "Sky View",
+        "_moon_": "Moon",
+        "_planesilhouette_": "Plane Silhouette",
+        "_natureandhumanity_": "Nature and Humanity"
     }
 }

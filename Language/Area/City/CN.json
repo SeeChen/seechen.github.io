@@ -1,9 +1,11 @@
 {
     "zh": {
-        "_dongcheng_": "东城区"
+        "_dongcheng_": "东城区",
+        "_fangshan_": "房山区"
     },
 
     "en": {
-        "_dongcheng_": "Dongcheng District"
+        "_dongcheng_": "Dongcheng District",
+        "_fangshan_": "Fangshan District"
     }
 }

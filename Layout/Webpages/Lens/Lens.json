@@ -1,0 +1,20 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "box_LensPages"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "div",
+        "props": {
+            "id": "lensHeader"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {},
+            "lang": "lens",
+            "children": ["_page_title_"]
+        }]
+    }]
+}

@@ -1,9 +1,19 @@
 {
     "zh": {
-        "_avif0_": "雪落紫禁，韶华依旧"
+        "_avif0_": "雪落紫禁，韶华依旧",
+        "_avif2_": "月影云端，飞行诗篇",
+
+        "_train_to_spring_": "- 通往春天的列车",
+        "_dance_of_lightning_": "- 夏夜惊雷",
+        "_full_moon_illuminates_the_ages": "- 满月映古今"
     },
 
     "en": {
-        "_avif0_": "Snow Falls on the Forbidden City, Timeless Grace."
+        "_avif0_": "Snow Falls on the Forbidden City, Timeless Grace.",
+        "_avif2_": "Moonlit Skies, Poetic Flight.",
+
+        "_train_to_spring_": "- TRAIN to Spring",
+        "_dance_of_lightning_": "- Dance of Lightning",
+        "_full_moon_illuminates_the_ages": "- Full Moon Illuminates the Ages"
     }
 }
