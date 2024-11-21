@@ -99,10 +99,10 @@ export const SeeChen_LensPages = {
 
             styleSheet.insertRule(
                 `#box_LensPages .box_lens_section:nth-child(${i + 2})::before {
-                    background: url(/File/Image/Lens/Image/${bg});
+                    background-image: url(/File/Image/Lens/Image/${bg});
                     background-size: cover;
                     background-position: center;
-                    background-attachment: fixed;
+                    background-attachment: fixed !important;
                     background-repeat: no-repeat;
                     filter: blur(0.15em) grayscale(0.8) opacity(0.6);
                 }`, 

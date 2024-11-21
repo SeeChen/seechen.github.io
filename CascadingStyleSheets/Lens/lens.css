@@ -206,8 +206,6 @@
 
 #box_LensPages .box_lens_section::before {
 
-    will-change: transform !important;
-
     content: "";
 
     position: absolute;
@@ -223,6 +221,8 @@
 
     width: 100vw;
     height: 100vh;
+
+    will-change: transform !important;
 }
 
 #box_LensPages .box_lens_section .lens_Section_Content .lens_Section_Content_Params {
