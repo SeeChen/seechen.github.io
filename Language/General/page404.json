@@ -1,0 +1,13 @@
+{
+    "zh": {
+        "_page_not_found_": "额。。页面没有找到。。。",
+        "_maybe_mean_": "您是否在找：",
+        "_or_search_": "或搜索您所想的内容"
+    }, 
+
+    "en": {
+        "_page_not_found_": "Oops! Page Not FOUND...",
+        "_maybe_mean_": "Did you means:",
+        "_or_search_": "Or search here"
+    }
+}

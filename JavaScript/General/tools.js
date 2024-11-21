@@ -74,6 +74,7 @@ export const tools = {
             idx: "/Language/Index/index.json",
             nav: "/Language/General/navigation.json",
             footer: "/Language/General/footer.json",
+            page404: "/Language/General/page404.json",
 
             home: "/Language/Home/home.json",
             timeline: "/Language/Home/timeline.json",

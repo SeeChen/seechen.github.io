@@ -113,6 +113,13 @@ export const SeeChen_TravelPage = {
         });
 
         await SeeChen_TravelPage.registerEvents();
+
+        // await new Promise(r => setTimeout(r, 500));
+        // document.querySelector("#span_World_CN").dispatchEvent(new MouseEvent("click", {
+        //     bubbles: true,
+        //     cancelable: true,
+        //     view: window
+        // }));
     },
 
     render: async () => {
@@ -268,6 +275,8 @@ export const SeeChen_TravelPage = {
 
     clearUp: () => {
 
+        window.myData.travel.SelectedLabel = [];
+
         const travel_EventHandler = {
         
             mapMouseClick: SeeChen_TravelPage_MapsAction.mouseClick,
@@ -337,7 +346,7 @@ const SeeChen_TravelPage_MapsAction = {
 
         if (baseMapId === "Map_World") {
 
-            await window.router.route(`/travel/${targetMapId}`);
+            await window.router.route(`/travel/${targetMapId}`, false);
             SeeChen_TravelPage_MapsAction.mapAnimation(baseMap, targetMap);
             document.querySelector("#traveled_World").classList.add("traveled_WorldHide");
             document.querySelector("#traveled_Area").style.display = "initial";
@@ -541,7 +550,7 @@ const SeeChen_TravelPage_Traveled = {
 
             if (selectedArea.classList.contains("areaSelected")) {
 
-                await window.router.route(`/travel/${baseID}`);
+                await window.router.route(`/travel/${baseID}`, false);
 
                 setTimeout( async () => {
 
@@ -563,7 +572,7 @@ const SeeChen_TravelPage_Traveled = {
             document.querySelector("#travel_ContentExpand").classList.add("contentExpand");
             document.querySelector("#box_navBar").classList.add("navShow");
 
-            await window.router.route(`/travel/${baseID}/${targetId}`);
+            await window.router.route(`/travel/${baseID}/${targetId}`, false);
 
             let TraveledList_Rect = traveledList.getBoundingClientRect();
             let SelectedArea_Rect = selectedArea.getBoundingClientRect();
@@ -826,7 +835,7 @@ const SeeChen_TravelPage_Click = {
 
         await SeeChen_TravelPage_Traveled.bottomListUpdate("World", "World");
 
-        await window.router.route(`/travel`);
+        await window.router.route(`/travel`, false);
 
         document.querySelector(`#travel_CountryMapsBox`).classList.remove("afterScale");
         document.querySelector("#Map_World").classList.remove("WorldMapsHideDisplay");

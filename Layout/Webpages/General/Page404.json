@@ -1,0 +1,73 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "box_404Pages"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {
+            "id": "text_404"
+        },
+        "lang": "",
+        "children": ["404"]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "text_content"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "div",
+            "props": {
+                "id": "area_suggestion"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {},
+                "lang": "page404",
+                "children": ["_page_not_found_"]
+            }, {
+                "tag": "p",
+                "props": {},
+                "lang": "page404",
+                "children": ["_maybe_mean_"]
+            }]
+        }, {
+            "tag": "div",
+            "props": {
+                "id": "area_search"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "div",
+                "props": {},
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "span",
+                        "props": {
+                            "contenteditable": true
+                        },
+                        "lang": "",
+                        "children": []
+                    }, {
+                        "tag": "span",
+                        "props": {},
+                        "lang": "page404",
+                        "children": ["_or_search_"]
+                    }]
+                }]
+            }, {
+                "tag": "div",
+                "props": {},
+                "lang": "",
+                "children": []
+            }]
+        }]
+    }]
+}

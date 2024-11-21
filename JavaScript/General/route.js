@@ -1,6 +1,7 @@
 import { SeeChen_HomePage } from "../Home/home.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
+import { SeeChen_Pages404 } from "./Page404.js";
 
 window.addEventListener("popstate", () => {
     router.route(window.location.pathname);
@@ -108,37 +109,66 @@ const routes = {
     "/travel/": async () => {
         await routesFunction.travel();
     },
+    "/travel/:countryId": async (
+        params
+    ) => {
+        console.log(params);
+        // await routesFunction.travel();
+    },
+    "/travel/:countryId/:proviceId": async () => {
+        // await routesFunction.travel();
+    },
 
     "/lens": async () => {
         await routesFunction.lens();
     },
-    "/post": async () => {
+    "/lens/": async () => {
+        await routesFunction.lens();
+    },
+
+    "/service": async () => {
 
     },
     "/projects": async () => {
 
     },
-    // "/about": async () => {
+    "/about": async () => {
 
-    // },
+    },
 }
 
 export const router = {
 
     route: async (
-        path
+        path,
+        executed = true
     ) => {
+        
         const routeMatch = router.matchRoute(path);
-    
+        window.history.pushState({}, path, window.location.origin + path);
+
+        if (!executed) {
+            return;
+        }
+
         if (routeMatch) {
             const params = routeMatch.params;
             await routeMatch.handler(params);
         } else {
-            document.title = "404 Page Not Found!";
-            console.log(path);
+            document.title = "404";
+
+            if (Object.keys(window.webpages.currentPages).length !== 0) {
+
+                window.webpages.currentPages.clearUp();
+                
+                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
+                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
+            }
+
+            window.webpages.currentPages = SeeChen_Pages404;
+
+            await window.webpages.currentPages.init();
         }
-    
-        window.history.pushState({}, path, window.location.origin + path);
     },
 
     matchRoute: (

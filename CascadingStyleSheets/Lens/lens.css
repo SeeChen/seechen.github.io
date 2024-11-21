@@ -205,6 +205,9 @@
 }
 
 #box_LensPages .box_lens_section::before {
+
+    will-change: transform !important;
+
     content: "";
 
     position: absolute;
@@ -255,6 +258,8 @@
 }
 
 #box_LensPages .box_lens_section .lens_Section_Content img {
+
+    will-change: transform !important;
 
     position: absolute;
 

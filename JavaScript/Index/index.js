@@ -11,6 +11,7 @@ import { SeeChen_Navigation, SeeChen_Navigation_Click } from "../General/navigat
 import { SeeChen_Footer } from "../General/footer.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
+import { SeeChen_Pages404 } from "../General/Page404.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -28,7 +29,18 @@ window.globalValues = {
     nodeToRemove: [],
 
     translateData: {},
-    language: ""
+    language: "",
+
+    validRoutes: [
+        "/", 
+        "/spa/",
+        "/home/",
+        "/index/",
+        "/travel/",
+        "/lens/",
+        "/service/",
+        "/about/"
+    ]
 }
 
 window.webpages = {
@@ -73,9 +85,7 @@ window.onload = async function() {
 
     await window.router.route(window.location.pathname);
 
-    // await SeeChen_TravelPage.init();
-    // SeeChen_TravelPage.registerEvents();
-    // await SeeChen_LensPages.init();
+    // await SeeChen_Pages404.init();
 
     window.webpages.loadingPage.updateProgress(99);
     
