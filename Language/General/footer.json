@@ -8,12 +8,13 @@
         "_menu_desc_home_": "欢迎来到网站首页！",
         "_menu_desc_travel_": "探索我旅行中的珍贵记忆",
         "_menu_desc_lens_": "捕捉的精彩瞬间",
+        "_menu_desc_services_": "通过本站，你能获得什么？",
         "_menu_desc_post_": "随笔与心灵的涌动",
         "_menu_desc_projects_": "我参与开发的项目",
         "_menu_desc_about_": "关于本站、我本人或网站设置",
 
         "_about_page_": "关于此站",
-        "_about_page_desc_": "本网站建立于 GitHub Pages（github.io）平台，采用 HTML5、CSS3 和原生 JavaScript 开发。本站为单页面应用（SPA），所有代码由本站作者独立完成。如遇问题，请在 GitHub 上提交 Issues。"
+        "_about_page_desc_": "本网站建立于 GitHub Pages（<a href=\"https://pages.github.com/\" target=\"_blank\">github.io</a>）平台，采用 HTML5、CSS3 和原生 JavaScript 开发。本站为单页面应用（SPA），所有代码由本站作者独立完成（部分代码通过 AI 工具优化）。如果有任何建议（建议使用框架除外 🌚），或发现任何关于本站的问题，可以在 GitHub 上提交 <a href=\"https://github.com/SeeChen/seechen.github.io/issues\">Issues</a>。</br>万分感谢！爱你 😘"
     }, 
 
     "en": {
@@ -25,11 +26,12 @@
         "_menu_desc_home_": "Welcome to the homepage of the site !",
         "_menu_desc_travel_": "Explore the cherished memories from my travels",
         "_menu_desc_lens_": "Captured moments of charm",
+        "_menu_desc_services_": "Services you can get from me",
         "_menu_desc_post_": "Spontaneous thoughts and musings",
         "_menu_desc_projects_": "Projects I am working on",
         "_menu_desc_about_": "About this site, myself, or site settings",
 
         "_about_page_": "About this Sites",
-        "_about_page_desc_": "This site is hosted on GitHub Pages (github.io) and developed using HTML5, CSS3, and native JavaScript. It is a Single Page Application (SPA), and all code has been independently developed by the site author. If you encounter any issues, please submit them on GitHub Issues."
+        "_about_page_desc_": "This site is hosted on GitHub Pages (<a href=\"https://pages.github.com/\" target=\"_blank\">github.io</a>) and developed using HTML5, CSS3, and native JavaScript. It is a Single Page Application (SPA), and all code has been independently developed by the site author (Some code is optimized by AI Tools). If you encounter any issues, or you have any suggestion, please submit them on <a href=\"https://github.com/SeeChen/seechen.github.io/issues\">GitHub Issues</a>.</br>Thank you and LOVE you 😘"
     }
 }

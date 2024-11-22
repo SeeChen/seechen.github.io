@@ -39,6 +39,7 @@ window.globalValues = {
         "/travel/",
         "/lens/",
         "/service/",
+        "/projects/",
         "/about/"
     ]
 }

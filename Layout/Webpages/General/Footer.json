@@ -208,21 +208,21 @@
                 }, {
                     "tag": "li",
                     "props": {
-                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/post')"
+                        "onclick": "window.clickEvent.navigation.clickMenu(this, '/services')"
                     },
                     "lang": "",
                     "children": [{
                         "tag": "p",
                         "props": {},
                         "lang": "nav",
-                        "children": ["_post_"]
+                        "children": ["_services_"]
                     }, {
                         "tag": "p",
                         "props": {
                             "class": "display_pc footer_menu_desc"
                         },
                         "lang": "footer",
-                        "children": ["_menu_desc_post_"]
+                        "children": ["_menu_desc_services_"]
                     }]
                 }, {
                     "tag": "li",

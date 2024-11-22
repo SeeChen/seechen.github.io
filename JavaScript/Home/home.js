@@ -5,6 +5,7 @@ export const SeeChen_HomePage = {
 
         await SeeChen_HomePage.render();
         SeeChen_HomePage.registerEvents();
+        document.querySelector("#box_HomePage").style.opacity = 1;
     },
 
     render: async () => {

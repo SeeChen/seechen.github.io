@@ -126,7 +126,7 @@ const routes = {
         await routesFunction.lens();
     },
 
-    "/service": async () => {
+    "/services": async () => {
 
     },
     "/projects": async () => {

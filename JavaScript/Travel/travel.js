@@ -120,6 +120,15 @@ export const SeeChen_TravelPage = {
         //     cancelable: true,
         //     view: window
         // }));
+        // await new Promise(r => setTimeout(r, 1000));
+        // document.querySelector("#span_CN_BeiJing").dispatchEvent(new MouseEvent("click", {
+        //     bubbles: true,
+        //     cancelable: true,
+        //     view: window
+        // }));
+        // await new Promise(r => setTimeout(r, 5000));
+        // console.log(document.querySelector("img[data-title='_avif0_']"));
+        document.querySelector("#box_TravelPage").style.opacity = 1;
     },
 
     render: async () => {

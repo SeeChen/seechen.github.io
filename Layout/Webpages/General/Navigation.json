@@ -39,10 +39,10 @@
 
             "tag": "li",
             "props": {
-                "onclick": "window.clickEvent.navigation.clickMenu(this, '/post')"
+                "onclick": "window.clickEvent.navigation.clickMenu(this, '/services')"
             },
             "lang": "nav",
-            "children": ["_post_"]
+            "children": ["_services_"]
         }, {
 
             "tag": "li",
