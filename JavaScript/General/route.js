@@ -24,7 +24,7 @@ const routesFunction = {
             } 
             window.webpages.currentPages = SeeChen_HomePage;
 
-            // await window.webpages.currentPages.init();
+            await window.webpages.currentPages.init();
         }
     },
 
@@ -44,7 +44,7 @@ const routesFunction = {
 
             window.webpages.currentPages = SeeChen_TravelPage;
 
-            // await window.webpages.currentPages.init();
+            await window.webpages.currentPages.init();
         }
     },
 
@@ -64,7 +64,7 @@ const routesFunction = {
 
             window.webpages.currentPages = SeeChen_LensPages;
 
-            // await window.webpages.currentPages.init();
+            await window.webpages.currentPages.init();
         }
     },
 
