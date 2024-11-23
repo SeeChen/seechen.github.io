@@ -1,3 +1,13 @@
+/* 
+    File: services.css (https://github.com/SeeChen/seechen.github.io/blob/main/CascadingStyleSheets/Services/services.css).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
 
 :root {
 
@@ -38,6 +48,8 @@
     --service-Service-Content-4-div-8-img-height: 50vh;
     --service-Service-Content-4-div-9-img-width: auto;
     --service-Service-Content-4-div-9-img-height: 40vh;
+
+    --service-Service-Content-5-p-child-2-width: 60vw;
 }
 
 @keyframes animation_9 {
@@ -93,6 +105,8 @@
         --service-Service-Content-4-div-8-img-height: auto;
         --service-Service-Content-4-div-9-img-width: 60vw;
         --service-Service-Content-4-div-9-img-height: auto;
+
+        --service-Service-Content-5-p-child-2-width: 80vw;
     }
 
     @keyframes animation_9 {
@@ -316,6 +330,40 @@
 
     99%, 100% {
         overflow: hidden hidden;
+    }
+}
+@keyframes animation_12 {
+
+    0%, 25% {
+
+        opacity: 0;
+        transform: translateY(-10vh);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+@keyframes animation_13 {
+
+    0%, 35% {
+
+        opacity: 0;
+        transform: translateY(-10vh);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 
@@ -553,7 +601,7 @@ div:has( > #services_Content_2) {
 
     position: relative;
 
-    height: 500vh;
+    height: 600vh;
 
     margin-top: 10vh;
 }
@@ -1144,18 +1192,72 @@ div:has( > #services_Content_2) {
     margin-top: -80vh;
 
     width: 100vw;
-    height: 100vh;
+    height: 200vh;
 }
 
-#services_Content_5 p {
+#services_Content_5 > div:first-child {
+
+    position: sticky;
+
+    max-width: max-content;
+    height: 30vh;
+
+    top: 70vh;
+    left: 100vw;
+}
+
+#services_Content_5 > div:first-child > p {
 
     font-size: var(--font-size-3em);
-    font-family: var(--fontface-content-3);
+    font-family: var(--fontface-title);
     color: var(--bg-color);
 
-    height: 1.2em;
-    line-height: 1.2em;
+    display: list-item;
+    list-style-type: none;
 
-    width: 40vw;
+    max-width: max-content;
+
+    padding-right: 1em;
+    opacity: 0;
+
+    animation: animation_12 1s linear;
+    animation-timeline: view();
+    animation-range: 0vh 150vh;
+    animation-fill-mode: forwards;
 }
 
+#services_Content_5 > p:nth-child(2) {
+
+    position: sticky;
+
+    top: 45vh;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
+    text-align: center;
+
+    font-size: var(--font-size-2em);
+    color: var(--bg-color);
+    font-family: var(--fontface-content-3);
+
+    width: var(--service-Service-Content-5-p-child-2-width);
+
+    animation: animation_13 1s linear;
+    animation-timeline: view();
+    animation-range: 0vh 150vh;
+    animation-fill-mode: forwards;
+}
+
+#services_Content_6 {
+
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: red;
+
+    margin-top: -60vh;
+}
