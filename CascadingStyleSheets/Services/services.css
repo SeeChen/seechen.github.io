@@ -54,6 +54,8 @@
     --service-Service-Content-6-div-child-1-width: 85vw;
     --service-Service-Content-6-div-child-2-img-height: 45vh;
     --service-Service-Content-6-div-child-2-height: 90vh;
+
+    --service-Service-Content-8-FrondEnd-div-div-2-div-div-3-div-div-2-p-1-widht: 50%;
 }
 
 @keyframes animation_9 {
@@ -115,6 +117,8 @@
         --service-Service-Content-6-div-child-1-width: 95vw;
         --service-Service-Content-6-div-child-2-img-height: 20vh;
         --service-Service-Content-6-div-child-2-height: 80vh;
+
+        --service-Service-Content-8-FrondEnd-div-div-2-div-div-3-div-div-2-p-1-widht: 80%;
     }
 
     @keyframes animation_9 {
@@ -1687,17 +1691,21 @@ div:has( > #services_Content_7) {
     }
 
     to {
-        width: 50vw;
+        width: 80vw;
     }
 }
 @keyframes animation_18_3_5 {
 
-    from {
+    0% {
         opacity: 0;
     }
 
-    to {
+    25%, 75% {
         opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
     }
 }
 #services_Content_8 > p:first-child {
@@ -1724,7 +1732,7 @@ div:has( > #services_Content_7) {
 #services_Content_8 > #services_Content_8_FrontEnd {
     
     width: 100vw;
-    height: 300vh;
+    height: 310vh;
 
     padding-top: 15vh;
 }
@@ -1830,6 +1838,13 @@ div:has( > #services_Content_7) {
     animation-range: 220vh 240vh;
     animation-fill-mode: forwards;
 }
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:first-child > p:nth-child(3) {
+
+    animation: animation_18_3_4 1s linear;
+    animation-timeline: view();
+    animation-range: 280vh 300vh;
+    animation-fill-mode: forwards;
+}
 
 #services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(2) {
 
@@ -1910,7 +1925,7 @@ div:has( > #services_Content_7) {
     left: 0;
 
     width: 100%;
-    height: 80%;
+    height: 85%;
 
     opacity: 0;
 
@@ -1918,8 +1933,279 @@ div:has( > #services_Content_7) {
 
     animation: animation_18_3_5 1s linear;
     animation-timeline: view();
-    animation-range: 210vh 230vh;
+    animation-range: 210vh 270vh;
     animation-fill-mode: forwards;
+}
+@keyframes animation_18_3_6 {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes animation_18_3_6_1 {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child {
+
+    position: absolute;
+
+    width: 40vw;
+    height: 40vw;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    margin: auto;
+    animation: animation_18_3_6 10s linear infinite;
+
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span {
+
+    position: absolute;
+
+    color: #FFFFFF;
+    font-size: calc(1.5 * var(--font-size-1em));
+    font-family: var(--fontface-content-4);
+
+    transform-origin: center;
+
+    padding: 0.15em 1em;
+    border: 0.05em solid #000;
+    box-shadow: 2px 2px 2px #000;
+    animation: animation_18_3_6_1 10s linear infinite;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:hover {
+
+    animation-play-state: paused;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(1) {
+
+    transform: rotate(0deg);
+    background: red;
+    border-radius: 1em;
+
+    right: 2em;
+    bottom: 1em;
+    margin: 1em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(2) {
+
+    transform: rotate(0deg);
+    background: blue;
+    border-radius: 1em;
+
+    right: 1em;
+    bottom: 7em;
+    margin: 2em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(3) {
+
+    transform: rotate(0deg);
+    background: green;
+    border-radius: 1em;
+
+    right: 2em;
+    bottom: 6em;
+    margin: 3em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(4) {
+
+    transform: rotate(0deg);
+    background: rebeccapurple;
+    border-radius: 1em;
+
+    bottom: 2em;
+    margin: 4em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(5) {
+
+    transform: rotate(0deg);
+    background: rgb(204, 24, 213);
+    border-radius: 1em;
+
+    right: 3em;
+    margin: 5em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(6) {
+
+    transform: rotate(0deg);
+    background: rgb(234, 116, 12);
+    border-radius: 1em;
+
+    right: 1em;
+    bottom: 2em;
+    margin: 6em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(7) {
+
+    transform: rotate(0deg);
+    background: rgb(72, 233, 155);
+    border-radius: 1em;
+
+    top: 1em;
+    margin: 7em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(8) {
+
+    transform: rotate(0deg);
+    background: rgb(1, 81, 7);
+    border-radius: 1em;
+
+    top: 5em;
+    margin: 8em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(9) {
+
+    transform: rotate(0deg);
+    background: rgb(37, 203, 203);
+    border-radius: 1em;
+
+    left: 1em;
+    margin: 9em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:first-child > span:nth-child(10) {
+
+    transform: rotate(0deg);
+    background: rgb(209, 218, 105);
+    border-radius: 1em;
+
+    left: 2em;
+    margin: 10em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) {
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > p:first-child {
+
+    color: #FFF;
+    font-size: var(--font-size-3em);
+    text-align: center;
+    font-family: var(--fontface-content-3);
+
+    width: var(--service-Service-Content-8-FrondEnd-div-div-2-div-div-3-div-div-2-p-1-widht);
+    margin: 0 auto;
+
+    background: rgba(255, 200, 200, 0.5);
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(3) > div:nth-child(2) > p:nth-child(2) {
+
+    color: var(--bg-color);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-3);
+
+    width: var(--service-Service-Content-8-FrondEnd-div-div-2-div-div-3-div-div-2-p-1-widht);
+    text-align: center;
+    margin: 0 auto;
+}
+@keyframes animation_18_3_7 {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(4) {
+
+    position: absolute;
+
+    opacity: 0;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 85%;
+
+    background: var(--font-color-normal-selected);
+
+    animation: animation_18_3_7 1s linear;
+    animation-timeline: view();
+    animation-range: 250vh 270vh;
+    animation-fill-mode: forwards;
+
+    perspective: 10em;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+    width: 50%;
+    height: 85%;
+
+    left: 15%;
+    top: 0;
+
+    z-index: 2;
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(1) > p {
+
+    color: var(--bg-color);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-4);
+
+    text-shadow: 1px 1px 1px var(--font-color-normal-selected);
+}
+@keyframes animation_18_3_8 {
+
+    from {
+        transform: rotateY(35deg);
+    }
+
+    to {
+        transform: rotateY(0deg);
+    }
+}
+#services_Content_8 > #services_Content_8_FrontEnd > div > div:nth-child(2) > div:nth-child(4) > div:nth-child(2) {
+
+    position: absolute;
+
+    height: 80%;
+    width: 50%;
+
+    top: 0;
+    left: 50%;
+
+    transform-origin: center;
+    transform: rotateY(35deg);
+
+    background: url(/File/Image/Services/web-deploy.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    animation: animation_18_3_8 1s linear;
+    animation-timeline: view();
+    animation-range: 250vh 270vh;
+    animation-fill-mode: forwards;
+
+    z-index: 1;
 }
 @keyframes animation_19 {
 
@@ -1950,23 +2236,26 @@ div:has( > #services_Content_7) {
 
     animation: animation_19 1s linear;
     animation-timeline: view();
-    animation-range: 80vh 90vh;
+    animation-range: 400vh 410vh;
     animation-fill-mode: forwards;
 }
 
 #services_Content_8 > #services_Content_8_BackEnd {
 
     width: 100vw;
+    height: 200vh;
 
     padding-top: 22.5vh;
-
-    z-index: -3;
 }
 
 #services_Content_8 > #services_Content_8_BackEnd > div {
 
+    position: sticky;
+
+    top: 22.5vh;
+
     width: 100vw;
-    height: 100vh;
+    height: 72.5vh;
 
     border-radius: 1em;
 
