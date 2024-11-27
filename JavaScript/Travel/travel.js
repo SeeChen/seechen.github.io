@@ -128,7 +128,7 @@ export const SeeChen_TravelPage = {
         if (window.myData.travel.isCountry) {
 
             await new Promise(r => setTimeout(r, 500));
-            document.querySelector(`#span_World_${window.myData.travelpathParams[countryId]}`).dispatchEvent(new MouseEvent("click", {
+            document.querySelector(`#span_World_${window.myData.travelpathParams["countryId"]}`).dispatchEvent(new MouseEvent("click", {
                 bubbles: true,
                 cancelable: true,
                 view: window
@@ -137,12 +137,15 @@ export const SeeChen_TravelPage = {
             if (window.myData.travel.isProvice) {
             
                 await new Promise(r => setTimeout(r, 1000));
-                document.querySelector(`#span_${window.myData.travelpathParams[countryId]}_${window.myData.travelpathParams[proviceId]}`).dispatchEvent(new MouseEvent("click", {
+                document.querySelector(`#span_${window.myData.travelpathParams["countryId"]}_${window.myData.travelpathParams["proviceId"]}`).dispatchEvent(new MouseEvent("click", {
                     bubbles: true,
                     cancelable: true,
                     view: window
                 }));
             }
+
+            window.myData.travel.isCountry = false;
+            window.myData.travel.isProvice = false;
         }
         document.querySelector("#box_TravelPage").style.opacity = 1;
     },
