@@ -1,3 +1,14 @@
+/* 
+    File: index.js (https://github.com/SeeChen/seechen.github.io/blob/main/JavaScript/Index/index.js).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
 
 import { vDom } from "../General/VirtualDOM.js";
 import { tools } from "../General/tools.js";
@@ -12,6 +23,7 @@ import { SeeChen_Footer } from "../General/footer.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
 import { SeeChen_Pages404 } from "../General/Page404.js";
+import { SeeChen_ServicesPages } from "../Services/services.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -37,8 +49,12 @@ window.globalValues = {
         "/home/",
         "/index/",
         "/travel/",
+        "/travel/CN",
+        "/travel/CN/BeiJing/",
+        "/travel/MY",
+        "/travel/SG",
         "/lens/",
-        "/service/",
+        "/services/",
         "/projects/",
         "/about/"
     ]
@@ -62,7 +78,12 @@ window.myData = {
 
         CurrentImgTopBar: {},
         CurrentImgList: {},
-        CurrentImgDetails: {}
+        CurrentImgDetails: {},
+
+        isCountry: false,
+        isProvice: false,
+
+        pathParams: {}
     }
 }
 
@@ -86,7 +107,7 @@ window.onload = async function() {
 
     await window.router.route(window.location.pathname);
 
-    // await SeeChen_Pages404.init();
+    // await SeeChen_ServicesPages.init();
 
     window.webpages.loadingPage.updateProgress(99);
     

@@ -1,12 +1,14 @@
 {
     "zh": {
         "_page_not_found_": "额。。页面没有找到。。。",
+        "_location_not_found_": "嘤嘤嘤，我还没去过这个地方。。。",
         "_maybe_mean_": "您是否在找：",
         "_or_search_": "或搜索您所想的内容"
     }, 
 
     "en": {
         "_page_not_found_": "Oops! Page Not FOUND...",
+        "_location_not_found_": "Wahhh, I haven't been to this place yet…",
         "_maybe_mean_": "Did you means:",
         "_or_search_": "Or search here"
     }

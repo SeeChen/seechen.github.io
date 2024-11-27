@@ -1565,8 +1565,6 @@ div:has( > #services_Content_7) {
     top: 0;
     left: 0;
 
-    content: "Web Development 网站开发";
-
     text-shadow: 2px 2px 1px var(--font-color-normal-selected);
     color: var(--bg-color);
 
@@ -1778,7 +1776,7 @@ div:has( > #services_Content_7) {
     padding: 0 var(--font-size-1em);
 
     color: var(--bg-color);
-    font-size: var(--font-size-3em);
+    font-size: var(--font-size-2em);
     font-family: var(--fontface-title-4);
 
     text-align: center;
@@ -2524,8 +2522,6 @@ div:has( > #services_Content_7) {
 }
 #services_Content_8 > #services_Content_8_BackEnd > div > div:nth-child(2) > div:first-child > p:nth-child(3) span:nth-child(1)::before {
 
-    content: "Platfrom";
-
     position: absolute;
 
     white-space: nowrap;
@@ -2543,8 +2539,6 @@ div:has( > #services_Content_7) {
     animation-fill-mode: forwards;
 }
 #services_Content_8 > #services_Content_8_BackEnd > div > div:nth-child(2) > div:first-child > p:nth-child(3) span:nth-child(2)::before {
-
-    content: "Environment";
 
     position: absolute;
     
@@ -2573,8 +2567,6 @@ div:has( > #services_Content_7) {
     }
 }
 #services_Content_8 > #services_Content_8_BackEnd > div > div:nth-child(2) > div:first-child > p:nth-child(3) span:nth-child(3)::before {
-
-    content: "YOU WANT";
 
     position: absolute;
     
@@ -2953,7 +2945,5 @@ div:has(> #services_Content_9) {
     margin-top: 40vh;
 
     width: 100vw;
-    height: 100vh;
-
-    background: red;
+    height: 20vh;
 }

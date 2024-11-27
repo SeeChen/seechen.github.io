@@ -1,3 +1,14 @@
+/* 
+    File: tools.js (https://github.com/SeeChen/seechen.github.io/blob/main/JavaScript/General/tools.js).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
 
 export const tools = {
 
@@ -82,6 +93,8 @@ export const tools = {
             travel: "/Language/Travel/travel.json",
 
             lens: "/Language/Lens/lens.json",
+
+            services: "/Language/Services/services.json",
 
             country: "/Language/Area/country.json",
             countryCN: "/Language/Area/CN.json",

@@ -1,5 +1,17 @@
+/* 
+    File: route.js (https://github.com/SeeChen/seechen.github.io/blob/main/JavaScript/General/route.js).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
 import { SeeChen_HomePage } from "../Home/home.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
+import { SeeChen_ServicesPages } from "../Services/services.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
 import { SeeChen_Pages404 } from "./Page404.js";
 
@@ -7,13 +19,13 @@ window.addEventListener("popstate", () => {
     router.route(window.location.pathname);
 });
 
-const routesFunction = {
+const myFunction = {
 
-    home: async () => {
+    jump: async (
+        SeeChen_CurrentPage
+    ) => {
 
-        document.title = "SEECHEN";
-
-        if (SeeChen_HomePage !== window.webpages.currentPages) {
+        if (SeeChen_CurrentPage !== window.webpages.currentPages) {
 
             if (Object.keys(window.webpages.currentPages).length !== 0) {
 
@@ -22,51 +34,140 @@ const routesFunction = {
                 document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
                 document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
             } 
-            window.webpages.currentPages = SeeChen_HomePage;
+            window.webpages.currentPages = SeeChen_CurrentPage;
 
             await window.webpages.currentPages.init();
         }
+    },
+
+    Page404: async () => {
+        document.title = "404 | SEECHEN";
+
+        if (Object.keys(window.webpages.currentPages).length !== 0) {
+
+            window.webpages.currentPages.clearUp();
+            
+            document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
+            document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
+        }
+
+        window.webpages.currentPages = SeeChen_Pages404;
+
+        await window.webpages.currentPages.init();
+    },
+
+    travelIsValid: async (
+
+        countryId,
+        proviceId = "NOPE"
+    ) => {
+
+        isTraveledCountry = {
+            CN: [
+                "BeiJing",
+                // "AuHui",
+                "ChongQing",
+                "FuJian",
+                "GuangDong",
+                // "GanSu",
+                "GuangXi",
+                "GuiZhou",
+                // "HaiNan",
+                "HeBei",
+                "HeNan",
+                "HongKong",
+                // "HeiLongJiang",
+                "HuNan",
+                "HuBei",
+                // "JiLing",
+                "JiangSu",
+                "JiangXi",
+                // "LiaoNing",
+                "Macau",
+                "InnerMongolia",
+                "NingXia",
+                // "QingHai",
+                "ShaanXi",
+                "SiChuan",
+                "ShanDong",
+                "ShangHai",
+                "ShanXi",
+                "TianJin",
+                // "TaiWan",
+                // "XinJiang",
+                // "Tibet",
+                "YunNan",
+                "ZheJiang"
+            ],
+
+            MY: [
+                "Johor",
+                // "Kedah",
+                // "Kelantan",
+                // "Melaka",
+                // "Sembilan",
+                // "Pahang",
+                "Pinang",
+                // "Perak",
+                // "Perlis",
+                "Selangor",
+                // "Terengganu",
+                // "Sabah",
+                // "Sarawak",
+                "KL",
+                "Labuan",
+                // "Putrajaya"
+            ],
+
+            SG: [
+                "Central",
+                "NorthEast",
+                "NorthWest",
+                "SouthEast",
+                "SouthWest"
+            ]
+        }
+
+        const CountryArr = Object.keys(isTraveledCountry);
+        
+        if (!CountryArr.includes(countryId)) {
+
+            return false;
+        }
+
+        if (proviceId !== "NOPE" && !isTraveledCountry[countryId].includes(proviceId)) {
+
+            return false;
+        }
+
+        return true;
+    }
+}
+
+const routesFunction = {
+
+    home: async () => {
+
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._home_} | SEECHEN`;
+        await myFunction.jump(SeeChen_HomePage);
     },
 
     travel: async () => {
 
-        document.title = "SEECHEN";
-
-        if (SeeChen_TravelPage !== window.webpages.currentPages) {
-            
-            if (Object.keys(window.webpages.currentPages).length !== 0) {
-
-                window.webpages.currentPages.clearUp();
-                
-                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
-                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
-            }
-
-            window.webpages.currentPages = SeeChen_TravelPage;
-
-            await window.webpages.currentPages.init();
-        }
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._travel_} | SEECHEN`;
+        await myFunction.jump(SeeChen_TravelPage);
     },
 
     lens: async () => {
 
-        document.title = "SEECHEN";
-
-        if (SeeChen_LensPages !== window.webpages.currentPages) {
-            
-            if (Object.keys(window.webpages.currentPages).length !== 0) {
-
-                window.webpages.currentPages.clearUp();
-                
-                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
-                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
-            }
-
-            window.webpages.currentPages = SeeChen_LensPages;
-
-            await window.webpages.currentPages.init();
-        }
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._lens_} | SEECHEN`;
+        await myFunction.jump(SeeChen_LensPages);
     },
+
+    services: async () => {
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._services_} | SEECHEN`;
+        await myFunction.jump(SeeChen_ServicesPages);
+    }
 
 }
 
@@ -112,11 +213,37 @@ const routes = {
     "/travel/:countryId": async (
         params
     ) => {
-        console.log(params);
-        // await routesFunction.travel();
+
+        const { countryId } = params;
+
+        if (!myFunction.travelIsValid(countryId)) {
+
+            if (countryId === "TW") {
+                await router.route("/travel/CN/TaiWan", true);
+                return;
+            }
+
+            await myFunction.Page404();
+        }
+
+        window.myData.travelpathParams = params;
+        window.myData.travel.isCountry = true;
+        await routesFunction.travel();
     },
-    "/travel/:countryId/:proviceId": async () => {
-        // await routesFunction.travel();
+    "/travel/:countryId/:proviceId": async (
+        params
+    ) => {
+        const { countryId, proviceId } = params;
+
+        if (!myFunction.travelIsValid(countryId, proviceId)) {
+
+            await myFunction.Page404();
+        }
+
+        window.myData.travelpathParams = params;
+        window.myData.travel.isCountry = true;
+        window.myData.travel.isProvice = true;
+        await routesFunction.travel();
     },
 
     "/lens": async () => {
@@ -127,8 +254,12 @@ const routes = {
     },
 
     "/services": async () => {
-
+        await routesFunction.services();
     },
+    "/services/": async () => {
+        await routesFunction.services();
+    },
+
     "/projects": async () => {
 
     },
@@ -155,19 +286,7 @@ export const router = {
             const params = routeMatch.params;
             await routeMatch.handler(params);
         } else {
-            document.title = "404";
-
-            if (Object.keys(window.webpages.currentPages).length !== 0) {
-
-                window.webpages.currentPages.clearUp();
-                
-                document.querySelector("#nav_Menu").classList.remove("nav_MenuClick");
-                document.querySelector("#box_navBar").classList.remove("navShow", "nav_MenuExpand");
-            }
-
-            window.webpages.currentPages = SeeChen_Pages404;
-
-            await window.webpages.currentPages.init();
+            await myFunction.Page404();
         }
     },
 

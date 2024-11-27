@@ -1,3 +1,14 @@
+/* 
+    File: Page404.js (https://github.com/SeeChen/seechen.github.io/blob/main/JavaScript/General/Page404.js).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
 
 export const SeeChen_Pages404 = {
 
@@ -12,6 +23,10 @@ export const SeeChen_Pages404 = {
         var page404PageLayout = await window.myTools.getJson("/Layout/Webpages/General/Page404.json");
 
         const suggestionPath = SeeChen_Pages404_Suggestion.findClosestRoutes(window.location.pathname);
+
+        if (window.location.pathname.includes("travel")) {
+            page404PageLayout.children[1].children[0].children[0].children = ["_location_not_found_"];
+        }
 
         for (let i = 0; i < 3; i++) {
             page404PageLayout.children[1].children[0].children.push({

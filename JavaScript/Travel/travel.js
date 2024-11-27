@@ -1,3 +1,14 @@
+/* 
+    File: travel.js (https://github.com/SeeChen/seechen.github.io/blob/main/JavaScript/Travel/travel.js).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
 
 export const SeeChen_TravelPage = {
 
@@ -114,20 +125,25 @@ export const SeeChen_TravelPage = {
 
         await SeeChen_TravelPage.registerEvents();
 
-        // await new Promise(r => setTimeout(r, 500));
-        // document.querySelector("#span_World_CN").dispatchEvent(new MouseEvent("click", {
-        //     bubbles: true,
-        //     cancelable: true,
-        //     view: window
-        // }));
-        // await new Promise(r => setTimeout(r, 1000));
-        // document.querySelector("#span_CN_BeiJing").dispatchEvent(new MouseEvent("click", {
-        //     bubbles: true,
-        //     cancelable: true,
-        //     view: window
-        // }));
-        // await new Promise(r => setTimeout(r, 5000));
-        // console.log(document.querySelector("img[data-title='_avif0_']"));
+        if (window.myData.travel.isCountry) {
+
+            await new Promise(r => setTimeout(r, 500));
+            document.querySelector(`#span_World_${window.myData.travelpathParams[countryId]}`).dispatchEvent(new MouseEvent("click", {
+                bubbles: true,
+                cancelable: true,
+                view: window
+            }));
+
+            if (window.myData.travel.isProvice) {
+            
+                await new Promise(r => setTimeout(r, 1000));
+                document.querySelector(`#span_${window.myData.travelpathParams[countryId]}_${window.myData.travelpathParams[proviceId]}`).dispatchEvent(new MouseEvent("click", {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                }));
+            }
+        }
         document.querySelector("#box_TravelPage").style.opacity = 1;
     },
 
