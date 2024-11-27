@@ -125,6 +125,7 @@ export const SeeChen_TravelPage = {
 
         await SeeChen_TravelPage.registerEvents();
 
+        console.log(window.myData.travelpathParams);
         if (window.myData.travel.isCountry) {
 
             await new Promise(r => setTimeout(r, 500));

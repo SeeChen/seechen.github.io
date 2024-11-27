@@ -232,11 +232,13 @@ const routes = {
 
             await myFunction.Page404();
             return;
-        }
+        } else {
 
-        window.myData.travelpathParams = params;
-        window.myData.travel.isCountry = true;
-        await routesFunction.travel();
+            window.myData.travelpathParams = params;
+            window.myData.travel.isCountry = true;
+            window.myData.travel.isProvice = false;
+            await routesFunction.travel();
+        }
     },
     "/travel/:countryId/:proviceId": async (
         params
@@ -247,12 +249,13 @@ const routes = {
 
             await myFunction.Page404();
             return;
-        }
+        } else {
 
-        window.myData.travelpathParams = params;
-        window.myData.travel.isCountry = true;
-        window.myData.travel.isProvice = true;
-        await routesFunction.travel();
+            window.myData.travelpathParams = params;
+            window.myData.travel.isCountry = true;
+            window.myData.travel.isProvice = true;
+            await routesFunction.travel();
+        }
     },
 
     "/lens": async () => {
