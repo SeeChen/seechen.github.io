@@ -231,6 +231,7 @@ const routes = {
             }
 
             await myFunction.Page404();
+            return;
         }
 
         window.myData.travelpathParams = params;
@@ -245,6 +246,7 @@ const routes = {
         if (!myFunction.travelIsValid(countryId, proviceId)) {
 
             await myFunction.Page404();
+            return;
         }
 
         window.myData.travelpathParams = params;
