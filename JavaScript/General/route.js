@@ -221,7 +221,7 @@ const routes = {
         window.myData.travel.isProvice = false;
         await routesFunction.travel();
     },
-    "/旅行": async () => {
+    "/%E6%97%85%E8%A1%8C": async () => {
         window.myData.travel.isCountry = false;
         window.myData.travel.isProvice = false;
         await routesFunction.travel();
