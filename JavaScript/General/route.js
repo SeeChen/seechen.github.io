@@ -36,7 +36,7 @@ const myFunction = {
             } 
             window.webpages.currentPages = SeeChen_CurrentPage;
 
-            await window.webpages.currentPages.init();
+            // await window.webpages.currentPages.init();
         }
     },
 
@@ -217,6 +217,11 @@ const routes = {
         await routesFunction.travel();
     },
     "/travel/": async () => {
+        window.myData.travel.isCountry = false;
+        window.myData.travel.isProvice = false;
+        await routesFunction.travel();
+    },
+    "/旅行": async () => {
         window.myData.travel.isCountry = false;
         window.myData.travel.isProvice = false;
         await routesFunction.travel();
