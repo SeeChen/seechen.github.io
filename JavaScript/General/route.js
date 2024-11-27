@@ -212,9 +212,13 @@ const routes = {
     },
 
     "/travel": async () => {
+        window.myData.travel.isCountry = false;
+        window.myData.travel.isProvice = false;
         await routesFunction.travel();
     },
     "/travel/": async () => {
+        window.myData.travel.isCountry = false;
+        window.myData.travel.isProvice = false;
         await routesFunction.travel();
     },
     "/travel/:countryId": async (
@@ -223,13 +227,10 @@ const routes = {
 
         const { countryId } = params;
 
-        if (!myFunction.travelIsValid(countryId)) {
+        if (!(await myFunction.travelIsValid(countryId))) {
 
-            if (countryId === "TW") {
-                await router.route("/travel/CN/TaiWan", true);
-                return;
-            }
-
+            window.myData.travel.isCountry = false;
+            window.myData.travel.isProvice = false;
             await myFunction.Page404();
             return;
         } else {
@@ -245,8 +246,10 @@ const routes = {
     ) => {
         const { countryId, proviceId } = params;
 
-        if (!myFunction.travelIsValid(countryId, proviceId)) {
+        if (!(await myFunction.travelIsValid(countryId, proviceId))) {
 
+            window.myData.travel.isCountry = false;
+            window.myData.travel.isProvice = false;
             await myFunction.Page404();
             return;
         } else {
