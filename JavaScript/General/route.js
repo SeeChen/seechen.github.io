@@ -129,6 +129,10 @@ const myFunction = {
         }
 
         const CountryArr = Object.keys(isTraveledCountry);
+
+        CountryArr.forEach(_country => {
+            window.globalValues.validRoutes.push[`/travel/${_country}`];
+        })
         
         if (!CountryArr.includes(countryId)) {
 
@@ -137,6 +141,9 @@ const myFunction = {
 
         if (proviceId !== "NOPE" && !isTraveledCountry[countryId].includes(proviceId)) {
 
+            isTraveledCountry[countryId].forEach(_provice => {
+                window.globalValues.validRoutes.push[`/travel/${countryId}/${_provice}`];
+            })
             return false;
         }
 
