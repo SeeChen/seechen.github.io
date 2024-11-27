@@ -62,7 +62,7 @@ const myFunction = {
         proviceId = "NOPE"
     ) => {
 
-        isTraveledCountry = {
+        let isTraveledCountry = {
             CN: [
                 "BeiJing",
                 // "AuHui",
