@@ -30,6 +30,8 @@
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
 
+        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+
         <!-- Caseading Style Sheet -->
         <link rel="stylesheet" href="/CascadingStyleSheets/General/fontface.css" type="text/css">
         <link rel="stylesheet" href="/CascadingStyleSheets/General/global.css" type="text/css">
@@ -46,6 +48,7 @@
         <link rel="stylesheet" href="/CascadingStyleSheets/Index/index.css" type="text/css">
         <link rel="stylesheet" href="/CascadingStyleSheets/Lens/lens.css" type="text/css">
         <link rel="stylesheet" href="/CascadingStyleSheets/Services/services.css" type="text/css">
+        <link rel="stylesheet" href="/CascadingStyleSheets/Projects/projects.css" type="text/css">
 
         <!-- JavaScript -->
         <script src = "/JavaScript/General/VirtualDOM.js" type = "module"></script>
@@ -58,12 +61,11 @@
         <script src = "/JavaScript/General/loading.js" type = "module"></script>
 
         <script src = "/JavaScript/Home/home.js" type = "module"></script>
-
         <script src = "/JavaScript/Index/index.js" type = "module"></script>
-
         <script src = "/JavaScript/Travel/travel.js" type = "module"></script>
-
         <script src = "/JavaScript/Lens/lens.js" type = "module"></script>
+        <script src = "/JavaScript/Services/services.js" type = "module"></script>
+        <script src = "/JavaScript/Projects/projects.js" type = "module"></script>
     </head>
 
     <body>
@@ -91,7 +93,84 @@
         <!-- Content Area -->
         <div id="box_contentArea">
             <div id="box_projectsPage">
-                
+                <p>_projects_title_ 项目</p>
+                <p>_projects_desc_ 项目简介 _projects_desc_ 项目简介 _projects_desc_ 项目简介 _projects_desc_ 项目简介</p>
+
+                <div>
+                    <div class="project_border">
+                        <div>
+                            <p class="project_title">project title project title project title project title</p>
+                            <p>
+                                <span>label 1</span>
+                            </p>
+                        </div>
+                        <div class="project_git">
+                            <a href="#"><img src="/File/Icon/ico_github.png" alt=""></a>
+                            <a href="#"><img src="/File/Icon/ico_gitlab.png" alt=""></a>
+                            <a href="#" class="NoRepo"><img src="/File/Icon/ico_gitee.png" alt=""></a>
+                        </div>
+                        <p class="project_license">
+                            <span>LICENSE</span>
+                            <span>MITMITMIT</span>
+                        </p>
+                    </div>
+
+                    <div class="project_border">
+                        <div>
+                            <p class="project_title">project title project title project title project title</p>
+                            <p>
+                                <span>label 1</span>
+                            </p>
+                        </div>
+                        <div class="project_git">
+                            <a href="#"><img src="/File/Icon/ico_github.png" alt=""></a>
+                            <a href="#"><img src="/File/Icon/ico_gitlab.png" alt=""></a>
+                            <a href="#" class="NoRepo"><img src="/File/Icon/ico_gitee.png" alt=""></a>
+                        </div>
+                        <p class="project_license">
+                            <span>LICENSE</span>
+                            <span>MITMITMIT</span>
+                        </p>
+                    </div>
+
+                    <div class="project_border">
+                        <div>
+                            <p class="project_title">project title project title project title project title</p>
+                            <p>
+                                <span>label 1</span>
+                            </p>
+                        </div>
+                        <div class="project_git">
+                            <a href="#"><img src="/File/Icon/ico_github.png" alt=""></a>
+                            <a href="#"><img src="/File/Icon/ico_gitlab.png" alt=""></a>
+                            <a href="#" class="NoRepo"><img src="/File/Icon/ico_gitee.png" alt=""></a>
+                        </div>
+                        <p class="project_license">
+                            <span>LICENSE</span>
+                            <span>MITMITMIT</span>
+                        </p>
+                    </div>
+
+                    <div class="project_border">
+                        <div>
+                            <p class="project_title">project title project title project title project title</p>
+                            <p>
+                                <span>label 1</span>
+                            </p>
+                        </div>
+                        <div class="project_git">
+                            <a href="#"><img src="/File/Icon/ico_github.png" alt=""></a>
+                            <a href="#"><img src="/File/Icon/ico_gitlab.png" alt=""></a>
+                            <a href="#" class="NoRepo"><img src="/File/Icon/ico_gitee.png" alt=""></a>
+                        </div>
+                        <p class="project_license">
+                            <span>LICENSE</span>
+                            <span>MITMITMIT</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div id="project_details"></div>
             </div>
         </div>
 

@@ -1,0 +1,222 @@
+/* 
+    File: projects.css (https://github.com/SeeChen/seechen.github.io/blob/main/CascadingStyleSheets/Projects/projects.css).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+:root {
+
+    --project-Details-top: 0;
+    --project-Details-left: 0;
+}
+
+@media screen and (max-width: 750px) {
+
+    :root {
+
+    }
+}
+
+#box_projectsPage {
+
+    opacity: 0;
+    width: 100vw;
+    min-height: 100vh;
+
+    transition: all 0.5s;
+}
+
+#box_projectsPage > p:first-child {
+
+    width: 100vw;
+    margin-top: var(--font-size-3em);
+
+    color: var(--font-color-title);
+    font-size: var(--font-size-3em);
+    font-family: var(--fontface-title-4);
+
+    text-align: center;
+}
+
+#box_projectsPage > p:nth-child(2) {
+
+    width: 100vw;
+    font-size: calc(1.5 * var(--font-size-1em));
+
+    padding: var(--font-size-_75em);
+    box-sizing: border-box;
+    color: var(--font-color-normal);
+    font-family: var(--fontface-content-5);
+
+    text-align: center;
+}
+
+#box_projectsPage > div:nth-child(3) {
+
+    width: 99vw;
+
+    margin: 0 auto 10vh;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border {
+
+    position: relative;
+
+    width: clamp(40vh, 31vw, 95vw);
+    height: clamp(40vh, 31vw, 60vh);
+
+    aspect-ratio: 1;
+
+    margin: 0.5em 0;
+
+    border-radius: 1em;
+    border: 0.15em solid var(--font-color-normal);
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > div:first-child {
+
+    position: absolute;
+
+    bottom: 0.25em;
+    left: 1em;
+
+    width: calc(100% - 2em);
+
+    pointer-events: none;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > div:first-child > p.project_title {
+    
+    width: 100%;
+    font-size: var(--font-size-2em);
+    font-family: var(--fontface-content-3);
+
+    line-height: 1.3em;
+    max-height: 3.9em;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > div:first-child > p:nth-child(2) {
+    
+    width: 100%;
+    color: var(--bg-color);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-4);
+
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    line-height: 1em;
+    max-height: 2.6em;
+}
+#box_projectsPage > div:nth-child(3) > .project_border > div:first-child > p:nth-child(2) > span {
+
+    display: inline-table;
+
+    background: var(--font-color-normal);
+
+    border: 0.1em solid #000;
+    border-radius: 1em;
+
+    margin: 0.05em 0;
+    padding: 0.1em 0.5em;
+
+    box-sizing: border-box;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > div.project_git {
+
+    position: absolute;
+    display: flex;
+
+    flex-direction: row;
+    justify-content: left;
+
+    width: 50%;
+
+    top: 0.5em;
+    left: 1em;
+
+    pointer-events: none;
+}
+#box_projectsPage > div:nth-child(3) > .project_border > div.project_git a {
+
+    pointer-events: initial;
+}
+#box_projectsPage > div:nth-child(3) > .project_border > div.project_git a.NoRepo {
+    display: none;
+}
+#box_projectsPage > div:nth-child(3) > .project_border > div.project_git img {
+
+    height: 5vh;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > p.project_license {
+
+    position: absolute;
+
+    top: 1em;
+    right: 1em;
+
+    border-radius: 0.5em;
+    color: var(--bg-color);
+    font-size: var(--font-size-_75em);
+    font-family: var(--fontface-content-3);
+
+    padding: 0.15em 0 0.15em 0.75em;
+    background: var(--font-color-title);
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > p.project_license > span {
+
+    padding: 0.15em 0.75em;
+}
+
+#box_projectsPage > div:nth-child(3) > .project_border > p.project_license > span:nth-child(2) {
+
+    border-radius: 0;
+    background: red;
+}
+
+#project_details {
+
+    position: fixed;
+
+    left: var(--project-Details-left);
+    top: var(--project-Details-top);
+
+    width: 10vw;
+    height: 0;
+
+    pointer-events: none;
+
+    z-index: 10000;
+    background: red;
+
+    transition: width 0.25s, height 0.15s;
+}
+
+#project_details.small-window {
+
+    width: 20vw;
+    height: 20vw;
+
+    transition: width 0.25s, height 0.15s;
+}
