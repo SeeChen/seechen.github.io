@@ -12,12 +12,39 @@
 
     --project-Details-top: 0;
     --project-Details-left: 0;
+
+    --project-Details-div-flex-direction: row;
+
+    --project-Details-Directory-height: 94vh;
+    --project-Details-Directory-width: 20vw;
+    --project-Details-Directory-overflow: hidden scroll;
+    --project-Details-Directory-border-right: 0.1em solid var(--font-color-title);
+    --project-Details-Directory-border-top: 0em solid var(--font-color-title);
+
+    --project-Details-Directory-flex-direction: column;
+
+    --project-Details-Content-height: 94vh;
+    --project-Details-Content-width: 80vw;
+    --project-Details-Content-overflow: hidden scroll;
 }
 
 @media screen and (max-width: 750px) {
 
     :root {
 
+        --project-Details-div-flex-direction: column-reverse;
+
+        --project-Details-Directory-height: 8vh;
+        --project-Details-Directory-width: 100vw;
+        --project-Details-Directory-overflow: scroll hidden;
+        --project-Details-Directory-border-top: 0.1em solid var(--font-color-title);
+        --project-Details-Directory-border-right: 0em solid var(--font-color-title);
+
+        --project-Details-Directory-flex-direction: row;
+
+        --project-Details-Content-height: 92vh;
+        --project-Details-Content-width: 100vw;
+        --project-Details-Content-overflow: hidden scroll;
     }
 }
 
@@ -81,6 +108,8 @@
 
     border-radius: 1em;
     border: 0.15em solid var(--font-color-normal);
+
+    cursor: pointer;
 }
 
 #box_projectsPage > div:nth-child(3) > .project_border > div:first-child {
@@ -202,15 +231,20 @@
     left: var(--project-Details-left);
     top: var(--project-Details-top);
 
-    width: 10vw;
+    width: 0;
     height: 0;
 
     pointer-events: none;
 
-    z-index: 10000;
-    background: red;
+    border: 0em solid var(--font-color-normal);
+    border-radius: 1em;
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 0;
 
-    transition: width 0.25s, height 0.15s;
+    z-index: 10000;
+
+    transition: width 0.15s, height 0.15s, border 0.15s;
+
 }
 
 #project_details.small-window {
@@ -218,5 +252,527 @@
     width: 20vw;
     height: 20vw;
 
+    border: 0.15em solid var(--font-color-normal);
+    border-radius: 1em;
+
+    pointer-events: initial;
+    opacity: 1;
+
     transition: width 0.25s, height 0.15s;
+}
+
+#project_details.ready-to-full {
+
+    transition: all 0.5s;
+}
+
+#project_details.full-window {
+
+    width: 100vw;
+    height: 100vh;
+
+    border: 0em solid var(--font-color-normal);
+    border-radius: 0em;
+    background: var(--bg-color);
+
+    pointer-events: initial;
+
+    left: 0;
+    top: 0;
+    opacity: 1;
+
+    overflow: hidden;
+}
+
+#project_details.full-window #project_details_header {
+
+    position: relative;
+
+    width: 100vw;
+    height: 6vh;
+
+    box-shadow: 2px 2px 2px var(--font-color-title);
+
+    z-index: 2;
+}
+
+#project_details.full-window #project_details_header > p:first-child {
+
+    position: absolute;
+
+    width: 6vh;
+    height: 6vh;
+
+    text-align: center;
+
+    left: 0;
+    top: 0;
+
+    line-height: 6vh;
+
+    cursor: pointer;
+}
+
+#project_details.full-window #project_details_header > p:nth-child(2) {
+
+    position: absolute;
+
+    width: calc(100vw - 12vh);
+    height: 6vh;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    margin: auto;
+
+    text-align: center;
+    line-height: 6vh;
+
+    font-size: var(--font-size-2em);
+    font-family: var(--fontface-title);
+}
+
+#project_details.full-window > div:nth-child(2) {
+
+    position: absolute;
+    display: flex;
+    flex-direction: var(--project-Details-div-flex-direction);
+
+    width: 100vw;
+    height: 94vh;
+
+    top: 6vh;
+    left: 0;
+
+    z-index: 1;
+    overflow: hidden;
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory {
+
+    height: var(--project-Details-Directory-height);
+    width: var(--project-Details-Directory-width);
+
+    overflow: var(--project-Details-Directory-overflow);
+
+    border-right: var(--project-Details-Directory-border-right);
+    border-top: var(--project-Details-Directory-border-top);
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: var(--project-Details-Directory-flex-direction);
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_content {
+
+    position: relative;
+
+    height: var(--project-Details-Content-height);
+    width: var(--project-Details-Content-width);
+
+    overflow: var(--project-Details-Content-overflow);
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory::-webkit-scrollbar,
+#project_details.full-window > div:nth-child(2) #project_details_content::-webkit-scrollbar {
+
+    display: none;
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory div {
+
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory div p {
+
+    position: relative;
+
+    font-size: var(--font-size-2em);
+    font-family: var(--fontface-title-2);
+    color: var(--font-color-normal);
+    padding-left: 5%;
+
+    width: 90%;
+    height: 8vh;
+    line-height: 8vh;
+
+    box-sizing: border-box;
+
+    cursor: pointer;
+}
+#project_details.full-window > div:nth-child(2) #project_details_directory div p::before {
+
+    position: absolute;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    width: 80%;
+    height: 100%;
+
+    content: "";
+    margin: auto;
+
+    border-bottom: 0.05em solid var(--font-color-normal);
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory div.dir_level {
+
+    max-height: 8vh;
+    height: max-content;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    transition: all 1s;
+}
+
+#project_details.full-window > div:nth-child(2) #project_details_directory div.dir_level:has( > p.expand) {
+
+    max-height: 1000vh;
+    height: max-content;
+    transition: all 1s;
+}
+
+#project_details_content .content-block {
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+
+    box-sizing: border-box;
+
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+#project_details_content > div.content-display {
+
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+#project_details_content .content-block .content-block-title-1 {
+
+    position: sticky;
+
+    top: 0;
+
+    font-size: var(--font-size-3em);
+    font-family: var(--fontface-title-4);
+
+    background: var(--bg-color);
+
+    border-bottom: 0.05em solid #CCC;
+}
+
+#project_details_content .content-block .content-block-content-1 {
+
+    font-size: calc(1.5 * var(--font-size-1em));
+    font-family: var(--fontface-content-3);
+
+    text-indent: 2ch;
+    line-height: 1.5em;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+
+    white-space: pre-wrap;
+}
+
+
+#box_Projects_Git {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#box_Projects_Git > div {
+
+    width: 100%;
+
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-top: 1em;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border: 0.15em solid #CCC;
+    border-radius: 1em;
+}
+
+#box_Projects_Git > div > p:first-child img {
+
+    height: 4em;
+}
+
+#box_Projects_Git > div > div:nth-child(2) {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content);
+
+    flex-wrap: wrap;
+}
+
+#box_Projects_Git > div > div:nth-child(2) > div {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1em;
+
+    box-sizing: border-box;
+}
+
+#box_Projects_Git > div > div:nth-child(2) > div > p:nth-child(2) {
+
+    padding: 0.15em 0.5em;
+    overflow: scroll hidden;
+
+    border-radius: 0.5em;
+
+    max-width: 60%;
+
+    color: var(--bg-color);
+    background: var(--font-color-title);
+
+    user-select: text;
+}
+
+#box_Projects_Git > div > div:nth-child(2) > div > p:nth-child(2)::-webkit-scrollbar {
+    display: none;
+}
+
+#box_Projects_Git > div > p:nth-child(3), #box_Projects_Git > div > p:nth-child(4) {
+
+    padding: 1em;
+    font-family: var(--fontface-content-4);
+    font-size: var(--font-size-normal);
+}
+
+#box_Projects_License pre {
+
+    font-size: var(--font-size-1em) !important;
+    font-family: var(--fontface-content-4) !important;
+}
+
+#box_Projects_License #license_translate {
+
+    font-size: var(--font-size-normal);
+    color: var(--font-color-normal);
+    font-family: var(--fontface-content);
+
+    margin: 0.5em;
+}
+
+#box_Projects_Author {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    box-sizing: border-box;
+}
+
+#box_Projects_Author > div {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 1em;
+    border: 0.15em solid var(--font-color-title);
+
+    width: clamp(40vh, 31vw, 90vw);
+    box-sizing: border-box;
+
+    padding: 1em;
+    margin: 1em auto;
+}
+
+#box_Projects_Author > div > div:first-child {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: baseline;
+
+    width: 100%;
+
+    border-bottom: 0.15em solid #CCC;
+
+    box-sizing: border-box;
+}
+
+#box_Projects_Author > div > div:first-child img {
+
+    display: inline-block;
+
+    height: 4em;
+    width: 4em;
+    
+    object-fit: cover;
+
+    border-radius: 1em;
+    border: 0.15em solid var(--font-color-title)
+}
+
+#box_Projects_Author > div > div:first-child p {
+
+    display: inline-block;
+
+    font-size: var(--font-size-2em);
+    font-family: var(--fontface-title-4);
+
+    padding-left: 0.15em;
+
+    transform: translateY(-0.1em);
+}
+
+#box_Projects_Author > div > div:nth-child(2) {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+
+    padding: 0.5em;
+
+    width: 100%;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a {
+
+    position: relative;
+
+    font-size: var(--font-size-normal);
+    color: var(--font-color-normal);
+    font-family: var(--fontface-content);
+
+    margin: 0.15em;
+    text-indent: 3ch;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a::before {
+
+    content: "";
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    opacity: 0.5;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_school::before {
+
+    background: url(/File/Icon/ico_school.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_company::before {
+
+    background: url(/File/Icon/ico_company.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_location::before {
+
+    background: url(/File/Icon/ico_location.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_website::before {
+
+    background: url(/File/Icon/ico_website.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_github::before {
+
+    background: url(/File/Icon/ico_github.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Author > div > div:nth-child(2) a.profile_email::before {
+
+    background: url(/File/Icon/ico_gmail.png);
+
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box_Projects_Update figure {
+
+    padding: 1em;
+    margin-top: 1em;
+
+    box-sizing: border-box;
+    border: 0.15em solid #CCC;
+    border-radius: 1em;
+}
+
+#box_Projects_Update figure figcaption {
+
+    color: var(--font-color-title);
+
+    font-size: var(--font-size-2em);
+    font-family: var(--fontface-title-2);
+
+    text-decoration: underline;
+}
+
+#box_Projects_Update figure ol {
+
+    color: var(--font-color-normal-selected);
+    font-size: var(--font-size-normal);
+    text-indent: 1ch;
+
+    padding-left: 2em;
+
+    font-family: var(--fontface-content-4);
 }

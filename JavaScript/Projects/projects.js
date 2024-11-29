@@ -28,6 +28,11 @@ export const SeeChen_ProjectsPage = {
 
     bindEvent: async () => {
 
+        document.querySelector("#box_projectsPage > div:nth-child(3)").addEventListener("click", (e) => {
+
+            window.eventBus.emit("projectMouseClick", { e });
+        });
+
         document.querySelector("#box_projectsPage > div:nth-child(3)").addEventListener("mousemove", (e) => {
 
             window.eventBus.emit("projectMouseMove", { e });
@@ -42,6 +47,23 @@ export const SeeChen_ProjectsPage = {
 
             window.eventBus.emit("projectMouseLeave", { e });
         });
+
+        document.querySelector("#project_details_header > p:first-child").addEventListener("click", (e) => {
+
+            window.eventBus.emit("projectDetailsCloseClick", { e });
+        });
+
+        document.querySelectorAll(".dir_title").forEach(ele => {
+            ele.addEventListener("click", (e) => {
+
+                window.eventBus.emit("projectDetailsDirExpand", { e });
+            });
+        });
+
+        document.querySelector("#project_details_directory").addEventListener("click", (e) => {
+
+            window.eventBus.emit("projectDetailsDirClick", { e });
+        });
     },
 
     registerEvent: async () => {
@@ -51,12 +73,34 @@ export const SeeChen_ProjectsPage = {
             projectMouseMove: SeeChen_ProjectsMouseEvent.mouseMove,
             projectMouseEnter: SeeChen_ProjectsMouseEvent.mouseEnter,
             projectMouseLeave: SeeChen_ProjectsMouseEvent.mouseLeave,
+            projectMouseClick: SeeChen_ProjectsMouseEvent.mouseClick,
+
+            projectDetailsCloseClick: SeeChen_ProjectsDetailsMouseEvent.closeClick,
+
+            projectDetailsDirExpand: SeeChen_ProjectsDetailsDirEvent.expandDir,
+            projectDetailsDirClick: SeeChen_ProjectsDetailsDirEvent.clickDir,
         }
 
         Object.entries(projects_EvnetHandler).forEach(([event, handler]) => {
 
             window.eventBus.on(event, handler);
         });
+
+        let isTouchScreen = 'ontouchstart' in window;
+
+        if (isTouchScreen || true) {
+            const projects_EvnetHandler = {
+        
+                projectMouseMove: SeeChen_ProjectsMouseEvent.mouseMove,
+                projectMouseEnter: SeeChen_ProjectsMouseEvent.mouseEnter,
+                projectMouseLeave: SeeChen_ProjectsMouseEvent.mouseLeave,
+            }
+    
+            Object.entries(projects_EvnetHandler).forEach(([event, handler]) => {
+    
+                window.eventBus.off(event, handler);
+            });
+        }
     },
 
     clearUp: () => {
@@ -120,5 +164,59 @@ const SeeChen_ProjectsMouseEvent = {
             document.querySelector("#project_details").classList.remove("small-window");
         }
     },
-    mouseClick: () => {}
+    mouseClick: (
+        event
+    ) => {
+
+        const { e } = event;
+
+        if (e.target.classList.contains("project_border")) {
+
+            document.querySelector("#project_details").classList.add("ready-to-full");
+            setTimeout(() => {
+                document.querySelector("#project_details").classList.add("full-window");
+            }, 100);
+        }
+    }
+}
+
+const SeeChen_ProjectsDetailsMouseEvent = {
+
+    closeClick: (
+        event
+    ) => {
+
+        document.querySelector("#project_details").classList.remove("full-window");
+        setTimeout(() => {
+            document.querySelector("#project_details").classList.remove("ready-to-full");
+        }, 600);
+    }
+}
+
+const SeeChen_ProjectsDetailsDirEvent = {
+
+    expandDir: (
+        event
+    ) => {
+
+        const { e } = event;
+
+        e.target.classList.toggle("expand");
+        console.log("click")
+    },
+
+    clickDir: (
+        event
+    ) => {
+
+        const { e } = event;
+
+        if (e.target.classList.contains("details_Dir_option")) {
+
+            document.querySelector(".content-display").classList.remove("content-display");
+            
+            const targetDiv = `box_Projects_${e.target.id.split("_")[1]}`;
+            document.querySelector(`#${targetDiv}`).classList.add("content-display");
+        }
+    }
 }
