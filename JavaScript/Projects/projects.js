@@ -248,6 +248,10 @@ const SeeChen_ProjectsMouseEvent = {
 
         if (e.target.classList.contains("project_border")) {
 
+            if ('ontouchstart' in window) {
+                document.documentElement.requestFullscreen();
+            }
+
             document.querySelector("#project_details").classList.add("ready-to-full");
             setTimeout(() => {
                 document.querySelector("#project_details").classList.add("full-window");
