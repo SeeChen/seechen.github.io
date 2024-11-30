@@ -57,8 +57,11 @@ export const SeeChen_ProjectsPage = {
                 temp_ProjectBlock.children[2].children[1].children = [pro.project_license];
             }
 
+            temp_ProjectBlock.props["id"] = pro.id;
+            temp_ProjectBlock.props["data-id"] = `${pro.id}`;
+            temp_ProjectBlock.props["data-name"] = `${pro.project_name}`;
             temp_ProjectBlock.props["style"] = `
-                background: url(${pro.project_Img});
+                background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(${pro.project_Img});
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -68,6 +71,8 @@ export const SeeChen_ProjectsPage = {
         });
 
         window.globalValues.currentVDom = projectsPageLayout;
+        window.myData.projects.currentDetails = projectsPageLayout.children[3].children[0];
+        
         document.querySelector("#box_contentArea").appendChild(
             window.vDom.Render(
                 projectsPageLayout
@@ -128,6 +133,8 @@ export const SeeChen_ProjectsPage = {
 
             projectDetailsDirExpand: SeeChen_ProjectsDetailsDirEvent.expandDir,
             projectDetailsDirClick: SeeChen_ProjectsDetailsDirEvent.clickDir,
+
+            projectGitCopy: SeeChen_ProjectsDetailsContentEvent.copyLink
         }
 
         Object.entries(projects_EvnetHandler).forEach(([event, handler]) => {
@@ -165,6 +172,8 @@ export const SeeChen_ProjectsPage = {
 
             projectDetailsDirExpand: SeeChen_ProjectsDetailsDirEvent.expandDir,
             projectDetailsDirClick: SeeChen_ProjectsDetailsDirEvent.clickDir,
+
+            projectGitCopy: SeeChen_ProjectsDetailsContentEvent.copyLink
         }
 
         Object.entries(projects_EvnetHandler).forEach(([event, handler]) => {
@@ -240,7 +249,7 @@ const SeeChen_ProjectsMouseEvent = {
             document.querySelector("#project_details").classList.remove("small-window");
         }
     },
-    mouseClick: (
+    mouseClick: async (
         event
     ) => {
 
@@ -248,9 +257,136 @@ const SeeChen_ProjectsMouseEvent = {
 
         if (e.target.classList.contains("project_border")) {
 
-            if ('ontouchstart' in window) {
-                document.documentElement.requestFullscreen();
+            // await window.router.route(`/projects/${e.target.dataset.id}/`, false);
+
+            var oldProjectDetails = window.myTools.deepCopy(window.myData.projects.currentDetails);
+
+            window.myData.projects.currentDetails.children[0].children[1].lang = "projectName";
+            window.myData.projects.currentDetails.children[0].children[1].children = [e.target.dataset.name];
+
+            const Template_Intro = await window.myTools.getJson("/Layout/Webpages/Projects/Intro.json");
+            const Template_Git = await window.myTools.getJson("/Layout/Webpages/Projects/Git.json");
+            const Template_License = await window.myTools.getJson("/Layout/Webpages/Projects/License.json");
+            const Template_Author = await window.myTools.getJson("/Layout/Webpages/Projects/Author.json");
+
+            var targetGeneralContent = await window.myTools.getJson(`/Data/Projects/${e.target.id}/general.json`);
+
+            // Intro
+            var temp_Intro = window.myTools.deepCopy(Template_Intro);
+            var content_Intro = await window.myTools.getTxt(`/File/Projects/${e.target.id}/Intro-${window.globalValues.language}.txt`);
+            temp_Intro.children[1].children = [content_Intro];
+
+            window.myData.projects.currentDetails.children[1].children[1].children[0].children = [temp_Intro];
+
+            // Git
+            window.myData.projects.currentDetails.children[1].children[1].children[1].children = [];
+            if (targetGeneralContent["Git"].length > 0) {
+
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[1].props["style"] = "display: initial;";
+
+                targetGeneralContent["Git"].forEach(git =>  {
+
+                    var temp_git = window.myTools.deepCopy(Template_Git);
+    
+                    temp_git.children[0].children[0].props["href"] = git.target_repo;
+                    temp_git.children[0].children[0].children[0].props["src"] = `/File/Icon/ico_${git.sites}.png`;
+    
+                    temp_git.children[1].children[0].children[1].children = [git.https];
+                    temp_git.children[1].children[0].children[2].props["data-link"] = [git.https];
+    
+                    temp_git.children[1].children[1].children[1].children = [git.ssh];
+                    temp_git.children[1].children[1].children[2].props["data-link"] = [git.ssh];
+    
+                    temp_git.children[2].children[0].props["href"] = git.download;
+    
+                    temp_git.children[3].children[0].props["href"] = git.target_repo;
+                    temp_git.children[3].children[0].children = [`_view_on_${git.sites}_`];
+    
+    
+                    window.myData.projects.currentDetails.children[1].children[1].children[1].children.push(temp_git);
+                });
+
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[1].props["style"] = "display: none;";
             }
+
+            // License
+            if (targetGeneralContent["License"] !== "--") {
+
+                const licenseValues = {
+                    "GNU_GPL-3.0": {
+                        "name": "GNU GPL-3.0",
+                        "link": "https://www.gnu.org/licenses/",
+                        "oriTxt": "https://www.gnu.org/licenses/gpl-3.0.txt"
+                    }
+                }
+
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[5].props["style"] = "display: initial;";
+
+                var temp_License = window.myTools.deepCopy(Template_License[0]);
+                var temp_License_Original = window.myTools.deepCopy(Template_License[2]);
+
+                temp_License.children[1].children[1].props["href"] = licenseValues[targetGeneralContent["License"]]["link"];
+                temp_License.children[1].children[1].children = [licenseValues[targetGeneralContent["License"]]["name"]];
+                temp_License.children[2].children[1].props["href"] = licenseValues[targetGeneralContent["License"]]["link"];
+                temp_License.children[2].children[1].children = [licenseValues[targetGeneralContent["License"]]["link"]];
+
+                window.myData.projects.currentDetails.children[1].children[1].children[5].children.push(temp_License);
+                if (window.globalValues.language !== "en") {
+                    var temp_License_Translate = window.myTools.deepCopy(Template_License[1]);
+
+                    temp_License_Translate.children[1].children[1].props["href"] = licenseValues[targetGeneralContent["License"]]["oriTxt"];
+
+                    var License_Translate = await window.myTools.getTxt(`/File/Projects/License/${targetGeneralContent["License"]}-${window.globalValues.language}.txt`);
+                    temp_License_Translate.children[2].children = [License_Translate];
+
+                    window.myData.projects.currentDetails.children[1].children[1].children[5].children.push(temp_License_Translate);
+                }
+
+                var License_Original = await window.myTools.getTxt(`/File/Projects/License/${targetGeneralContent["License"]}-en.txt`);
+                temp_License_Original.children[1].children = [License_Original];
+                
+                window.myData.projects.currentDetails.children[1].children[1].children[5].children.push(temp_License_Original);
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[5].props["style"] = "display: none;";
+            }
+
+            // Collaborator
+            window.myData.projects.currentDetails.children[1].children[1].children[9].children = [];
+            targetGeneralContent["Author"].forEach(author => {
+
+                var temp_author = window.myTools.deepCopy(Template_Author);
+
+                temp_author.children[0].children[0].props["src"] = author.image;
+                temp_author.children[0].children[1].children = [author.name];
+
+                temp_author.children[1].children[0].children = [author["location"][window.globalValues.language]];
+                temp_author.children[1].children[1].children = [author["school"][window.globalValues.language]];
+                temp_author.children[1].children[2].children = [author["company"][window.globalValues.language]];
+                temp_author.children[1].children[3].children = [author["websites"]];
+                temp_author.children[1].children[4].children = [author["github"]];
+                temp_author.children[1].children[5].children = [author["email"]];
+
+                temp_author.children[1].children[3].props["href"] = author["websites"];
+                temp_author.children[1].children[4].props["href"] = author["github"];
+                temp_author.children[1].children[5].props["href"] = `mailto:${author["email"]}`;
+
+                window.myData.projects.currentDetails.children[1].children[1].children[9].children.push(temp_author);
+            });
+
+            await window.vDom.Patch(
+                document.querySelector("div:has(> #project_details)"),
+                window.vDom.Diff(
+                    oldProjectDetails,
+                    window.myData.projects.currentDetails
+                )
+            );
+
+            document.querySelectorAll(".project_git_copy").forEach(obj => {
+                obj.addEventListener("click", (e) => {
+                    window.eventBus.emit("projectGitCopy", { e, obj });
+                });
+            });
 
             document.querySelector("#project_details").classList.add("ready-to-full");
             setTimeout(() => {
@@ -262,10 +398,11 @@ const SeeChen_ProjectsMouseEvent = {
 
 const SeeChen_ProjectsDetailsMouseEvent = {
 
-    closeClick: (
+    closeClick: async (
         event
     ) => {
 
+        // await window.router.route(`/projects/`, false);
         document.querySelector("#project_details").classList.remove("full-window");
         setTimeout(() => {
             document.querySelector("#project_details").classList.remove("ready-to-full");
@@ -298,5 +435,17 @@ const SeeChen_ProjectsDetailsDirEvent = {
             const targetDiv = `box_Projects_${e.target.id.split("_")[1]}`;
             document.querySelector(`#${targetDiv}`).classList.add("content-display");
         }
+    }
+}
+
+const SeeChen_ProjectsDetailsContentEvent = {
+
+    copyLink: async (
+        event
+    ) => {
+        const { e, obj } = event;
+
+        await navigator.clipboard.writeText(obj.dataset.link);
+        alert("Link Copied! 链接已复制！");
     }
 }

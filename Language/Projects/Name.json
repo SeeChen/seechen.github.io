@@ -1,11 +1,13 @@
 {
     "zh": {
         "seechen_github_io": "seechen.github.io",
-        "multi_level_traffic_routing": "多层级路径规划"
+        "multi_level_traffic_routing": "多层级路径规划",
+        "wander_snap": "行摄记"
     }, 
 
     "en": {
         "seechen_github_io": "seechen.github.io",
-        "multi_level_traffic_routing": "Multi-Level Traffic Routing"
+        "multi_level_traffic_routing": "Multi-Level Traffic Routing",
+        "wander_snap": "Wander Snap"
     }
 }

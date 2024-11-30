@@ -9,7 +9,8 @@
         "_shortest_path_algorithm_": "最短路径算法", 
         "_personalization_": "个性化",
         "_path_planning": "路径规划",
-        "_multi_level_traffic_routing_system_": "多层级路径规划系统"
+        "_multi_level_traffic_routing_system_": "多层级路径规划系统",
+        "_comprehensive_": "综合"
     }, 
 
     "en": {
@@ -22,6 +23,7 @@
         "_shortest_path_algorithm_": "Shortest Path Algorithm", 
         "_personalization_": "Personalization",
         "_path_planning": "Path Planning",
-        "_multi_level_traffic_routing_system_": "Multi-Level Traffic Routing System"
+        "_multi_level_traffic_routing_system_": "Multi-Level Traffic Routing System",
+        "_comprehensive_": "Comprehensive"
     }
 }

@@ -9,13 +9,14 @@
         "children": [{
             "tag": "a",
             "props": {
-                "href": "#"
+                "href": "#",
+                "target": "_blank"
             },
             "lang": "",
             "children": [{
                 "tag": "img",
                 "props": {
-                    "src": "/File/Icon/ico_github.png"
+                    "src": ""
                 },
                 "lang": "",
                 "children": []
@@ -41,9 +42,11 @@
                 "children": ["--"]
             }, {
                 "tag": "p",
-                "props": {},
-                "lang": "",
-                "children": ["Copy"]
+                "props": {
+                    "class": "project_git_copy"
+                },
+                "lang": "projects",
+                "children": ["_copy_"]
             }]
         }, {
             "tag": "div",
@@ -61,9 +64,11 @@
                 "children": ["--"]
             }, {
                 "tag": "p",
-                "props": {},
-                "lang": "",
-                "children": ["Copy"]
+                "props": {
+                    "class": "project_git_copy"
+                },
+                "lang": "projects",
+                "children": ["_copy_"]
             }]
         }]
     }, {
@@ -73,7 +78,8 @@
         "children": [{
             "tag": "a",
             "props": {
-                "href": "#"
+                "href": "#",
+                "target": "_blank"
             },
             "lang": "projects",
             "children": ["_downloads_"]
@@ -85,7 +91,8 @@
         "children": [{
             "tag": "a",
             "props": {
-                "href": "#"
+                "href": "#",
+                "target": "_blank"
             },
             "lang": "projects",
             "children": []

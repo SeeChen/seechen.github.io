@@ -1,0 +1,36 @@
+{
+    "Intro": "",
+    "Git": [{
+        "sites": "github",
+        "https": "https://github.com/SeeChen/seechen.github.io.git",
+        "ssh": "git@github.com:SeeChen/seechen.github.io.git",
+        "download": "https://github.com/SeeChen/seechen.github.io/archive/refs/heads/main.zip",
+        "target_repo": "https://github.com/SeeChen/seechen.github.io"
+    }],
+    "Features": "",
+    "Guide": "",
+    "Documentation": "",
+    "License": "GNU_GPL-3.0",
+    "Community": "",
+    "Faqs": "",
+    "Update": "",
+    "Author": [{
+        "name": "SEECHEN LEE",
+        "image": "https://avatars.githubusercontent.com/u/39422761?v=4",
+        "location": {
+            "zh": "马来西亚",
+            "en": "Malaysia"
+        },
+        "school": {
+            "zh": "北京理工大学",
+            "en": "Beijing Institute of Technology"
+        },
+        "company": {
+            "zh": "--",
+            "en": "--"
+        },
+        "websites": "https://seechen.github.io",
+        "github": "https://github.com/SeeChen",
+        "email": "leeseechen@gmail.com"
+    }]
+}

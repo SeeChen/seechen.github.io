@@ -1,4 +1,5 @@
 [{
+    "id": "seechen.github.io",
     "project_name": "seechen_github_io",
     "project_labels": ["_spa_", "_spa_full_", "_websites_"],
     "project_repo": {
@@ -7,8 +8,9 @@
         "gitee": "none"
     },
     "project_license": "GNU GPL-3.0",
-    "project_Img": "/File/Image/Lens/bg.jpg"
+    "project_Img": "/File/Projects/default-bg.jpg"
 }, {
+    "id": "multi-level_traffic_routing",
     "project_name": "multi_level_traffic_routing",
     "project_labels": [
         "_lazy_loading_", 
@@ -25,5 +27,18 @@
         "gitee": "none"
     },
     "project_license": "none",
-    "project_Img": "/File/Image/Lens/bg.jpg"
+    "project_Img": "/File/Projects/default-bg.jpg"
+}, {
+    "id": "WanderSnap",
+    "project_name": "wander_snap",
+    "project_labels": [
+        "_comprehensive_"
+    ],
+    "project_repo": {
+        "github": "https://github.com/SeeChen/WanderSnap",
+        "gitlab": "none",
+        "gitee": "none"
+    },
+    "project_license": "Apache-2.0",
+    "project_Img": "/File/Projects/default-bg.jpg"
 }]

@@ -67,6 +67,8 @@ window.webpages = {
 
 window.myData = {
 
+    path: [],
+
     travel: {
         TravelList: {},
         LabelsMap: {},

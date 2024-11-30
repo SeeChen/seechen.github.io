@@ -13,19 +13,20 @@
         "_community_": "社区",
         "_faqs_": "问答",
         "_update_": "更新日志",
-        "_author_": "协作者",
+        "_author_": "(协)作者",
 
         "_downloads_": "下载压缩包",
         "_view_on_github_": "在 GitHub 上查看",
         "_view_on_gitlab_": "在 GitLab 上查看",
         "_view_on_gitee_": "在 Gitee 上查看",
+        "_copy_": "复制",
 
-        "_license_1_": "许可证 1",
-        "_license_2_": "许可证 2",
-        "_license_3_": "许可证 3",
+        "_license_1_": "本项目基于",
+        "_license_2_": "许可证进行开发。",
+        "_license_3_": "许可证协议详情请查看：",
 
-        "_license_translate_1_": "翻译 1",
-        "_license_translate_2_": "翻译 2"
+        "_license_translate_1_": "本翻译仅供参考，请查看<a href='#license_original'>原文</a>，或点击",
+        "_license_translate_2_": "前往查看。"
     }, 
 
     "en": {
@@ -48,10 +49,11 @@
         "_view_on_github_": "View on GitHub",
         "_view_on_gitlab_": "View on GitLab",
         "_view_on_gitee_": "View on Gitee",
+        "_copy_": "Copy",
 
-        "_license_1_": "license 1",
-        "_license_2_": "license 2",
-        "_license_3_": "license 3",
+        "_license_1_": "This project is developed under the ",
+        "_license_2_": " License.",
+        "_license_3_": "More Details: ",
 
         "_license_translate_1_": "license translate 1",
         "_license_translate_2_": "license translate 2"
