@@ -81,6 +81,10 @@ window.myData = {
         isProvice: false,
 
         pathParams: {}
+    },
+
+    projects: {
+        currentDetails: {}
     }
 }
 

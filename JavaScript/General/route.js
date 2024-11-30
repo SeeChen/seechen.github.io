@@ -11,6 +11,7 @@
 
 import { SeeChen_HomePage } from "../Home/home.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
+import { SeeChen_ProjectsPage } from "../Projects/projects.js";
 import { SeeChen_ServicesPages } from "../Services/services.js";
 import { SeeChen_TravelPage } from "../Travel/travel.js";
 import { SeeChen_Pages404 } from "./Page404.js";
@@ -174,6 +175,11 @@ const routesFunction = {
     services: async () => {
         document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._services_} | SEECHEN`;
         await myFunction.jump(SeeChen_ServicesPages);
+    },
+
+    projects: async () => {
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._projects_} | SEECHEN`;
+        await myFunction.jump(SeeChen_ProjectsPage);
     }
 
 }
@@ -281,7 +287,7 @@ const routes = {
     },
 
     "/projects": async () => {
-
+        await routesFunction.projects();
     },
     "/about": async () => {
 
@@ -313,6 +319,26 @@ export const router = {
     matchRoute: (
         path
     ) => {
+
+        const mappingArray = [
+            {
+                keys: [
+                    "/projects",
+                    "/projects.html",
+                    "/Projects",
+                    "/Projects.html",
+                    "/%E9%A1%B9%E7%9B%AE",
+                    "/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE"
+                ],
+                values: "/projects"
+            }
+        ]
+
+        for (const map of mappingArray) {
+            if (map.keys.includes(path)) {
+                path = map.values;
+            }
+        }
 
         for (const route in routes) {
             const routeRegex = router.pathToRegex(route);

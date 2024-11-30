@@ -23,7 +23,56 @@ export const SeeChen_ProjectsPage = {
     },
 
     render: async () => {
+        var projectsPageLayout = await window.myTools.getJson("/Layout/Webpages/Projects/Projects.json");
+        var projectsList = await window.myTools.getJson("/Data/Projects/ProjectsList.json")
 
+        var Template_ProjectBlock = await window.myTools.getJson("/Layout/Webpages/Projects/Project.json");
+        projectsList.forEach(pro => {
+
+            var temp_ProjectBlock = window.myTools.deepCopy(Template_ProjectBlock);
+
+            temp_ProjectBlock.children[0].children[0].children = [pro.project_name];
+            pro.project_labels.forEach(label => {
+                temp_ProjectBlock.children[0].children[1].children.push({
+                    tag: "span",
+                    props: {},
+                    lang: "projectLabel",
+                    children: [label]
+                });
+            })
+
+            Object.keys(pro.project_repo).forEach((repo, i) => {
+
+                if (pro.project_repo[repo] === "" || pro.project_repo[repo] === "none") {
+
+                    temp_ProjectBlock.children[1].children[i].props["style"] = "display: none;"
+                } else {
+                    temp_ProjectBlock.children[1].children[i].props["href"] = pro.project_repo[repo];
+                }
+            });
+
+            if (pro.project_license === "none") {
+                temp_ProjectBlock.children[2].props["style"] = "display: none;";
+            } else {
+                temp_ProjectBlock.children[2].children[1].children = [pro.project_license];
+            }
+
+            temp_ProjectBlock.props["style"] = `
+                background: url(${pro.project_Img});
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            `
+
+            projectsPageLayout.children[2].children.push(temp_ProjectBlock);
+        });
+
+        window.globalValues.currentVDom = projectsPageLayout;
+        document.querySelector("#box_contentArea").appendChild(
+            window.vDom.Render(
+                projectsPageLayout
+            )
+        );
     },
 
     bindEvent: async () => {
@@ -105,6 +154,33 @@ export const SeeChen_ProjectsPage = {
 
     clearUp: () => {
 
+        const projects_EvnetHandler = {
+        
+            projectMouseMove: SeeChen_ProjectsMouseEvent.mouseMove,
+            projectMouseEnter: SeeChen_ProjectsMouseEvent.mouseEnter,
+            projectMouseLeave: SeeChen_ProjectsMouseEvent.mouseLeave,
+            projectMouseClick: SeeChen_ProjectsMouseEvent.mouseClick,
+
+            projectDetailsCloseClick: SeeChen_ProjectsDetailsMouseEvent.closeClick,
+
+            projectDetailsDirExpand: SeeChen_ProjectsDetailsDirEvent.expandDir,
+            projectDetailsDirClick: SeeChen_ProjectsDetailsDirEvent.clickDir,
+        }
+
+        Object.entries(projects_EvnetHandler).forEach(([event, handler]) => {
+
+            window.eventBus.off(event, handler);
+        });
+
+        document.querySelector("#contentArea").scrollTo(0, 0);
+
+        const boxContent = document.querySelector("#box_contentArea");
+        const homeContent = boxContent.querySelector("#box_projectsPage");
+        homeContent.style.opacity = 0;
+
+        setTimeout(() => {
+            boxContent.removeChild(homeContent);
+        }, 1000);
     }
 }
 

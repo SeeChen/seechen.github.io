@@ -1,0 +1,94 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "project_border"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "div",
+        "props": {},
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {
+                "class": "project_title"
+            },
+            "lang": "projectName",
+            "children": []
+        }, {
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": []
+        }]
+    }, {
+        "tag": "div",
+        "props": {
+            "class": "project_git"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "a",
+            "props": {
+                "href": "#",
+                "target": "_blank"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "img",
+                "props": {
+                    "src": "/File/Icon/ico_github.png"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }, {
+            "tag": "a",
+            "props": {
+                "href": "#",
+                "target": "_blank"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "img",
+                "props": {
+                    "src": "/File/Icon/ico_gitlab.png"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }, {
+            "tag": "a",
+            "props": {
+                "href": "#",
+                "target": "_blank"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "img",
+                "props": {
+                    "src": "/File/Icon/ico_gitee.png"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }]
+    }, {
+        "tag": "p",
+        "props": {
+            "class": "project_license"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "span",
+            "props": {},
+            "lang": "projects",
+            "children": ["_license_"]
+        }, {
+            "tag": "span",
+            "props": {},
+            "lang": "",
+            "children": ["NONE"]
+        }]
+    }]
+}

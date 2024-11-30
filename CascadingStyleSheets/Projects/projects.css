@@ -23,6 +23,11 @@
 
     --project-Details-Directory-flex-direction: column;
 
+    --project-Details-Directory-p-before-width: 80%;
+    --project-Details-Directory-p-before-height: 100%;
+    --project-Details-Directory-p-before-bottom-right: 0em solid var(--font-color-normal);
+    --project-Details-Directory-p-before-bottom-bottmo: 0.05em solid var(--font-color-normal);
+
     --project-Details-Content-height: 94vh;
     --project-Details-Content-width: 80vw;
     --project-Details-Content-overflow: hidden scroll;
@@ -41,6 +46,11 @@
         --project-Details-Directory-border-right: 0em solid var(--font-color-title);
 
         --project-Details-Directory-flex-direction: row;
+
+        --project-Details-Directory-p-before-width: 100%;
+        --project-Details-Directory-p-before-height: 50%;
+        --project-Details-Directory-p-before-bottom-right: 0.05em solid var(--font-color-normal);
+        --project-Details-Directory-p-before-bottom-bottmo: 0em solid var(--font-color-normal);
 
         --project-Details-Content-height: 92vh;
         --project-Details-Content-width: 100vw;
@@ -150,7 +160,7 @@
     text-overflow: ellipsis;
 
     line-height: 1em;
-    max-height: 2.6em;
+    max-height: 3em;
 }
 #box_projectsPage > div:nth-child(3) > .project_border > div:first-child > p:nth-child(2) > span {
 
@@ -284,7 +294,7 @@
     overflow: hidden;
 }
 
-#project_details.full-window #project_details_header {
+#project_details #project_details_header {
 
     position: relative;
 
@@ -296,7 +306,7 @@
     z-index: 2;
 }
 
-#project_details.full-window #project_details_header > p:first-child {
+#project_details #project_details_header > p:first-child {
 
     position: absolute;
 
@@ -313,7 +323,7 @@
     cursor: pointer;
 }
 
-#project_details.full-window #project_details_header > p:nth-child(2) {
+#project_details #project_details_header > p:nth-child(2) {
 
     position: absolute;
 
@@ -333,7 +343,7 @@
     font-family: var(--fontface-title);
 }
 
-#project_details.full-window > div:nth-child(2) {
+#project_details > div:nth-child(2) {
 
     position: absolute;
     display: flex;
@@ -349,7 +359,7 @@
     overflow: hidden;
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory {
+#project_details > div:nth-child(2) #project_details_directory {
 
     height: var(--project-Details-Directory-height);
     width: var(--project-Details-Directory-width);
@@ -364,7 +374,7 @@
     flex-direction: var(--project-Details-Directory-flex-direction);
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_content {
+#project_details > div:nth-child(2) #project_details_content {
 
     position: relative;
 
@@ -374,19 +384,22 @@
     overflow: var(--project-Details-Content-overflow);
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory::-webkit-scrollbar,
-#project_details.full-window > div:nth-child(2) #project_details_content::-webkit-scrollbar {
+#project_details > div:nth-child(2) #project_details_directory::-webkit-scrollbar,
+#project_details > div:nth-child(2) #project_details_content::-webkit-scrollbar {
 
     display: none;
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory div {
+#project_details > div:nth-child(2) #project_details_directory div {
+
+    display: flex;
+    flex-direction: var(--project-Details-Directory-flex-direction);
 
     width: 100%;
     box-sizing: border-box;
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory div p {
+#project_details > div:nth-child(2) #project_details_directory div p {
 
     position: relative;
 
@@ -394,6 +407,7 @@
     font-family: var(--fontface-title-2);
     color: var(--font-color-normal);
     padding-left: 5%;
+    padding-right: 5%;
 
     width: 90%;
     height: 8vh;
@@ -403,7 +417,7 @@
 
     cursor: pointer;
 }
-#project_details.full-window > div:nth-child(2) #project_details_directory div p::before {
+#project_details > div:nth-child(2) #project_details_directory div p::before {
 
     position: absolute;
 
@@ -412,26 +426,27 @@
     left: 0;
     right: 0;
 
-    width: 80%;
-    height: 100%;
+    width: var(--project-Details-Directory-p-before-width);
+    height: var(--project-Details-Directory-p-before-height);
 
     content: "";
     margin: auto;
 
-    border-bottom: 0.05em solid var(--font-color-normal);
+    border-right: var(--project-Details-Directory-p-before-bottom-right);
+    border-bottom: var(--project-Details-Directory-p-before-bottom-bottmo);
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory div.dir_level {
+#project_details > div:nth-child(2) #project_details_directory div.dir_level {
 
     max-height: 8vh;
     height: max-content;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     overflow: hidden;
 
     transition: all 1s;
 }
 
-#project_details.full-window > div:nth-child(2) #project_details_directory div.dir_level:has( > p.expand) {
+#project_details > div:nth-child(2) #project_details_directory div.dir_level:has( > p.expand) {
 
     max-height: 1000vh;
     height: max-content;
@@ -455,12 +470,18 @@
 
     opacity: 0;
     transition: opacity 0.5s;
+    display: none;
 }
 
 #project_details_content > div.content-display {
 
     opacity: 1;
     transition: opacity 0.5s;
+    display: initial;
+
+    @starting-style {
+        opacity: 0;
+    }
 }
 
 #project_details_content .content-block .content-block-title-1 {

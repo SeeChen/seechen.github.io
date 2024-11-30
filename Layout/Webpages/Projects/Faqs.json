@@ -1,0 +1,22 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "content-block-section"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {
+            "class": "content-block-title-1"
+        },
+        "lang": "projects",
+        "children": ["_faqs_"]
+    }, {
+        "tag": "pre",
+        "props": {
+            "class": "content-block-content-1"
+        },
+        "lang": "",
+        "children": []
+    }]
+}

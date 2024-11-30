@@ -96,6 +96,10 @@ export const tools = {
 
             services: "/Language/Services/services.json",
 
+            projects: "/Language/Projects/projects.json",
+            projectLabel: "/Language/Projects/Labels.json",
+            projectName: "/Language/Projects/Name.json",
+
             country: "/Language/Area/country.json",
             countryCN: "/Language/Area/CN.json",
             countryMY: "/Language/Area/MY.json",

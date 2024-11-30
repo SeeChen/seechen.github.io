@@ -1,0 +1,233 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "box_projectsPage"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {},
+        "lang": "projects",
+        "children": ["_projects_title_"]
+    }, {
+        "tag": "p",
+        "props": {},
+        "lang": "projects",
+        "children": ["_projects_desc_"]
+    }, {
+        "tag": "div",
+        "props": {},
+        "lang": "",
+        "children": []
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "project_details"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "div",
+            "props": {
+                "id": "project_details_header"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {},
+                "lang": "",
+                "children": ["❌"]
+            }, {
+                "tag": "p",
+                "props": {},
+                "lang": "projects",
+                "children": ["_project_title_"]
+            }]
+        }, {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "div",
+                "props": {
+                    "id": "project_details_directory"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "div",
+                    "props": {
+                        "class": "dir_level_0"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Intro",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_introduction_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Git",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_git_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Features",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_features_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Guide",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_guide_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Documentation",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_documentation_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_License",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_license_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Community",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_community_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Faqs",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_faqs_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Update",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_update_"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "id": "details_Author",
+                            "class": "details_Dir_option"
+                        },
+                        "lang": "projects",
+                        "children": ["_author_"]
+                    }]
+                }]
+            }, {
+                "tag": "div",
+                "props": {
+                    "id": "project_details_content"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Intro",
+                        "class": "content-block content-display"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Git",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Features",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Guide",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Documentation",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_License",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Community",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Faqs",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Update",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "id": "box_Projects_Author",
+                        "class": "content-block"
+                    },
+                    "lang": "",
+                    "children": []
+                }]
+            }]
+        }]
+    }]
+}

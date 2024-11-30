@@ -1,0 +1,32 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "content-block-section"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {
+            "class": "content-block-title-1"
+        },
+        "lang": "",
+        "children": ["1900-01-01"]
+    }, {
+        "tag": "figure",
+        "props": {},
+        "lang": "",
+        "children": [{
+            "tag": "figcaption",
+            "props": {},
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "ol",
+            "props": {
+                "start": "0"
+            },
+            "lang": "",
+            "children": []
+        }]
+    }]
+}

@@ -1,0 +1,59 @@
+{
+    "zh": {
+        "_projects_title_": "我的项目",
+        "_projects_desc_": "这里展示了我开发或参与开发的项目，其中一些包含了我曾编写的代码。",
+        "_project_title_": "项目",
+
+        "_introduction_": "简介",
+        "_git_": "仓库",
+        "_features_": "功能",
+        "_guide_": "如何使用",
+        "_documentation_": "文档",
+        "_license_": "开源许可证",
+        "_community_": "社区",
+        "_faqs_": "问答",
+        "_update_": "更新日志",
+        "_author_": "协作者",
+
+        "_downloads_": "下载压缩包",
+        "_view_on_github_": "在 GitHub 上查看",
+        "_view_on_gitlab_": "在 GitLab 上查看",
+        "_view_on_gitee_": "在 Gitee 上查看",
+
+        "_license_1_": "许可证 1",
+        "_license_2_": "许可证 2",
+        "_license_3_": "许可证 3",
+
+        "_license_translate_1_": "翻译 1",
+        "_license_translate_2_": "翻译 2"
+    }, 
+
+    "en": {
+        "_projects_title_": "PROJECTS",
+        "_projects_desc_": "This showcases the projects I’ve developed or contributed to, some of which include code I’ve written.",
+        "_project_title_": "Project",
+
+        "_introduction_": "Introduction",
+        "_git_": "Repository",
+        "_features_": "Features",
+        "_guide_": "Guide",
+        "_documentation_": "Documentation",
+        "_license_": "License",
+        "_community_": "Community",
+        "_faqs_": "FAQs",
+        "_update_": "Update Log",
+        "_author_": "Collaborator",
+
+        "_downloads_": "Download ZIP File",
+        "_view_on_github_": "View on GitHub",
+        "_view_on_gitlab_": "View on GitLab",
+        "_view_on_gitee_": "View on Gitee",
+
+        "_license_1_": "license 1",
+        "_license_2_": "license 2",
+        "_license_3_": "license 3",
+
+        "_license_translate_1_": "license translate 1",
+        "_license_translate_2_": "license translate 2"
+    }
+}

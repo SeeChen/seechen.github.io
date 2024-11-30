@@ -1,0 +1,27 @@
+{
+    "zh": {
+        "_spa_": "SPA",
+        "_spa_full_": "单页面应用",
+        "_websites_": "网站",
+        "_lazy_loading_": "延时加载", 
+        "_algorithm_design_": "算法设计", 
+        "_dynamic_graph_": "动态图", 
+        "_shortest_path_algorithm_": "最短路径算法", 
+        "_personalization_": "个性化",
+        "_path_planning": "路径规划",
+        "_multi_level_traffic_routing_system_": "多层级路径规划系统"
+    }, 
+
+    "en": {
+        "_spa_": "SPA",
+        "_spa_full_": "Single Page Application",
+        "_websites_": "Websites",
+        "_lazy_loading_": "Lazy Loading", 
+        "_algorithm_design_": "Algorithm Design", 
+        "_dynamic_graph_": "Dynamic Graph", 
+        "_shortest_path_algorithm_": "Shortest Path Algorithm", 
+        "_personalization_": "Personalization",
+        "_path_planning": "Path Planning",
+        "_multi_level_traffic_routing_system_": "Multi-Level Traffic Routing System"
+    }
+}
