@@ -259,6 +259,10 @@ const SeeChen_ProjectsMouseEvent = {
 
             // await window.router.route(`/projects/${e.target.dataset.id}/`, false);
 
+            document.querySelector("#box_LoadingAnimation").classList.add("waitToDisplay");
+            await new Promise(r => setTimeout(r, 100));
+            document.querySelector("#box_LoadingAnimation").classList.add("display");
+
             var oldProjectDetails = window.myTools.deepCopy(window.myData.projects.currentDetails);
 
             window.myData.projects.currentDetails.children[0].children[1].lang = "projectName";
@@ -392,6 +396,10 @@ const SeeChen_ProjectsMouseEvent = {
             setTimeout(() => {
                 document.querySelector("#project_details").classList.add("full-window");
             }, 100);
+
+            document.querySelector("#box_LoadingAnimation").classList.remove("display");
+            await new Promise(r => setTimeout(r, 600));
+            document.querySelector("#box_LoadingAnimation").classList.remove("waitToDisplay");
         }
     }
 }

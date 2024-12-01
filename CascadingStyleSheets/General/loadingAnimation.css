@@ -1,0 +1,61 @@
+
+#box_LoadingAnimation {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    z-index: 20001;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    display: none;
+}
+
+#box_LoadingAnimation.waitToDisplay {
+
+    display: block;
+    opacity: 0;
+
+    transition: all 0.5s;
+}
+
+#box_LoadingAnimation.display {
+
+    display: block;
+    opacity: 1;
+
+    transition: all 0.5s;
+}
+
+@keyframes loadingAnimation {
+    
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+
+        transform: rotate(360deg);
+    }
+}
+
+#box_LoadingAnimation img {
+
+    position: absolute;
+
+    height: 15%;
+
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    margin: auto;
+
+    animation: loadingAnimation 3s infinite linear;
+}
