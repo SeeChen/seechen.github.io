@@ -15,7 +15,7 @@
 
     --project-Details-div-flex-direction: row;
 
-    --project-Details-Directory-height: 94vh;
+    --project-Details-Directory-height: 94dvh;
     --project-Details-Directory-width: 20vw;
     --project-Details-Directory-overflow: hidden scroll;
     --project-Details-Directory-border-right: 0.1em solid var(--font-color-title);
@@ -28,7 +28,7 @@
     --project-Details-Directory-p-before-bottom-right: 0em solid var(--font-color-normal);
     --project-Details-Directory-p-before-bottom-bottmo: 0.05em solid var(--font-color-normal);
 
-    --project-Details-Content-height: 94vh;
+    --project-Details-Content-height: 94dvh;
     --project-Details-Content-width: 80vw;
     --project-Details-Content-overflow: hidden scroll;
 }
@@ -39,7 +39,7 @@
 
         --project-Details-div-flex-direction: column-reverse;
 
-        --project-Details-Directory-height: 8vh;
+        --project-Details-Directory-height: 8dvh;
         --project-Details-Directory-width: 100vw;
         --project-Details-Directory-overflow: scroll hidden;
         --project-Details-Directory-border-top: 0.1em solid var(--font-color-title);
@@ -52,7 +52,7 @@
         --project-Details-Directory-p-before-bottom-right: 0.05em solid var(--font-color-normal);
         --project-Details-Directory-p-before-bottom-bottmo: 0em solid var(--font-color-normal);
 
-        --project-Details-Content-height: 92vh;
+        --project-Details-Content-height: 92dvh;
         --project-Details-Content-width: 100vw;
         --project-Details-Content-overflow: hidden scroll;
     }
@@ -299,7 +299,7 @@
     position: relative;
 
     width: 100vw;
-    height: 6vh;
+    height: 6dvh;
 
     box-shadow: 2px 2px 2px var(--font-color-title);
 
@@ -310,15 +310,15 @@
 
     position: absolute;
 
-    width: 6vh;
-    height: 6vh;
+    width: 6dvh;
+    height: 6dvh;
 
     text-align: center;
 
     left: 0;
     top: 0;
 
-    line-height: 6vh;
+    line-height: 6dvh;
 
     cursor: pointer;
 }
@@ -328,7 +328,7 @@
     position: absolute;
 
     width: calc(100vw - 12vh);
-    height: 6vh;
+    height: 6dvh;
 
     left: 0;
     right: 0;
@@ -337,7 +337,7 @@
     margin: auto;
 
     text-align: center;
-    line-height: 6vh;
+    line-height: 6dvh;
 
     font-size: var(--font-size-2em);
     font-family: var(--fontface-title);
@@ -350,9 +350,9 @@
     flex-direction: var(--project-Details-div-flex-direction);
 
     width: 100vw;
-    height: 94vh;
+    height: 94dvh;
 
-    top: 6vh;
+    top: 6dvh;
     left: 0;
 
     z-index: 1;
@@ -410,8 +410,8 @@
     padding-right: 5%;
 
     width: 90%;
-    height: 8vh;
-    line-height: 8vh;
+    height: 8dvh;
+    line-height: 8dvh;
 
     box-sizing: border-box;
 
@@ -438,7 +438,7 @@
 
 #project_details > div:nth-child(2) #project_details_directory div.dir_level {
 
-    max-height: 8vh;
+    max-height: 8dvh;
     height: max-content;
     /* box-sizing: border-box; */
     overflow: hidden;
