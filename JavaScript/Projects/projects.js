@@ -315,6 +315,7 @@ const SeeChen_ProjectsMouseEvent = {
             }
 
             // License
+            window.myData.projects.currentDetails.children[1].children[1].children[5].children = [];
             if (targetGeneralContent["License"] !== "--") {
 
                 const licenseValues = {
@@ -354,6 +355,63 @@ const SeeChen_ProjectsMouseEvent = {
             } else {
                 window.myData.projects.currentDetails.children[1].children[0].children[0].children[5].props["style"] = "display: none;";
             }
+
+            // Update
+            window.myData.projects.currentDetails.children[1].children[1].children[8].children = [];
+            targetGeneralContent["Update"].forEach(update => {
+                
+                let temp_Update = {
+                    tag: "div",
+                    props: {
+                        class: "content-block-section",
+                    },
+                    lang: "",
+                    children: [{
+                        tag: "p",
+                        props: {
+                            class: "content-block-title-1"
+                        },
+                        lang: "",
+                        children: [update.time]
+                    }]
+                };
+
+                update["log"].forEach(log => {
+
+                    let temp_Update_log = {
+                        tag: "figure",
+                        props: {},
+                        lang: "",
+                        children: [{
+                            tag: "figcaption",
+                            props: {},
+                            lang: "",
+                            children: [log.title[window.globalValues.language]]
+                        }, {
+                            tag: "ol",
+                            props: {
+                                start: "0"
+                            },
+                            lang: "",
+                            children: []
+                        }]
+                    };
+
+                    log["content"][window.globalValues.language].forEach(updateContent => {
+
+                        temp_Update_log.children[1].children.push({
+                            tag: "li",
+                            props: {},
+                            lang: "",
+                            children: [updateContent]
+                        });
+                    });
+
+                    temp_Update.children.push(temp_Update_log);
+                });
+
+                window.myData.projects.currentDetails.children[1].children[1].children[8].children.push(temp_Update);
+            });
 
             // Collaborator
             window.myData.projects.currentDetails.children[1].children[1].children[9].children = [];

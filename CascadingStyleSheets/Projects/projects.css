@@ -279,7 +279,7 @@
 #project_details.full-window {
 
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
 
     border: 0em solid var(--font-color-normal);
     border-radius: 0em;
@@ -771,6 +771,7 @@
 
     padding: 1em;
     margin-top: 1em;
+    margin-bottom: 1em;
 
     box-sizing: border-box;
     border: 0.15em solid #CCC;

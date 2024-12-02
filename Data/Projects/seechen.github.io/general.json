@@ -13,7 +13,98 @@
     "License": "GNU_GPL-3.0",
     "Community": "",
     "Faqs": "",
-    "Update": "",
+    "Update": [{
+        "time": "2024.12.01",
+        "log": [{
+            "title": {
+                "zh": "基操",
+                "en": "Basic"
+            },
+            "content": {
+                "zh": [
+                    "修复了一些 bugs",
+                    "优化了一些用户体验",
+                    "程序员只有一位，没有人可以祭天。"
+                ],
+                "en": [
+                    "Fixed some bugs",
+                    "Optimized some user experience."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "添加内容",
+                "en": "Added"
+            },
+            "content": {
+                "zh": [
+                    "增加了一部分项目详情的内容呈现。"
+                ],
+                "en": [
+                    "Added some content presentation of project details."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.11.19",
+        "log": [{
+            "title": {
+                "zh": "重大消息!!!",
+                "en": "IMPORTANT NEWS!"
+            },
+            "content": {
+                "zh": [
+                    "更新了界面，让用户体验更加丝滑，犹如使用了德芙~~~",
+                    "全新界面，看着更清爽，更优美！",
+                    "全新的运行逻辑，采用单页面应用 （SPA） 进行开发。",
+                    "让我们恭送旧版本，该旧版本为我们运行了几天。(具体忘了，反正不长。)",
+                    "啊~~ 终于不用看到不知道哪一位写的垃圾了（又卡，代码又没有优化，还臃肿，呸！）🌚。爽！爽！！爽！！！",
+                    "李思净很帅.",
+                    "彻底抛弃了所有框架，使用原生 JavaScript 实现所有功能。"
+                ],
+                "en": [
+                    "The interface has been updated to make the user experience smoother, just like using Dove~~~",
+                    "The new interface looks more refreshing and more beautiful!",
+                    "The new operating logic is developed using single-page application (SPA).",
+                    "Let us bid farewell to the old version that worked for us for a few days.",
+                    "Ah~~ Finally I don't have to read the garbage written by someone unknown (it's laggy, the code is not optimized, and it's bloated, ugh!)🌚. Cool! Cool!! Cool!!!",
+                    "SeeChen Lee is so Handsome.",
+                    "Completely abandon all frameworks and use native JavaScript to implement all functions."
+                ]
+            }
+        }]
+    }, {
+        "time": "2021.08.25",
+        "log": [{
+            "title": {
+                "zh": "基操",
+                "en": "Basic"
+            },
+            "content": {
+                "zh": [
+                    "创建了 seechen.github.io 仓库。",
+                    "刘亦菲生日 😁"
+                ],
+                "en": [
+                    "Created the seechen.github.io repository.",
+                    "Crystal Liu Birthday. 😀"
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "添加内容",
+                "en": "Added"
+            },
+            "content": {
+                "zh": [
+                    "创建了第一个 index.html，并尝试使用 seechen.github.io 访问，成功。"
+                ],
+                "en": [
+                    "Created the first index.html and tried to access it using seechen.github.io, which was successful."
+                ]
+            }
+        }]
+    }],
     "Author": [{
         "name": "SEECHEN LEE",
         "image": "https://avatars.githubusercontent.com/u/39422761?v=4",
