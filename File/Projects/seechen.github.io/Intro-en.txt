@@ -9,7 +9,7 @@ The repository for this project was initially created on August 25, 2021, and ha
 
 This website serves as a personal challenge for the author to explore and understand modern JavaScript and CSS features. The current objective is to develop and maintain the entire website solely with native JavaScript and CSS, without relying on any frameworks or external libraries.
 
-If you have any suggestions or ideas for improvement, please feel free to visit my Github repository and submit an Issue. Your feedback and support would be greatly appreciated!
+If you have any suggestions or ideas for improvement, please feel free to visit my Github repository and submit an <a href=\"https://github.com/SeeChen/seechen.github.io/issues\" target=\"_blank\">Issue</a>. Your feedback and support would be greatly appreciated!
 
 
     Last Modified by SeeChen @ 30-NOV-2024 22:00 UTC +08:00.

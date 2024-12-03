@@ -1,0 +1,702 @@
+{
+    "Intro": "",
+    "Git": [],
+    "Features": "",
+    "Guide": "",
+    "Documentation": "",
+    "License": "",
+    "Community": "",
+    "Faqs": "",
+    "Update": [{
+        "time": "2024.05.27",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过不懈努力，我已成功构建出所有既定约束条件的算法，并通过一系列测试验证了其效率和可用性。同时，毕业论文的撰写工作也进入了关键阶段，现正进行优化与完善。"
+                ],
+                "en": [
+                    "After relentless effort, I have successfully developed algorithms for all the defined constraints and validated their efficiency and usability through a series of tests. Meanwhile, the writing of my thesis has entered a critical phase, where I am focusing on optimization and refinement."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "在论文提交盲评后，我根据盲评专家的反馈意见对论文进行了有针对性的修改与完善。同时，我还对项目中可以优化的部分进行了深入分析，并实施了相应的优化措施，确保项目质量和效果进一步提升。"
+                ],
+                "en": [
+                    "After the thesis was submitted for blind review, I made targeted revisions based on the feedback from the reviewers. Additionally, I conducted a thorough analysis of the aspects of the project that could be optimized and implemented the corresponding improvements to further enhance the project's quality and outcomes."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "重新审视本项目，我深入分析了其中的不足，并制定了相应的改进策略。"
+                ],
+                "en": [
+                    "Upon reevaluating the project, I conducted an in-depth analysis of its shortcomings and developed corresponding improvement strategies."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.05.20",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "在本周内，我摒弃了先前的算法模型，成功地将项目数据抽象为图结构，并构建了与之匹配的新算法模型。此外，基于这一新的算法模型，我已完成针对本项目约束条件算法模型的一半设计工作，显著提升了算法设计的效率。"
+                ],
+                "en": [
+                    "This week, I discarded the previous algorithm model and successfully abstracted the project data into a graph structure, subsequently building a matching algorithm model. Based on this new algorithm model, I have completed half of the design work for the constraint condition algorithm models for this project, significantly improving the efficiency of the algorithm design."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "针对项目中的其他约束条件，我进行了相应的算法设计，并实施了严格的算法验证实验。基于这些实验数据和算法设计成果，我将进一步完善和优化论文的核心内容。"
+                ],
+                "en": [
+                    "I designed algorithms for other constraints in the project and conducted rigorous algorithm validation experiments. Based on the experimental data and the results of the algorithm design, I will comprehensively refine and optimize the core content of the thesis."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "经过进一步的研究与改进，所设计的算法在准确性方面仍有提升空间，同时，该算法的性能也需要通过严谨的验证实验来验证。"
+                ],
+                "en": [
+                    "After further research and improvements, the designed algorithm still has room for improvement in accuracy, and its performance also needs to be validated through rigorous experiments."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.05.13",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "毕业论文的撰写正稳步进行，内容已经根据导师的宝贵建议进行了相应的调整和完善。在算法设计方面，除了持续设计更多约束条件的算法模型外，我还在不断优化先前设计的算法模型，以提高其性能和准确性。"
+                ],
+                "en": [
+                    "The writing of my graduation thesis is progressing steadily, with the content having been adjusted and refined according to the valuable suggestions of my supervisor. In terms of algorithm design, in addition to continuously designing more algorithm models with constraints, I am also working on optimizing the previously designed algorithm models to improve their performance and accuracy."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "在导师的指导下，我将继续深入完善和精修毕业论文。同时，我也会致力于进一步设计和优化针对约束条件的算法模型，以提高其准确性和实用性。"
+                ],
+                "en": [
+                    "Under the guidance of my supervisor, I will continue to deeply refine and improve the graduation thesis. At the same time, I will focus on further designing and optimizing algorithm models for constraint conditions to enhance their accuracy and practicality."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "鉴于当前算法模型在处理约束条件时所面临的挑战，针对本项目特定的数据结构模型，或许可以设计一个创新的算法，以优化和简化约束条件的设计过程。"
+                ],
+                "en": [
+                    "Given the challenges faced by the current algorithm models when handling constraint conditions, it may be possible to design an innovative algorithm tailored to the specific data structure model of this project to optimize and simplify the design process of constraint conditions."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.05.06",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "基于 A* 算法，我成功设计了一个包含约束条件的算法模型，并同步尝试对当前项目使用的数据结构模型进行优化。然而，修改后的数据结构模型在适配性方面仍面临一定挑战。此外，本周我开始撰写毕业设计论文，内容主要总结了之前的工作成果以及本项目中已确定的内容。"
+                ],
+                "en": [
+                    "Based on the A* algorithm, I have successfully designed an algorithm model that incorporates constraints and simultaneously tried to optimize the data structure model used in the current project. However, the modified data structure model still faces certain challenges in terms of adaptability. Additionally, this week I began writing my graduation thesis, which primarily summarizes the previous work results and the content that has already been defined in this project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "毕业论文的优化工作正在稳步推进，同时也在不断丰富论文内容。在算法设计方面，我将继续基于 A* 算法的框架和之前确立的数据结构模型，逐步完成所有约束条件的算法模型设计，以确保项目的完整性和准确性。"
+                ],
+                "en": [
+                    "The optimization of the graduation thesis is progressing steadily, and its content is continuously being enriched. In terms of algorithm design, I will continue to work within the framework of the A* algorithm and the previously established data structure model, gradually completing the design of all algorithm models with constraints to ensure the integrity and accuracy of the project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在撰写毕业论文的过程中，建议加强与导师的沟通，确保论文的质量，以避免在提交阶段才进行大规模的修改。"
+                ],
+                "en": [
+                    "During the process of writing the graduation thesis, it is advisable to strengthen communication with the supervisor to ensure the quality of the thesis, thereby avoiding large-scale revisions at the submission stage."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.04.29",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过深入研究，我发现采用同一算法处理不同约束条件，不仅能显著提升工作效率，还能简化数据模型。然而，尽管过去一周我专注于构建约束条件的算法模型，但进展依然较慢，且目前尚未找到更多适用的算法。"
+                ],
+                "en": [
+                    "After in-depth research, I found that using the same algorithm to handle different constraints not only significantly improves work efficiency but also helps simplify the data model. However, despite spending the past week focusing on building algorithm models for the constraints, progress has been relatively slow, and no more applicable algorithms have been found so far."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "在接下来的三天里，我将集中精力寻找更多算法，并研究它们在本项目数据模型中的适用性。如果经过综合评估和指标计算后，发现这些新算法仍不符合本项目的数据模型需求，我将转而深入研究 A* 算法，并基于该算法构建适应不同约束条件的算法模型。"
+                ],
+                "en": [
+                    "Over the next three days, I will focus on searching for more algorithms and studying their applicability within the data model of this project. If, after a comprehensive evaluation and metric calculation, these newly discovered algorithms still do not meet the requirements of the project's data model, I will shift my focus to further research the A* algorithm and build algorithm models based on it to handle different constraints."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "鉴于当前算法模型的局限性，一种可能的解决策略是调整数据模型的结构，以更好地适应这些算法的需求。"
+                ],
+                "en": [
+                    "Given the current limitations of the algorithm models, a possible solution strategy is to adjust the structure of the data model to better meet the needs of these algorithms."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.04.22",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "针对 Dijkstra 算法，我已完成了相应的模型设计，同时也为 A* 算法构建了模型。然而，在测试过程中，发现这两个模型都存在一些待解决的 Bug。此外，在过去一周内，我仅成功设计了两个约束条件的算法模型，并且在实际应用中，这些模型暴露出了许多问题，显示出明显的不足。"
+                ],
+                "en": [
+                    "For the Dijkstra algorithm, I have completed the corresponding model design, and I also built a model for the A* algorithm. However, during testing, I found that both models have some bugs that still need to be resolved. Additionally, in the past week, I successfully designed models for only two constraints, but during practical application, these models exposed numerous issues, revealing significant shortcomings."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "为了弥补现有算法模型的不足，我将继续进行改进，并针对更多的约束条件构建相应的算法模型。同时，我也会探索是否存在其他算法能更好地适配本项目的数据模型。"
+                ],
+                "en": [
+                    "To address the limitations of the current algorithm models, I will continue to improve them and develop corresponding models for more constraints. At the same time, I will explore whether there are other algorithms that can better adapt to the data model in this project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "针对当前选定的算法模型的局限性，我考虑针对不同约束条件采用不同的算法，进行更为精确的模型构建。"
+                ],
+                "en": [
+                    "Given the limitations of the currently selected algorithm models, I am considering using different algorithms for different constraints to construct more precise models."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.04.15",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "在前一周，我详细研究了 Dijkstra 算法、Bellman-Ford 算法和 A* 算法，并设计出了一个能够容纳获取到数据的算法模型。在此基础上，我运行了一个不包含任何约束条件的路径规划，结果是成功的。然而，如何将约束条件整合到算法中，仍需进一步研究。"
+                ],
+                "en": [
+                    "In the previous week, I conducted an in-depth study of the Dijkstra, Bellman-Ford, and A* algorithms and designed an algorithm model that can accommodate the data obtained. Based on this, I ran a path planning without any constraints, and the result was successful. However, integrating constraints into the algorithm requires further research."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "经过审慎评估，我从三个算法模型中精心筛选出最符合本项目约束条件的算法，并计划将其应用于实践。在接下来的一周，我将至少实现该算法模型，成功满足设计的十三条约束条件中的任意一条，确保结果的准确性和可靠性。"
+                ],
+                "en": [
+                    "After careful evaluation, I have carefully selected the algorithm that best fits the constraints of this project from the three models and plan to apply it in practice. In the upcoming week, I will implement this algorithm model and aim to successfully meet at least one of the thirteen designed constraints, ensuring the accuracy and reliability of the results."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在算法模型设计上，当前仍处于考量阶段。由于直接构建一个完全适配所有约束条件的算法模型存在一定难度，建议采取逐步推进的方式，逐条设计并实现每个约束条件的算法模型，以便逐一解决每个挑战。"
+                ],
+                "en": [
+                    "In terms of algorithm model design, I am still in the consideration stage. Due to the difficulty in directly constructing a model that fully adapts to all the constraints, I suggest taking a step-by-step approach, designing and implementing the algorithm model for each constraint one by one to address each challenge."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.04.08",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "鉴于运营数据获取的复杂性，我决定采取策略性的方法。首先，重点查找部分可用数据，并根据现有数据进行推算，尽量弥补数据缺口。同时，我还将努力获取与运营相关的关键数据，如班车次数和出发时间等，以完善系统中每个交通工具的运营数据。"
+                ],
+                "en": [
+                    "Given the complexity of obtaining operational data, I have decided to take a strategic approach. First, I will focus on finding some available data and make estimations based on it to fill in the data gaps as much as possible. Additionally, I will strive to obtain key information related to operations, such as bus frequencies and departure times, to improve the operational data for each mode of transportation in the system."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "由于前期在数据获取上投入了大量时间，现在需要将关注焦点转向算法设计。基于先前研究的三个算法，结合当前所有可用数据，我将精心构建一个能够兼容这些算法的数据模型。接下来，我将进行无约束条件的路径规划实验，以验证数据模型与算法的有效结合。"
+                ],
+                "en": [
+                    "Since a significant amount of time was spent on data collection in the earlier stages, it is now necessary to shift focus toward algorithm design. Based on the three algorithms studied earlier and the available data, I will carefully construct a data model that is compatible with these algorithms. Following this, I will conduct path planning experiments without constraints to validate the effective integration of the data model and algorithms."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "尽管我已经对前期算法有了初步理解，但其结构尚未完全明晰。当前的数据结构较为复杂，因此，我计划编写一份详细文档，将这些数据进行抽象整理，以便为后续算法开发提供清晰且简洁的参考。"
+                ],
+                "en": [
+                    "Although I have gained an initial understanding of the algorithms, their structure is still not completely clear. The current data structure is quite complex, so I plan to create a detailed document to abstract and organize this data, providing a clear and concise reference for the upcoming algorithm development."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.04.01",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "采用 Java 和 Spring Boot 框架，经过精心设计，后端系统实现了基础的增删查改操作，并结合了简洁的交互逻辑。在此基础上，系统能够将完善的数据成功存入数据库，并通过严格的筛选逐步剔除异常数据，确保数据的准确性与可靠性。"
+                ],
+                "en": [
+                    "Using Java and the Spring Boot framework, the backend system has been carefully designed to implement basic CRUD operations and incorporate straightforward interaction logic. Based on this, the system successfully stores the refined data in the database, while strictly filtering out anomalous data to ensure the accuracy and reliability of the data."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "对获取到的公共交通网络数据进行深入分析，接下来应探索网络上公开的运营信息，特别是进站时间和出站时间等关键数据。这将进一步丰富算法所需的数据基础，确保路径规划更加贴近实际需求，从而提高其实用性和准确性。"
+                ],
+                "en": [
+                    "For the acquired public transportation network data, the next step is to delve into publicly available operational information, particularly key data such as station entry and exit times. This will further enrich the data foundation required for the algorithm, ensuring that the path planning is more realistic and improving its practicality and accuracy."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "目前，尚未全面获取所有运营数据。已确认掌握的数据包括北京市郊铁路的运营信息和地铁各站点的时刻表。然而，公交车和飞机的相关数据仍无法精确获取，需在网络上继续深入搜索并关注相关信息。"
+                ],
+                "en": [
+                    "As of now, not all operational data has been fully collected. The data currently available includes operational details of Beijing’s suburban railway and the timetable for subway stations. However, data for buses and airplanes is still unavailable, and further online searches and attention to relevant information are needed."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.03.25",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过深入研究，我成功找到了每种交通工具类型在高德地图中对应的关键字模式，从而获取了所有可爬取的公交车站、地铁站、机场及高铁站的精确经纬度数据。此外，在综合评估了不同数据库技术后，我决定采用非关系型文档型数据库——MongoDB，作为存储这些海量数据的解决方案。"
+                ],
+                "en": [
+                    "After conducting in-depth research, I successfully identified the keyword patterns for each type of transportation station in Amap (Gaode Maps), which allowed me to obtain precise latitude and longitude data for all crawlable bus stops, subway stations, airports, and high-speed rail stations. Furthermore, after evaluating various database technologies, I decided to use a non-relational document-based database—MongoDB—as the storage solution for these massive datasets."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "在对爬取数据进行初步筛查后，我计划设计一套后端交互逻辑代码，确保获取的数据能够顺利进行数据库的存取操作。同时，为了确保数据的多样性和易用性，我将这些数据分别保存为 JSON 格式和 CSV 格式，以便在算法开发过程中进行详细的测试与验证。"
+                ],
+                "en": [
+                    "After a preliminary screening of the crawled data, I plan to design a set of backend interaction logic to ensure smooth database operations for the acquired data. At the same time, to ensure data diversity and usability, I will store these datasets in both JSON and CSV formats for detailed testing and validation during the algorithm development process."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "我将数据以 JSON 格式存储，以精准模拟其在 MongoDB 中的结构化布局，保持数据的一致性和完整性。然而，CSV 文件中的数据存储结构仍需进一步明确。由于 CSV 文件的固有限制，目前尚无法确保设计出既具逻辑性又易于复用的格式。"
+                ],
+                "en": [
+                    "I will store the data in JSON format, accurately simulating its structured layout in MongoDB to maintain data consistency and integrity. However, the data storage structure in CSV files still needs to be clarified. Due to the inherent limitations of CSV files, it is currently not possible to ensure the design of a format that is both logical and easy to reuse."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.03.18",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过对 GitHub 上北京公共交通网络数据的深入研究，特别是针对这些数据的经纬度信息，发现其存在不统一的情况。随后，我对百度地图、高德地图、Open Street Map 等来源的经纬度数据进行了详细的分析与比较。综合考虑后，最终决定采用六位小数的精度，并以高德地图的数据作为所有经纬度的基准数据。"
+                ],
+                "en": [
+                    "After conducting in-depth research on Beijing's public transportation network data on GitHub, especially the latitude and longitude information, it was found that the data was inconsistent. Subsequently, I conducted a detailed analysis and comparison of latitude and longitude data from sources such as Baidu Maps, Amap (Gaode Maps), and OpenStreetMap. After careful consideration, I decided to use six decimal places of precision and adopt Amap's data as the baseline for all latitude and longitude data."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "通过对高德地图关键字搜索功能的深入探索，旨在识别有效的关键字，以获取相应经纬度信息。通过分析适用于特定类型或广泛类型数据的关键字模式，确保能够在高德地图上准确地获取经纬度数据，从而为本项目提供可靠且精确的数据支持。"
+                ],
+                "en": [
+                    "Through an in-depth exploration of Amap's keyword search function, I aimed to identify effective keywords that could be used to retrieve the corresponding latitude and longitude information. By analyzing keyword patterns applicable to specific or broad data types, I ensure that latitude and longitude data can be accurately obtained from Amap, thereby providing reliable and precise data support for this project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在关键字的搜寻过程中，我计划采取更为精准且广泛的实验策略，以确保在海量数据中尽量减少脏数据的产生，并减少数据缺失的情况。"
+                ],
+                "en": [
+                    "During the keyword search process, I plan to adopt a more precise and comprehensive experimental strategy to minimize the generation of dirty data in large datasets and reduce the occurrence of missing data."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.03.11",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过对北京市众多数据网站的深入研究，我已经成功制定并实施了相应的数据获取策略。目前，地铁、公交以及高铁的大部分数据已经成功获取。这些数据已按照特定格式在本地进行存储，以便随时调用和使用。"
+                ],
+                "en": [
+                    "After conducting in-depth research on numerous data websites in Beijing, I have successfully developed and implemented the corresponding data acquisition strategy. Currently, the majority of data from the subway, bus, and high-speed rail systems have been successfully acquired. This data has been stored locally in a specific format for easy access and use."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "鉴于本项目依赖于真实世界的数据，在从当前数据网站获取站点数据时，未包含这些站点的经纬度坐标。为确保数据的准确性和现实性，接下来的工作将专注于如何精确获取每个站点的经纬度坐标，并同步进行这些数据与数据库连接和存取机制的研究。"
+                ],
+                "en": [
+                    "Since this project relies on real-world data, the station data retrieved from the current data websites does not include the latitude and longitude coordinates for these stations. To ensure the accuracy and realism of the data, the next steps will focus on how to precisely obtain the latitude and longitude coordinates for each station, while simultaneously studying the data's integration with the database connection and access mechanisms."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在数据库选择方面，目前尚未确定。除了专注于经纬度的获取外，还需对关系型数据库与非关系型数据库的使用进行深入探讨，尤其是它们的存储机制和调取机制。此外，还需评估市面上大多数数据库对于本项目的适配性，以确保所选数据库能够满足项目需求。"
+                ],
+                "en": [
+                    "The selection of a database is still to be determined. In addition to focusing on obtaining latitude and longitude coordinates, an in-depth exploration of relational and non-relational databases is required, particularly their storage and retrieval mechanisms. Furthermore, it is necessary to assess the compatibility and adaptability of the most widely used databases on the market to ensure that the chosen database fully meets the project's requirements."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.03.04",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "在深入研究北京市公共交通网络数据后，我已成功构建了一种在算法内部及数据结构方面具有较强通用性的新型数据结构。同时，我也启动了对相关数据网站的网页接口和结构的研究工作，并取得了初步的成果。"
+                ],
+                "en": [
+                    "After thoroughly researching Beijing's public transportation network data, I have successfully constructed a new data structure with strong versatility both internally within the algorithm and in terms of its overall data structure. Additionally, I have initiated the research on the web interfaces and structures of relevant data websites, achieving initial results."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "针对所有可以收集北京市公共交通网络系统数据的网站，我已展开深入的接口和网页结构研究，并根据预先设计的数据结构，正式启动了数据获取工作。在此过程中，为适应不同地区的特点，我对现有的数据结构进行了适当的调整与优化。"
+                ],
+                "en": [
+                    "For all websites that provide data on Beijing's public transportation network system, I have conducted in-depth research on the web interfaces and structures, and, based on the previously designed data structure, have officially started the data acquisition process. During this process, to accommodate the characteristics of different regions, I have made appropriate adjustments and optimizations to the existing data structure."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在当前研究的网页中，普遍存在加密信息和复杂的防爬机制。为了确保数据的准确性，避免对项目成果产生不利影响，我们必须进一步采取相应的策略，以防获取到错误的数据。"
+                ],
+                "en": [
+                    "The websites currently under research generally feature encrypted information and complex anti-scraping mechanisms. To ensure the accuracy of the data and prevent any adverse effects on the project outcomes, it is necessary to take further appropriate measures to avoid obtaining incorrect data."
+                ]
+            }
+        }]
+    }, {
+        "time": "2024.02.26",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过对上一周计划的回顾，我明显感到，针对不同类型的公共交通网络数据逐一进行微调是一项既耗时又低效的工作。在本周的前半段，我虽然精心设计了适用于北京市地铁的数据结构，但在将其应用到公交数据时却遇到了显著的困难和偏差。因此，当前的策略需要进行调整，以便更高效地推进项目。"
+                ],
+                "en": [
+                    "After reviewing the plan from the previous week, it became clear that fine-tuning different types of public transportation network data one by one is a time-consuming and inefficient task. In the first half of this week, although I carefully designed a data structure specifically for Beijing's subway system, I encountered significant difficulties and discrepancies when attempting to apply it to bus data. As a result, the current strategy needs to be adjusted in order to more effectively advance the project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "在深入研究北京市的公共交通网络时，我需要全面收集高铁、火车、飞机、公交、地铁等详细数据。对这些数据进行详细分析，识别它们的共同特征与差异。基于这些数据的综合分析，构建一个能够整合所有公共交通数据类型的数据结构。同时，在设计过程中，我将参考并借鉴已有的数据结构逻辑，确保新结构的高效性和实用性。"
+                ],
+                "en": [
+                    "When deeply researching Beijing's public transportation network, I need to comprehensively collect detailed data on high-speed trains, trains, airplanes, buses, and subways. I will analyze these data in detail to identify their common features and differences. Based on this comprehensive analysis, I will construct a data structure capable of integrating all types of public transportation data. Additionally, during the design process, I will refer to and draw from existing data structure logic to ensure the efficiency and practicality of the new structure."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在如何采集这些数据方面，我尚未进行深入的研究。一个可行的方法是，通过互联网寻找那些提供详细数据的网站，并对这些网站进行深入研究，理解它们的架构和工作机制。接着，可以探索如何有效地从这些网站上爬取所需的数据。"
+                ],
+                "en": [
+                    "In terms of how to collect this data, further research is needed. One feasible method is to search the internet for websites that provide detailed data, and then conduct in-depth studies on these websites to understand their architecture and operation mechanisms. From there, I can explore how to effectively scrape the required data from these websites."
+                ]
+            }
+        }]
+    }, {
+        "time": "2023.12.22",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过上周的精心策划和严格的时间表执行，我深入探讨了 Dijkstra 算法、Bellman-Ford 算法以及 A* 算法在本项目中的适用性。通过详细理解这些算法的运行原理，并在本地环境中进行实际测试，我获得了显著的实验成果。实验结果验证了 Dijkstra 算法在稀疏图中的高效性、Bellman-Ford 算法在处理负权边图中的适用性，以及 A* 算法在导航系统中的优越性能。"
+                ],
+                "en": [
+                    "After carefully planning and strictly following the schedule last week, I delved into the applicability of the Dijkstra, Bellman-Ford, and A* algorithms for this project. By gaining a deep understanding of the operational principles behind these algorithms and testing them in a local environment, I achieved significant experimental results. The experiments confirmed the efficiency of Dijkstra's algorithm in sparse graphs, the applicability of Bellman-Ford's algorithm for graphs with negative weight edges, and the performance of the A* algorithm in navigation systems."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "经过深入研究，我明确了这些算法所需的数据集。在此基础上，我着重分析了各种公共交通网络的数据结构，并致力于研发一个通用性强、兼容性高的数据结构，确保所有数据能够无缝对接，顺利应用于最短路径规划算法中。"
+                ],
+                "en": [
+                    "After in-depth research, I identified the data sets required for these algorithms. Building on this, I focused on analyzing the data structures of various public transportation networks and worked on developing a highly versatile and compatible data structure to ensure seamless integration of all data, which can be smoothly applied to the shortest path planning algorithms."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在接下来的一周，我将专注于数据收集与分析工作。首先，我将对北京地铁数据进行详细的结构设计，并努力将其与公交数据进行有效适配，必要时根据适配过程中遇到的具体问题进行调整。"
+                ],
+                "en": [
+                    "In the coming week, I will focus primarily on data collection and analysis. First, I will design a detailed structure for Beijing’s subway data and work on adapting it to the bus data. Necessary adjustments will be made based on specific issues encountered during the adaptation process."
+                ]
+            }
+        }]
+    }, {
+        "time": "2023.12.15",
+        "log": [{
+            "title": {
+                "zh": "前一阶段总结",
+                "en": "Summary of the previous stage"
+            },
+            "content": {
+                "zh": [
+                    "经过对全球范围内现有路径规划算法的深入研究与分析，我对这些算法的运行原理有了深入的理解，并识别了它们可能存在的潜在不足之处。此外，我特别关注了这些算法在多层级路径规划系统中的适应性，以评估它们是否能与当前项目的需求相契合。"
+                ],
+                "en": [
+                    "After conducting in-depth research and analysis of existing path planning algorithms worldwide, I gained a thorough understanding of their operational principles and identified potential shortcomings. Additionally, I paid special attention to the adaptability of these algorithms in multi-level path planning systems to evaluate their suitability for the current project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "后一阶段计划",
+                "en": "Next stage plan"
+            },
+            "content": {
+                "zh": [
+                    "我深入剖析了算法的代码逻辑，并尝试在本地环境中运行这些代码，必要时对其进行修改和调整。我的目标是优化这些算法，使其更好地满足本项目的核心需求和目标。"
+                ],
+                "en": [
+                    "I thoroughly analyzed the logic of the algorithm code and attempted to run it in a local environment, making modifications and adjustments when necessary. My goal is to optimize these algorithms to better meet the core requirements and objectives of this project."
+                ]
+            }
+        }, {
+            "title": {
+                "zh": "问题与建议",
+                "en": "Questions and suggestions"
+            },
+            "content": {
+                "zh": [
+                    "在后续阶段，我将制定详细的时间计划表，以确保项目按时高效推进。同时，我会对改进算法的设计进行严格的可行性评估，并根据评估结果灵活调整计划。我还将与导师保持紧密联系，以确保及时沟通，解决可能遇到的问题，避免不必要的时间浪费。"
+                ],
+                "en": [
+                    "In the upcoming stages, I will create a detailed timeline to ensure the efficient progression of the work. At the same time, I will conduct a rigorous feasibility assessment of the improved algorithm designs and adjust the plans accordingly based on the results. I will maintain close communication with my supervisor to promptly address any issues and avoid unnecessary delays."
+                ]
+            }
+        }]
+    }],
+    "Author": [{
+        "name": "SEECHEN LEE",
+        "image": "https://avatars.githubusercontent.com/u/39422761?v=4",
+        "location": {
+            "zh": "马来西亚",
+            "en": "Malaysia"
+        },
+        "school": {
+            "zh": "北京理工大学",
+            "en": "Beijing Institute of Technology"
+        },
+        "company": {
+            "zh": "Footfallcam",
+            "en": "Footfallcam"
+        },
+        "websites": "https://seechen.github.io",
+        "github": "https://github.com/SeeChen",
+        "email": "leeseechen@gmail.com"
+    }]
+}

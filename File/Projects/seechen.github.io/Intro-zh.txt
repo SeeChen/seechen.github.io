@@ -10,7 +10,7 @@ seechen.github.io
 
 网站的初衷是为了让作者深入理解 JavaScript 和 CSS 的新特性，通过构建整个网页实现逻辑的过程不断挑战自我。因此，当前的目标是完全使用原生 JavaScript 和 CSS 开发整个网站，避免依赖任何框架或库。
 
-如果您对本网站有任何建议，或者有优化网站的改进方案，欢迎访问我的 Github 仓库并提交 Issue，我将非常感激您的支持与反馈！
+如果您对本网站有任何建议，或者有优化网站的改进方案，欢迎访问我的 Github 仓库并提交 <a href=\"https://github.com/SeeChen/seechen.github.io/issues\" target=\"_blank\">Issue</a>，我将非常感激您的支持与反馈！
 
 
 

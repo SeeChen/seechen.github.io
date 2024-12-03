@@ -1,16 +1,10 @@
 {
     "Intro": "",
-    "Git": [{
-        "sites": "github",
-        "https": "https://github.com/SeeChen/seechen.github.io.git",
-        "ssh": "git@github.com:SeeChen/seechen.github.io.git",
-        "download": "https://github.com/SeeChen/seechen.github.io/archive/refs/heads/main.zip",
-        "target_repo": "https://github.com/SeeChen/seechen.github.io"
-    }],
+    "Git": [],
     "Features": "",
     "Guide": "",
     "Documentation": "",
-    "License": "GNU_GPL-3.0",
+    "License": "Apache-2.0",
     "Community": "",
     "Faqs": "",
     "Update": [{
@@ -123,5 +117,59 @@
         "websites": "https://seechen.github.io",
         "github": "https://github.com/SeeChen",
         "email": "leeseechen@gmail.com"
+    }, {
+        "name": "ANGUS TAN",
+        "image": "https://avatars.githubusercontent.com/u/59675739?v=4",
+        "location": {
+            "zh": "马来西亚",
+            "en": "Malaysia"
+        },
+        "school": {
+            "zh": "北京理工大学",
+            "en": "Beijing Institute of Technology"
+        },
+        "company": {
+            "zh": "--",
+            "en": "--"
+        },
+        "websites": "https://angustan.com/",
+        "github": "https://github.com/tanvihang",
+        "email": "angustanworkspce@gmail.com"
+    }, {
+        "name": "YONGZHI PHANG",
+        "image": "https://avatars.githubusercontent.com/u/112467493?v=4",
+        "location": {
+            "zh": "马来西亚",
+            "en": "Malaysia"
+        },
+        "school": {
+            "zh": "北京理工大学",
+            "en": "Beijing Institute of Technology"
+        },
+        "company": {
+            "zh": "--",
+            "en": "--"
+        },
+        "websites": "--",
+        "github": "https://github.com/MayleenP",
+        "email": "--"
+    }, {
+        "name": "YEESIANG KU",
+        "image": "https://avatars.githubusercontent.com/u/115247345?v=4",
+        "location": {
+            "zh": "马来西亚",
+            "en": "Malaysia"
+        },
+        "school": {
+            "zh": "北京理工大学",
+            "en": "Beijing Institute of Technology"
+        },
+        "company": {
+            "zh": "--",
+            "en": "--"
+        },
+        "websites": "https://yeesiang03.github.io/my-blog/",
+        "github": "https://github.com/yeesiang03",
+        "email": "--"
     }]
 }

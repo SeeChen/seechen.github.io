@@ -314,15 +314,51 @@ const SeeChen_ProjectsMouseEvent = {
                 window.myData.projects.currentDetails.children[1].children[0].children[0].children[1].props["style"] = "display: none;";
             }
 
+            // Features
+            window.myData.projects.currentDetails.children[1].children[1].children[2].children = [];
+            if (targetGeneralContent["Features"] !== "") {
+
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[2].props["style"] = "display: initial;";
+
+                window.myData.projects.currentDetails.children[1].children[1].children[2].children.push({
+                    tag: "div",
+                    props: {},
+                    lang: "",
+                    children: ["<h1><a href=\"#\">rw</a></h1>"]
+                });
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[2].props["style"] = "display: none;";
+            }
+
+            // Guide
+            window.myData.projects.currentDetails.children[1].children[1].children[3].children = [];
+            if (targetGeneralContent["Guide"] !== "") {
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[3].props["style"] = "display: none;";
+            }
+
+            // Documentation
+            window.myData.projects.currentDetails.children[1].children[1].children[4].children = [];
+            if (targetGeneralContent["Documentation"] !== "") {
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[4].props["style"] = "display: none;";
+            }
+
             // License
             window.myData.projects.currentDetails.children[1].children[1].children[5].children = [];
-            if (targetGeneralContent["License"] !== "--") {
+            if (targetGeneralContent["License"] !== "--" && targetGeneralContent["License"] !== "") {
 
                 const licenseValues = {
                     "GNU_GPL-3.0": {
                         "name": "GNU GPL-3.0",
                         "link": "https://www.gnu.org/licenses/",
                         "oriTxt": "https://www.gnu.org/licenses/gpl-3.0.txt"
+                    },
+
+                    "Apache-2.0": {
+                        "name": "Apache-2.0",
+                        "link": "https://www.apache.org/licenses/LICENSE-2.0",
+                        "oriTxt": "https://www.apache.org/licenses/LICENSE-2.0.txt"
                     }
                 }
 
@@ -356,6 +392,20 @@ const SeeChen_ProjectsMouseEvent = {
                 window.myData.projects.currentDetails.children[1].children[0].children[0].children[5].props["style"] = "display: none;";
             }
 
+            // Community
+            window.myData.projects.currentDetails.children[1].children[1].children[6].children = [];
+            if (targetGeneralContent["Community"] !== "") {
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[6].props["style"] = "display: none;";
+            }
+
+            // FAQs
+            window.myData.projects.currentDetails.children[1].children[1].children[7].children = [];
+            if (targetGeneralContent["Faqs"] !== "") {
+            } else {
+                window.myData.projects.currentDetails.children[1].children[0].children[0].children[7].props["style"] = "display: none;";
+            }
+
             // Update
             window.myData.projects.currentDetails.children[1].children[1].children[8].children = [];
             targetGeneralContent["Update"].forEach(update => {
@@ -363,6 +413,7 @@ const SeeChen_ProjectsMouseEvent = {
                 let temp_Update = {
                     tag: "div",
                     props: {
+                        id: `block_${update.time.replaceAll(".", "")}`,
                         class: "content-block-section",
                     },
                     lang: "",
@@ -376,11 +427,13 @@ const SeeChen_ProjectsMouseEvent = {
                     }]
                 };
 
-                update["log"].forEach(log => {
+                update["log"].forEach((log, i) => {
 
                     let temp_Update_log = {
                         tag: "figure",
-                        props: {},
+                        props: {
+                            id: `figure_${update.time.replaceAll(".", "")}_${i}`
+                        },
                         lang: "",
                         children: [{
                             tag: "figcaption",
@@ -390,6 +443,7 @@ const SeeChen_ProjectsMouseEvent = {
                         }, {
                             tag: "ol",
                             props: {
+                                id: `figure_${update.time.replaceAll(".", "")}_${i}_ol`,
                                 start: "0"
                             },
                             lang: "",
@@ -443,6 +497,17 @@ const SeeChen_ProjectsMouseEvent = {
                     window.myData.projects.currentDetails
                 )
             );
+
+            window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                if (!el) return;
+                document.querySelector(`#${parent}`).removeChild(el);
+            });
+            window.globalValues.nodeToRemove = [];
+
+            document.querySelector(".content-display").classList.remove("content-display");
+            document.querySelector("#box_Projects_Intro").classList.add("content-display");
+            document.querySelector("#box_Projects_Intro").scrollTo(0, 0);
 
             document.querySelectorAll(".project_git_copy").forEach(obj => {
                 obj.addEventListener("click", (e) => {

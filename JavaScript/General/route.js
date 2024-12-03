@@ -189,33 +189,33 @@ const routes = {
     "/": async () => {
         await routesFunction.home();
     },
-    "/spa": async () => {
-        await routesFunction.home();
-    },
-    "/spa/": async () => {
-        await routesFunction.home();
-    },
-    "/spa.html": async () => {
-        await routesFunction.home();
-    },
-    "/index": async () => {
-        await routesFunction.home();
-    },
-    "/index/": async () => {
-        await routesFunction.home();
-    },
-    "/index.html": async () => {
-        await routesFunction.home();
-    },
-    "/home": async () => {
-        await routesFunction.home();
-    },
-    "/home/": async () => {
-        await routesFunction.home();
-    },
-    "/home.html": async () => {
-        await routesFunction.home();
-    },
+    // "/spa": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/spa/": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/spa.html": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/index": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/index/": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/index.html": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/home": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/home/": async () => {
+    //     await routesFunction.home();
+    // },
+    // "/home.html": async () => {
+    //     await routesFunction.home();
+    // },
 
     "/travel": async () => {
         window.myData.travel.isCountry = false;
@@ -324,13 +324,30 @@ export const router = {
             {
                 keys: [
                     "/projects",
+                    "/projects.htm",
                     "/projects.html",
                     "/Projects",
+                    "/Projects.htm",
                     "/Projects.html",
                     "/%E9%A1%B9%E7%9B%AE",
                     "/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE"
                 ],
                 values: "/projects"
+            }, {
+                keys: [
+                    "/",
+                    "/spa",
+                    "/spa.htm",
+                    "/spa.html",
+                    "/index",
+                    "/index.htm",
+                    "/index.html",
+                    "/home",
+                    "/home.htm",
+                    "/home.html",
+                ],
+
+                values: "/"
             }
         ]
 

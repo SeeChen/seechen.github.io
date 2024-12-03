@@ -140,7 +140,7 @@ seechen.github.io
 ## 5. Update Log
 ### 19 NOV 2024
 ### Basic
-0. The interface has been updated to make the user experience smoother, just like using Dove~~~
+0. The interface has been updated to make the user experience smoother, smooth like butter.
 1. The new interface looks more refreshing and more beautiful!
 2. The new operating logic is developed using single-page application (SPA).
 3. Let us bid farewell to the old version that worked for us for a few days.
@@ -159,6 +159,7 @@ seechen.github.io
 > Thank you to everyone who provided me with help and suggestions.
 
 ### 6.1 HTML
+> Currently, no suggestions have been provided yet. I warmly welcome your ideas and feedback to improve this project!
 
 ### 6.2 Cascading Style Sheets
 #### 6.2.1 Layout Bugs Fix
@@ -174,7 +175,7 @@ seechen.github.io
 |||||
 |:---:|:---:|:---:|:---:|
 |Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
-|Eugene Yip|[Websites](https://spevoljy.site/)|[GitHub](https://github.com/EugeneSpevoljy)||
+|Eugene Yip|[Websites](https://spevoljy.site/)|[GitHub](https://github.com/EugeneSpevoljy)|[Email](yuyujunjun6633@gmail.com)|
 
 #### 6.2.3 Animation Enhancements
 > Enhancements to CSS animations, including optimizations for keyframe animations and transitions.
@@ -213,6 +214,8 @@ seechen.github.io
 
 
 ### 6.3 JavaScript
+> Currently, no suggestions have been provided yet. I warmly welcome your ideas and feedback to improve this project!
+
 
 ## 7. License
 [GNU GPL-3.0 License](./LICENSE) &copy; 2024 [LEE SEE CHEN](https://github.com/SeeChen)
