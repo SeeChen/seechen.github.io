@@ -138,11 +138,87 @@ seechen.github.io
 
 
 ## 5. Update Log
+### 19 NOV 2024
+### Basic
+0. The interface has been updated to make the user experience smoother, just like using Dove~~~
+1. The new interface looks more refreshing and more beautiful!
+2. The new operating logic is developed using single-page application (SPA).
+3. Let us bid farewell to the old version that worked for us for a few days.
+4. Ah~~ Finally I don't have to read the garbage written by someone unknown (it's laggy, the code is not optimized, and it's bloated, ugh!)🌚. Cool! Cool!! Cool!!!
+5. SeeChen Lee is so Handsome.
+6. Completely abandon all frameworks and use native JavaScript to implement all functions.
+
+### 25 AUG 2021
+### Basic
+0. Create this repository.
+
+### Added
+0. index.html
+
 ## 6. Acknowledgments
+> Thank you to everyone who provided me with help and suggestions.
+
+### 6.1 HTML
+
+### 6.2 Cascading Style Sheets
+#### 6.2.1 Layout Bugs Fix
+> Assistance in fixing CSS layout bugs, such as misalignment or misplaced elements.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+#### 6.2.2 Responsive Design
+> Suggestions on creating responsive designs to ensure optimal performance across different devices.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Eugene Yip|[Websites](https://spevoljy.site/)|[GitHub](https://github.com/EugeneSpevoljy)||
+
+#### 6.2.3 Animation Enhancements
+> Enhancements to CSS animations, including optimizations for keyframe animations and transitions.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+#### 6.2.4 Cross-Browser Compatibility
+> Suggestions for addressing cross-browser compatibility issues to ensure consistent display across different browsers.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+#### 6.2.5 Cross-Device Compatibility
+> Suggestions on designing layouts for cross-device compatibility, ensuring a good user experience on phones, tablets, and desktops.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+#### 6.2.6 Styling Best Practices
+> Shared best practices for writing CSS, including naming conventions, performance optimization, and maintainability improvements.
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+#### 6.2.7 New Features of CSS
+> Introduced the application of new CSS features,
+
+|||||
+|:---:|:---:|:---:|:---:|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+
+
+### 6.3 JavaScript
+
 ## 7. License
+[GNU GPL-3.0 License](./LICENSE) &copy; 2024 [LEE SEE CHEN](https://github.com/SeeChen)
 
 ---
 <div align="right">
 
-###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 03-DEC-2024 00:03 UTC +08:00*
+###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 03-DEC-2024 21:22 UTC +08:00*
 </div>
