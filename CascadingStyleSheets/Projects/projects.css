@@ -64,7 +64,7 @@
     width: 100vw;
     min-height: 100vh;
 
-    transition: all 0.5s;
+    transition: all 1s;
 }
 
 #box_projectsPage > p:first-child {

@@ -25,6 +25,7 @@ import { SeeChen_LensPages } from "../Lens/lens.js";
 import { SeeChen_Pages404 } from "../General/Page404.js";
 import { SeeChen_ServicesPages } from "../Services/services.js";
 import { SeeChen_ProjectsPage } from "../Projects/projects.js";
+import { SeeChen_AboutPage } from "../About/about.js";
 
 window.vDom = vDom;
 window.router = router;
@@ -110,7 +111,7 @@ window.onload = async function() {
 
     await window.router.route(window.location.pathname);
 
-    // await SeeChen_ProjectsPage.init();
+    // await SeeChen_AboutPage.init();
 
     window.webpages.loadingPage.updateProgress(99);
     

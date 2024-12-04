@@ -1,0 +1,89 @@
+/* 
+    File: about.css (https://github.com/SeeChen/seechen.github.io/blob/main/CascadingStyleSheets/About/about.css).
+    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
+
+    Copyright (C) 2024 LEE SEE CHEN.
+
+    This file is licensed under the GNU General Public License v3.0 (GPLv3).
+    You can redistribute it and/or modify it under the terms of the GPLv3.
+    For more details, see <https://www.gnu.org/licenses/>. 
+*/
+
+:root {
+
+}
+
+@media screen and (max-width: 750px) {
+    :root {
+
+    }
+}
+
+#box_AboutPage {
+
+    opacity: 0;
+    width: 100vw;
+    min-height: 100dvh;
+
+    transition: all 1s;
+}
+
+#box_AboutPage #box_Floating {
+
+    width: 90vw;
+
+    margin: auto;
+    margin-top: 20dvh;
+}
+
+#box_AboutPage #box_Floating .box_Session {
+
+    position: relative;
+
+    margin-bottom: 10dvh;
+}
+
+#box_AboutPage #box_Floating .box_Session .session_Title {
+
+    color: var(--font-color-title);
+
+    font-size: var(--font-size-2_5em);
+    font-family: var(--fontface-title-4);
+}
+
+#box_AboutPage #box_Floating .box_Session .session_Content {
+
+    width: 95%;
+
+    margin: auto;
+
+    box-sizing: border-box;
+    padding-top: 1.5em;
+
+    max-height: 8em;
+    overflow: hidden;
+}
+
+#box_AboutPage #box_Floating .box_Session .session_Content span {
+
+    display: inline-block;
+
+    color: var(--font-color-normal);
+    font-size: calc(1.3 * var(--font-size-1em));
+    font-family: var(--fontface-content-4);
+
+    margin: 0.5em;
+
+    text-wrap: nowrap;
+
+    line-height: 2em;
+
+    cursor: pointer;
+
+    transition: color 0.5s;
+}
+
+#box_AboutPage #box_Floating .box_Session .session_Content span:hover {
+
+    color: var(--font-color-normal-selected);
+}
