@@ -1,0 +1,15 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "box_AboutPage"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "div",
+        "props": {
+            "id": "box_Floating"
+        },
+        "lang": "",
+        "children": []
+    }]
+}

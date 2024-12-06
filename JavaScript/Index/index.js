@@ -88,6 +88,10 @@ window.myData = {
 
     projects: {
         currentDetails: {}
+    },
+
+    about: {
+
     }
 }
 

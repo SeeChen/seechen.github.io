@@ -11,6 +11,7 @@
 
 :root {
 
+    --about-Session-session-Content-max-height: 0px;
 }
 
 @media screen and (max-width: 750px) {
@@ -40,7 +41,41 @@
 
     position: relative;
 
+    padding-bottom: 5dvh;
     margin-bottom: 10dvh;
+
+    transition: max-height 1s;
+}
+
+#box_AboutPage #box_Floating p.session_ExpandBtn {
+
+    position: absolute;
+    display: none;
+
+    color: var(--font-color-title);
+    font-size: var(--font-size-normal);
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    text-align: center;
+    transform: rotate(0deg);
+
+    cursor: pointer;
+
+    transition: transform 1s;
+}
+
+#box_AboutPage #box_Floating p.session_BtnExpanded {
+
+    transform: rotate(180deg);
+    transition: transform 1s;
+}
+
+#box_AboutPage #box_Floating p.session_ExpandBtnDisplay {
+
+    display: initial !important;
 }
 
 #box_AboutPage #box_Floating .box_Session .session_Title {
@@ -49,6 +84,12 @@
 
     font-size: var(--font-size-2_5em);
     font-family: var(--fontface-title-4);
+}
+
+#box_AboutPage #box_Floating .box_Session:has( > p.session_BtnExpanded) .session_Content {
+
+    max-height: var(--about-Session-session-Content-max-height);
+    transition: max-height 1s;
 }
 
 #box_AboutPage #box_Floating .box_Session .session_Content {
@@ -60,8 +101,10 @@
     box-sizing: border-box;
     padding-top: 1.5em;
 
-    max-height: 8em;
+    max-height: 9em;
     overflow: hidden;
+
+    transition: max-height 1s;
 }
 
 #box_AboutPage #box_Floating .box_Session .session_Content span {
@@ -72,7 +115,7 @@
     font-size: calc(1.3 * var(--font-size-1em));
     font-family: var(--fontface-content-4);
 
-    margin: 0.5em;
+    margin: 0.5em 3em;
 
     text-wrap: nowrap;
 
@@ -80,10 +123,11 @@
 
     cursor: pointer;
 
-    transition: color 0.5s;
+    transition: color 0.5s, transform 0.5s;
 }
 
 #box_AboutPage #box_Floating .box_Session .session_Content span:hover {
 
     color: var(--font-color-normal-selected);
+    transform: scale(1.1) rotate(5deg);
 }

@@ -1,0 +1,29 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "box_Session"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {
+            "class": "session_ExpandBtn"
+        },
+        "lang": "",
+        "children": ["▼"]
+    }, {
+        "tag": "p",
+        "props": {
+            "class": "session_Title"
+        },
+        "lang": "",
+        "children": []
+    }, {
+        "tag": "div",
+        "props": {
+            "class": "session_Content"
+        },
+        "lang": "",
+        "children": []
+    }]
+}
