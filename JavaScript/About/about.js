@@ -53,29 +53,23 @@ export const SeeChen_AboutPage = {
             )
         );
 
-        // const sessionContent_All = document.querySelectorAll(".session_Content");
-        // sessionContent_All.forEach(aSession => {
+        const sessionContent_All = document.querySelectorAll(".session_Content");
+        sessionContent_All.forEach(aSession => {
 
-        //     if (aSession.scrollHeight > aSession.clientHeight) {
+            if (aSession.scrollHeight > aSession.clientHeight) {
 
                 
-        //         aSession.closest(".box_Session").querySelector(".session_ExpandBtn").classList.add("session_ExpandBtnDisplay");
-        //         aSession.closest(".box_Session").querySelector(".session_ExpandBtn").dataset["contentMaxHeight"] = aSession.scrollHeight;
-        //     }
-        // });
+                aSession.closest(".box_Session").querySelector(".session_ExpandBtn").classList.add("session_ExpandBtnDisplay");
+                aSession.closest(".box_Session").querySelector(".session_ExpandBtn").dataset["contentMaxHeight"] = aSession.scrollHeight;
+            }
+        });
     },
 
     bindEvents: async () => {
 
         document.querySelectorAll(".session_ExpandBtn").forEach(ele => {
-
             ele.addEventListener("click", (e) => {
-
-                if (document.querySelector(".session_BtnExpanded") && document.querySelector(".session_BtnExpanded") !== ele) {
-                    document.querySelector(".session_BtnExpanded").classList.remove("session_BtnExpanded");
-                }
-                document.documentElement.style.setProperty("--about-Session-session-Content-max-height", `${ele.dataset["contentMaxHeight"]}px`);
-                ele.classList.toggle("session_BtnExpanded");
+                window.eventBus.emit("sessionExpand", { e, ele });
             });
         });
     },
@@ -84,7 +78,7 @@ export const SeeChen_AboutPage = {
 
         const about_EventHandler = {
 
-            mapMouseClick: SeeChen_TravelPage_MapsAction.mouseClick
+            sessionExpand: SeeChen_AboutPage_Session.expand_Content,
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -96,6 +90,22 @@ export const SeeChen_AboutPage = {
 
     clearUp: () => {
 
+    }
+}
+
+const SeeChen_AboutPage_Session = {
+
+    expand_Content: (
+        events
+    ) => {
+
+        const { e, ele }  = events;
+
+        if (document.querySelector(".session_BtnExpanded") && document.querySelector(".session_BtnExpanded") !== ele) {
+            document.querySelector(".session_BtnExpanded").classList.remove("session_BtnExpanded");
+        }
+        document.documentElement.style.setProperty("--about-Session-session-Content-max-height", `${ele.dataset["contentMaxHeight"]}px`);
+        ele.classList.toggle("session_BtnExpanded");
     }
 }
 
