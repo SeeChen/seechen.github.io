@@ -31,10 +31,13 @@ export const SeeChen_AboutPage = {
         Object.keys(aboutSessionList).forEach(sessionTitle => {
             var aboutSession = window.myTools.deepCopy(aboutSessionTemplate);
 
+            aboutSession.props["data-event-handler"] = aboutSessionList[sessionTitle]["handle"];
+
             aboutSession.children[1].lang = "about";
             aboutSession.children[1].children = [sessionTitle];
+            aboutSession.children[1].props["id"] = aboutSessionList[sessionTitle]["id"];
 
-            Object.keys(aboutSessionList[sessionTitle]).forEach(sessionContent => {
+            Object.keys(aboutSessionList[sessionTitle]["children"]).forEach(sessionContent => {
 
                 aboutSession.children[2].children.push({
                     tag: "span",
@@ -71,6 +74,13 @@ export const SeeChen_AboutPage = {
             ele.addEventListener("click", (e) => {
                 window.eventBus.emit("sessionExpand", { e, ele });
             });
+        });
+
+        document.querySelectorAll(".box_Session").forEach(boxSession => {
+
+            boxSession.addEventListener("click", (e) => {
+                console.log(boxSession.dataset.eventHandler);
+            })
         });
     },
 

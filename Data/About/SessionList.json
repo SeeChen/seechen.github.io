@@ -1,133 +1,14 @@
 {
     "_language_": {
-        "_chinese_": {
-            "handle": ""
-        },
-        "_english_": {
-            "handle": ""
-        }
-    },
-
-    "_about_": {
-        "": {
-            "handle": ""
-        }
-    },
-
-    "_my_post_": {
-
-    },
-
-    "_acknowledgments_": {
-        "_angus_tan_": {
-            "handle": ""
-        },
-        "_eugene_yip_": {
-            "handle": ""
-        }
-    },
-
-    "test": {
-
-        "test_01": {
-            "handle": ""
-        },
-        "test_02": {
-            "handle": ""
-        },
-        "test_03": {
-            "handle": ""
-        },
-        "test_04": {
-            "handle": ""
-        },
-        "test_05": {
-            "handle": ""
-        },
-        "test_06": {
-            "handle": ""
-        },
-        "test_07": {
-            "handle": ""
-        },
-        "test_08": {
-            "handle": ""
-        },
-        "test_09": {
-            "handle": ""
-        },
-        "test_10": {
-            "handle": ""
-        },
-        "test_11": {
-            "handle": ""
-        },
-        "test_12": {
-            "handle": ""
-        },
-        "test_13": {
-            "handle": ""
-        },
-        "test_14": {
-            "handle": ""
-        },
-        "test_15": {
-            "handle": ""
-        },
-        "test_16": {
-            "handle": ""
-        }
-    },
-
-    "test_1": {
-
-        "test_01": {
-            "handle": ""
-        },
-        "test_22": {
-            "handle": ""
-        },
-        "test_03": {
-            "handle": ""
-        },
-        "test_04": {
-            "handle": ""
-        },
-        "test_05": {
-            "handle": ""
-        },
-        "test_06": {
-            "handle": ""
-        },
-        "test_07": {
-            "handle": ""
-        },
-        "test_08": {
-            "handle": ""
-        },
-        "test_09": {
-            "handle": ""
-        },
-        "test_10": {
-            "handle": ""
-        },
-        "test_11": {
-            "handle": ""
-        },
-        "test_12": {
-            "handle": ""
-        },
-        "test_13": {
-            "handle": ""
-        },
-        "test_14": {
-            "handle": ""
-        },
-        "test_15": {
-            "handle": ""
-        },
-        "test_16": {
-            "handle": ""
+        "id": "aboutSession_Language",
+        "handle": "test",
+        "children": {
+            "_chinese_": {
+                "handle": "test"
+            },
+            "_english_": {
+                "handle": ""
+            }
         }
     }
 }
