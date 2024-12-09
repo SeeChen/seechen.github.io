@@ -9,6 +9,8 @@
     For more details, see <https://www.gnu.org/licenses/>. 
 */
 
+import { userLanguage } from "/JavaScript/General/language.js";
+
 export const SeeChen_AboutPage = {
 
     init: async () => {
@@ -41,7 +43,10 @@ export const SeeChen_AboutPage = {
 
                 aboutSession.children[2].children.push({
                     tag: "span",
-                    props: {},
+                    props: {
+                        class: "session-children",
+                        "data-event-handle": aboutSessionList[sessionTitle]["children"][sessionContent]["handle"]
+                    },
                     lang: "about",
                     children: [sessionContent]
                 });
@@ -79,7 +84,8 @@ export const SeeChen_AboutPage = {
         document.querySelectorAll(".box_Session").forEach(boxSession => {
 
             boxSession.addEventListener("click", (e) => {
-                console.log(boxSession.dataset.eventHandler);
+
+                window.eventBus.emit(boxSession.dataset.eventHandler, { e });
             })
         });
     },
@@ -89,6 +95,8 @@ export const SeeChen_AboutPage = {
         const about_EventHandler = {
 
             sessionExpand: SeeChen_AboutPage_Session.expand_Content,
+
+            aboutSession_Language: SeeChen_AboutPage_Language.click,
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -121,5 +129,20 @@ const SeeChen_AboutPage_Session = {
 
 const SeeChen_AboutPage_Language = {
 
+    click: (
+        event
+    ) => {
 
+        const { e } = event;
+
+        if (e.target.classList.contains("session-children")) {
+
+            const language_Handle = e.target.dataset.eventHandle;
+            
+            var language = new userLanguage();
+            language.switchLanguage(language_Handle.split("-")[1]);
+
+            
+        }
+    }
 }

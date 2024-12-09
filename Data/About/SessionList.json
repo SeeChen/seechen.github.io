@@ -1,13 +1,13 @@
 {
     "_language_": {
         "id": "aboutSession_Language",
-        "handle": "test",
+        "handle": "aboutSession_Language",
         "children": {
             "_chinese_": {
-                "handle": "test"
+                "handle": "aboutSession_Language-zh"
             },
             "_english_": {
-                "handle": ""
+                "handle": "aboutSession_Language-en"
             }
         }
     }

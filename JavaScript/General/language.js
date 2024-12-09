@@ -52,6 +52,6 @@ export class userLanguage {
         var d = new Date();
         d.setTime(d.getTime() + (30 * 24 * 60 * 60 * 1000));
         var expires = `expires=${d.toGMTString()}`;
-        document.cookie = `user_language=${language};${expires};path=/`;
+        document.cookie = `userLanguage=${language};${expires};path=/`;
     }
 }
