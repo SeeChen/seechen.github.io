@@ -11,5 +11,12 @@
         },
         "lang": "",
         "children": []
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "about_ExpandContent"
+        },
+        "lang": "",
+        "children": []
     }]
 }

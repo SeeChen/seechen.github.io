@@ -131,3 +131,20 @@
     color: var(--font-color-normal-selected);
     transform: scale(1.1) rotate(5deg);
 }
+
+#about_ExpandContent {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    margin: auto;
+
+    width: 100vw;
+    height: 100dvh;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: none;
+}

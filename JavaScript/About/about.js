@@ -41,11 +41,14 @@ export const SeeChen_AboutPage = {
 
             Object.keys(aboutSessionList[sessionTitle]["children"]).forEach(sessionContent => {
 
+                var aboutSessionChildren = aboutSessionList[sessionTitle]["children"][sessionContent];
+
                 aboutSession.children[2].children.push({
                     tag: "span",
                     props: {
                         class: "session-children",
-                        "data-event-handle": aboutSessionList[sessionTitle]["children"][sessionContent]["handle"]
+                        "data-event-handle": aboutSessionChildren["handle"],
+                        "data-target-link": aboutSessionChildren["link"] ? aboutSessionChildren["link"] : null
                     },
                     lang: "about",
                     children: [sessionContent]
@@ -60,6 +63,9 @@ export const SeeChen_AboutPage = {
                 aboutPageLayout
             )
         );
+
+        window.myData.about.vDomLayot = aboutPageLayout;
+        window.myData.about.OldLayout = window.vDom.Create(aboutPageLayout);
 
         const sessionContent_All = document.querySelectorAll(".session_Content");
         sessionContent_All.forEach(aSession => {
@@ -85,7 +91,7 @@ export const SeeChen_AboutPage = {
 
             boxSession.addEventListener("click", (e) => {
 
-                window.eventBus.emit(boxSession.dataset.eventHandler, { e });
+                window.eventBus.emit(`${boxSession.dataset.eventHandler}_Click`, { e });
             })
         });
     },
@@ -96,7 +102,8 @@ export const SeeChen_AboutPage = {
 
             sessionExpand: SeeChen_AboutPage_Session.expand_Content,
 
-            aboutSession_Language: SeeChen_AboutPage_Language.click,
+            aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
+            aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -129,7 +136,7 @@ const SeeChen_AboutPage_Session = {
 
 const SeeChen_AboutPage_Language = {
 
-    click: (
+    click: async (
         event
     ) => {
 
@@ -137,12 +144,72 @@ const SeeChen_AboutPage_Language = {
 
         if (e.target.classList.contains("session-children")) {
 
+            const vDom_navigationBar = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
+            const vDom_footerArea = await window.myTools.getJson("/Layout/Webpages/General/footer.json");
+
+            const old_FooterArea = window.vDom.Create(vDom_footerArea);
+
             const language_Handle = e.target.dataset.eventHandle;
             
             var language = new userLanguage();
             language.switchLanguage(language_Handle.split("-")[1]);
+            window.globalValues.language = language.getLanguage();
 
-            
+            document.querySelector("#box_navBar").removeChild(
+                document.querySelector("#box_navBar div:nth-child(2)")
+            );
+
+            document.querySelector("#box_navBar").appendChild(
+                window.vDom.Render(
+                    window.vDom.Create(vDom_navigationBar)
+                )
+            );
+
+            const new_FooterArea = window.vDom.Create(vDom_footerArea);
+
+            window.vDom.Patch(
+                document.querySelector("#box_footerArea"),
+                window.vDom.Diff(
+                    old_FooterArea,
+                    new_FooterArea
+                )
+            );
+
+            const newLayout = window.vDom.Create(window.myData.about.vDomLayot);
+            window.vDom.Patch(
+                document.querySelector("#box_contentArea"),
+                window.vDom.Diff(
+                    window.myData.about.OldLayout,
+                    newLayout
+                )
+            );
+            window.myData.about.OldLayout = newLayout;
+        }
+    }
+}
+
+const SeeChen_AboutPage_Acknowledgments = {
+
+    click: async (
+        event
+    ) => {
+
+        const { e } = event;
+
+        if (e.target.classList.contains("session-children")) {
+
+            document.querySelector("#box_LoadingAnimation").classList.add("waitToDisplay");
+            await new Promise(r => setTimeout(r, 100));
+            document.querySelector("#box_LoadingAnimation").classList.add("display");
+
+            var targetDetails = `/Data/About/Acknowledgments/${e.target.dataset.eventHandle.split("-")[1]}.json`;
+            targetDetails = await window.myTools.getJson(targetDetails);
+
+            console.log(targetDetails);
+
+            document.querySelector("#box_LoadingAnimation").classList.remove("display");
+            await new Promise(r => setTimeout(r, 600));
+            document.querySelector("#box_LoadingAnimation").classList.remove("waitToDisplay");
         }
     }
 }

@@ -10,5 +10,34 @@
                 "handle": "aboutSession_Language-en"
             }
         }
+    },
+
+    "_my_post_": {
+        "id": "aboutSession_Post",
+        "handle": "aboutSession_Post",
+        "children": {
+
+        }
+    },
+
+    "_update_": {
+        "id": "aboutSession_Update",
+        "handle": "aboutSession_Update",
+        "children": {
+
+        }
+    },
+
+    "_acknowledgments_": {
+        "id": "aboutSession_Acknowledgments",
+        "handle": "aboutSession_Acknowledgments",
+        "children": {
+            "_angus_tan_": {
+                "handle": "aboutSession_Acknowledgments-AngusTan"
+            },
+            "_eugene_yip_": {
+                "handle": "aboutSession_Acknowledgments-EugeneYip"
+            }
+        }
     }
 }
