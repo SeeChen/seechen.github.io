@@ -92,7 +92,9 @@ window.myData = {
 
     about: {
         OldLayout: {},
-        vDomLayout: {}
+        vDomLayout: {},
+
+        contentExpand: {}
     }
 }
 

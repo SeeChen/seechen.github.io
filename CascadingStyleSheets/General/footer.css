@@ -52,7 +52,7 @@
     position: relative;
     margin: auto;
 
-    z-index: 999;
+    z-index: 888;
 
     transition: opacity 2s;
 }

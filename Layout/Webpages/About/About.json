@@ -17,6 +17,11 @@
             "id": "about_ExpandContent"
         },
         "lang": "",
-        "children": []
+        "children": [{
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": []
+        }]
     }]
 }

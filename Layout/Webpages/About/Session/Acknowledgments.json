@@ -1,6 +1,20 @@
 {
     "tag": "div",
-    "props": {},
+    "props": {
+        "id": "content_acknowledgments"
+    },
     "lang": "",
-    "children": []
+    "children": [{
+        "tag": "img",
+        "props": {
+            "src": "/favicon.svg"
+        },
+        "lang": "",
+        "children": []
+    }, {
+        "tag": "p",
+        "props": {},
+        "lang": "about",
+        "children": []
+    }]
 }

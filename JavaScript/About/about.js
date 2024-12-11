@@ -46,9 +46,12 @@ export const SeeChen_AboutPage = {
                 aboutSession.children[2].children.push({
                     tag: "span",
                     props: {
+                        id: `${aboutSessionList[sessionTitle]["handle"].split("_")[1]}-${aboutSessionChildren["handle"].split("-")[1]}`,
                         class: "session-children",
                         "data-event-handle": aboutSessionChildren["handle"],
-                        "data-target-link": aboutSessionChildren["link"] ? aboutSessionChildren["link"] : null
+                        "data-target-link": aboutSessionChildren["link"] ? aboutSessionChildren["link"] : null,
+
+                        "data-original-obj": sessionContent
                     },
                     lang: "about",
                     children: [sessionContent]
@@ -205,7 +208,27 @@ const SeeChen_AboutPage_Acknowledgments = {
             var targetDetails = `/Data/About/Acknowledgments/${e.target.dataset.eventHandle.split("-")[1]}.json`;
             targetDetails = await window.myTools.getJson(targetDetails);
 
-            console.log(targetDetails);
+            const template_Acknowledgments = await window.myTools.getJson("/Layout/Webpages/About/Session/Acknowledgments.json");
+            const old_Acknowledgmenst = window.myTools.deepCopy(window.myData.about.contentExpand);
+            
+            window.myData.about.contentExpand = template_Acknowledgments;
+
+            window.myData.about.contentExpand.children[0].props["src"] = targetDetails["profile-pictures"];
+            window.myData.about.contentExpand.children[1].children = [e.target.dataset.originalObj];
+
+            console.log(window.myData.about.contentExpand);
+
+            window.vDom.Patch(
+                document.querySelector("#about_ExpandContent"),
+                window.vDom.Diff(
+                    old_Acknowledgmenst,
+                    window.myData.about.contentExpand
+                )
+            );
+
+            document.querySelector("#about_ExpandContent").classList.add("expanded-loading");
+            await new Promise(r => setTimeout(r, 100));
+            document.querySelector("#about_ExpandContent").classList.add("expanded");
 
             document.querySelector("#box_LoadingAnimation").classList.remove("display");
             await new Promise(r => setTimeout(r, 600));

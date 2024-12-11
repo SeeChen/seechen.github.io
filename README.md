@@ -167,50 +167,50 @@ seechen.github.io
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.2 Responsive Design
 > Suggestions on creating responsive designs to ensure optimal performance across different devices.
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
-|Eugene Yip|[Websites](https://spevoljy.site/)|[GitHub](https://github.com/EugeneSpevoljy)|[Email](yuyujunjun6633@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
+|Eugene Yip|[Websites](https://spevoljy.site/)|[GitHub](https://github.com/EugeneSpevoljy)|[Email](mailto:yuyujunjun6633@gmail.com)|
 
 #### 6.2.3 Animation Enhancements
 > Enhancements to CSS animations, including optimizations for keyframe animations and transitions.
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.4 Cross-Browser Compatibility
 > Suggestions for addressing cross-browser compatibility issues to ensure consistent display across different browsers.
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.5 Cross-Device Compatibility
 > Suggestions on designing layouts for cross-device compatibility, ensuring a good user experience on phones, tablets, and desktops.
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.6 Styling Best Practices
 > Shared best practices for writing CSS, including naming conventions, performance optimization, and maintainability improvements.
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.7 New Features of CSS
 > Introduced the application of new CSS features,
 
 |||||
 |:---:|:---:|:---:|:---:|
-|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](angustanworkspce@gmail.com)|
+|Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 
 ### 6.3 JavaScript
@@ -223,5 +223,5 @@ seechen.github.io
 ---
 <div align="right">
 
-###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 03-DEC-2024 21:22 UTC +08:00*
+###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 11-DEC-2024 07:29 UTC +08:00*
 </div>
