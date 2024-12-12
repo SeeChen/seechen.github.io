@@ -5,16 +5,16 @@
     },
     "lang": "",
     "children": [{
-        "tag": "img",
-        "props": {
-            "src": "/favicon.svg"
-        },
-        "lang": "",
-        "children": []
-    }, {
-        "tag": "p",
+        "tag": "div",
         "props": {},
-        "lang": "about",
-        "children": []
+        "lang": "",
+        "children": [{
+            "tag": "img",
+            "props": {
+                "src": "/favicon.svg"
+            },
+            "lang": "",
+            "children": []
+        }]
     }]
 }
