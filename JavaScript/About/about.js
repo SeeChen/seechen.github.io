@@ -213,10 +213,10 @@ const SeeChen_AboutPage_Acknowledgments = {
             
             window.myData.about.contentExpand = template_Acknowledgments;
 
-            // window.myData.about.contentExpand.children[0].props["src"] = targetDetails["profile-pictures"];
-            // window.myData.about.contentExpand.children[0].children[1] = [e.target.dataset.originalObj];
-
             window.myData.about.contentExpand.children[0].children[0].props["src"] = targetDetails["background-pictures"];
+            
+            window.myData.about.contentExpand.children[1].children[0].props["src"] = targetDetails["profile-pictures"];
+            window.myData.about.contentExpand.children[1].children[1].children = [e.target.dataset.originalObj];
 
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),

@@ -16,5 +16,45 @@
             "lang": "",
             "children": []
         }]
+    }, {
+        "tag": "div",
+        "props": {},
+        "lang": "",
+        "children": [{
+            "tag": "img",
+            "props": {
+                "class": "acknowledgments-profile-pictures"
+            },
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "p",
+            "props": {
+                "class": "acknowledgments-personal-name"
+            },
+            "lang": "about",
+            "children": []
+        }, {
+            "tag": "div",
+            "props": {
+                "class": "acknowledgments-suggestion-list"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "div",
+                "props": {
+                    "class": "acknowledgments-suggestion-layout-bugs-fix"
+                },
+                "lang": "",
+                "children": []
+            }]
+        }]
+    }, {
+        "tag": "span",
+        "props": {
+            "id": "acknowledgments-btn-close"
+        },
+        "lang": "travel",
+        "children": ["_back_"]
     }]
 }

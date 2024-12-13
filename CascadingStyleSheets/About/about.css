@@ -171,7 +171,7 @@
     min-height: 100dvh;
     max-height: 100dvh;
 
-    overflow: hidden scroll;
+    overflow: scroll;
 }
 #about_ExpandContent #content_acknowledgments::-webkit-scrollbar {
     display: none;
@@ -186,6 +186,10 @@
 
     width: 100vw;
     height: 125dvh;
+
+    mask: linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 100%);
+
+    z-index: 1;
 }
 
 #about_ExpandContent #content_acknowledgments > div:nth-child(1) > img:nth-child(1) {
@@ -199,5 +203,127 @@
     height: 100dvh;
 
     object-fit: cover;
-    object-position: center;
+    object-position: center bottom;
+}
+
+@keyframes animation_0 {
+
+    from {
+
+        
+    }
+
+    to {
+        width: 0vw;
+        transform: translateX(1vw);
+    }
+}
+#about_ExpandContent #content_acknowledgments > div:nth-child(2) {
+
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    width: 100vw;
+    min-height: 100dvh;
+    height: 500vh;
+
+    text-align: center;
+    text-wrap: nowrap;
+
+    z-index: 2;
+    pointer-events: none;
+
+    animation: animation_0 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0vh 90vh;
+    animation-fill-mode: forwards;
+}
+
+@keyframes animation_0_0 {
+
+    from {
+
+        
+    }
+
+    to {
+        transform: scale(0.5);
+    }
+}
+#about_ExpandContent #content_acknowledgments .acknowledgments-profile-pictures {
+
+    position: sticky;
+
+    top: 6dvh;
+    left: 0;
+    right: 0;
+
+    display: block;
+
+    max-width: 50vw;
+    max-height: 30vh;
+
+    text-align: center;
+    margin: auto;
+    margin-top: 20dvh;
+
+    border-radius: 10em;
+    border: 0.15em solid #CCC;
+
+    animation: animation_0_0 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0vh 90vh;
+    animation-fill-mode: forwards;
+
+    transform-origin: left top;
+}
+@keyframes animation_0_1 {
+
+    from {
+
+        
+    }
+
+    to {
+        transform: scale(0.6);
+        filter: invert(1);
+    }
+}
+#about_ExpandContent #content_acknowledgments .acknowledgments-personal-name {
+
+    position: sticky;
+
+    top: 15dvh;
+    left: 0;
+    right: 0;
+
+    font-size: var(--font-size-3em);
+    text-shadow: 2px 2px 2px var(--font-color-normal);
+    font-family: var(--fontface-content-3);
+    color: var(--font-color-normal-selected);
+
+    margin: auto;
+    margin-top: 10dvh;
+    text-align: center;
+    max-width: 100vw;
+
+    animation: animation_0_1 1s linear;
+    animation-timeline: scroll();
+    animation-range: 50vh 100vh;
+    animation-fill-mode: forwards;
+
+    transform-origin: right top;
+}
+
+#about_ExpandContent #content_acknowledgments #acknowledgments-btn-close {
+
+    position: sticky;
+
+    top: 10dvh;
+    left: 100vw;
+
+    margin-right: 5vw;
+
+    z-index: 3;
 }
