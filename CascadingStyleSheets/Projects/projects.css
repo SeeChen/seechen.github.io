@@ -23,6 +23,9 @@
 
     --project-Details-Directory-flex-direction: column;
 
+    --project-Details-Directory-p-flex-shrink: auto;
+    --project-Details-Directory-p-max-width: auto;
+
     --project-Details-Directory-p-before-width: 80%;
     --project-Details-Directory-p-before-height: 100%;
     --project-Details-Directory-p-before-bottom-right: 0em solid var(--font-color-normal);
@@ -46,6 +49,9 @@
         --project-Details-Directory-border-right: 0em solid var(--font-color-title);
 
         --project-Details-Directory-flex-direction: row;
+
+        --project-Details-Directory-p-flex-shrink: 0;
+        --project-Details-Directory-p-max-width: fit-content;
 
         --project-Details-Directory-p-before-width: 100%;
         --project-Details-Directory-p-before-height: 50%;
@@ -403,6 +409,9 @@
 
     position: relative;
 
+    flex-shrink: var(--project-Details-Directory-p-flex-shrink);
+    max-width: var(--project-Details-Directory-p-max-width);
+
     font-size: var(--font-size-2em);
     font-family: var(--fontface-title-2);
     color: var(--font-color-normal);
@@ -412,6 +421,8 @@
     width: 90%;
     height: 8dvh;
     line-height: 8dvh;
+
+    word-break: nowrap;
 
     box-sizing: border-box;
 
@@ -695,7 +706,7 @@
     font-family: var(--fontface-content);
 
     margin: 0.15em;
-    text-indent: 3ch;
+    padding-left: 3ch;
 }
 
 #box_Projects_Author > div > div:nth-child(2) a::before {
@@ -704,6 +715,7 @@
 
     width: 100%;
     height: 100%;
+    max-height: var(--font-size-normal);
 
     position: absolute;
 
@@ -717,7 +729,7 @@
 
     background: url(/File/Icon/ico_school.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -726,7 +738,7 @@
 
     background: url(/File/Icon/ico_company.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -735,7 +747,7 @@
 
     background: url(/File/Icon/ico_location.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -744,7 +756,7 @@
 
     background: url(/File/Icon/ico_website.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -753,7 +765,7 @@
 
     background: url(/File/Icon/ico_github.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
@@ -762,7 +774,7 @@
 
     background: url(/File/Icon/ico_gmail.png);
 
-    background-position: center left;
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 }
