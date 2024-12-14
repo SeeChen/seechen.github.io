@@ -4,9 +4,12 @@
         "_chinese_": "中文",
         "_english_": "English",
 
-        
-
         "_my_post_": "我的发癫",
+        "_full_post_": "全部疯言疯语",
+        "_recent_": "最近疯话",
+        "_popular_": "被围观最多的发癫",
+        "_categories_": "我在哪些领域发癫",
+        "_tags_": "疯癫标签",
 
         "_acknowledgments_": "听我说，蟹蟹你 ❤️",
         "_angus_tan_": "陈誉航",
@@ -30,7 +33,39 @@
         "_acknowledgments_suggestion_description_new-features-of-css_": "介绍了新 CSS 功能的应用。",
 
 
-        "_update_": "更新日志"
+        "_update_": "更新日志",
+        "_change_log_": "完整日志",
+        "_planned_": "未来更新计划",
+        "_bug_": "Bugs 修复",
+        "_release_": "版本说明",
+
+        "_about_site_": "关于此站",
+        "_intro_": "简介",
+        "_mission_": "使命 & 愿景",
+        "_features_": "功能",
+        "_tech_": "技术使用",
+        "_sitemap_": "Sitemap",
+        "_license_": "开源许可证",
+
+        "_about_me_": "关于我",
+        "_biography_": "个人简介",
+        "_resume_": "我的简历",
+        "_my_life_": "我的生活",
+        "_achievements_": "成就与荣誉",
+        "_photography_": "我的影集",
+        "_contact_": "联系方式",
+
+        "_faqs_": "常见问题",
+
+        "_feedback_": "建议与反馈",
+        "_feedback_readme_": "README",
+        "_feedback_privacy_": "隐私协议",
+        "_feedback_for_project_": "其它项目",
+        "_feedback_github_": "GitHub",
+        "_feedback_gmail_": "Gmail",
+        "_feedback_petalmail_": "花瓣邮箱",
+
+        "_privacy_policy_": "隐私政策"
     }, 
 
     "en": {
@@ -39,6 +74,11 @@
         "_english_": "English",
 
         "_my_post_": "My Post",
+        "_full_post_": "Full Post List",
+        "_recent_": "Recent Post",
+        "_popular_": "🔥Popular",
+        "_categories_": "by Categories",
+        "_tags_": "by Tags",
 
         "_acknowledgments_": "Acknowledgments",
         "_angus_tan_": "Angus Tan",
@@ -61,6 +101,38 @@
         "_acknowledgments_suggestion_subtitle_new-features-of-css_": "New Features of CSS",
         "_acknowledgments_suggestion_description_new-features-of-css_": "Introduced the application of new CSS features.",
 
-        "_update_": "Update Log"
+        "_update_": "Update Log",
+        "_change_log_": "Change Log",
+        "_planned_": "Planned Updates",
+        "_bug_": "Bugs Fixes",
+        "_release_": "Release Notes",
+
+        "_about_site_": "About this Sites",
+        "_intro_": "Introduction",
+        "_mission_": "Mission & Vision",
+        "_features_": "Features",
+        "_tech_": "Technology",
+        "_sitemap_": "Sitemap",
+        "_license_": "License",
+
+        "_about_me_": "About Me",
+        "_biography_": "Biography",
+        "_resume_": "Resume",
+        "_my_life_": "My Life",
+        "_achievements_": "Achievements & Awards",
+        "_photography_": "Photography",
+        "_contact_": "Contact Me",
+
+        "_faqs_": "FAQs",
+
+        "_feedback_": "Suggestion and Feedback",
+        "_feedback_readme_": "README",
+        "_feedback_privacy_": "Privacy",
+        "_feedback_for_project_": "Projects",
+        "_feedback_github_": "GitHub",
+        "_feedback_gmail_": "Gmail",
+        "_feedback_petalmail_": "Petalmail",
+
+        "_privacy_policy_": "Privacy Policy"
     }
 }

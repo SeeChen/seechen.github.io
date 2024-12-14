@@ -12,7 +12,102 @@
         }
     },
 
-    
+    "_about_site_": {
+        "id": "aboutSession_AboutSites",
+        "handle": "aboutSession_AboutSites",
+        "children": {
+            "_intro_": {
+                "handle": "aboutSession_AboutSites-Intro"
+            },
+            "_mission_": {
+                "handle": "aboutSession_AboutSites-Mission"
+            },
+            "_features_": {
+                "handle": "aboutSession_AboutSites-Features"
+            },
+            "_tech_": {
+                "handle": "aboutSession_AboutSites-Tech"
+            },
+            "_sitemap_": {
+                "handle": "aboutSession_AboutSites-Sitemap"
+            },
+            "_license_": {
+                "handle": "aboutSession_AboutSites-License"
+            }
+        }
+    },
+
+    "_about_me_": {
+        "id": "aboutSession_AboutMe",
+        "handle": "aboutSession_AboutMe",
+        "children": {
+            "_biography_": {
+                "handle": "aboutSession_AboutMe-Biography"
+            },
+            "_resume_": {
+                "handle": "aboutSession_AboutMe-Resume"
+            },
+            "_my_life_": {
+                "handle": "aboutSession_AboutMe-MyLife"
+            },
+            "_photography_": {
+                "handle": "aboutSession_AboutMe-Photography"
+            },
+            "_achievements_": {
+                "handle": "aboutSession_AboutMe-Achievements "
+            },
+            "_contact_": {
+                "handle": "aboutSession_AboutMe-Contact"
+            }
+        }
+    },
+
+    "_my_post_": {
+        "id": "aboutSession_Post",
+        "handle": "aboutSession_Post",
+        "children": {
+            "_full_post_": {
+                "handle": "aboutSession_Post-FullPost"
+            },
+            "_recent_": {
+                "handle": "aboutSession_Post-Recent"
+            },
+            "_popular_": {
+                "handle": "aboutSession_Post-Popular"
+            },
+            "_categories_": {
+                "handle": "aboutSession_Post-Categories"
+            },
+            "_tags_": {
+                "handle": "aboutSession_Post-Tags"
+            }
+        }
+    },
+
+    "_faqs_": {
+        "id": "aboutSession_FAQs",
+        "handle": "aboutSession_FAQs",
+        "children": {}
+    },
+
+    "_update_": {
+        "id": "aboutSession_Update",
+        "handle": "aboutSession_Update",
+        "children": {
+            "_change_log_": {
+                "handle": "aboutSession_Update-ChangeLog"
+            },
+            "_planned_": {
+                "handle": "aboutSession_Update-Planned"
+            },
+            "_bug_": {
+                "handle": "aboutSession_Update-Bug"
+            },
+            "_release_": {
+                "handle": "aboutSession_Update-Release"
+            }
+        }
+    },
 
     "_acknowledgments_": {
         "id": "aboutSession_Acknowledgments",
@@ -25,5 +120,36 @@
                 "handle": "aboutSession_Acknowledgments-EugeneYip"
             }
         }
+    },
+
+    "_feedback_": {
+        "id": "aboutSession_Feedback",
+        "handle": "aboutSession_Feedback",
+        "children": {
+            "_feedback_readme_": {
+                "handle": "aboutSession_Feedback-FeedbackReadme"
+            },
+            "_feedback_privacy_": {
+                "handle": "aboutSession_Feedback-FeedbackPrivacy"
+            },
+            "_feedback_for_project_": {
+                "handle": "aboutSession_Feedback-FeedbackForProject"
+            },
+            "_feedback_github_": {
+                "handle": "aboutSession_Feedback-FeedbackGithub"
+            },
+            "_feedback_gmail_": {
+                "handle": "aboutSession_Feedback-FeedbackGmail"
+            },
+            "_feedback_petalmail_": {
+                "handle": "aboutSession_Feedback-FeedbackPetalmail"
+            }
+        }
+    },
+
+    "_privacy_policy_": {
+        "id": "aboutSession_PrivacyPolicy",
+        "handle": "aboutSession_PrivacyPolicy",
+        "children": {}
     }
 }

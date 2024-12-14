@@ -31,6 +31,11 @@ export const SeeChen_AboutPage = {
         var aboutSessionList = await window.myTools.getJson("/Data/About/SessionList.json");
         
         Object.keys(aboutSessionList).forEach(sessionTitle => {
+
+            if (Object.keys(aboutSessionList[sessionTitle].children).length === 0) {
+                return;
+            }
+
             var aboutSession = window.myTools.deepCopy(aboutSessionTemplate);
 
             aboutSession.props["data-event-handler"] = aboutSessionList[sessionTitle]["handle"];

@@ -100,7 +100,7 @@
     box-sizing: border-box;
     padding-top: 1.5em;
 
-    max-height: 9em;
+    max-height: 10em;
     overflow: hidden;
 
     transition: max-height 1s;
