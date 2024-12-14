@@ -1,11 +1,11 @@
 {
     "background-pictures": "https://angustan.com/assets/images/angus.avif",
     "profile-pictures": "https://avatars.githubusercontent.com/u/59675739?v=4",
-    "websites": "https://angustan.com/",
-    "github": "https://github.com/tanvihang",
-    "gitlab": "none",
-    "gitee": "none",
-    "email": "angustanworkspce@gmail.com",
+    "social_media": {
+        "website": "https://angustan.com/",
+        "github": "https://github.com/tanvihang",
+        "gmail": "mailto:angustanworkspce@gmail.com"
+    },
     "help_list": {
         "layout-bugs-fix": true,
         "responsive-design": true,

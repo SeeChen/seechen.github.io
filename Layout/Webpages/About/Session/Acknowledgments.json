@@ -34,20 +34,6 @@
             },
             "lang": "about",
             "children": []
-        }, {
-            "tag": "div",
-            "props": {
-                "class": "acknowledgments-suggestion-list"
-            },
-            "lang": "",
-            "children": [{
-                "tag": "div",
-                "props": {
-                    "class": "acknowledgments-suggestion-layout-bugs-fix"
-                },
-                "lang": "",
-                "children": []
-            }]
         }]
     }, {
         "tag": "span",
@@ -56,5 +42,27 @@
         },
         "lang": "travel",
         "children": ["_back_"]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "acknowledgments_suggestion_list",
+            "class": "acknowledgments-suggestion-list"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {
+                "id": "acknowledgments-suggestion-title"
+            },
+            "lang": "about",
+            "children": ["_acknowledgments_suggestion_title_"]
+        }]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "acknowledgments_social_media"
+        },
+        "lang": "",
+        "children": []
     }]
 }

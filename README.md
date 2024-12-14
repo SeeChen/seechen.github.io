@@ -206,7 +206,7 @@ seechen.github.io
 |Angus Tan|[Websites](https://angustan.com/)|[GitHub](https://github.com/tanvihang)|[Email](mailto:angustanworkspce@gmail.com)|
 
 #### 6.2.7 New Features of CSS
-> Introduced the application of new CSS features,
+> Introduced the application of new CSS features.
 
 |||||
 |:---:|:---:|:---:|:---:|

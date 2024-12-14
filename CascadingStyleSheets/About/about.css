@@ -143,7 +143,7 @@
     width: 100vw;
     height: 100dvh;
 
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.9);
 
     display: none;
 
@@ -152,14 +152,16 @@
 
 #about_ExpandContent.expanded-loading {
 
-    display: initial;
+    display: block;
     opacity: 0;
 
-    transition: opactiy 0.5s;
+    transition: opacity 0.5s;
 }
 #about_ExpandContent.expanded {
 
+    display: block;
     opacity: 1;
+
     transition: opacity 0.5s;
 }
 
@@ -226,7 +228,6 @@
 
     width: 100vw;
     min-height: 100dvh;
-    height: 500vh;
 
     text-align: center;
     text-wrap: nowrap;
@@ -316,6 +317,73 @@
     transform-origin: right top;
 }
 
+#about_ExpandContent #content_acknowledgments .acknowledgments-suggestion-list {
+
+    position: relative;
+
+    width: 70vw;
+
+    padding: 1em;
+
+    margin: auto;
+    margin-top: 100dvh;
+
+    z-index: 1;
+}
+
+#about_ExpandContent #content_acknowledgments #acknowledgments-suggestion-title {
+
+    position: sticky;
+
+    top: 20dvh;
+
+    color: var(--font-color-title);
+    font-size: var(--font-size-2_5em);
+    font-family: var(--fontface-title);
+    
+    text-align: right;
+    text-decoration: underline;
+
+    transform: translateX(5vw);
+}
+#about_ExpandContent #content_acknowledgments .acknowledgments-suggestion-list .acknowledgments-suggestion-border {
+
+    margin-top: 5dvh;
+}
+#about_ExpandContent #content_acknowledgments .acknowledgments-suggestion-list .acknowledgments-suggestion-border .acknowledgments-suggestion-subtitle {
+
+    color: var(--font-color-title);
+    font-size: var(--font-size-2_5em);
+    font-family: var(--fontface-title);
+}
+
+#about_ExpandContent #content_acknowledgments .acknowledgments-suggestion-list .acknowledgments-suggestion-border .acknowledgments-suggestion-description {
+
+    color: var(--font-color-normal);
+    font-size: var(--font-size-normal);
+    font-family: var(--fontface-content-3);
+}
+
+#about_ExpandContent #content_acknowledgments #acknowledgments_social_media {
+
+    display: flex;
+    flex-direction: row;
+
+    width: 70vw;
+    padding: 1em;
+
+    margin: auto;
+}
+
+#about_ExpandContent #content_acknowledgments #acknowledgments_social_media a {
+    margin: 0.25em;
+}
+
+#about_ExpandContent #content_acknowledgments #acknowledgments_social_media a img {
+
+    height: 4em;
+}
+
 #about_ExpandContent #content_acknowledgments #acknowledgments-btn-close {
 
     position: sticky;
@@ -323,7 +391,13 @@
     top: 10dvh;
     left: 100vw;
 
+    text-shadow: 2px 2px 2px var(--font-color-normal);
+    font-family: var(--fontface-content-3);
+    color: var(--font-color-normal-selected);
+
     margin-right: 5vw;
 
     z-index: 3;
+
+    cursor: pointer;
 }

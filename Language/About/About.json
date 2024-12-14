@@ -12,6 +12,24 @@
         "_angus_tan_": "陈誉航",
         "_eugene_yip_": "叶宇俊",
 
+        "_acknowledgments_suggestion_title_": "建议",
+
+        "_acknowledgments_suggestion_subtitle_layout-bugs-fix_": "布局错误修复", 
+        "_acknowledgments_suggestion_description_layout-bugs-fix_": "协助修复 CSS 布局错误，例如对齐不正确或元素位置错误。",
+        "_acknowledgments_suggestion_subtitle_responsive-design_": "响应式设计", 
+        "_acknowledgments_suggestion_description_responsive-design_": "关于创建响应式设计的建议，以确保在不同设备上获得最佳性能。",
+        "_acknowledgments_suggestion_subtitle_animation-enhancements_": "动画增强", 
+        "_acknowledgments_suggestion_description_animation-enhancements_": "对 CSS 动画的增强，包括关键帧动画和过渡效果的优化。",
+        "_acknowledgments_suggestion_subtitle_crossBrowser-compatibility_": "跨浏览器兼容性", 
+        "_acknowledgments_suggestion_description_crossBrowser-compatibility_": "针对跨浏览器兼容性问题的建议，以确保在不同浏览器中一致的显示效果。",
+        "_acknowledgments_suggestion_subtitle_crossDevice-compatibility_": "跨设备兼容性", 
+        "_acknowledgments_suggestion_description_crossDevice-compatibility_": "关于设计跨设备兼容性布局的建议，确保在手机、平板电脑和台式电脑上的良好用户体验。",
+        "_acknowledgments_suggestion_subtitle_styling-best-practices_": "样式最佳实践", 
+        "_acknowledgments_suggestion_description_styling-best-practices_": "分享编写 CSS 的最佳实践，包括命名约定、性能优化和可维护性改进。",
+        "_acknowledgments_suggestion_subtitle_new-features-of-css_": "CSS 新功能", 
+        "_acknowledgments_suggestion_description_new-features-of-css_": "介绍了新 CSS 功能的应用。",
+
+
         "_update_": "更新日志"
     }, 
 
@@ -25,6 +43,23 @@
         "_acknowledgments_": "Acknowledgments",
         "_angus_tan_": "Angus Tan",
         "_eugene_yip_": "Eugene  Yip",
+
+        "_acknowledgments_suggestion_title_": "Suggestions",
+
+        "_acknowledgments_suggestion_subtitle_layout-bugs-fix_": "Layout Bugs Fix",
+        "_acknowledgments_suggestion_description_layout-bugs-fix_": "Assistance in fixing CSS layout bugs, such as misalignment or misplaced elements.",
+        "_acknowledgments_suggestion_subtitle_responsive-design_": "Responsive Design",
+        "_acknowledgments_suggestion_description_responsive-design_": "Suggestions on creating responsive designs to ensure optimal performance across different devices.",
+        "_acknowledgments_suggestion_subtitle_animation-enhancements_": "Animation Enhancements",
+        "_acknowledgments_suggestion_description_animation-enhancements_": "Enhancements to CSS animations, including optimizations for keyframe animations and transitions.",
+        "_acknowledgments_suggestion_subtitle_crossBrowser-compatibility_": "Cross-Browser Compatibility",
+        "_acknowledgments_suggestion_description_crossBrowser-compatibility_": "Suggestions for addressing cross-browser compatibility issues to ensure consistent display across different browsers.",
+        "_acknowledgments_suggestion_subtitle_crossDevice-compatibility_": "Cross-Device Compatibility",
+        "_acknowledgments_suggestion_description_crossDevice-compatibility_": "Suggestions on designing layouts for cross-device compatibility, ensuring a good user experience on phones, tablets, and desktops.",
+        "_acknowledgments_suggestion_subtitle_styling-best-practices_": "Styling Best Practices",
+        "_acknowledgments_suggestion_description_styling-best-practices_": "Shared best practices for writing CSS, including naming conventions, performance optimization, and maintainability improvements.",
+        "_acknowledgments_suggestion_subtitle_new-features-of-css_": "New Features of CSS",
+        "_acknowledgments_suggestion_description_new-features-of-css_": "Introduced the application of new CSS features.",
 
         "_update_": "Update Log"
     }

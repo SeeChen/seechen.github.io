@@ -9,6 +9,7 @@
     For more details, see <https://www.gnu.org/licenses/>. 
 */
 
+import { SeeChen_AboutPage } from "../About/about.js";
 import { SeeChen_HomePage } from "../Home/home.js";
 import { SeeChen_LensPages } from "../Lens/lens.js";
 import { SeeChen_ProjectsPage } from "../Projects/projects.js";
@@ -180,6 +181,11 @@ const routesFunction = {
     projects: async () => {
         document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._projects_} | SEECHEN`;
         await myFunction.jump(SeeChen_ProjectsPage);
+    },
+
+    about: async () => {
+        document.title = `${window.globalValues.translateData.nav[window.globalValues.language]._about_} | SEECHEN`;
+        await myFunction.jump(SeeChen_AboutPage);
     }
 
 }
@@ -263,7 +269,7 @@ const routes = {
         await routesFunction.projects();
     },
     "/about": async () => {
-
+        await routesFunction.about();
     },
 }
 
@@ -296,19 +302,6 @@ export const router = {
         const mappingArray = [
             {
                 keys: [
-                    "/projects",
-                    "/projects.htm",
-                    "/projects.html",
-                    "/Projects",
-                    "/Projects.htm",
-                    "/Projects.html",
-                    "/%E9%A1%B9%E7%9B%AE",
-                    "/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE"
-                ],
-
-                values: "/projects"
-            }, {
-                keys: [
                     "/",
                     "/spa",
                     "/spa.htm",
@@ -322,6 +315,31 @@ export const router = {
                 ],
 
                 values: "/"
+            }, {
+                keys: [
+                    "/projects",
+                    "/projects.htm",
+                    "/projects.html",
+                    "/Projects",
+                    "/Projects.htm",
+                    "/Projects.html",
+                    "/%E9%A1%B9%E7%9B%AE",
+                    "/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE"
+                ],
+
+                values: "/projects"
+            }, {
+                keys: [
+                    "/About",
+                    "/About.htm",
+                    "/About.html",
+                    "/about",
+                    "/about.htm",
+                    "/about.html",
+                    "/%E5%85%B3%E4%BA%8E"
+                ],
+
+                values: "/about"
             }
         ]
 

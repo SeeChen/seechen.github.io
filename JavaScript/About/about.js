@@ -106,7 +106,9 @@ export const SeeChen_AboutPage = {
             sessionExpand: SeeChen_AboutPage_Session.expand_Content,
 
             aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
-            aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click
+            aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
+            
+            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -118,6 +120,30 @@ export const SeeChen_AboutPage = {
 
     clearUp: () => {
 
+        const about_EventHandler = {
+        
+            sessionExpand: SeeChen_AboutPage_Session.expand_Content,
+
+            aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
+            aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
+            
+            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick
+        }
+
+        Object.entries(about_EventHandler).forEach(([event, handler]) => {
+
+            window.eventBus.off(event, handler);
+        });
+
+        document.querySelector("#contentArea").scrollTo(0, 0);
+
+        const boxContent = document.querySelector("#box_contentArea");
+        const homeContent = boxContent.querySelector("#box_AboutPage");
+        homeContent.style.opacity = 0;
+
+        setTimeout(() => {
+            boxContent.removeChild(homeContent);
+        }, 1000);
     }
 }
 
@@ -146,6 +172,8 @@ const SeeChen_AboutPage_Language = {
         const { e } = event;
 
         if (e.target.classList.contains("session-children")) {
+
+            window.myData.about.contentExpand = {};
 
             const vDom_navigationBar = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
             const vDom_footerArea = await window.myTools.getJson("/Layout/Webpages/General/footer.json");
@@ -193,6 +221,20 @@ const SeeChen_AboutPage_Language = {
 
 const SeeChen_AboutPage_Acknowledgments = {
 
+    closeClick: async (
+        event
+    ) => {
+
+        const { e } = event;
+
+        document.querySelector("#content_acknowledgments").scrollTo(0, 0);
+
+        document.querySelector("#about_ExpandContent").classList.remove("expanded");
+        await new Promise(r => setTimeout(r, 1000));
+        document.querySelector("#content_acknowledgments > div:nth-child(2)").style.height = 0;
+        document.querySelector("#about_ExpandContent").classList.remove("expanded-loading");
+    },
+
     click: async (
         event
     ) => {
@@ -218,6 +260,54 @@ const SeeChen_AboutPage_Acknowledgments = {
             window.myData.about.contentExpand.children[1].children[0].props["src"] = targetDetails["profile-pictures"];
             window.myData.about.contentExpand.children[1].children[1].children = [e.target.dataset.originalObj];
 
+            Object.keys(targetDetails.help_list).forEach(help_list => {
+
+                if (targetDetails.help_list[help_list]) {
+                    window.myData.about.contentExpand.children[3].children.push({
+                        tag: "div",
+                        props: {
+                            "class": "acknowledgments-suggestion-border"
+                        },
+                        lang: "",
+                        children: [{
+                            tag: "p",
+                            props: {
+                                class: "acknowledgments-suggestion-subtitle"
+                            },
+                            lang: "about",
+                            children: [`_acknowledgments_suggestion_subtitle_${help_list}_`]
+                        }, {
+                            tag: "p",
+                            props: {
+                                "class": "acknowledgments-suggestion-description"
+                            },
+                            lang: "about",
+                            children: [`_acknowledgments_suggestion_description_${help_list}_`]
+                        }]
+                    });
+                }
+            });
+
+            Object.keys(targetDetails.social_media).forEach(socialMedia => {
+
+                window.myData.about.contentExpand.children[4].children.push({
+                    tag: "a",
+                    props: {
+                        href: `${targetDetails.social_media[socialMedia]}`,
+                        target: "_blank"
+                    },
+                    lang: "",
+                    children: [{
+                        tag: "img",
+                        props: {
+                            src: `/File/Icon/ico_${socialMedia}.png`
+                        },
+                        lang: "",
+                        children: []
+                    }]
+                });
+            });
+
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),
                 window.vDom.Diff(
@@ -225,10 +315,22 @@ const SeeChen_AboutPage_Acknowledgments = {
                     window.myData.about.contentExpand
                 )
             );
+            window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                if (!el) return;
+                document.querySelector(`#${parent}`).removeChild(el);
+            });
+            window.globalValues.nodeToRemove = [];
 
             document.querySelector("#about_ExpandContent").classList.add("expanded-loading");
             await new Promise(r => setTimeout(r, 100));
             document.querySelector("#about_ExpandContent").classList.add("expanded");
+
+            document.querySelector("#acknowledgments-btn-close").addEventListener("click", (e) => {
+                window.eventBus.emit("acnkowledgments_close", { e });
+            })
+
+            document.querySelector("#content_acknowledgments > div:nth-child(2)").style.height = `${document.querySelector("#content_acknowledgments").scrollHeight}px`;
 
             document.querySelector("#box_LoadingAnimation").classList.remove("display");
             await new Promise(r => setTimeout(r, 600));

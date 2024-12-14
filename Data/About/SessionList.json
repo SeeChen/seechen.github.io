@@ -12,21 +12,7 @@
         }
     },
 
-    "_my_post_": {
-        "id": "aboutSession_Post",
-        "handle": "aboutSession_Post",
-        "children": {
-
-        }
-    },
-
-    "_update_": {
-        "id": "aboutSession_Update",
-        "handle": "aboutSession_Update",
-        "children": {
-
-        }
-    },
+    
 
     "_acknowledgments_": {
         "id": "aboutSession_Acknowledgments",

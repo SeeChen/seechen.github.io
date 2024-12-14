@@ -1,18 +1,18 @@
 {
     "background-pictures": "https://seechen.github.io/File/Image/Services/materials_9.avif",
     "profile-pictures": "https://avatars.githubusercontent.com/u/119862951?v=4",
-    "websites": "https://spevoljy.site/",
-    "github": "https://github.com/EugeneSpevoljy",
-    "gitlab": "none",
-    "gitee": "none",
-    "email": "angustanworkspce@gmail.com",
+    "social_media": {
+        "website": "https://spevoljy.site/",
+        "github": "https://github.com/EugeneSpevoljy",
+        "gmail": "mailto:yuyujunjun6633@gmail.com"
+    },
     "help_list": {
-        "layout-bugs-fix": true,
+        "layout-bugs-fix": false,
         "responsive-design": true,
-        "animation-enhancements": true,
-        "crossBrowser-compatibility": true,
-        "crossDevice-compatibility": true,
-        "styling-best-practices": true,
-        "new-features-of-css":true
+        "animation-enhancements": false,
+        "crossBrowser-compatibility": false,
+        "crossDevice-compatibility": false,
+        "styling-best-practices": false,
+        "new-features-of-css": false
     }
 }
