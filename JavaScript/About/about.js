@@ -176,7 +176,7 @@ const SeeChen_AboutPage_Language = {
             window.myData.about.contentExpand = {};
 
             const vDom_navigationBar = await window.myTools.getJson("/Layout/Webpages/General/Navigation.json");
-            const vDom_footerArea = await window.myTools.getJson("/Layout/Webpages/General/footer.json");
+            const vDom_footerArea = await window.myTools.getJson("/Layout/Webpages/General/Footer.json");
 
             const old_FooterArea = window.vDom.Create(vDom_footerArea);
 
