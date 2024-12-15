@@ -111,9 +111,11 @@ export const SeeChen_AboutPage = {
             sessionExpand: SeeChen_AboutPage_Session.expand_Content,
 
             aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
+            aboutSession_AboutSites_Click: SeeChen_AboutPage_AboutSites.click,
             aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
             
-            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick
+            aboutSites_close: SeeChen_AboutPage_AboutSites.closeClick,
+            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick,
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -130,9 +132,11 @@ export const SeeChen_AboutPage = {
             sessionExpand: SeeChen_AboutPage_Session.expand_Content,
 
             aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
+            aboutSession_AboutSites_Click: SeeChen_AboutPage_AboutSites.click,
             aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
             
-            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick
+            aboutSites_close: SeeChen_AboutPage_AboutSites.closeClick,
+            acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick,
         }
 
         Object.entries(about_EventHandler).forEach(([event, handler]) => {
@@ -224,6 +228,67 @@ const SeeChen_AboutPage_Language = {
     }
 }
 
+const SeeChen_AboutPage_AboutSites = {
+
+    closeClick: async (
+        event
+    ) => {
+
+        const { e } = event;
+
+        document.querySelector("#about_ExpandContent").classList.remove("expanded");
+        await new Promise(r => setTimeout(r, 100));
+        document.querySelector("#about_ExpandContent").classList.remove("expanded-loading");
+    },
+
+    click: async (
+        event
+    ) => {
+
+        const { e } = event;
+        
+        if (e.target.classList.contains("session-children")) {
+
+            document.querySelector("#box_LoadingAnimation").classList.add("waitToDisplay");
+            await new Promise(r => setTimeout(r, 100));
+            document.querySelector("#box_LoadingAnimation").classList.add("display");
+
+            const template_AboutSites = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutSites.json");
+            const old_ContentExpand = window.myTools.deepCopy(window.myData.about.contentExpand);
+
+            window.myData.about.contentExpand = template_AboutSites;
+
+            window.myData.about.contentExpand.children[0].children[0].children = [e.target.dataset.originalObj];
+
+            window.vDom.Patch(
+                document.querySelector("#about_ExpandContent"),
+                window.vDom.Diff(
+                    old_ContentExpand,
+                    window.myData.about.contentExpand
+                )
+            );
+            window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+                if (!el) return;
+                el.parentNode.removeChild(el)
+            });
+            window.globalValues.nodeToRemove = [];
+            
+            document.querySelector("#about_ExpandContent").classList.add("expanded-loading");
+            await new Promise(r => setTimeout(r, 100));
+            document.querySelector("#about_ExpandContent").classList.add("expanded");
+
+            document.querySelector("#aboutSites_Content_Close").addEventListener("click", (e) => {
+                window.eventBus.emit("aboutSites_close", { e });
+            })
+
+            document.querySelector("#box_LoadingAnimation").classList.remove("display");
+            await new Promise(r => setTimeout(r, 600));
+            document.querySelector("#box_LoadingAnimation").classList.remove("waitToDisplay");
+        }
+    }
+}
+
 const SeeChen_AboutPage_Acknowledgments = {
 
     closeClick: async (
@@ -236,7 +301,7 @@ const SeeChen_AboutPage_Acknowledgments = {
 
         document.querySelector("#about_ExpandContent").classList.remove("expanded");
         await new Promise(r => setTimeout(r, 1000));
-        document.querySelector("#content_acknowledgments > div:nth-child(2)").style.height = 0;
+        document.querySelector("#content_acknowledgments > div:nth-child(2)").style.height = "";
         document.querySelector("#about_ExpandContent").classList.remove("expanded-loading");
     },
 
@@ -323,7 +388,7 @@ const SeeChen_AboutPage_Acknowledgments = {
             window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
 
                 if (!el) return;
-                document.querySelector(`#${parent}`).removeChild(el);
+                el.parentNode.removeChild(el)
             });
             window.globalValues.nodeToRemove = [];
 

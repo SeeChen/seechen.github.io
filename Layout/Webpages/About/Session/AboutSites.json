@@ -1,0 +1,34 @@
+{
+    "tag": "div",
+    "props": {
+        "id": "content_aboutSites"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "div",
+        "props": {
+            "id": "aboutSites_Header"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {},
+            "lang": "about",
+            "children": []
+        }, {
+            "tag": "p",
+            "props": {
+                "id": "aboutSites_Content_Close"
+            },
+            "lang": "",
+            "children": ["❌"]
+        }]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "aboutSites_Content"
+        },
+        "lang": "",
+        "children": []
+    }]
+}
