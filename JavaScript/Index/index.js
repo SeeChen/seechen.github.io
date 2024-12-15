@@ -26,8 +26,10 @@ import { SeeChen_Pages404 } from "../General/Page404.js";
 import { SeeChen_ServicesPages } from "../Services/services.js";
 import { SeeChen_ProjectsPage } from "../Projects/projects.js";
 import { SeeChen_AboutPage } from "../About/about.js";
+import { Markdown2vDom } from "../General/md2vDom.js";
 
 window.vDom = vDom;
+window.md2vDom = Markdown2vDom;
 window.router = router;
 window.myTools = tools;
 window.eventBus = EventBus;
