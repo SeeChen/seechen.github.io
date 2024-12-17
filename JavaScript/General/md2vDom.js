@@ -30,51 +30,89 @@ export const Markdown2vDom = {
     ) => {
 
         const vDomObj = [];
-
         const lines = markdown.split("\n");
-        let vDom_Children = {};
-        let isPush = true;
+
+        const template = {
+            tag: "tag",
+            props: {},
+            lang: "",
+            children: []
+        };
+
+        let push = true;
+        let init_vDom = window.myTools.deepCopy(template);
 
         for (let i = 0; i < lines.length; i++) {
+            var line = lines[i].trim();
 
-            let line = lines[i].trim();
+            if ((line === "---" || line === "***") 
+                    && (i - 1) > 0 && (i + 1) < lines.length
+                    && lines[i - 1].trim() === ""
+                    && lines[i + 1].trim() === ""
+                ) {
+                init_vDom.tag = "hr";
+                line = "";
+            }
 
             line = line.replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
-                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-
-                .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>');
+                        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                        .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
+                        .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>');
 
             if (line.startsWith(">> ") || line.startsWith("> ")) {
+                line = line.replace("> ", "");
 
-                line.replace("> ", "");
-                vDom_Children = {
-                    tag: "blockquote",
-                    props: {},
-                    lang: "",
-                    children: []
-                };
+                if (push) {
+                    init_vDom.tag = "blockquote";
+                }
 
-                if (i < lines.length - 1 && lines[i + 1].trim().startsWith("> ")) {
-                    isPush = false;
+                if ((i + 1) < lines.length) {
+                    var nextLine = lines[i + 1].trim();
+                    push = !nextLine.startsWith("> ");
+                }
+            }
+
+            if (line.startsWith("#")) {
+                for (let level of [6, 5, 4, 3, 2, 1]) {
+                    const headingMarker = "#".repeat(level) + " ";
+                    if (line.startsWith(headingMarker)) {
+                        line = line.replace(headingMarker, "");
+                        const headingTag = `h${level}`;
+                
+                        if (init_vDom.tag === "tag") {
+                            init_vDom.tag = headingTag;
+                            init_vDom.children = [line];
+                        } else {
+                            const tempDom = window.myTools.deepCopy(template);
+                            tempDom.tag = headingTag;
+                            tempDom.children = [line];
+                            init_vDom.children.push(tempDom);
+                        }
+                        break;
+                    }
+                }
+            }
+            
+            else {
+                if (line === "") {
+                    // NOTHING TODO
+                } else if (
+                    vDomObj.length !== 0
+                        && lines[i - 1] !== "" 
+                        && vDomObj[vDomObj.length - 1].tag === "p"
+                ) {
+                    vDomObj[vDomObj.length - 1].children[0] += `</br>${line}`;
                 } else {
-                    isPush = true;
+                    init_vDom.tag = "p";
+                    init_vDom.children = [line];
                 }
             }
 
-            if (/^###### (.*)/.test(line)) {
-                line = line.replace(/^###### /, "");
-
-                if (isPush) {
-
-                }
-            }
-
-            console.log(vDom_Children);
-
-            if (isPush && Object.keys(vDom_Children).length > 0) {
-                vDomObj.push(vDom_Children);
-                vDom_Children = {}
+            console.log(init_vDom);
+            if (push && init_vDom.tag !== "tag") {
+                vDomObj.push(init_vDom);
+                init_vDom = window.myTools.deepCopy(template);
             }
         }
 
