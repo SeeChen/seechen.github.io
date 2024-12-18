@@ -25,9 +25,25 @@ export const Markdown2vDom = {
         }
     },
 
+    generateStateTree: (
+        markdown
+    ) => {
+
+        const stateTree = [];
+        const lines = markdown.split("\n");
+
+        for (let line of lines) {
+            
+        }
+
+        return stateTree;
+    },
+
     convert: (
         markdown
     ) => {
+
+        const stateTree = Markdown2vDom.generateStateTree(markdown);
 
         const vDomObj = [];
         const lines = markdown.split("\n");
@@ -40,10 +56,26 @@ export const Markdown2vDom = {
         };
 
         let push = true;
+        let listObj = [];
         let init_vDom = window.myTools.deepCopy(template);
 
         for (let i = 0; i < lines.length; i++) {
-            var line = lines[i].trim();
+
+            var line = lines[i];
+
+            if (/^( *)- /.test(line)) {
+
+                var match = line.match(/^( *)- /);
+                line = line.replace(/^( *)- /, "");
+
+                listObj.push({
+                    listType: "ul",
+                    space: match[0].length
+                });
+                push = !/^( *)- /.test(lines[i + 1]);
+            }
+
+            line = line.trim();
 
             if ((line === "---" || line === "***") 
                     && (i - 1) > 0 && (i + 1) < lines.length
@@ -58,7 +90,7 @@ export const Markdown2vDom = {
                         .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
                         .replace(/\*(.*?)\*/gim, '<em>$1</em>')
                         .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
-                        .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>');
+                        .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
 
             if (line.startsWith(">> ") || line.startsWith("> ")) {
                 line = line.replace("> ", "");
@@ -99,17 +131,24 @@ export const Markdown2vDom = {
                     // NOTHING TODO
                 } else if (
                     vDomObj.length !== 0
-                        && lines[i - 1] !== "" 
+                        && lines[i - 1].trim() !== ""
                         && vDomObj[vDomObj.length - 1].tag === "p"
+                        && init_vDom.tag === "tag"
+                        && push
                 ) {
                     vDomObj[vDomObj.length - 1].children[0] += `</br>${line}`;
+                } else if (init_vDom.tag !== "tag") {
+                    var temp = window.myTools.deepCopy(template);
+                    temp.tag = "p";
+                    temp.children = [line];
+                    init_vDom.children.push(temp);
                 } else {
                     init_vDom.tag = "p";
                     init_vDom.children = [line];
                 }
             }
 
-            console.log(init_vDom);
+            // console.log(init_vDom);
             if (push && init_vDom.tag !== "tag") {
                 vDomObj.push(init_vDom);
                 init_vDom = window.myTools.deepCopy(template);
