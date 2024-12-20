@@ -30,9 +30,18 @@ export const Markdown2vDom = {
     ) => {
 
         const stateTree = [];
+        const treeTemplate = {
+            space: 0
+        };
         const lines = markdown.split("\n");
 
         for (let line of lines) {
+
+            let tempTree = window.myTools.deepCopy(treeTemplate);
+
+            var splitSpace  = line.match(/^(\s*)(\S.*)?/);
+            let spaceLength = splitSpace[1].length;
+
             
         }
 
