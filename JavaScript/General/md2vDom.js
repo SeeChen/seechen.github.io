@@ -62,7 +62,7 @@ export const Markdown2vDom = {
             content = splitSpace[2];
             console.log(content);
 
-            if ()
+            // if ()
 
             stateTree.push(tempTree);
         }
