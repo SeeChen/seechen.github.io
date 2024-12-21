@@ -31,7 +31,14 @@ export const Markdown2vDom = {
 
         const stateTree = [];
         const treeTemplate = {
-            space: 0
+            space: 0,
+
+            quote: -1,
+            ol: -1,
+            ul: -1,
+
+            tag: "tag",
+            content: ""
         };
         const lines = markdown.split("\n");
 
@@ -42,7 +49,22 @@ export const Markdown2vDom = {
             var splitSpace  = line.match(/^(\s*)(\S.*)?/);
             let spaceLength = splitSpace[1].length;
 
-            
+            tempTree.space = spaceLength;
+
+            if (splitSpace[2] == undefined) {
+
+                tempTree.tag = "p";
+                tempTree.content = "";
+                stateTree.push(tempTree);
+                continue;
+            }
+
+            content = splitSpace[2];
+            console.log(content);
+
+            if ()
+
+            stateTree.push(tempTree);
         }
 
         return stateTree;
@@ -53,6 +75,7 @@ export const Markdown2vDom = {
     ) => {
 
         const stateTree = Markdown2vDom.generateStateTree(markdown);
+        console.log(stateTree);
 
         const vDomObj = [];
         const lines = markdown.split("\n");
