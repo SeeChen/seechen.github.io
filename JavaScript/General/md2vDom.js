@@ -34,8 +34,9 @@ export const Markdown2vDom = {
             space: 0,
 
             quote: -1,
-            ol: -1,
-            ul: -1,
+            subquote: false,
+            ol: [],
+            ul: [],
 
             tag: "tag",
             content: ""
@@ -59,11 +60,33 @@ export const Markdown2vDom = {
                 continue;
             }
 
-            content = splitSpace[2];
-            console.log(content);
+            let content = splitSpace[2];
 
-            // if ()
+            let specialResult = [];
+            while (content) {
+                const match = content.match(/^((?:[-*+]|(?:\d+|[a-zA-Z]|[IVXLCDMivxlcdm])\.)|(?:>+))(?!\s*\[.\])(?= )/);
+                if (!match) {
+                    break;
+                }
+                specialResult.push(match[0]);
+                content = content.slice(match[0].length + 1);
+            }
 
+            if (specialResult.length > 0) {
+                specialResult.forEach((symbol, i) => {
+
+                    if (symbol.match(/^[-*+]/)) {
+                        tempTree.ul.push(i);
+                    }
+                });
+            }
+
+            let headreTag = content.match(/^(?:#+) /);
+            if (headreTag) {
+                // console.log(headreTag);
+            }
+
+            tempTree.content = content;
             stateTree.push(tempTree);
         }
 
@@ -74,8 +97,8 @@ export const Markdown2vDom = {
         markdown
     ) => {
 
-        const stateTree = Markdown2vDom.generateStateTree(markdown);
-        console.log(stateTree);
+        // const stateTree = Markdown2vDom.generateStateTree(markdown);
+        // console.log(stateTree);
 
         const vDomObj = [];
         const lines = markdown.split("\n");
