@@ -52,7 +52,7 @@ export const Markdown2vDom = {
 
             tempTree.space = spaceLength;
 
-            if (splitSpace[2] == undefined) {
+            if (splitSpace[2] === undefined) {
 
                 tempTree.tag = "p";
                 tempTree.content = "";
@@ -62,9 +62,16 @@ export const Markdown2vDom = {
 
             let content = splitSpace[2];
 
+            if (/^(?:[-*_]){3,}\s*$/.test(content.trim())) {
+                tempTree.tag = "hr";
+                tempTree.content = "";
+                stateTree.push(tempTree);
+                continue;
+            }
+
             let specialResult = [];
             while (content) {
-                const match = content.match(/^((?:[-*+]|(?:\d+|[a-zA-Z]|[IVXLCDMivxlcdm])\.)|(?:>+))(?!\s*\[.\])(?= )/);
+                const match = content.match(/^((?:[-*+]|(?:\d+|[a-zA-Z])\.)|(?:>+))(?!\s*\[.\])(?= )/);
                 if (!match) {
                     break;
                 }
@@ -75,15 +82,35 @@ export const Markdown2vDom = {
             if (specialResult.length > 0) {
                 specialResult.forEach((symbol, i) => {
 
-                    if (symbol.match(/^[-*+]/)) {
+                    const symbolMatch = symbol.match(/^([-*+])|(\d+\.)|([a-zA-Z]\.)|([?:>+])/);
+
+                    if (symbolMatch[1]) {
                         tempTree.ul.push(i);
+                    } else if (symbolMatch[2]) {
+                        tempTree.ol.push({
+                            index: i,
+                            type: "NUMBER"
+                        });
+                    } else if (symbolMatch[3]) {
+                        tempTree.ol.push({
+                            index: i,
+                            type: "LETTER"
+                        });
+                    } else if (symbolMatch[4]) {
+                        tempTree.quote = i;
+                        tempTree.subquote = (symbol.length === 2)
                     }
                 });
             }
 
-            let headreTag = content.match(/^(?:#+) /);
-            if (headreTag) {
-                // console.log(headreTag);
+            let headerTag = content.match(/^(?:#+) /);
+            if (headerTag) {
+                tempTree.tag = `h${headerTag[0].length - 1}`;
+                content = content.replace(/^(?:#+) /, "");
+            }
+
+            else {
+                tempTree.tag = "span";
             }
 
             tempTree.content = content;
@@ -97,11 +124,8 @@ export const Markdown2vDom = {
         markdown
     ) => {
 
-        // const stateTree = Markdown2vDom.generateStateTree(markdown);
-        // console.log(stateTree);
-
+        const stateTree = Markdown2vDom.generateStateTree(markdown);
         const vDomObj = [];
-        const lines = markdown.split("\n");
 
         const template = {
             tag: "tag",
@@ -110,105 +134,119 @@ export const Markdown2vDom = {
             children: []
         };
 
-        let push = true;
-        let listObj = [];
-        let init_vDom = window.myTools.deepCopy(template);
+        stateTree.forEach((element, i) => {
 
-        for (let i = 0; i < lines.length; i++) {
-
-            var line = lines[i];
-
-            if (/^( *)- /.test(line)) {
-
-                var match = line.match(/^( *)- /);
-                line = line.replace(/^( *)- /, "");
-
-                listObj.push({
-                    listType: "ul",
-                    space: match[0].length
-                });
-                push = !/^( *)- /.test(lines[i + 1]);
-            }
-
-            line = line.trim();
-
-            if ((line === "---" || line === "***") 
-                    && (i - 1) > 0 && (i + 1) < lines.length
-                    && lines[i - 1].trim() === ""
-                    && lines[i + 1].trim() === ""
-                ) {
-                init_vDom.tag = "hr";
-                line = "";
-            }
-
-            line = line.replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
-                        .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-                        .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-                        .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
-                        .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
-
-            if (line.startsWith(">> ") || line.startsWith("> ")) {
-                line = line.replace("> ", "");
-
-                if (push) {
-                    init_vDom.tag = "blockquote";
-                }
-
-                if ((i + 1) < lines.length) {
-                    var nextLine = lines[i + 1].trim();
-                    push = !nextLine.startsWith("> ");
-                }
-            }
-
-            if (line.startsWith("#")) {
-                for (let level of [6, 5, 4, 3, 2, 1]) {
-                    const headingMarker = "#".repeat(level) + " ";
-                    if (line.startsWith(headingMarker)) {
-                        line = line.replace(headingMarker, "");
-                        const headingTag = `h${level}`;
-                
-                        if (init_vDom.tag === "tag") {
-                            init_vDom.tag = headingTag;
-                            init_vDom.children = [line];
-                        } else {
-                            const tempDom = window.myTools.deepCopy(template);
-                            tempDom.tag = headingTag;
-                            tempDom.children = [line];
-                            init_vDom.children.push(tempDom);
-                        }
-                        break;
-                    }
-                }
-            }
+            let temp_vDOm = window.myTools.deepCopy(template);
             
-            else {
-                if (line === "") {
-                    // NOTHING TODO
-                } else if (
-                    vDomObj.length !== 0
-                        && lines[i - 1].trim() !== ""
-                        && vDomObj[vDomObj.length - 1].tag === "p"
-                        && init_vDom.tag === "tag"
-                        && push
-                ) {
-                    vDomObj[vDomObj.length - 1].children[0] += `</br>${line}`;
-                } else if (init_vDom.tag !== "tag") {
-                    var temp = window.myTools.deepCopy(template);
-                    temp.tag = "p";
-                    temp.children = [line];
-                    init_vDom.children.push(temp);
-                } else {
-                    init_vDom.tag = "p";
-                    init_vDom.children = [line];
-                }
-            }
+        });
+        // const lines = markdown.split("\n");
 
-            // console.log(init_vDom);
-            if (push && init_vDom.tag !== "tag") {
-                vDomObj.push(init_vDom);
-                init_vDom = window.myTools.deepCopy(template);
-            }
-        }
+        // const template = {
+        //     tag: "tag",
+        //     props: {},
+        //     lang: "",
+        //     children: []
+        // };
+
+        // let push = true;
+        // let listObj = [];
+        // let init_vDom = window.myTools.deepCopy(template);
+
+        // for (let i = 0; i < lines.length; i++) {
+
+        //     var line = lines[i];
+
+        //     if (/^( *)- /.test(line)) {
+
+        //         var match = line.match(/^( *)- /);
+        //         line = line.replace(/^( *)- /, "");
+
+        //         listObj.push({
+        //             listType: "ul",
+        //             space: match[0].length
+        //         });
+        //         push = !/^( *)- /.test(lines[i + 1]);
+        //     }
+
+        //     line = line.trim();
+
+        //     if ((line === "---" || line === "***") 
+        //             && (i - 1) > 0 && (i + 1) < lines.length
+        //             && lines[i - 1].trim() === ""
+        //             && lines[i + 1].trim() === ""
+        //         ) {
+        //         init_vDom.tag = "hr";
+        //         line = "";
+        //     }
+
+        //     line = line.replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
+        //                 .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+        //                 .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+        //                 .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
+        //                 .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+
+        //     if (line.startsWith(">> ") || line.startsWith("> ")) {
+        //         line = line.replace("> ", "");
+
+        //         if (push) {
+        //             init_vDom.tag = "blockquote";
+        //         }
+
+        //         if ((i + 1) < lines.length) {
+        //             var nextLine = lines[i + 1].trim();
+        //             push = !nextLine.startsWith("> ");
+        //         }
+        //     }
+
+        //     if (line.startsWith("#")) {
+        //         for (let level of [6, 5, 4, 3, 2, 1]) {
+        //             const headingMarker = "#".repeat(level) + " ";
+        //             if (line.startsWith(headingMarker)) {
+        //                 line = line.replace(headingMarker, "");
+        //                 const headingTag = `h${level}`;
+                
+        //                 if (init_vDom.tag === "tag") {
+        //                     init_vDom.tag = headingTag;
+        //                     init_vDom.children = [line];
+        //                 } else {
+        //                     const tempDom = window.myTools.deepCopy(template);
+        //                     tempDom.tag = headingTag;
+        //                     tempDom.children = [line];
+        //                     init_vDom.children.push(tempDom);
+        //                 }
+        //                 break;
+        //             }
+        //         }
+        //     }
+            
+        //     else {
+        //         if (line === "") {
+        //             // NOTHING TODO
+        //         } else if (
+        //             vDomObj.length !== 0
+        //                 && lines[i - 1].trim() !== ""
+        //                 && vDomObj[vDomObj.length - 1].tag === "p"
+        //                 && init_vDom.tag === "tag"
+        //                 && push
+        //         ) {
+        //             vDomObj[vDomObj.length - 1].children[0] += `</br>${line}`;
+        //         } else if (init_vDom.tag !== "tag") {
+        //             var temp = window.myTools.deepCopy(template);
+        //             temp.tag = "p";
+        //             temp.children = [line];
+        //             init_vDom.children.push(temp);
+        //         } else {
+        //             init_vDom.tag = "p";
+        //             init_vDom.children = [line];
+        //         }
+        //     }
+
+        //     // console.log(init_vDom);
+        //     if (push && init_vDom.tag !== "tag") {
+        //         vDomObj.push(init_vDom);
+        //         init_vDom = window.myTools.deepCopy(template);
+        //     }
+        // }
 
         return vDomObj;
     }
