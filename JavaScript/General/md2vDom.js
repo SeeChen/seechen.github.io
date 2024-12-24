@@ -127,6 +127,8 @@ export const Markdown2vDom = {
         const stateTree = Markdown2vDom.generateStateTree(markdown);
         const vDomObj = [];
 
+        console.log(stateTree);
+
         const template = {
             tag: "tag",
             props: {},
@@ -134,10 +136,37 @@ export const Markdown2vDom = {
             children: []
         };
 
-        stateTree.forEach((element, i) => {
-
+        stateTree.forEach((leaf, i) => {
+            console.log(leaf);
             let temp_vDOm = window.myTools.deepCopy(template);
-            
+
+            if (leaf.tag === "p" && leaf.content === "") {
+                if (stateTree[i - 1] && stateTree[i - 1].content === "") {
+                    console.log(i);
+                    return;
+                }
+                temp_vDOm.tag = "p";
+                temp_vDOm.children = [];
+            }
+
+            leaf.content = leaf.content.replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
+                    .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                    .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                    .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
+                    .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+
+            if (leaf.tag === "hr") {
+                temp_vDOm.tag = "hr";
+            }
+
+            else if (leaf.tag.includes("h")) {
+                temp_vDOm.tag = leaf.tag;
+                temp_vDOm.children = [leaf.content];
+            }
+
+            temp_vDOm.children = [leaf.content];
+
+            vDomObj.push(temp_vDOm);
         });
         // const lines = markdown.split("\n");
 
