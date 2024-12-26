@@ -43,7 +43,8 @@ export const Markdown2vDom = {
         };
         const lines = markdown.split("\n");
 
-        for (let line of lines) {
+        for (let idx = 0; idx < lines.length; idx++) {
+            let line = lines[idx];
 
             let tempTree = window.myTools.deepCopy(treeTemplate);
 
@@ -65,6 +66,19 @@ export const Markdown2vDom = {
             if (/^(?:[-*_]){3,}\s*$/.test(content.trim())) {
                 tempTree.tag = "hr";
                 tempTree.content = "";
+                stateTree.push(tempTree);
+                continue;
+            }
+
+            if (content.startsWith("```")) {
+
+                tempTree.tag = "code";
+
+                while (!lines[++idx].includes("```")) {
+                    tempTree.content += `</br>${lines[idx]}`.replaceAll(" ", "&nbsp;");
+                }
+
+                tempTree.content = tempTree.content.replace(/<\/br>/, "");
                 stateTree.push(tempTree);
                 continue;
             }
@@ -153,8 +167,28 @@ export const Markdown2vDom = {
                     .replace(/\*(.*?)\*/gim, '<em>$1</em>')
                     .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
                     .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
+                    .replace(/(^|[\s])\`(.*?)\`([\s]|$)/gim, `$1<code class="inline-code">$2</code>$3`);
 
-            // if () {}
+            if (
+                leaf.quote >= 0
+                || leaf.subquote
+                || leaf.ul.length
+                || leaf.ol.length
+            ) {
+                const prepreviousLeaf = stateTree[i - 1];
+
+                const tags = [
+                    ...leaf.ul.map(num => ({name: "ul", value: num})),
+                    ...leaf.ol.map(num => ({name: "ul", value: num})),
+                    leaf.quote !== -1 ? {name: "quote", value: leaf.quote} : null
+                ].filter(item => item !== null);
+
+                const sortedTags = tags.sort((a, b) => a.value - b.value);
+
+                sortedTags.forEach(marked => {
+                    
+                });
+            }
 
             if (leaf.tag === "hr") {
                 temp_vDOm.tag = "hr";
@@ -162,6 +196,11 @@ export const Markdown2vDom = {
 
             else if (leaf.tag.includes("h")) {
                 temp_vDOm.tag = leaf.tag;
+                temp_vDOm.children = [leaf.content];
+            }
+
+            else if (leaf.tag === "code") {
+                temp_vDOm.tag = "code";
                 temp_vDOm.children = [leaf.content];
             }
 

@@ -285,7 +285,18 @@ const SeeChen_AboutPage_AboutSites = {
 
             A. aaa
             B. aaa
+
+            \`\`\`
+            public static void main(String[] args) {
+                System.out.println("Hello World.");
+            }
+            \`\`\`
+
+            \`inline\`
             
+            test \`inline\` test
+
+            test\`inline\`test
 
             ---
 
