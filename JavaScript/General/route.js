@@ -38,7 +38,7 @@ const myFunction = {
             } 
             window.webpages.currentPages = SeeChen_CurrentPage;
 
-            // await window.webpages.currentPages.init();
+            await window.webpages.currentPages.init();
         }
     },
 
