@@ -141,14 +141,14 @@ export const Markdown2vDom = {
         const stateTree = Markdown2vDom.generateStateTree(markdown);
         const vDomObj = [];
 
-        console.log(stateTree);
-
         const template = {
             tag: "tag",
             props: {},
             lang: "",
             children: []
         };
+
+        let elementSpace = [];
 
         stateTree.forEach((leaf, i) => {
             
@@ -168,27 +168,6 @@ export const Markdown2vDom = {
                     .replace(/!\[(.*?)\]\((.*?)\)/gim, '<img alt="$1" src="$2"/>')
                     .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2" target="_blank">$1</a>')
                     .replace(/(^|[\s])\`(.*?)\`([\s]|$)/gim, `$1<code class="inline-code">$2</code>$3`);
-
-            if (
-                leaf.quote >= 0
-                || leaf.subquote
-                || leaf.ul.length
-                || leaf.ol.length
-            ) {
-                const prepreviousLeaf = stateTree[i - 1];
-
-                const tags = [
-                    ...leaf.ul.map(num => ({name: "ul", value: num})),
-                    ...leaf.ol.map(num => ({name: "ul", value: num})),
-                    leaf.quote !== -1 ? {name: "quote", value: leaf.quote} : null
-                ].filter(item => item !== null);
-
-                const sortedTags = tags.sort((a, b) => a.value - b.value);
-
-                sortedTags.forEach(marked => {
-                    
-                });
-            }
 
             if (leaf.tag === "hr") {
                 temp_vDOm.tag = "hr";
@@ -221,6 +200,71 @@ export const Markdown2vDom = {
 
                 temp_vDOm.tag = "p";
                 temp_vDOm.children = [leaf.content];
+            }
+
+
+            if (
+                leaf.quote >= 0
+                || leaf.subquote
+                || leaf.ul.length
+                || leaf.ol.length
+            ) {
+                let flag = false;
+                const prepreviousLeaf = stateTree[i - 1];
+
+                const tags = [
+                    ...leaf.ul.map(num => ({tag: "ul", value: num})),
+                    ...leaf.ol.map(num => ({tag: "ol", value: num})),
+                    leaf.quote !== -1 ? {tag: "quote", value: leaf.quote} : null
+                ].filter(item => item !== null);
+
+                const sortedTags = tags.sort((a, b) => a.value - b.value);
+
+                sortedTags.forEach(marked => {
+
+                    if (marked.value === 0) {
+
+                        let temp_quote = window.myTools.deepCopy(temp_vDOm);
+
+                        if (marked.tag === "quote") {
+                            
+                        
+                            if (leaf.subquote) {
+
+                                vDomObj[vDomObj.length - 1].children.push({
+                                    tag: "blockquote",
+                                    props: {
+                                        class: "subquote"
+                                    },
+                                    lang: "",
+                                    children: [temp_quote]
+                                });
+
+                                flag = true;
+                            } else if (prepreviousLeaf.quote >= 0) {
+
+                                vDomObj[vDomObj.length - 1].children.push(temp_quote);
+
+                                flag = true;
+                            } else {
+
+                                temp_vDOm.tag = "blockquote";
+                                temp_vDOm.children = [temp_quote];
+                            }
+                        } else if (marked.tag === "ul" || marked.tag === "ol") {
+
+                            elementSpace.push(leaf.space);
+                            
+                            if (leaf.space === Math.min(...elementSpace)) {
+                                console.log(leaf.space);
+                            }
+                        }
+                    }
+                });
+
+                if (flag) {
+                    return;
+                }
             }
 
             vDomObj.push(temp_vDOm);
