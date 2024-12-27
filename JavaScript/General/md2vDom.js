@@ -214,7 +214,7 @@ export const Markdown2vDom = {
 
                 const tags = [
                     ...leaf.ul.map(num => ({tag: "ul", value: num})),
-                    ...leaf.ol.map(num => ({tag: "ol", value: num})),
+                    ...leaf.ol.map(num => ({tag: "ol", value: num.index})),
                     leaf.quote !== -1 ? {tag: "quote", value: leaf.quote} : null
                 ].filter(item => item !== null);
 
@@ -224,11 +224,11 @@ export const Markdown2vDom = {
 
                     if (marked.value === 0) {
 
-                        let temp_quote = window.myTools.deepCopy(temp_vDOm);
+                        console.log(marked);
+                        let temp_children = window.myTools.deepCopy(temp_vDOm);
 
                         if (marked.tag === "quote") {
                             
-                        
                             if (leaf.subquote) {
 
                                 vDomObj[vDomObj.length - 1].children.push({
@@ -237,26 +237,53 @@ export const Markdown2vDom = {
                                         class: "subquote"
                                     },
                                     lang: "",
-                                    children: [temp_quote]
+                                    children: [temp_children]
                                 });
 
                                 flag = true;
                             } else if (prepreviousLeaf.quote >= 0) {
 
-                                vDomObj[vDomObj.length - 1].children.push(temp_quote);
+                                vDomObj[vDomObj.length - 1].children.push(temp_children);
 
                                 flag = true;
                             } else {
 
                                 temp_vDOm.tag = "blockquote";
-                                temp_vDOm.children = [temp_quote];
+                                temp_vDOm.children = [temp_children];
                             }
                         } else if (marked.tag === "ul" || marked.tag === "ol") {
 
                             elementSpace.push(leaf.space);
                             
                             if (leaf.space === Math.min(...elementSpace)) {
-                                console.log(leaf.space);
+
+                                // 当前问题，由于没有处理子列表，导致的出错，记得处理相关逻辑。
+
+                                console.log(marked.tag);
+                                
+                                if (
+                                    !prepreviousLeaf.ol.length 
+                                    && !prepreviousLeaf.ul.length
+                                ) {
+
+                                    temp_vDOm.tag = marked.tag;
+                                    temp_vDOm.children = [{
+                                        tag: "li",
+                                        props: {},
+                                        lang: "",
+                                        children: [temp_children]
+                                    }]
+                                } else {
+
+                                    vDomObj[vDomObj.length - 1].children.push({
+                                        tag: "li",
+                                        props: {},
+                                        lang: "",
+                                        children: [temp_children]
+                                    });
+
+                                    flag = true;
+                                }
                             }
                         }
                     }
