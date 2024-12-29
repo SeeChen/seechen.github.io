@@ -224,7 +224,6 @@ export const Markdown2vDom = {
 
                     if (marked.value === 0) {
 
-                        console.log(marked);
                         let temp_children = window.myTools.deepCopy(temp_vDOm);
 
                         if (marked.tag === "quote") {
@@ -253,13 +252,13 @@ export const Markdown2vDom = {
                             }
                         } else if (marked.tag === "ul" || marked.tag === "ol") {
 
-                            elementSpace.push(leaf.space);
-                            
+                            if (!elementSpace.includes(leaf.space)) {
+                                elementSpace.push(leaf.space);
+                                
+                                elementSpace = elementSpace.sort((a, b) => { a - b });
+                            }
+
                             if (leaf.space === Math.min(...elementSpace)) {
-
-                                // 当前问题，由于没有处理子列表，导致的出错，记得处理相关逻辑。
-
-                                console.log(marked.tag);
                                 
                                 if (
                                     !prepreviousLeaf.ol.length 
@@ -284,6 +283,9 @@ export const Markdown2vDom = {
 
                                     flag = true;
                                 }
+                            } else {
+
+                                elementSpace.indexOf(leaf.space);
                             }
                         }
                     }
