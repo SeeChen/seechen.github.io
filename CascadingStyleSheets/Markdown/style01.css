@@ -1,0 +1,51 @@
+.style01 {
+
+    font-family: var(--fontface-content-3);
+    color: var(--font-color-normal-selected);
+
+    padding: 1em;
+    box-sizing: border-box;
+    font-size: 1.1em;
+}
+
+.style01 code {
+
+    display: block;
+
+    border: 0.1em solid #000;
+    border-radius: 1em;
+    padding: 1em;
+
+    font-family: var(--fontface-content);
+
+    user-select: text;
+}
+
+.style01 code.inline-code {
+    display: initial;
+
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.5);
+
+    padding: 0.05em 0.3em;
+    border: none;
+    border-radius: 0.5em;
+}
+
+.style01 blockquote {
+
+    background: rgba(0, 0, 0, 0.1);
+    padding: 0.5em 1em;
+
+    border-left: 0.25em solid var(--font-color-light-normal);
+}
+
+.style01 blockquote.subquote {
+
+    width: 98%;
+
+    padding: 0.5em 1%;
+    
+    margin: auto;
+    box-sizing: border-box;
+}

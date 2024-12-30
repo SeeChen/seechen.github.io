@@ -328,6 +328,8 @@ const SeeChen_AboutPage_AboutSites = {
             ![test image](/File/Image/Home/home-background.avif)
             [test](https://github.com)
             `
+
+            window.myData.about.contentExpand.children[1].props["class"] = "style01";
             window.myData.about.contentExpand.children[1].children = window.md2vDom.convert(test_md);
 
             window.vDom.Patch(

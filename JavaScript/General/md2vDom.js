@@ -285,7 +285,35 @@ export const Markdown2vDom = {
                                 }
                             } else {
 
-                                elementSpace.indexOf(leaf.space);
+                                flag = true;
+                                
+                                // console.log(elementSpace.indexOf(leaf.space));
+                                let temp_children = vDomObj[vDomObj.length - 1].children;
+                                for (let i = 0; i < elementSpace.indexOf(leaf.space); i++) {
+                                    temp_children = temp_children[temp_children.length - 1].children;
+                                }
+
+                                if (prepreviousLeaf.space < leaf.space) {
+                                    temp_children.push({
+                                        tag: marked.tag,
+                                        props: {},
+                                        lang: "",
+                                        children: [{
+                                            tag: "li",
+                                            props: {},
+                                            lang: "",
+                                            children: [temp_vDOm]
+                                        }]
+                                    });
+                                } else {
+                                    temp_children[temp_children.length - 1].children.push({
+                                        tag: "li",
+                                        props: {},
+                                        lang: "",
+                                        children: [temp_vDOm]
+                                    });
+                                }
+                                
                             }
                         }
                     }
