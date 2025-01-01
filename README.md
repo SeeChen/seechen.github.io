@@ -94,6 +94,8 @@ Markdown (.md) files are a widely used format in network resources, as their syn
 
 On my website, all nodes are first converted into a Virtual DOM (vDOM) object. Leveraging the rules outlined in [this guide](https://www.markdownguide.org/basic-syntax/), I implemented a custom mechanism to parse Markdown files into vDOM objects, ensuring seamless rendering and integration within the site's architecture.
 
+The implementation code can be found in [md2vDom.js](/JavaScript/General/md2vDom.js).
+
 ## 4. Sitemap
 The currently accessible sitemaps are as follows:
 
@@ -228,5 +230,5 @@ seechen.github.io
 ---
 <div align="right">
 
-###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 11-DEC-2024 07:29 UTC +08:00*
+###### *Last Modified by [SeeChen](https://github.com/SeeChen/) @ 02-JAN-2025 07:46 UTC +08:00*
 </div>
