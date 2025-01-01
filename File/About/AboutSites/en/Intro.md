@@ -1,9 +1,11 @@
 
-# About SeeChen's Websites
+# Hi there, here is about my sites!
 
 ---
 
-> View my code via **[THIS LINK](https://github.com/SeeChen/seechen.github.io/).**
+> You can visit my open source code on my [GitHub Repositories](https://github.com/SeeChen/seechen.github.io/).</br></br>All code about this sites is already push to this repostiories. If you have any question, you can contact me with [leeseechen@gmail.com](mailto:leeseechen@gmail.com) or you can Create an [Issue](https://github.com/SeeChen/seechen.github.io/issues).
+
+## All about this sites
 
 This website is hosted on Github Pages (github.io) and developed using HTML5 + CSS3 + Native JavaScript.
 
@@ -13,5 +15,4 @@ The repository for this project was initially created on August 25, 2021, and ha
 
 This website serves as a personal challenge for the author to explore and understand modern JavaScript and CSS features. The current objective is to develop and maintain the entire website solely with native JavaScript and CSS, without relying on any frameworks or external libraries.
 
-If you have any suggestions or ideas for improvement, please feel free to visit my Github repository and submit an Issue. Your feedback and support would be greatly appreciated!
-
+If you have any suggestions or ideas for improvement, please feel free to visit my Github repository and submit an [Issue](https://github.com/SeeChen/seechen.github.io/issues). Your feedback and support would be greatly appreciated!

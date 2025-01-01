@@ -261,6 +261,9 @@ const SeeChen_AboutPage_AboutSites = {
             window.myData.about.contentExpand.children[0].children[0].children = [e.target.dataset.originalObj];
 
             let content_url = `/File/About/AboutSites/${window.globalValues.language}/${e.target.id.split("-")[1]}.md`;
+
+            // Code to check what is the correct url path, will delete after finished this part.
+            console.log(content_url);
             let content_md = await window.myTools.getTxt(content_url);
 
             window.myData.about.contentExpand.children[1].props["class"] = "style01";

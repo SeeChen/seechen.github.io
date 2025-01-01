@@ -1,0 +1,4 @@
+
+- To gain a deeper understanding of how browsers work and to fully grasp the core principles of JavaScript, all functionalities and optimizations on this site are implemented using pure JavaScript, based on the philosophy that all code will ultimately be compiled into native JavaScript.
+- In addition to JavaScript, all styles on this site are written in pure CSS without utilizing any rapid development tools or frameworks.
+- This approach is intended to help the author of this site gain a deeper comprehension of modern JavaScript and the latest CSS features. Therefore, this method of pure development and maintenance has been adopted, avoiding any external frameworks entirely.
