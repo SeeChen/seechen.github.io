@@ -89,6 +89,11 @@ Unlike a real backend server, this method may result in noticeable 404 errors ap
 
 ***The `spa.html` file is not necessary for the current project. It was created during the transition to a Single Page Application (SPA) in order to maintain the functionality of the original project without disruption. Even after the full migration to SPA, this file remains as a symbolic reminder of the project's evolution.***
 
+### 3.9 Markdown to Virtual DOM (vDOM) Implementation
+Markdown (.md) files are a widely used format in network resources, as their syntax can be directly mapped to corresponding HTML tags. However, modern browsers do not natively support reading and "compiling" Markdown files for display, which necessitates manual conversion.
+
+On my website, all nodes are first converted into a Virtual DOM (vDOM) object. Leveraging the rules outlined in [this guide](https://www.markdownguide.org/basic-syntax/), I implemented a custom mechanism to parse Markdown files into vDOM objects, ensuring seamless rendering and integration within the site's architecture.
+
 ## 4. Sitemap
 The currently accessible sitemaps are as follows:
 
