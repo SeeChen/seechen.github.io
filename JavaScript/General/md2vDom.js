@@ -287,7 +287,6 @@ export const Markdown2vDom = {
 
                                 flag = true;
                                 
-                                // console.log(elementSpace.indexOf(leaf.space));
                                 let temp_children = vDomObj[vDomObj.length - 1].children;
                                 for (let i = 0; i < elementSpace.indexOf(leaf.space); i++) {
                                     temp_children = temp_children[temp_children.length - 1].children;

@@ -49,3 +49,12 @@
     margin: auto;
     box-sizing: border-box;
 }
+
+.style01 img {
+    
+    max-width: 100%;
+}
+
+.style01 ol, .style01 ul {
+    margin-left: 2ch;
+}

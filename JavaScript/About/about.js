@@ -260,77 +260,11 @@ const SeeChen_AboutPage_AboutSites = {
 
             window.myData.about.contentExpand.children[0].children[0].children = [e.target.dataset.originalObj];
 
-            var test_md = `
-            # 1
-            ## 2
-            ### 3
-            #### 4
-            ##### 5
-            ###### 6
-
-            ##test
-            
-            > ## inline 1
-            >> subquote
-
-            > ### inline 1-1
-            > ### inline 1-2
-
-            1. Order list
-            2. Order list
-            4. Hei Hei
-
-            a. test
-            b. test
-
-            A. aaa
-            B. aaa
-
-            \`\`\`
-            public static void main(String[] args) {
-                System.out.println("Hello World.");
-            }
-            \`\`\`
-
-            \`inline\`
-            
-            test \`inline\` test
-
-            test\`inline\`test
-
-            ---
-
-            *em*
-            **strong**
-            ***em and strong***
-
-            ***
-
-            this is a paragraph
-
-            this is frist row
-            this is second row
-
-            - [ ] a
-            - [x] b
-
-            - test for unorder list
-            - aaa
-                - aaabbb
-                - aaaccc
-            - bbb
-            - ccc
-                - cccaaa
-
-            > - a
-            > - b
-
-            ![test image](/File/Image/Home/home-background.avif)
-            [test](https://github.com)
-            `
+            let content_url = `/File/About/AboutSites/${window.globalValues.language}/${e.target.id.split("-")[1]}.md`;
+            let content_md = await window.myTools.getTxt(content_url);
 
             window.myData.about.contentExpand.children[1].props["class"] = "style01";
-            window.myData.about.contentExpand.children[1].children = window.md2vDom.convert(test_md);
+            window.myData.about.contentExpand.children[1].children = window.md2vDom.convert(content_md);
 
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),
