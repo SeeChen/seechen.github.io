@@ -312,6 +312,9 @@ export const router = {
                     "/home",
                     "/home.htm",
                     "/home.html",
+                    "/%E6%88%91%E7%9A%84%E4%B8%BB%E9%A1%B5",
+                    "/%E4%B8%BB%E9%A1%B5",
+                    "/%E6%9D%8E%E6%80%9D%E5%87%80%E7%9A%84%E4%B8%BB%E9%A1%B5"
                 ],
 
                 values: "/"

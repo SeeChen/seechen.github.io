@@ -8,6 +8,11 @@
     font-size: 1.1em;
 }
 
+.style01 h1, .style01 h2, .style01 h3, .style01 h4, .style01 h5, .style01 h6 {
+
+    margin-bottom: 0.25em;
+}
+
 .style01 code {
 
     display: block;
