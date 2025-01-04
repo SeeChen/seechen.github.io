@@ -112,6 +112,7 @@ export const SeeChen_AboutPage = {
 
             aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
             aboutSession_AboutSites_Click: SeeChen_AboutPage_AboutSites.click,
+            aboutSession_AboutMe_Click: SeeChen_AboutPage_AboutMe.click,
             aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
             
             aboutSites_close: SeeChen_AboutPage_AboutSites.closeClick,
@@ -262,7 +263,6 @@ const SeeChen_AboutPage_AboutSites = {
 
             let content_url = `/File/About/AboutSites/${window.globalValues.language}/${e.target.id.split("-")[1]}.md`;
 
-            // Code to check what is the correct url path, will delete after finished this part.
             console.log(content_url);
             let content_md = await window.myTools.getTxt(content_url);
 
@@ -295,6 +295,18 @@ const SeeChen_AboutPage_AboutSites = {
             await new Promise(r => setTimeout(r, 600));
             document.querySelector("#box_LoadingAnimation").classList.remove("waitToDisplay");
         }
+    }
+}
+
+const SeeChen_AboutPage_AboutMe = {
+
+    click: async (
+        event
+    ) => {
+        
+        const { e } = event;
+
+        console.log(e.target.classList);
     }
 }
 
