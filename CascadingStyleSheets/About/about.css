@@ -474,3 +474,9 @@
 
     overflow: hidden scroll;
 }
+
+#about_ExpandContent #content_aboutMe {
+
+    min-height: 100dvh;
+    min-width: 100vw;
+}
