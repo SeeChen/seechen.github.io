@@ -479,4 +479,25 @@
 
     min-height: 100dvh;
     min-width: 100vw;
+
+    color: var(--font-color-normal);
 }
+
+#about_ExpandContent #aboutMe_Content_Close {
+
+    position: fixed;
+
+    top: 10dvh;
+    left: 5vw;
+
+    font-family: var(--fontface-content-3);
+    font-size: calc(1.3 * var(--font-size-1em));
+
+    cursor: pointer;
+}
+
+#about_ExpandContent #aboutMe_Content_Close::before {
+
+    content: "◄ ";
+}
+

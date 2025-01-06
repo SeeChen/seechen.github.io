@@ -20,8 +20,8 @@
             "props": {
                 "id": "aboutMe_Content_Close"
             },
-            "lang": "",
-            "children": ["❌"]
+            "lang": "travel",
+            "children": ["_back_"]
         }]
     }, {
         "tag": "div",

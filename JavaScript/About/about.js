@@ -116,6 +116,7 @@ export const SeeChen_AboutPage = {
             aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
             
             aboutSites_close: SeeChen_AboutPage_AboutSites.closeClick,
+            aboutMe_close: SeeChen_AboutPage_AboutMe.closeClick,
             acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick,
         }
 
@@ -134,9 +135,11 @@ export const SeeChen_AboutPage = {
 
             aboutSession_Language_Click: SeeChen_AboutPage_Language.click,
             aboutSession_AboutSites_Click: SeeChen_AboutPage_AboutSites.click,
+            aboutSession_AboutMe_Click: SeeChen_AboutPage_AboutMe.click,
             aboutSession_Acknowledgments_Click: SeeChen_AboutPage_Acknowledgments.click,
             
             aboutSites_close: SeeChen_AboutPage_AboutSites.closeClick,
+            aboutMe_close: SeeChen_AboutPage_AboutMe.closeClick,
             acnkowledgments_close: SeeChen_AboutPage_Acknowledgments.closeClick,
         }
 
@@ -325,11 +328,12 @@ const SeeChen_AboutPage_AboutMe = {
             await new Promise(r => setTimeout(r, 100));
             document.querySelector("#box_LoadingAnimation").classList.add("display");
 
+            var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
+
+            console.log(targetDetails);
+
             const template_AboutMe = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutMe.json");
             const old_AboutMe = window.myTools.deepCopy(window.myData.about.contentExpand);
-
-            console.log(template_AboutMe);
-            console.log(old_AboutMe);
 
             window.myData.about.contentExpand = template_AboutMe;
 
