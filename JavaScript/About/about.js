@@ -329,15 +329,14 @@ const SeeChen_AboutPage_AboutMe = {
             document.querySelector("#box_LoadingAnimation").classList.add("display");
 
             var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
-
-            console.log(targetDetails);
+            targetDetails = await window.myTools.getJson(targetDetails);
 
             const template_AboutMe = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutMe.json");
             const old_AboutMe = window.myTools.deepCopy(window.myData.about.contentExpand);
 
             window.myData.about.contentExpand = template_AboutMe;
 
-            // todo
+            window.myData.about.contentExpand.children[1].children = [targetDetails];
 
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),
