@@ -12,10 +12,13 @@
 :root {
 
     --about-Session-session-Content-max-height: 0px;
+
+    --about-Session-session-Content-About-Me-Biography-font-size: calc(6 * var(--font-size-1em));
 }
 
 @media screen and (max-width: 750px) {
     :root {
+        --about-Session-session-Content-About-Me-Biography-font-size: calc(4 * var(--font-size-1em));
     }
 }
 
@@ -477,9 +480,6 @@
 
 #about_ExpandContent #content_aboutMe {
 
-    min-height: 100dvh;
-    min-width: 100vw;
-
     color: var(--font-color-normal);
 }
 
@@ -494,6 +494,7 @@
     font-size: calc(1.3 * var(--font-size-1em));
 
     cursor: pointer;
+    z-index: 3;
 }
 
 #about_ExpandContent #aboutMe_Content_Close::before {
@@ -501,3 +502,71 @@
     content: "◄ ";
 }
 
+#about_ExpandContent #aboutMe_Content {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    min-height: 100dvh;
+    max-height: 100dvh;
+
+    overflow: hidden scroll;
+}
+#about_ExpandContent #aboutMe_Content::-webkit-scrollbar {
+    display: none;
+}
+
+@keyframes animation_1 {
+    from {
+        height: 100dvh;
+    }
+
+    to {
+        height: 10dvh;
+        background-position: top;
+        filter: contrast(1) opacity(0.5);
+    }
+}
+
+#about_ExpandContent #aboutMe_Content > div:first-child {
+    height: 300dvh;
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_bg {
+
+    position: relative;
+
+    top: 0;
+    left: 0;
+
+    height: 100dvh;
+    width: 100vw;
+
+    background: url(/File/Image/About/aboutMe-background.avif);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    filter: contrast(1) opacity(1);
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--about-Session-session-Content-About-Me-Biography-font-size);
+    font-family: var(--fontface-title);
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 100dvh;
+
+    animation: animation_1 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0 90dvh;
+    animation-fill-mode: forwards;
+
+    pointer-events: none;
+}
+
+
+#biography_test {
+    height: 300dvh;
+}

@@ -336,7 +336,9 @@ const SeeChen_AboutPage_AboutMe = {
 
             window.myData.about.contentExpand = template_AboutMe;
 
-            window.myData.about.contentExpand.children[1].children = [targetDetails];
+            window.myData.about.contentExpand.children[1].children = targetDetails;
+
+            console.log(window.myData.about.contentExpand);
 
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),

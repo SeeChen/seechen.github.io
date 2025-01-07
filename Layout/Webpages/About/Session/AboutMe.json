@@ -12,11 +12,6 @@
         "lang": "",
         "children": [{
             "tag": "p",
-            "props": {},
-            "lang": "about",
-            "children": []
-        }, {
-            "tag": "p",
             "props": {
                 "id": "aboutMe_Content_Close"
             },
