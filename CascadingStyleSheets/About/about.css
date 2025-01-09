@@ -566,7 +566,7 @@
     pointer-events: none;
 }
 
-
-#biography_test {
-    height: 300dvh;
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content {
+    min-height: 100dvh;
+    width: 100vw;
 }
