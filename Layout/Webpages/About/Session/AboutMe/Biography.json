@@ -12,9 +12,23 @@
     },
     "lang": "",
     "children": [{
-        "tag": "div",
-        "props": {},
+        "tag": "p",
+        "props": {
+            "id": "aboutMe_Biography_Content_Welcome"
+        },
         "lang": "",
-        "children": []
+        "children": [{
+            "tag": "p",
+            "props": {
+                "class": "fontface-change"
+            },
+            "lang": "about",
+            "children": ["_aboutMe_biography_welcome_0_"]
+        }, {
+            "tag": "p",
+            "props": {},
+            "lang": "about",
+            "children": ["_aboutMe_biography_welcome_1_"]
+        }]
     }]
 }]

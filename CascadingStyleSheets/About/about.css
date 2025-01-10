@@ -14,11 +14,16 @@
     --about-Session-session-Content-max-height: 0px;
 
     --about-Session-session-Content-About-Me-Biography-font-size: calc(6 * var(--font-size-1em));
+    
+    --about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size: var(--font-size-4em);
+    --about-Session-session-Content-About-Me-Biography-Welcome-Title-top: -3dvh;
 }
 
 @media screen and (max-width: 750px) {
     :root {
         --about-Session-session-Content-About-Me-Biography-font-size: calc(4 * var(--font-size-1em));
+        --about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size: var(--font-size-2_5em);
+        --about-Session-session-Content-About-Me-Biography-Welcome-Title-top: 0.5dvh;
     }
 }
 
@@ -490,8 +495,11 @@
     top: 10dvh;
     left: 5vw;
 
+    color: var(--font-color-normal-selected);
     font-family: var(--fontface-content-3);
     font-size: calc(1.3 * var(--font-size-1em));
+
+    text-shadow: 2px 2px 0.15em #AAA;
 
     cursor: pointer;
     z-index: 3;
@@ -567,6 +575,40 @@
 }
 
 #about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content {
-    min-height: 100dvh;
+
+    min-height: 200dvh;
     width: 100vw;
+
+    padding: 4dvh 2em;
+    box-sizing: border-box;
+}
+
+@keyframes fontfaceAnimation {
+    0%   { font-family: var(--fontface-title); }
+    20%  { font-family: var(--fontface-title-4); }
+    40%  { font-family: var(--fontface-content); }
+    60%  { font-family: var(--fontface-content-2); }
+    80%  { font-family: var(--fontface-content-3); }
+}
+
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content #aboutMe_Biography_Content_Welcome {
+
+    position: sticky;
+
+    top: var(--about-Session-session-Content-About-Me-Biography-Welcome-Title-top);
+
+    text-align: right;
+
+    font-size: var(--about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size);
+    font-family: var(--fontface-content);
+
+    box-shadow: 0 4px 0.01em -2px #CCC;
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content #aboutMe_Biography_Content_Welcome p.fontface-change {
+
+    height: 1.25em;
+    line-height: 1.25em;
+    animation: fontfaceAnimation 2s linear infinite;
 }
