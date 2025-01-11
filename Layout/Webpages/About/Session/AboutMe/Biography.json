@@ -30,5 +30,12 @@
             "lang": "about",
             "children": ["_aboutMe_biography_welcome_1_"]
         }]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "aboutMe_Biography_Content_Area"
+        },
+        "lang": "",
+        "children": [""]
     }]
 }]
