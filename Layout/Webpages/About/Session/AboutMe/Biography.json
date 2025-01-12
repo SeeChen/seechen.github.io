@@ -12,30 +12,38 @@
     },
     "lang": "",
     "children": [{
-        "tag": "p",
+        "tag": "table",
         "props": {
-            "id": "aboutMe_Biography_Content_Welcome"
+            "id": "aboutMe_Biography_Content_Menu"
         },
         "lang": "",
         "children": [{
-            "tag": "p",
-            "props": {
-                "class": "fontface-change"
-            },
-            "lang": "about",
-            "children": ["_aboutMe_biography_welcome_0_"]
-        }, {
-            "tag": "p",
+            "tag": "tr",
             "props": {},
-            "lang": "about",
-            "children": ["_aboutMe_biography_welcome_1_"]
+            "lang": "",
+            "children": [{
+                "tag": "td",
+                "props": {
+                    "class": "Biography_Selected",
+                    "data-content": "test-1"
+                },
+                "lang": "about",
+                "children": ["_feedback_"]
+            }, {
+                "tag": "td",
+                "props": {
+                    "data-content": "test-1"
+                },
+                "lang": "about",
+                "children": ["_feedback_"]
+            }, {
+                "tag": "td",
+                "props": {
+                    "data-content": "test-1"
+                },
+                "lang": "about",
+                "children": ["_feedback_"]
+            }]
         }]
-    }, {
-        "tag": "div",
-        "props": {
-            "id": "aboutMe_Biography_Content_Area"
-        },
-        "lang": "",
-        "children": [""]
     }]
 }]

@@ -535,6 +535,7 @@
         height: 10dvh;
         background-position: top;
         filter: contrast(1) opacity(0.5);
+        line-height: 80dvh;
     }
 }
 
@@ -576,50 +577,50 @@
 
 #about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content {
 
-    min-height: 200dvh;
+    position: relative;
+
+    min-height: 100dvh;
+    max-height: 100dvh;
     width: 100vw;
 
-    padding: 4dvh 2em;
     box-sizing: border-box;
 }
 
-@keyframes fontfaceAnimation {
-    0%   { font-family: var(--fontface-title); }
-    20%  { font-family: var(--fontface-title-4); }
-    40%  { font-family: var(--fontface-content); }
-    60%  { font-family: var(--fontface-content-2); }
-    80%  { font-family: var(--fontface-content-3); }
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content_Menu {
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 1em;
+    
+    height: 4em;
+    width: 80vw;
+
+    margin: auto;
+    border-radius: 1em;
+    border: 0.15em solid var(--font-color-normal);
+
+    /* table-layout: fixed; */
 }
 
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content_Menu td {
 
-#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content #aboutMe_Biography_Content_Welcome {
+    width: 25%;
 
-    position: sticky;
+    cursor: pointer;
+    text-align: center;
 
-    top: var(--about-Session-session-Content-About-Me-Biography-Welcome-Title-top);
+    font-size: calc(1.3 * var(--font-size-1em));
+    font-family: var(--fontface-content-4);
 
-    text-align: right;
-
-    font-size: var(--about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size);
-    font-family: var(--fontface-content);
-
-    box-shadow: 0 4px 0.01em -2px #CCC;
+    transition: all 0.5s;
 }
 
-#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content #aboutMe_Biography_Content_Welcome p.fontface-change {
+#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content_Menu td.Biography_Selected {
 
-    height: 1.25em;
-    line-height: 1.25em;
-    animation: fontfaceAnimation 2s linear infinite;
-}
+    width: 50%;
 
-#about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content #aboutMe_Biography_Content_Area {
-
-    margin-top: 10dvh;
-
-    width: 100%;
-    height: 200dvh;
-    background: url(/File/icon.png);
-    background-repeat: no-repeat;
-    background-position: -50% center;
+    font-size: var(--font-size-2em);
+    color: var(--font-color-normal-selected);
 }

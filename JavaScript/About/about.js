@@ -303,17 +303,44 @@ const SeeChen_AboutPage_AboutSites = {
 
 const SeeChen_AboutPage_AboutMe = {
 
-    closeClick: async (
+    loadingBiography: async () => {
+
+        document.querySelector("#aboutMe_Biography_Content_Menu").addEventListener("click", (e) => {
+            window.eventBus.emit("aboutMe_BiographyMenu_Click", { e });
+        });
+
+
+        console.log("Biography Events On");
+        window.eventBus.on("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
+    },
+    Biography_MenuClick: async (
         event
     ) => {
 
         const { e } = event;
 
+        var selectedClassName = "Biography_Selected";
+        document.querySelector(`.${selectedClassName}`).classList.remove(selectedClassName);
+        e.target.classList.add(selectedClassName);
+
+        console.log(e.target.dataset.content);
+    },
+    closeBiography: async () => {
+        console.log("Biography Events Closed");
+        window.eventBus.off("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
+    },
+
+    closeClick: async (
+        event
+    ) => {
+
+        const { e, targetContent } = event;
+
+        await SeeChen_AboutPage_AboutMe[`close${targetContent}`]?.();
+
         document.querySelector("#about_ExpandContent").classList.remove("expanded");
         await new Promise(r => setTimeout(r, 1000));
         document.querySelector("#about_ExpandContent").classList.remove("expanded-loading");
-
-        
     },
 
     click: async (
@@ -328,6 +355,7 @@ const SeeChen_AboutPage_AboutMe = {
             await new Promise(r => setTimeout(r, 100));
             document.querySelector("#box_LoadingAnimation").classList.add("display");
 
+            var targetContent = e.target.id.split("-")[1];
             var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
             targetDetails = await window.myTools.getJson(targetDetails);
 
@@ -337,8 +365,6 @@ const SeeChen_AboutPage_AboutMe = {
             window.myData.about.contentExpand = template_AboutMe;
 
             window.myData.about.contentExpand.children[1].children = targetDetails;
-
-            console.log(window.myData.about.contentExpand);
 
             window.vDom.Patch(
                 document.querySelector("#about_ExpandContent"),
@@ -358,8 +384,10 @@ const SeeChen_AboutPage_AboutMe = {
             await new Promise(r => setTimeout(r, 100));
             document.querySelector("#about_ExpandContent").classList.add("expanded");
 
+            await SeeChen_AboutPage_AboutMe[`loading${targetContent}`]?.();
+
             document.querySelector("#aboutMe_Content_Close").addEventListener("click", (e) => {
-                window.eventBus.emit("aboutMe_close", { e });
+                window.eventBus.emit("aboutMe_close", { e, targetContent });
             });
 
             document.querySelector("#box_LoadingAnimation").classList.remove("display");
