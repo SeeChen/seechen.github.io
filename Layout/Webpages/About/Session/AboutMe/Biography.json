@@ -8,13 +8,15 @@
 }, {
     "tag": "div",
     "props": {
-        "id": "aboutMe_Biography_Content"
+        "id": "aboutMe_Biography_Content",
+        "class": "biography_0"
     },
     "lang": "",
     "children": [{
         "tag": "table",
         "props": {
-            "id": "aboutMe_Biography_Content_Menu"
+            "id": "aboutMe_Biography_Content_Menu",
+            "data-current-class": "biography_0"
         },
         "lang": "",
         "children": [{
@@ -25,25 +27,32 @@
                 "tag": "td",
                 "props": {
                     "class": "Biography_Selected",
-                    "data-content": "test-1"
+                    "data-content": "biography_0"
                 },
                 "lang": "about",
                 "children": ["_feedback_"]
             }, {
                 "tag": "td",
                 "props": {
-                    "data-content": "test-1"
+                    "data-content": "biography_1"
                 },
                 "lang": "about",
                 "children": ["_feedback_"]
             }, {
                 "tag": "td",
                 "props": {
-                    "data-content": "test-1"
+                    "data-content": "biography_2"
                 },
                 "lang": "about",
                 "children": ["_feedback_"]
             }]
         }]
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "Biography_Content_MyPhotos"
+        },
+        "lang": "",
+        "children": []
     }]
 }]

@@ -323,7 +323,11 @@ const SeeChen_AboutPage_AboutMe = {
         document.querySelector(`.${selectedClassName}`).classList.remove(selectedClassName);
         e.target.classList.add(selectedClassName);
 
-        console.log(e.target.dataset.content);
+        document.querySelector("#aboutMe_Biography_Content").classList.remove(
+            document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass
+        );
+        document.querySelector("#aboutMe_Biography_Content").classList.add(e.target.dataset.content);
+        document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass = e.target.dataset.content;
     },
     closeBiography: async () => {
         console.log("Biography Events Closed");
