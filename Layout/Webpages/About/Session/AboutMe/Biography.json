@@ -50,7 +50,8 @@
     }, {
         "tag": "div",
         "props": {
-            "id": "Biography_Content_MyPhotos"
+            "id": "Biography_Content_MyPhotos",
+            "class": "biography_0"
         },
         "lang": "",
         "children": []

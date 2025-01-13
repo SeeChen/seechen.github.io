@@ -120,7 +120,7 @@ window.onload = async function() {
 
     await window.router.route(window.location.pathname);
 
-    // await SeeChen_AboutPage.init();
+    await SeeChen_AboutPage.init();
 
     window.webpages.loadingPage.updateProgress(99);
     

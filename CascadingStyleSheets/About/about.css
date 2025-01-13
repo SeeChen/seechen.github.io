@@ -17,6 +17,14 @@
     
     --about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size: var(--font-size-4em);
     --about-Session-session-Content-About-Me-Biography-Welcome-Title-top: -3dvh;
+
+
+    --about-Session-session-Content-About-Me-Biography-Content-0-background-position: left center, left 100dvh, left 100dvh;
+    --about-Session-session-Content-About-Me-Biography-Content-1-background-position: left center, left 100dvh, left 100dvh;
+    --about-Session-session-Content-About-Me-Biography-Content-2-background-position: left center, left 100dvh, left 100dvh;
+    --about-Session-session-Content-About-Me-Biography-Content-My-Photo-0-background-position: left center, left 100dvh, left 100dvh;
+    --about-Session-session-Content-About-Me-Biography-Content-My-Photo-1-background-position: left 100dvh, left center, left 100dvh;
+    --about-Session-session-Content-About-Me-Biography-Content-My-Photo-2-background-position: left 100dvh, left 100dvh, left center;
 }
 
 @media screen and (max-width: 750px) {
@@ -624,8 +632,6 @@
     backdrop-filter: blur(0.5em);
 
     z-index: 5;
-
-    /* table-layout: fixed; */
 }
 
 #about_ExpandContent #aboutMe_Content #aboutMe_Biography_Content_Menu td {
@@ -649,14 +655,35 @@
     color: var(--font-color-normal-selected);
 }
 
-#Biography_Content_MyPhotos {
+#about_ExpandContent #aboutMe_Content #Biography_Content_MyPhotos {
 
     position: absolute;
+
+    left: 10dvh;
 
     width: 100vw;
     height: 100dvh;
 
     z-index: 1;
 
-    /* background: red; */
+    background: url(/File/Image/MyTimeline/20000806-01.avif), 
+            url(/File/Image/MyTimeline/20200901-01.avif),
+            url(/File/Image/MyTimeline/20231202-01.avif);
+
+    background-size: 25%;
+    background-position: left center, left 100dvh, left 100dvh;
+    background-repeat: no-repeat;
+
+    transition: all 1s;
+}
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_MyPhotos.biography_0 {
+    background-position: var(--about-Session-session-Content-About-Me-Biography-Content-My-Photo-0-background-position);
+    /* background-position: left center, left 100dvh, left 100dvh; */
+}
+#about_ExpandContent #aboutMe_Content #Biography_Content_MyPhotos.biography_1 {
+    background-position: left 100dvh, left center, left 100dvh;
+}
+#about_ExpandContent #aboutMe_Content #Biography_Content_MyPhotos.biography_2 {
+    background-position: left 100dvh, left 100dvh, left center;
 }
