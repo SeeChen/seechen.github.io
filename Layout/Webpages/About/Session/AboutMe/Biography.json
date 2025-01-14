@@ -30,21 +30,21 @@
                     "data-content": "biography_0"
                 },
                 "lang": "about",
-                "children": ["_feedback_"]
+                "children": ["_about_me_"]
             }, {
                 "tag": "td",
                 "props": {
                     "data-content": "biography_1"
                 },
                 "lang": "about",
-                "children": ["_feedback_"]
+                "children": ["_bio_my_past_"]
             }, {
                 "tag": "td",
                 "props": {
                     "data-content": "biography_2"
                 },
                 "lang": "about",
-                "children": ["_feedback_"]
+                "children": ["_bio_free_time_"]
             }]
         }]
     }, {
@@ -55,5 +55,28 @@
         },
         "lang": "",
         "children": []
+    }, {
+        "tag": "div",
+        "props": {
+            "id": "Biography_Content_Real",
+            "class": "biography_0"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": []
+        }]
     }]
 }]

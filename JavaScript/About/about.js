@@ -329,8 +329,13 @@ const SeeChen_AboutPage_AboutMe = {
         document.querySelector("#Biography_Content_MyPhotos").classList.remove(
             document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass
         );
+        document.querySelector("#Biography_Content_Real").classList.remove(
+            document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass
+        );
+
         document.querySelector("#aboutMe_Biography_Content").classList.add(e.target.dataset.content);
         document.querySelector("#Biography_Content_MyPhotos").classList.add(e.target.dataset.content);
+        document.querySelector("#Biography_Content_Real").classList.add(e.target.dataset.content);
         
         document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass = e.target.dataset.content;
     },
