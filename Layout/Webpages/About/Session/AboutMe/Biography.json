@@ -76,7 +76,26 @@
             "tag": "div",
             "props": {},
             "lang": "",
-            "children": []
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "Biography_aboutMe_head"
+                },
+                "lang": "about",
+                "children": ["_Biography_aboutMe_title_"]
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "Biography_aboutMe_head"
+                },
+                "lang": "about",
+                "children": ["_Biography_aboutMe_intro_"]
+            }, {
+                "tag": "div",
+                "props": {},
+                "lang": "",
+                "children": []
+            }]
         }]
     }]
 }]

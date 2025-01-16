@@ -728,8 +728,32 @@
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) {
     top: 0;
     left: 200vw;
+
+    padding-top: 10dvh;
 }
 
-#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) {
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) .Biography_aboutMe_head {
+
+    width: 90%;
+
+    margin: auto;
+
+    text-align: right;
+    font-size: var(--font-size-3em);
+
+    font-family: var(--fontface-art);
+}
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) > div {
     
+    width: 70vw;
+    height: 60dvh;
+
+    margin-left: auto;
+    margin-right: 1vw;
+
+    border: 0.15em solid #CCC;
+    border-radius: 1em;
+
+    background: rgba(255, 255, 255, 0.8);
 }

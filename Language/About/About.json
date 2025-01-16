@@ -48,6 +48,8 @@
         "_license_": "开源许可证",
 
         "_about_me_": "关于我",
+        "_Biography_aboutMe_title_": "您好呀！",
+        "_Biography_aboutMe_intro_": "我是李思净 ’",
         "_aboutMe_biography_welcome_0_": "哈哈嗨",
         "_aboutMe_biography_welcome_1_": "欢迎查看我的个人简介",
         "_bio_my_past_": "曾经的我",
@@ -123,6 +125,8 @@
         "_biography_": "Biography",
         "_aboutMe_biography_welcome_0_": "HELLO",
         "_aboutMe_biography_welcome_1_": "WELCOME to MY BIOGRAPHY",
+        "_Biography_aboutMe_title_": "HELLO !",
+        "_Biography_aboutMe_intro_": "\\SeeChen\\ Here.",
         "_bio_my_past_": "My Past",
         "_bio_free_time_": "Free Time",
         "_resume_": "Resume",
