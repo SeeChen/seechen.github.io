@@ -675,6 +675,8 @@
     background-repeat: no-repeat;
 
     transition: all 1.5s;
+
+    pointer-events: none;
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_MyPhotos.biography_0 {
@@ -751,9 +753,35 @@
 
     margin-left: auto;
     margin-right: 1vw;
+    padding: 1em;
+
+    box-sizing: border-box;
 
     border: 0.15em solid #CCC;
     border-radius: 1em;
 
     background: rgba(255, 255, 255, 0.8);
+
+    overflow: hidden scroll;
+}
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) > div::-webkit-scrollbar {
+    display: none;
+}
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) > div .Biography_aboutMe_intro_topic {
+
+    margin-top: 1em;
+
+    font-size: calc(1.5 * var(--font-size-1em));
+    font-family: var(--fontface-title);
+
+    color: var(--font-color-title);
+}
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(3) > div .Biography_aboutMe_intro_content {
+
+    color: var(--font-color-normal);
+
+    font-size: calc(1.2 * var(--font-size-1em));
+    font-family: var(--fontface-art-2);
 }

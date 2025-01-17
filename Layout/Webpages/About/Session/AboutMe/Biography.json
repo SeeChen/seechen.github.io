@@ -94,7 +94,56 @@
                 "tag": "div",
                 "props": {},
                 "lang": "",
-                "children": []
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_content"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_intro_1_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_topic"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_title_1_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_content"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_intro_2_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_topic"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_title_2_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_content"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_intro_3_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_topic"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_title_3_"]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "Biography_aboutMe_intro_content"
+                    },
+                    "lang": "about",
+                    "children": ["_Biography_aboutMe_intro_4_"]
+                }]
             }]
         }]
     }]
