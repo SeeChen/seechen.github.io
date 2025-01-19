@@ -320,6 +320,20 @@ export const router = {
                 values: "/"
             }, {
                 keys: [
+                    "/travel",
+                    "/travel.htm",
+                    "/travel.html",
+                    "/Travel",
+                    "/Travel.htm",
+                    "/Travel.html",
+                    "/%E6%88%91%E7%9A%84%E6%97%85%E8%A1%8C",
+                    "/%E6%88%91%E7%9A%84%E6%97%85%E6%B8%B8",
+                    "/%E6%97%85%E8%A1%8C",
+                    "/%E6%97%85%E6%B8%B8"
+                ],
+                values: "/travel"
+            }, {
+                keys: [
                     "/projects",
                     "/projects.htm",
                     "/projects.html",

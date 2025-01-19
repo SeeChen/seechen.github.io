@@ -73,6 +73,73 @@
                 },
                 "lang": "about",
                 "children": ["_Biography_freetime_title_"]
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "Biography_aboutMe_FreeTime_Session"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_soloTravel_"]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_learning_"]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_momentCapture_"]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_cityWalk_"]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_ride_"]
+                    }]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_biography_freetime_mountaineering_"]
+                    }]
+                }]
             }]
         }, {
             "tag": "div",
