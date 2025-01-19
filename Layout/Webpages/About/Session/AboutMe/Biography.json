@@ -140,6 +140,13 @@
                         "children": ["_biography_freetime_mountaineering_"]
                     }]
                 }]
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "Biography_aboutMe_FreeTime_Illustrate"
+                },
+                "lang": "",
+                "children": []
             }]
         }, {
             "tag": "div",

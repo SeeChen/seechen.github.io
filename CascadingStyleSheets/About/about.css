@@ -777,8 +777,6 @@
     height: 65dvh;
 
     box-sizing: border-box;
-
-    border: 0.15em solid #CCC;
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) .Biography_aboutMe_FreeTime_Session > div > p:nth-child(1) {
@@ -800,6 +798,24 @@
     color: var(--font-color-title);
     font-size: calc(1.5 * var(--font-size-1em));
     font-family: var(--fontface-title-4);
+}
+
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) .Biography_aboutMe_FreeTime_Illustrate {
+
+    position: absolute;
+
+    top: 0;
+
+    width: 50vw;
+    height: 50dvh;
+
+    border: 0.15em solid #000;
+    border-radius: 1em;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    z-index: 100;
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(2) {
