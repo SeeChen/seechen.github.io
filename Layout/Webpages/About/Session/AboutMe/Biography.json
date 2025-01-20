@@ -81,7 +81,9 @@
                 "lang": "",
                 "children": [{
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_soloTravel"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",
@@ -91,7 +93,9 @@
                     }]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_learning"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",
@@ -101,7 +105,9 @@
                     }]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_momentCapture"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",
@@ -111,7 +117,9 @@
                     }]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_cityWalk"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",
@@ -121,7 +129,9 @@
                     }]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_ride"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",
@@ -131,7 +141,9 @@
                     }]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "id": "biography_freetime_mountaineering"
+                    },
                     "lang": "",
                     "children": [{
                         "tag": "p",

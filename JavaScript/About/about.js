@@ -308,9 +308,10 @@ const SeeChen_AboutPage_AboutMe = {
         document.querySelector("#aboutMe_Biography_Content_Menu").addEventListener("click", (e) => {
             window.eventBus.emit("aboutMe_BiographyMenu_Click", { e });
         });
+        document.querySelector(".Biography_aboutMe_FreeTime_Session").addEventListener("mousemove", (e) => {
+            window.eventBus.emit("aboutMe_Biography_FreeTime_MouseMove", { e });
+        });
 
-
-        console.log("Biography Events On");
         window.eventBus.on("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
     },
     Biography_MenuClick: async (
@@ -333,14 +334,41 @@ const SeeChen_AboutPage_AboutMe = {
             document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass
         );
 
+        var target_Class = e.target.dataset.content;
+        if (target_Class === "biography_2") {
+            window.eventBus.on("aboutMe_Biography_FreeTime_MouseMove", SeeChen_AboutPage_AboutMe.biography_FreeTime_MouseMove);
+        } else {
+            window.eventBus.off("aboutMe_Biography_FreeTime_MouseMove", SeeChen_AboutPage_AboutMe.biography_FreeTime_MouseMove);
+        }
+
         document.querySelector("#aboutMe_Biography_Content").classList.add(e.target.dataset.content);
         document.querySelector("#Biography_Content_MyPhotos").classList.add(e.target.dataset.content);
         document.querySelector("#Biography_Content_Real").classList.add(e.target.dataset.content);
         
         document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass = e.target.dataset.content;
     },
+    biography_FreeTime_MouseMove: async (
+        event
+    ) => {
+        const { e } = event;
+
+        if (e.target.id === "") {
+            return;
+        }
+
+        const parentContainer = document.querySelector(".Biography_aboutMe_FreeTime_Session");
+        const parentContainer_H = parentContainer.offsetHeight;
+        const parentContainer_W = parentContainer.offsetWidth;
+
+        const window_H = window.innerHeight;
+        const window_W = window.innerWidth;
+
+        const current_X = e.clientX;
+        const current_Y = e.clientY;
+
+        
+    },
     closeBiography: async () => {
-        console.log("Biography Events Closed");
         window.eventBus.off("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
     },
 
