@@ -806,6 +806,12 @@
     position: absolute;
 
     top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    margin-top: 100dvh;
 
     width: 50vw;
     height: 50dvh;
@@ -816,6 +822,14 @@
     background: rgba(0, 0, 0, 0.5);
 
     z-index: 100;
+
+    transition: 1s margin-top;
+}
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) div.showBiography_aboutMe_FreeTime_Illustrate {
+
+    margin-top: 0dvh;
+
+    transition: 1s margin-top;
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(2) {
