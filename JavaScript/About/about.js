@@ -308,7 +308,11 @@ const SeeChen_AboutPage_AboutMe = {
         document.querySelector("#aboutMe_Biography_Content_Menu").addEventListener("click", (e) => {
             window.eventBus.emit("aboutMe_BiographyMenu_Click", { e });
         });
+        document.querySelector(".Biography_aboutMe_FreeTime_Session").addEventListener("click", (e) => {
+            window.eventBus.emit("aboutMe_Biography_FreeTime_Click", { e });
+        });
 
+        window.eventBus.on("aboutMe_Biography_FreeTime_Click", SeeChen_AboutPage_AboutMe.Biography_FreeTime_Click);
         window.eventBus.on("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
     },
     Biography_MenuClick: async (
@@ -339,11 +343,24 @@ const SeeChen_AboutPage_AboutMe = {
         
         document.querySelector("#aboutMe_Biography_Content_Menu").dataset.currentClass = e.target.dataset.content;
     },
+    Biography_FreeTime_Click: async (
+        event
+    ) => {
+
+        const { e } = event;
+
+        document.querySelector(".Biography_aboutMe_FreeTime_Illustrate").classList.add("showBiography_aboutMe_FreeTime_Illustrate");
+
+        document.querySelector(".showBiography_aboutMe_FreeTime_Illustrate").addEventListener("click", (e) => {
+            e.target.classList.remove("showBiography_aboutMe_FreeTime_Illustrate");
+        });
+    },
     closeBiography: async () => {
+        window.eventBus.off("aboutMe_Biography_FreeTime_Click", SeeChen_AboutPage_AboutMe.Biography_FreeTime_Click);
         window.eventBus.off("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
     },
 
-    closeClick: async (
+    closeClick: async ( 
         event
     ) => {
 

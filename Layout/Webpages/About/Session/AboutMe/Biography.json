@@ -158,7 +158,12 @@
                     "class": "Biography_aboutMe_FreeTime_Illustrate"
                 },
                 "lang": "",
-                "children": []
+                "children": [{
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }]
             }]
         }, {
             "tag": "div",
