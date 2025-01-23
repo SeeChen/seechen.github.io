@@ -777,6 +777,16 @@
     height: 65dvh;
 
     box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+#about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) .Biography_aboutMe_FreeTime_Session > div:hover::before {
+
+    width: 125%;
+    height: 125%;
+
+    filter: opacity(0.5);
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) .Biography_aboutMe_FreeTime_Session > div::before {
@@ -784,10 +794,19 @@
     content: "";
     position: absolute;
 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+
     width: 100%;
     height: 100%;
 
     filter: opacity(0.5);
+
+    transition: all 1s;
 }
 
 #about_ExpandContent #aboutMe_Content #Biography_Content_Real > div:nth-child(1) .Biography_aboutMe_FreeTime_Session > div#biography_freetime_soloTravel::before {

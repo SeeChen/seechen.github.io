@@ -354,6 +354,8 @@ const SeeChen_AboutPage_AboutMe = {
         document.querySelector(".showBiography_aboutMe_FreeTime_Illustrate").addEventListener("click", (e) => {
             e.target.classList.remove("showBiography_aboutMe_FreeTime_Illustrate");
         });
+
+        document.querySelector(".Biography_aboutMe_FreeTime_Illustrate div").textContent = e.target.id;
     },
     closeBiography: async () => {
         window.eventBus.off("aboutMe_Biography_FreeTime_Click", SeeChen_AboutPage_AboutMe.Biography_FreeTime_Click);
