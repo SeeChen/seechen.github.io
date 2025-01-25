@@ -1,0 +1,31 @@
+[{
+    "tag": "div",
+    "props": {
+        "id": "aboutMe_Resume_Box"
+    },
+    "lang": "",
+    "children": []
+}, {
+    "tag": "div",
+    "props": {
+        "id": "aboutMe_Resume_Download_Area"
+    },
+    "lang": "",
+    "children": [{
+        "tag": "p",
+        "props": {
+            "id": "aboutMe_Resume_Download_Button_PDF",
+            "class": "aboutMe_Resume_Download_Button"
+        },
+        "lang": "about",
+        "children": ["_aboutMe_Resume_Download_Button_PDF_"]
+    }, {
+        "tag": "p",
+        "props": {
+            "id": "aboutMe_Resume_Download_Button_DOCS",
+            "class": "aboutMe_Resume_Download_Button"
+        },
+        "lang": "about",
+        "children": ["_aboutMe_Resume_Download_Button_DOCS_"]
+    }]
+}]

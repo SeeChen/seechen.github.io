@@ -355,7 +355,7 @@ const SeeChen_AboutPage_AboutMe = {
             e.target.classList.remove("showBiography_aboutMe_FreeTime_Illustrate");
         });
 
-        document.querySelector(".Biography_aboutMe_FreeTime_Illustrate div").textContent = e.target.id;
+        document.querySelector(".Biography_aboutMe_FreeTime_Illustrate div").textContent = window.globalValues.translateData["about"][window.globalValues.language][`_${e.target.id}_content_`]; 
     },
     closeBiography: async () => {
         window.eventBus.off("aboutMe_Biography_FreeTime_Click", SeeChen_AboutPage_AboutMe.Biography_FreeTime_Click);
@@ -389,6 +389,8 @@ const SeeChen_AboutPage_AboutMe = {
 
             var targetContent = e.target.id.split("-")[1];
             var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
+
+            console.log(targetDetails);
             targetDetails = await window.myTools.getJson(targetDetails);
 
             const template_AboutMe = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutMe.json");

@@ -41,6 +41,9 @@
         "id": "aboutSession_AboutMe",
         "handle": "aboutSession_AboutMe",
         "children": {
+            "_biography_": {
+                "handle": "aboutSession_AboutMe-Biography"
+            },
             "_resume_": {
                 "handle": "aboutSession_AboutMe-Resume"
             },

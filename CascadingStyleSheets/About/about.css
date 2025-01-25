@@ -883,6 +883,13 @@
     right: 0;
 
     margin: auto;
+    padding: var(--font-size-1em);
+
+    box-sizing: border-box;
+
+    color: var(--font-color-normal-selected);
+    font-size: calc(1.25 * var(--font-size-1em));
+    font-family: var(--fontface-content-3);
 
     border: 0.15em solid #000;
     border-radius: 1em;
@@ -953,4 +960,56 @@
 
     font-size: calc(1.2 * var(--font-size-1em));
     font-family: var(--fontface-art-2);
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Download_Area {
+
+    position: sticky;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 7.5dvh;
+
+    padding: 0.5em;
+
+    left: 0;
+    top: calc(100dvh - 7.5dvh);
+
+    box-sizing: border-box;
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Download_Area .aboutMe_Resume_Download_Button {
+
+    width: 100%;
+    height: 5dvh;
+    line-height: 5dvh;
+
+    margin: 0.5em;
+
+    border: 0.15em solid #000;
+    border-radius: 1em;
+    box-sizing: border-box;
+
+    background: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+
+    color: var(--font-color-title);
+    text-align: center;
+    font-size: calc(1.25 * var(--font-size-1em));
+    font-family: var(--fontface-title-4);
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box {
+
+    position: absolute;
+
+    width: 100vw;
+    min-height: 100dvh;
+
+    left: 0;
+    top: 0;
 }
