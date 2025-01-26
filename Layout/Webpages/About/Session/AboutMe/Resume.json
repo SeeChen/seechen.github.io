@@ -4,7 +4,92 @@
         "id": "aboutMe_Resume_Box"
     },
     "lang": "",
-    "children": []
+    "children": [{
+        "tag": "div",
+        "props": {
+            "id": "aboutMe_Resume_Header"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {},
+            "lang": "",
+            "children": ["LEE SEE CHEN"]
+        }, {
+            "tag": "div",
+            "props": {},
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {},
+                "lang": "",
+                "children": [{
+                    "tag": "a",
+                    "props": {
+                        "target": "_blank",
+                        "href": "mailto:leeseechen@gmail.com"
+                    },
+                    "lang": "",
+                    "children": ["leeseechen@gmail.com"]
+                }]
+            }]
+        }]
+    }, {
+       "tag": "div",
+        "props": {
+            "id": "aboutMe_Resume_Content"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "div",
+            "props": {
+                "class": "aboutMe_Resume_Session"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Title"
+                },
+                "lang": "about",
+                "children": ["_aboutMe_Resume_Session_Education_"]
+            }, {
+                "tag": "div",
+                "props": {
+                    "id": "aboutMe_Resume_Education_Area"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {},
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Education_Header_Title_"]
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Education_Header_School_"]
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Education_Header_Graduation_"]
+                }]
+            }, {
+                "tag": "div",
+                "props": {},
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Title_2"
+                    },
+                    "lang": "",
+                    "children": ["This is a test"]
+                }]
+            }]
+        }] 
+    }]
 }, {
     "tag": "div",
     "props": {

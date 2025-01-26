@@ -25,6 +25,11 @@
     --about-Session-session-Content-About-Me-Biography-Content-My-Photo-0-background-position: left center, right 100dvh, center 100dvh;
     --about-Session-session-Content-About-Me-Biography-Content-My-Photo-1-background-position: left 100dvh, right center, center 100dvh;
     --about-Session-session-Content-About-Me-Biography-Content-My-Photo-2-background-position: left 100dvh, right 100dvh, center center;
+
+    --about-Session-session-Content-About-Me-Resume-width: 80vw;
+    --about-Session-session-Content-About-Me-Resume-paddinTop: 15dvh;
+    --about-Session-session-Content-About-Me-Resume-font-size: var(--font-size-3em);
+    --about-Session-session-Content-About-Me-Resume-Session-width: 100%;
 }
 
 @media screen and (max-width: 750px) {
@@ -32,6 +37,11 @@
         --about-Session-session-Content-About-Me-Biography-font-size: calc(4 * var(--font-size-1em));
         --about-Session-session-Content-About-Me-Biography-Welcome-Title-font-size: var(--font-size-2_5em);
         --about-Session-session-Content-About-Me-Biography-Welcome-Title-top: 0.5dvh;
+
+        --about-Session-session-Content-About-Me-Resume-width: 100vw;
+        --about-Session-session-Content-About-Me-Resume-paddinTop: 0dvh;
+        --about-Session-session-Content-About-Me-Resume-font-size: var(--font-size-2em);
+        --about-Session-session-Content-About-Me-Resume-Session-width: 90%;
     }
 }
 
@@ -1012,4 +1022,192 @@
 
     left: 0;
     top: 0;
+
+    padding-top: var(--about-Session-session-Content-About-Me-Resume-paddinTop);
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box div {
+
+    position: relative;
+
+    width: var(--about-Session-session-Content-About-Me-Resume-width);
+    margin: auto;
+
+    color: var(--font-color-normal-selected);
+    font-family: var(--fontface-title);
+}
+@keyframes animation_2 {
+
+    from {
+
+        
+    }
+
+    to {
+        width: 100vw;
+        height: 20dvh;
+    }
+}
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box #aboutMe_Resume_Header {
+
+    height: 40dvh;
+
+    position: sticky;
+    top: 0;
+
+    animation: animation_2 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0 35dvh;
+    animation-fill-mode: forwards;
+
+    z-index: 4;
+}
+@keyframes animation_3 {
+
+    from {
+
+        
+    }
+
+    to {
+        background-position: top;
+
+        border-radius: 0 0 1em 1em;
+    }
+}
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box #aboutMe_Resume_Header::before {
+
+    content: "";
+    
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background: url(/File/Image/About/aboutMe-Resume-BG.avif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    filter: grayscale(0.3) contrast(0.5);
+
+    border-radius: 1em 1em 0 0;
+
+    animation: animation_3 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0 35dvh;
+    animation-fill-mode: forwards;
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box #aboutMe_Resume_Header > p {
+
+    position: absolute;
+
+    height: 1em;
+    line-height: 1em;
+
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+    padding-top: 1em;
+
+    font-size: var(--about-Session-session-Content-About-Me-Resume-font-size);
+    text-align: center;
+}
+
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box #aboutMe_Resume_Header > div {
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    padding-bottom: 0.5em;
+
+    text-align: center;
+    font-family: var(--fontface-title-4);
+}
+@keyframes animation_4 {
+
+    0% {
+
+    }
+
+    25% {
+        padding-top: 10dvh;
+    }
+
+    50% {
+        padding-top: 20dvh;
+    }
+
+    75% {
+        padding-top: 30dvh;
+    }
+
+    100% {
+        padding-top: 35dvh;
+    }
+    
+}
+#about_ExpandContent #aboutMe_Content #aboutMe_Resume_Box #aboutMe_Resume_Content {
+
+    padding-top: 1em;
+    padding-bottom: 5em;
+
+    animation: animation_4 1s linear;
+    animation-timeline: scroll();
+    animation-range: 0 35dvh;
+    animation-fill-mode: forwards;
+}
+
+div.aboutMe_Resume_Session .aboutMe_Resume_Session_Title {
+
+    color: var(--font-color-normal-selected);
+    font-size: calc(1.75 * var(--font-size-1em));
+    font-family: var(--fontface-title-4);
+
+    border-bottom: 0.15em solid #000;
+
+    width: var(--about-Session-session-Content-About-Me-Resume-Session-width);
+    margin: auto;
+
+    box-sizing: border-box;
+}
+div.aboutMe_Resume_Session .aboutMe_Resume_Session_Title_2 {
+
+    font-family: var(--fontface-title-4);
+    font-size: calc(1.5 * var(--font-size-1em));
+    text-decoration: underline;
+}
+
+div.aboutMe_Resume_Session > div:has( > .aboutMe_Resume_Session_Title_2) {
+
+    padding: 1em 0;
+}
+
+#aboutMe_Resume_Education_Area > p {
+
+    font-size: calc(1.2 * var(--font-size-1em));
+    font-family: var(--fontface-content-4);
+
+    box-sizing: border-box;
+
+    width: var(--about-Session-session-Content-About-Me-Resume-Session-width);
+    margin: auto;
+}
+
+#aboutMe_Resume_Education_Area > p:nth-child(1) {
+
+    padding: 0.35em 0 0.25em;
+
+    font-size: calc(1.5 * var(--font-size-1em));
+    font-family: var(--fontface-title);
 }
