@@ -61,7 +61,9 @@
                 "lang": "",
                 "children": [{
                     "tag": "p",
-                    "props": {},
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Topic_Title"
+                    },
                     "lang": "about",
                     "children": ["_aboutMe_Resume_Education_Header_Title_"]
                 }, {
@@ -77,15 +79,138 @@
                 }]
             }, {
                 "tag": "div",
-                "props": {},
+                "props": {
+                    "id": "aboutMe_Resume_Education_Area_2"
+                },
                 "lang": "",
                 "children": [{
                     "tag": "p",
                     "props": {
                         "class": "aboutMe_Resume_Session_Title_2"
                     },
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Education_Courses_"]
+                }, {
+                    "tag": "ol",
+                    "props": {},
                     "lang": "",
-                    "children": ["This is a test"]
+                    "children": [{
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_DataStructure_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_OOP_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_Java_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_Python_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_C_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_Web_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_BigDataAnalysis_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_SystemDesign_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Courses_Database_"]
+                    }]
+                }, {
+                    "tag": "p",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Title_2"
+                    },
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Education_Honor_"]
+                }, {
+                    "tag": "ol",
+                    "props": {},
+                    "lang": "",
+                    "children": [{
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Honor_1_"]
+                    }, {
+                        "tag": "li",
+                        "props": {},
+                        "lang": "about",
+                        "children": ["_aboutMe_Resume_Education_Honor_2_"]
+                    }]
+                }]
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "aboutMe_Resume_Session"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Title"
+                    },
+                    "lang": "",
+                    "children": ["Personal Projects"]
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_Title"
+                        },
+                        "lang": "",
+                        "children": ["This is Title 2 这是一个标题 贰"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_Position"
+                        },
+                        "lang": "",
+                        "children": ["My Position in this Projects"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_Time"
+                        },
+                        "lang": "",
+                        "children": ["Jun 2024 - Aug 2025"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_Description"
+                        }, 
+                        "lang": "",
+                        "children": ["descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescription descriptiondescription descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescriptiondescriptiondescription   descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription descriptiondescription descriptiondescription"]
+                    }]
                 }]
             }]
         }] 
