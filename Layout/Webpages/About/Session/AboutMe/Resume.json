@@ -174,8 +174,8 @@
                     "props": {
                         "class": "aboutMe_Resume_Session_Title"
                     },
-                    "lang": "",
-                    "children": ["Personal Projects"]
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Projects_Personal_"]
                 }, {
                     "tag": "div",
                     "props": {
@@ -210,7 +210,103 @@
                         }, 
                         "lang": "",
                         "children": ["descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescription descriptiondescription descriptiondescriptiondescriptiondescription descriptiondescriptiondescriptiondescriptiondescriptiondescription   descriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescriptiondescription descriptiondescription descriptiondescription"]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+                        },
+                        "lang": "",
+                        "children": ["Implements Details"]
+                    }, {
+                        "tag": "div",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                        },
+                        "lang": "",
+                        "children": [{
+                            "tag": "p",
+                            "props": {},
+                            "lang": "",
+                            "children": ["Test is a test"]
+                        }, {
+                            "tag": "p",
+                            "props": {},
+                            "lang": "",
+                            "children": ["This is a test"]
+                        }]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+                        },
+                        "lang": "",
+                        "children": ["Features 实现了什么"]
+                    }, {
+                        "tag": "ol",
+                        "props": {},
+                        "lang": "",
+                        "children": [{
+                            "tag": "li",
+                            "props": {},
+                            "lang": "",
+                            "children": ["这是一个内容"]
+                        }, {
+                            "tag": "li",
+                            "props": {},
+                            "lang": "",
+                            "children": ["This is a Content, Continue test content is not auto break, and the text position."]
+                        }]
+                    }, {
+                        "tag": "p",
+                        "props": {
+                            "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+                        },
+                        "lang": "",
+                        "children": ["Key 学会了什么"]
+                    }, {
+                        "tag": "ol",
+                        "props": {},
+                        "lang": "",
+                        "children": [{
+                            "tag": "li",
+                            "props": {},
+                            "lang": "",
+                            "children": ["这是一个内容"]
+                        }, {
+                            "tag": "li",
+                            "props": {},
+                            "lang": "",
+                            "children": ["This is a Content, Continue test content is not auto break, and the text position."]
+                        }]
                     }]
+                }]
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "aboutMe_Resume_Session"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Title"
+                    },
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Projects_Graduation_"]
+                }]
+            }, {
+                "tag": "div",
+                "props": {
+                    "class": "aboutMe_Resume_Session"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Title"
+                    },
+                    "lang": "about",
+                    "children": ["_aboutMe_Resume_Projects_School_"]
                 }]
             }]
         }] 

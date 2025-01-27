@@ -362,6 +362,160 @@ const SeeChen_AboutPage_AboutMe = {
         window.eventBus.off("aboutMe_BiographyMenu_Click", SeeChen_AboutPage_AboutMe.Biography_MenuClick);
     },
 
+    loadingResume: async () => {
+
+        let projectsConfig = await window.myTools.getJson("/File/About/AboutMe/Resume/Projects.json");
+
+        let template_projectsImplDetails_Head = {
+            "tag": "p",
+            "props": {
+                "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+            },
+            "lang": "about",
+            "children": ["_aboutMe_Resume_Projects_ImplDetails_"]
+        };
+        let template_projectsImplDetails = {
+                "tag": "div",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }, {
+                    "tag": "p",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }]
+        };
+
+        let template_projectsFeatures_Head = {
+            "tag": "p",
+            "props": {
+                "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+            },
+            "lang": "",
+            "children": ["_aboutMe_Resume_Projects_Features_"]
+        };
+        let template_projectsKeyAchievements_Head = {
+            "tag": "p",
+            "props": {
+                "class": "aboutMe_Resume_Session_Projects_SecondTitle"
+            },
+            "lang": "about",
+            "children": ["_aboutMe_Resume_Projects_KeyAchievements_"]
+        };
+
+        let template_projects = {
+            "tag": "div",
+            "props": {
+                "class": "aboutMe_Resume_Session_Projects"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Projects_Title"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Projects_Position"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Projects_Time"
+                },
+                "lang": "",
+                "children": []
+            }, {
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Projects_Description"
+                }, 
+                "lang": "",
+                "children": []
+            }]
+        }
+
+        let old_Resume = window.myTools.deepCopy(window.myData.about.contentExpand);
+
+        let projectsPersonal = {
+            "tag": "div",
+            "props": {
+                "class": "aboutMe_Resume_Session"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Title"
+                },
+                "lang": "about",
+                "children": ["_aboutMe_Resume_Projects_Personal_"]
+            }]
+        };
+
+        let projectsGraduation = {
+            "tag": "div",
+            "props": {
+                "class": "aboutMe_Resume_Session"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Title"
+                },
+                "lang": "about",
+                "children": ["_aboutMe_Resume_Projects_Graduation_"]
+            }]
+        };
+
+        let projectsSchool = {
+            "tag": "div",
+            "props": {
+                "class": "aboutMe_Resume_Session"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "p",
+                "props": {
+                    "class": "aboutMe_Resume_Session_Title"
+                },
+                "lang": "about",
+                "children": ["_aboutMe_Resume_Projects_School_"]
+            }]
+        };
+
+        window.myData.about.contentExpand.children[1].children[0].children[1].children[0].children.push(projectsPersonal);
+        window.myData.about.contentExpand.children[1].children[0].children[1].children[0].children.push(projectsGraduation);
+        window.myData.about.contentExpand.children[1].children[0].children[1].children[0].children.push(projectsSchool);
+
+        window.vDom.Patch(
+            document.querySelector("#about_ExpandContent"),
+            window.vDom.Diff(
+                old_Resume,
+                window.myData.about.contentExpand
+            )
+        );
+        window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+            if (!el) return;
+            el.parentNode.removeChild(el)
+        });
+        window.globalValues.nodeToRemove = [];
+    },
+
     closeClick: async ( 
         event
     ) => {
@@ -390,7 +544,7 @@ const SeeChen_AboutPage_AboutMe = {
             var targetContent = e.target.id.split("-")[1];
             var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
 
-            console.log(targetDetails);
+            // console.log(targetDetails);
             targetDetails = await window.myTools.getJson(targetDetails);
 
             const template_AboutMe = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutMe.json");
