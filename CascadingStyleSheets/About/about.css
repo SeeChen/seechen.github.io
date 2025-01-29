@@ -1259,6 +1259,7 @@ div.aboutMe_Resume_Session_Projects p.aboutMe_Resume_Session_Projects_Descriptio
     text-indent: 2ch;
     font-size: calc(1.35 * var(--font-size-1em));
     font-family: var(--fontface-content-3);
+    hyphens: auto;
 }
 
 div.aboutMe_Resume_Session_Projects p.aboutMe_Resume_Session_Projects_SecondTitle {
@@ -1267,7 +1268,7 @@ div.aboutMe_Resume_Session_Projects p.aboutMe_Resume_Session_Projects_SecondTitl
     text-decoration: underline;
     font-size: calc(1.5 * var(--font-size-1em));
 
-    font-family: var(--fontface-title-4);
+    font-family: var(--fontface-title-4);   
 }
 div.aboutMe_Resume_Session_Projects div.aboutMe_Resume_Session_Projects_ImplDetails {
     

@@ -374,31 +374,13 @@ const SeeChen_AboutPage_AboutMe = {
             "lang": "about",
             "children": ["_aboutMe_Resume_Projects_ImplDetails_"]
         };
-        let template_projectsImplDetails = {
-                "tag": "div",
-                "props": {
-                    "class": "aboutMe_Resume_Session_Projects_ImplDetails"
-                },
-                "lang": "",
-                "children": [{
-                    "tag": "p",
-                    "props": {},
-                    "lang": "",
-                    "children": []
-                }, {
-                    "tag": "p",
-                    "props": {},
-                    "lang": "",
-                    "children": []
-                }]
-        };
 
         let template_projectsFeatures_Head = {
             "tag": "p",
             "props": {
                 "class": "aboutMe_Resume_Session_Projects_SecondTitle"
             },
-            "lang": "",
+            "lang": "about",
             "children": ["_aboutMe_Resume_Projects_Features_"]
         };
         let template_projectsKeyAchievements_Head = {
@@ -464,6 +446,56 @@ const SeeChen_AboutPage_AboutMe = {
                 "children": ["_aboutMe_Resume_Projects_Personal_"]
             }]
         };
+        let listProjectsPersonal = projectsConfig["Personal"];
+        let num_listProjectsPersonal = listProjectsPersonal.length;
+
+        for (let i = 0; i < num_listProjectsPersonal; i++) {
+            
+            let current_ProjectPersonal = listProjectsPersonal[i][window.globalValues.language];
+            let tmpObj_ProjectPersonal = window.myTools.deepCopy(template_projects);
+
+            tmpObj_ProjectPersonal.children[0].children = [current_ProjectPersonal["title"]];
+
+            tmpObj_ProjectPersonal.children[1].children = [current_ProjectPersonal["position"]];
+            if (current_ProjectPersonal["position"] === "NaN") {
+                tmpObj_ProjectPersonal.children[1].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectPersonal.children[2].children = [current_ProjectPersonal["time"]];
+            if (current_ProjectPersonal["time"] === "NaN") {
+                tmpObj_ProjectPersonal.children[2].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectPersonal.children[3].children = [current_ProjectPersonal["desc"]];
+            
+            tmpObj_ProjectPersonal.children.push(template_projectsImplDetails_Head);
+            current_ProjectPersonal["impl"].forEach(implContent => {
+
+                tmpObj_ProjectPersonal.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["content"]]
+                    }]
+            });
+            });
+
+            tmpObj_ProjectPersonal.children.push(template_projectsFeatures_Head);
+            tmpObj_ProjectPersonal.children.push(template_projectsKeyAchievements_Head);
+
+            projectsPersonal.children.push(tmpObj_ProjectPersonal);
+        }
 
         let projectsGraduation = {
             "tag": "div",

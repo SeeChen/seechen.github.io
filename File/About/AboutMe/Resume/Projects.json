@@ -1,5 +1,32 @@
 {
     "Graduation": {},
-    "Personal": {},
+    "Personal": [{
+        "en": {
+            "title": "seechen.github.io",
+            "position": "Design, Development.",
+            "time": "Jun 2021 - Current",
+            "desc": "This personal website is hosted on the GitHub Pages platform and fully developed by myself. While some functions draw inspiration from frameworks like Vue.js, they have been adapted and optimized specifically for this website. The UI/UX design of the website is entirely original, designed, and implemented by me.",
+            "impl": [{
+                "title": "Test 1",
+                "content": "This is a test, first test for implement code."
+            }, {
+                "title": "Test 2",
+                "content": "This is second test for testing implement code."
+            }]
+        },
+        "zh": {
+            "title": "seechen.github.io",
+            "position": "设计，开发。",
+            "time": "2021 年 6 月 - 至今",
+            "desc": "这个个人网站托管在 GitHub Pages 平台上，由我独立设计和开发。部分功能参考了 Vue.js 等框架的思想，但经过深度优化，以更契合本网站的需求。网站的 UI/UX 设计完全原创，从构思到实现均由我亲自完成。",
+            "impl": [{
+                "title": "测试 1",
+                "content": "这是一个测试实现细节的代码内容。"
+            }, {
+                "title": "测试 2",
+                "content": "这也是一个用于测试的内容。"
+            }]
+        }
+    }],
     "School": {}
 }
