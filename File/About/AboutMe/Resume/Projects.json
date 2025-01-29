@@ -7,12 +7,30 @@
             "time": "Jun 2021 - Current",
             "desc": "This personal website is hosted on the GitHub Pages platform and fully developed by myself. While some functions draw inspiration from frameworks like Vue.js, they have been adapted and optimized specifically for this website. The UI/UX design of the website is entirely original, designed, and implemented by me.",
             "impl": [{
-                "title": "Test 1",
-                "content": "This is a test, first test for implement code."
+                "title": "Data Handling",
+                "content": "All data is stored in JSON files to simulate the interaction between the frontend and a backend server. This approach mirrors real-world scenarios where backends commonly return JSON-formatted data."
             }, {
-                "title": "Test 2",
-                "content": "This is second test for testing implement code."
-            }]
+                "title": "Routing Mechanism",
+                "content": "By studying the mechanisms of GitHub Pages, I implemented a custom SPA routing system that handles route changes and content access within a purely frontend architecture."
+            }],
+            "features": [{
+                "title": "Single-Page Application (SPA)",
+                "content": "The website functions as a seamless single-page application."
+            }, {
+                "title": "Pseudo-Dynamic Website",
+                "content": "Implements dynamic-like behavior without a backend server."
+            }, {
+                "title": "Multimedia Support",
+                "content": " Includes rich multimedia elements for enhanced user experience."
+            }, {
+                "title": "English and Chinese",
+                "content": "Supports switching between different languages."
+            }],
+            "key-achievements": [
+                "Designed and developed the website from scratch, ensuring a deep understanding of frontend technologies and GitHub Pages' capabilities.",
+                "Successfully adapted advanced concepts from modern frameworks like Vue.js into native JavaScript solutions tailored to the project's requirements.",
+                "Demonstrated proficiency in UI design by creating an intuitive and visually appealing user interface."
+            ]
         },
         "zh": {
             "title": "seechen.github.io",
@@ -20,12 +38,30 @@
             "time": "2021 年 6 月 - 至今",
             "desc": "这个个人网站托管在 GitHub Pages 平台上，由我独立设计和开发。部分功能参考了 Vue.js 等框架的思想，但经过深度优化，以更契合本网站的需求。网站的 UI/UX 设计完全原创，从构思到实现均由我亲自完成。",
             "impl": [{
-                "title": "测试 1",
-                "content": "这是一个测试实现细节的代码内容。"
+                "title": "数据处理",
+                "content": "所有数据均存储在 JSON 文件中，以模拟前端与后端服务器的交互方式。这种方式贴合实际开发场景，符合后端通常返回 JSON 格式数据的常见模式。"
             }, {
-                "title": "测试 2",
-                "content": "这也是一个用于测试的内容。"
-            }]
+                "title": "路由机制",
+                "content": "通过研究 GitHub Pages 的工作原理，我实现了一套自定义的 SPA（单页应用）路由系统，在纯前端架构下高效管理路由变化与内容访问。"
+            }],
+            "features": [{
+                "title": "单页应用（SPA）",
+                "content": "网站采用无缝切换的单页应用架构，提升交互体验。"
+            }, {
+                "title": "伪动态网站",
+                "content": "在无后端服务器的情况下，实现类似动态网站的效果。"
+            }, {
+                "title": "多媒体支持",
+                "content": "内置丰富的多媒体元素，增强用户体验。"
+            }, {
+                "title": "中英文切换",
+                "content": "支持多语言模式，可在英文与中文之间自由切换。"
+            }],
+            "key-achievements": [
+                "从零构建整个网站，深入掌握前端技术，并充分利用 GitHub Pages 的特性。",
+                "将 Vue.js 等现代框架的先进理念灵活应用于原生 JavaScript，实现符合项目需求的优化方案。",
+                "设计并实现直观且美观的用户界面，展现出色的界面设计与用户体验优化能力。"
+            ]
         }
     }],
     "School": {}

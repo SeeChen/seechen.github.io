@@ -488,11 +488,49 @@ const SeeChen_AboutPage_AboutMe = {
                         "lang": "",
                         "children": [implContent["content"]]
                     }]
-            });
+                });
             });
 
             tmpObj_ProjectPersonal.children.push(template_projectsFeatures_Head);
+            current_ProjectPersonal["features"].forEach(featuresContent => {
+
+                tmpObj_ProjectPersonal.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["content"]]
+                    }]
+                });
+            });
+
             tmpObj_ProjectPersonal.children.push(template_projectsKeyAchievements_Head);
+            let tempList = {
+                "tag": "ol",
+                "props": {},
+                "lang": "",
+                "children": []
+            }
+            current_ProjectPersonal["key-achievements"].forEach(keyAchievements => {
+
+                tempList.children.push({
+                    "tag": "li",
+                    "props": {},
+                    "lang": "",
+                    "children": [keyAchievements]
+                });
+            });
+            tmpObj_ProjectPersonal.children.push(tempList);
 
             projectsPersonal.children.push(tmpObj_ProjectPersonal);
         }
