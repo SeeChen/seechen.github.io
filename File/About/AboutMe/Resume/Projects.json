@@ -1,5 +1,70 @@
 {
-    "Graduation": {},
+    "Graduation": [{
+        "en": {
+            "title": "Multi-Level Traffic Routing",
+            "position": "NaN",
+            "time": "Mar 2024 - May 2024",
+            "desc": "The topic of my graduation project is \"Design and Implementation of a Multi-Level Transportation Network Path Planning System.\" The research focuses on proposing a new algorithm to efficiently calculate the shortest path, applied in public transportation for a more personalized travel experience. I independently completed all code, data acquisition, frontend and backend design, and database development.",
+            "impl": [{
+                "title": "Data",
+                "content": "Data for the project was sourced from GaoDe Maps, Beijing Subway, BJMTR, Beijing Public Transit, 8684.cn, and 12306 using Python, with some data manually collected and organized. After acquisition, the data was cleaned to remove errors and standardized for project consistency."
+            }, {
+                "title": "Database",
+                "content": "The project uses MongoDB, a non-relational database, for data storage. The database includes nine collections: Station, Route, Generic, Objects, Transfer, Fee, Distance, StationSchedule, and ObjectSchedule."
+            }, {
+                "title": "Front-End",
+                "content": "The frontend is designed using HTML5, CSS3, and jQuery, displaying information about the current station. Users can also plan routes directly through the interface."
+            }, {
+                "title": "Back-End",
+                "content": "The backend has two parts: a Java/SpringBoot backend for data storage, interactions, and page data retrieval, and a Python/Flask backend for algorithm responses. The frontend sends calculation data to Java, which retrieves details and requests further processing from Python."
+            }],
+            "features": [{
+                "title": "Personalized Route Planning",
+                "content": "Users can customize travel conditions, such as avoiding specific transportation modes or routes, or specifying required waypoints. The system then calculates the optimal path based on these constraints, offering a more tailored travel experience."
+            }, {
+                "title": "MLTR Algorithm",
+                "content": "This project introduces a novel algorithm based on Depth-First Search (DFS), capable of performing path planning on a dynamically changing graph that varies over time. The algorithm provides different route recommendations based on specific timeframes and utilizes lazy loading, ensuring that only essential graph data is processed, optimizing efficiency and reducing resource consumption."
+            }],
+            "key-achievements": [
+                "Built the multi-level transportation network path planning system from scratch, covering data acquisition, frontend and backend development, database design, and algorithm implementation, ensuring system completeness and efficiency.",
+                "Designed a path planning algorithm based on Depth-First Search (DFS), capable of calculating optimal routes on a dynamically changing transportation network, utilizing lazy loading to improve efficiency and reduce resource consumption.",
+                "Developed a Frontend-Backend Decoupled Architecture: Developed the frontend with HTML5, CSS3, and jQuery, providing an intuitive interface for station queries and route planning; Implemented a backend using Java/Spring Boot for data management and Python/Flask for algorithmic computations, ensuring system stability and efficiency.",
+                "Designed and implemented nine database collections in MongoDB, including stations, routes, and transfer information, optimizing query efficiency and supporting large-scale transportation data storage and retrieval."
+            ]
+        },
+        "zh": {
+            "title": "多层级路径规划系统的设计与实现",
+            "position": "NaN",
+            "time": "2024 年 3 月 - 2024 年 5 月",
+            "desc": "该研究的主题为《多层级交通网络路径规划系统的设计与实现》。本研究旨在提出一种全新的算法，以更高效地计算最短路径，并应用于公共交通领域，以提升个性化出行体验。我独立完成了所有代码编写、数据采集、前后端设计以及数据库设计工作。",
+            "impl": [{
+                "title": "数据处理",
+                "content": "本项目的数据主要通过 Python 爬取自 高德地图、北京地铁（BJMTR）、北京公交、8684.cn 以及 12306，部分数据由手动采集并整理。数据获取后，进行了清洗以去除错误，并标准化处理，以确保项目的一致性。"
+            }, {
+                "title": "数据库设计",
+                "content": "项目采用 MongoDB 作为非关系型数据库进行数据存储。数据库包含 9 个集合（Collections），分别为：站点（Station）、路线（Route）、通用信息（Generic）、对象（Objects）、换乘（Transfer）、费用（Fee）、距离（Distance）、时刻表（StationSchedule）以及对象时刻表（ObjectSchedule）。"
+            }, {
+                "title": "前端设计",
+                "content": "前端使用 HTML5、CSS3 和 jQuery 进行开发，主要用于展示当前站点信息，并支持用户直接在界面上进行路径规划。"
+            }, {
+                "title": "后端设计",
+                "content": "后端由 两部分 组成：Java/Spring Boot 后端 —— 负责数据存储、交互及页面数据查询。Python/Flask 后端 —— 负责路径规划算法计算。前端会将计算数据发送至 Java 端，Java 端检索相关信息，并进一步请求 Python 进行路径的计算。"
+            }],
+            "features": [{
+                "title": "个性化路径规划",
+                "content": "用户可以自定义出行条件，例如避开特定交通工具或线路，或者指定必须经过的路段。系统会基于这些约束条件，计算出最符合需求的最优路径，为用户提供更加精准的出行方案。"
+            }, {
+                "title": "咸鱼算法",
+                "content": "本项目提出了一种基于深度优先搜索（DFS）的全新算法，能够在随时间变化的动态图上进行路径规划。该算法可以根据不同时间段提供动态路径方案，并通过懒加载机制，仅加载必要的图数据，即可计算出最优路径，从而提高计算效率并减少资源消耗。"
+            }],
+            "key-achievements": [
+                "从零构建整个多层级交通网络路径规划系统，涵盖数据采集、前后端开发、数据库设计及算法实现，确保系统完整性与高效性。",
+                "设计了一种基于 深度优先搜索（DFS） 的路径规划算法，能够在动态变化的交通网络上计算最优路径，并通过 懒加载机制 提高计算效率，减少资源消耗。",
+                "构建前后端分离架构：前端使用 HTML5、CSS3、jQuery，实现直观的交互界面，支持用户查询站点信息及路径规划；后端采用 Java/Spring Boot 进行数据存储与交互，并使用 Python/Flask 进行算法计算，确保系统稳定高效运行。",
+                "设计并实现 9 个数据库集合（Collections），包括站点、路线、换乘信息等，优化查询效率，支持大规模交通数据存储和快速检索。"
+            ]
+        }
+    }],
     "Personal": [{
         "en": {
             "title": "seechen.github.io",
@@ -64,5 +129,68 @@
             ]
         }
     }],
-    "School": {}
+    "School": [{
+        "en": {
+            "title": "seechen.github.io",
+            "position": "Design, Development.",
+            "time": "Jun 2021 - Current",
+            "desc": "This personal website is hosted on the GitHub Pages platform and fully developed by myself. While some functions draw inspiration from frameworks like Vue.js, they have been adapted and optimized specifically for this website. The UI/UX design of the website is entirely original, designed, and implemented by me.",
+            "impl": [{
+                "title": "Data Handling",
+                "content": "All data is stored in JSON files to simulate the interaction between the frontend and a backend server. This approach mirrors real-world scenarios where backends commonly return JSON-formatted data."
+            }, {
+                "title": "Routing Mechanism",
+                "content": "By studying the mechanisms of GitHub Pages, I implemented a custom SPA routing system that handles route changes and content access within a purely frontend architecture."
+            }],
+            "features": [{
+                "title": "Single-Page Application (SPA)",
+                "content": "The website functions as a seamless single-page application."
+            }, {
+                "title": "Pseudo-Dynamic Website",
+                "content": "Implements dynamic-like behavior without a backend server."
+            }, {
+                "title": "Multimedia Support",
+                "content": " Includes rich multimedia elements for enhanced user experience."
+            }, {
+                "title": "English and Chinese",
+                "content": "Supports switching between different languages."
+            }],
+            "key-achievements": [
+                "Designed and developed the website from scratch, ensuring a deep understanding of frontend technologies and GitHub Pages' capabilities.",
+                "Successfully adapted advanced concepts from modern frameworks like Vue.js into native JavaScript solutions tailored to the project's requirements.",
+                "Demonstrated proficiency in UI design by creating an intuitive and visually appealing user interface."
+            ]
+        },
+        "zh": {
+            "title": "seechen.github.io",
+            "position": "设计，开发。",
+            "time": "2021 年 6 月 - 至今",
+            "desc": "这个个人网站托管在 GitHub Pages 平台上，由我独立设计和开发。部分功能参考了 Vue.js 等框架的思想，但经过深度优化，以更契合本网站的需求。网站的 UI/UX 设计完全原创，从构思到实现均由我亲自完成。",
+            "impl": [{
+                "title": "数据处理",
+                "content": "所有数据均存储在 JSON 文件中，以模拟前端与后端服务器的交互方式。这种方式贴合实际开发场景，符合后端通常返回 JSON 格式数据的常见模式。"
+            }, {
+                "title": "路由机制",
+                "content": "通过研究 GitHub Pages 的工作原理，我实现了一套自定义的 SPA（单页应用）路由系统，在纯前端架构下高效管理路由变化与内容访问。"
+            }],
+            "features": [{
+                "title": "单页应用（SPA）",
+                "content": "网站采用无缝切换的单页应用架构，提升交互体验。"
+            }, {
+                "title": "伪动态网站",
+                "content": "在无后端服务器的情况下，实现类似动态网站的效果。"
+            }, {
+                "title": "多媒体支持",
+                "content": "内置丰富的多媒体元素，增强用户体验。"
+            }, {
+                "title": "中英文切换",
+                "content": "支持多语言模式，可在英文与中文之间自由切换。"
+            }],
+            "key-achievements": [
+                "从零构建整个网站，深入掌握前端技术，并充分利用 GitHub Pages 的特性。",
+                "将 Vue.js 等现代框架的先进理念灵活应用于原生 JavaScript，实现符合项目需求的优化方案。",
+                "设计并实现直观且美观的用户界面，展现出色的界面设计与用户体验优化能力。"
+            ]
+        }
+    }]
 }

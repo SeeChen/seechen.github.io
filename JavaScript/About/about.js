@@ -550,6 +550,93 @@ const SeeChen_AboutPage_AboutMe = {
                 "children": ["_aboutMe_Resume_Projects_Graduation_"]
             }]
         };
+        let listProjectsGraduation = projectsConfig["Graduation"];
+        listProjectsGraduation.forEach(currentProjectsGraudation => {
+
+            let current_ProjectGraduation = currentProjectsGraudation[window.globalValues.language];
+            let tmpObj_ProjectGraduation = window.myTools.deepCopy(template_projects);
+
+            tmpObj_ProjectGraduation.children[0].children = [current_ProjectGraduation["title"]];
+
+            tmpObj_ProjectGraduation.children[1].children = [current_ProjectGraduation["position"]];
+            if (current_ProjectGraduation["position"] === "NaN") {
+                tmpObj_ProjectGraduation.children[1].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectGraduation.children[2].children = [current_ProjectGraduation["time"]];
+            if (current_ProjectGraduation["time"] === "NaN") {
+                tmpObj_ProjectGraduation.children[2].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectGraduation.children[3].children = [current_ProjectGraduation["desc"]];
+            
+            tmpObj_ProjectGraduation.children.push(template_projectsImplDetails_Head);
+            current_ProjectGraduation["impl"].forEach(implContent => {
+
+                tmpObj_ProjectGraduation.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["content"]]
+                    }]
+                });
+            });
+
+            tmpObj_ProjectGraduation.children.push(template_projectsFeatures_Head);
+            current_ProjectGraduation["features"].forEach(featuresContent => {
+
+                tmpObj_ProjectGraduation.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["content"]]
+                    }]
+                });
+            });
+
+            tmpObj_ProjectGraduation.children.push(template_projectsKeyAchievements_Head);
+            let tempList = {
+                "tag": "ol",
+                "props": {},
+                "lang": "",
+                "children": []
+            }
+            current_ProjectGraduation["key-achievements"].forEach(keyAchievements => {
+
+                tempList.children.push({
+                    "tag": "li",
+                    "props": {},
+                    "lang": "",
+                    "children": [keyAchievements]
+                });
+            });
+            tmpObj_ProjectGraduation.children.push(tempList);
+
+            projectsGraduation.children.push(tmpObj_ProjectGraduation);
+        });
+
 
         let projectsSchool = {
             "tag": "div",
@@ -566,6 +653,92 @@ const SeeChen_AboutPage_AboutMe = {
                 "children": ["_aboutMe_Resume_Projects_School_"]
             }]
         };
+        let listProjectsSchool = projectsConfig["School"];
+        listProjectsSchool.forEach(currentProjectsSchool => {
+
+            let current_ProjectSchool = currentProjectsSchool[window.globalValues.language];
+            let tmpObj_ProjectSchool = window.myTools.deepCopy(template_projects);
+
+            tmpObj_ProjectSchool.children[0].children = [current_ProjectSchool["title"]];
+
+            tmpObj_ProjectSchool.children[1].children = [current_ProjectSchool["position"]];
+            if (current_ProjectSchool["position"] === "NaN") {
+                tmpObj_ProjectSchool.children[1].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectSchool.children[2].children = [current_ProjectSchool["time"]];
+            if (current_ProjectSchool["time"] === "NaN") {
+                tmpObj_ProjectSchool.children[2].props["class"] += " non-to-display";
+            }
+
+            tmpObj_ProjectSchool.children[3].children = [current_ProjectSchool["desc"]];
+            
+            tmpObj_ProjectSchool.children.push(template_projectsImplDetails_Head);
+            current_ProjectSchool["impl"].forEach(implContent => {
+
+                tmpObj_ProjectSchool.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [implContent["content"]]
+                    }]
+                });
+            });
+
+            tmpObj_ProjectSchool.children.push(template_projectsFeatures_Head);
+            current_ProjectSchool["features"].forEach(featuresContent => {
+
+                tmpObj_ProjectSchool.children.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "aboutMe_Resume_Session_Projects_ImplDetails"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["title"]]
+                    }, {
+                        "tag": "p",
+                        "props": {},
+                        "lang": "",
+                        "children": [featuresContent["content"]]
+                    }]
+                });
+            });
+
+            tmpObj_ProjectSchool.children.push(template_projectsKeyAchievements_Head);
+            let tempList = {
+                "tag": "ol",
+                "props": {},
+                "lang": "",
+                "children": []
+            }
+            current_ProjectSchool["key-achievements"].forEach(keyAchievements => {
+
+                tempList.children.push({
+                    "tag": "li",
+                    "props": {},
+                    "lang": "",
+                    "children": [keyAchievements]
+                });
+            });
+            tmpObj_ProjectSchool.children.push(tempList);
+
+            projectsSchool.children.push(tmpObj_ProjectSchool);
+        });
 
         window.myData.about.contentExpand.children[1].children[0].children[1].children[0].children.push(projectsPersonal);
         window.myData.about.contentExpand.children[1].children[0].children[1].children[0].children.push(projectsGraduation);
