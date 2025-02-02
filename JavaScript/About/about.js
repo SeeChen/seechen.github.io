@@ -757,6 +757,28 @@ const SeeChen_AboutPage_AboutMe = {
             el.parentNode.removeChild(el)
         });
         window.globalValues.nodeToRemove = [];
+
+        document.querySelector("#aboutMe_Resume_Download_Area").addEventListener("click", (e) => {
+            window.eventBus.emit("aboutMe_Resume_Downloads", { e });
+        });
+
+        window.eventBus.on("aboutMe_Resume_Downloads", SeeChen_AboutPage_AboutMe.resuemClick);
+    },
+    resuemClick: async (
+        event
+    ) => {
+
+        const { e } = event;
+
+        let arr_target_btn = e.target.id.split("_");
+        let fileFormat = arr_target_btn[arr_target_btn.length - 1]
+
+        const downloadLink = document.createElement("a");
+        downloadLink.href = `/File/About/AboutMe/Resume/Resume.${fileFormat}`;
+        downloadLink.download = `SeeChen-Resume.${fileFormat}`;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
     },
 
     closeClick: async ( 

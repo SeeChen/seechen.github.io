@@ -183,10 +183,10 @@
     }, {
         "tag": "p",
         "props": {
-            "id": "aboutMe_Resume_Download_Button_DOCS",
+            "id": "aboutMe_Resume_Download_Button_DOCX",
             "class": "aboutMe_Resume_Download_Button"
         },
         "lang": "about",
-        "children": ["_aboutMe_Resume_Download_Button_DOCS_"]
+        "children": ["_aboutMe_Resume_Download_Button_DOCX_"]
     }]
 }]
