@@ -214,5 +214,90 @@
                 "采用 GitHub & GitLab 进行代码管理，并严格遵循 Git 分支管理策略（如 Feature Branch、Main Branch），确保代码的可维护性和可追溯性。此外，通过 Pull Request + Code Review 机制，提升代码质量，增强团队协作效率。"
             ]
         }
+    }, {
+        "en": {
+            "title": "Lumaca",
+            "position": "Team Leader, Client Developer, UI/UX Designer.",
+            "time": "Nov 2021 - Dec 2021",
+            "desc": "This project was a team assignment involving four members. One member was responsible for Android development, another for UI design, while the remaining two worked on the web frontend and backend. As the team leader, I coordinated tasks and was primarily responsible for implementing both frontend and backend code.",
+            "impl": [{
+                "title": "Database Design",
+                "content": "The project uses MongoDB, a document-based NoSQL database, to efficiently store and manage data. It includes two primary collections: </br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User Collection: Stores user-related data, including username, password, full name, number of likes, received likes, posts count, shares count, and profile picture.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post Collection: Stores post-related information such as the number of likes, last edited time, number of comments, comment content, shares count, title, and main content."
+            }, {
+                "title": "Project Architecture",
+                "content": "The system follows a frontend-backend separation architecture. The backend is developed using Java + Spring Boot with an MVC design pattern, structured into the following layers:</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Controller Layer: Handles frontend requests and routes.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Service Layer: Defines business logic interfaces.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. ServiceImpl Layer: Implements business logic and interacts with the DAO layer.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. DAO Layer: Handles database operations.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Entity Layer: Maps database fields to Java objects."
+            }, {
+                "title": "Frontend Development",
+                "content": "The frontend is developed using HTML5 + CSS3 + jQuery, following an MPA (Multi-Page Application) architecture. And it interacts with the backend through asynchronous requests, ensuring data consistency and real-time updates."
+            }, {
+                "title": "Server Deployment",
+                "content": "The project is deployed on Alibaba Cloud Servers with a Linux-based environment. And the server configurations are optimized for stability and high availability."
+            }, {
+                "title": "Code Management",
+                "content": "1. Git is used for version control, and the project is synchronized through GitHub & GitLab.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Adopts standardized Git commit conventions, ensuring maintainability and traceability."
+            }],
+            "features": [{
+                "title": "Comprehensive User System",
+                "content": "✅ Supports user registration & login, with encrypted password storage for security.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Personalized user profiles displaying avatars, post counts, likes, and shares.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Interactive follow/unfollow features, enhancing the social aspect."
+            }, {
+                "title": "Rich Social Interaction",
+                "content": "✅ Posting system with text & multimedia content support, allowing editing and deletion.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Comment system: Supports multi-level comments.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Like & Share: Users can like posts and repost them to their profile for greater visibility."
+            }, {
+                "title": "Robust Backend System",
+                "content": "✅ Spring Boot + MVC architecture, ensuring clean logic and scalability.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ MongoDB storage, efficiently handling large-scale social data.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ RESTful API design, supporting seamless frontend-backend communication."
+            }, {
+                "title": "Performance Optimization",
+                "content": "✅ AJAX-based asynchronous requests, reducing page reloads and improving user experience.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Lazy loading for optimized data rendering.</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Pagination queries for posts & comments, preventing database overload."
+            }],
+            "key-achievements": [
+                "Successfully implemented the core features of a social networking site, building a fully functional platform. The system supports user registration, login, personal profiles, posting, commenting, liking, and sharing, effectively replicating the primary interaction experience of a social platform. Additionally, utilized MongoDB for data management, optimizing the database structure to improve query efficiency and ensure system stability and data consistency.",
+                "The project follows a frontend-backend decoupled architecture, significantly improving system scalability. On the frontend, adopted an MPA (Multi-Page Application) model to enable smooth page transitions and enhance user experience. On the backend, implemented Java + Spring Boot + MVC, ensuring a well-structured and efficient API interaction process.",
+                "By leveraging AJAX for asynchronous data interactions, minimized page reloads and improved system response speed, delivering a more seamless and efficient user experience.",
+                "The project is deployed on Alibaba Cloud, with optimizations made for the Linux server environment to enhance system security and stability.",
+                "Used GitHub & GitLab for version control and adhered to structured Git branching strategies (such as Feature Branch and Main Branch) to ensure maintainability and traceability. Additionally, implemented a Pull Request + Code Review mechanism to improve code quality and enhance team collaboration efficiency."
+            ]
+        },
+        "zh": {
+            "title": "Lumaca",
+            "position": "组长，客户端开发，UI/UX 设计。",
+            "time": "2021 年 11 月 - 2021 年 12 月",
+            "desc": "本项目由四人团队合作完成，分工如下：一名成员负责 Android 端开发，另一名成员负责界面设计，其余两人负责 Web 端的前后端开发。我担任团队负责人，负责任务协调，并主要承担前后端代码的实现工作。",
+            "impl": [{
+                "title": "数据库设计",
+                "content": "本项目采用 MongoDB 作为文档型数据库，实现高效的数据存储与管理。数据库包含两个主要 Collection（集合）：</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;User（用户数据）：存储用户的用户名、密码、姓名、点赞数、被点赞数、发帖数、转发数、头像等信息。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Post（帖子数据）：记录帖子的点赞数、最后编辑时间、评论数量、评论内容、转发数量、标题、正文等信息。"
+            }, {
+                "title": "项目架构",
+                "content": "项目采用 前后端分离架构，后端使用 Java + Spring Boot 框架，并基于 MVC 设计模式 进行开发。代码主要分为以下几层：</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1. Controller 层：处理前端请求，负责路由控制。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2. Service 层：定义业务逻辑接口。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3. ServiceImpl 层：实现业务逻辑，调用 DAO 层方法。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4. DAO 层：负责数据库操作。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5. Entity 层：封装数据对象，与数据库字段映射。"
+            }, {
+                "title": "前端设计",
+                "content": "前端采用 HTML5 + CSS3 + jQuery 进行开发，并采用 MPA（多页应用）架构，确保页面交互的稳定性。前端通过异步请求与后端进行数据交互，确保数据的一致性与实时性。"
+            }, {
+                "title": "服务器部署",
+                "content": "采用 阿里云服务器 进行部署，并使用 Linux 操作系统 进行环境搭建和项目运行。以及通过服务器环境优化，确保系统稳定性与高可用性。"
+            }, {
+                "title": "代码管理",
+                "content": "采用 Git 进行版本控制，并通过 GitHub & GitLab 进行代码托管和团队协作。并规范化 Git 提交记录，确保代码可维护性和版本可追溯性。"
+            }],
+            "features": [{
+                "title": "用户系统",
+                "content": "✅ 支持用户注册 & 登录，使用加密存储（MD5） 确保账户安全。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ 个人主页可查看用户头像、昵称、发帖数、点赞数、转发数等信息。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ 用户互动：支持关注 / 取消关注、查看关注列表，增强社交属性。"
+            }, {
+                "title": "社交互动",
+                "content": "✅ 发帖功能：支持 文本、图片等多媒体内容，可编辑、删除。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ 评论系统：帖子下可进行多级评论。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ 点赞 & 转发：用户可点赞帖子，并转发至个人主页，扩展影响力。"
+            }, {
+                "title": "强大后端支持",
+                "content": "✅ 采用 Spring Boot + MVC 架构，逻辑清晰，便于扩展维护。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ MongoDB 数据存储，结构灵活，可高效处理社交平台的大量数据。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ RESTful API 设计，支持前后端分离，提高数据交互效率。"
+            }, {
+                "title": "性能优化",
+                "content": "✅ AJAX 异步请求，减少页面刷新，提高用户体验流畅度。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ Lazy Loading（懒加载）：按需加载数据，降低页面渲染压力。</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;✅ 分页加载：帖子、评论等采用 分页查询，提高查询效率，避免数据库压力过大。"
+            }],
+            "key-achievements": [
+                "成功实现了一个社交网站的核心功能，构建了完整的平台。平台支持用户注册、登录、个人主页、发帖、评论、点赞、转发等功能，完整还原了社交平台的主要交互体验。除此之外，采用 MongoDB 进行数据管理，优化数据结构，提高查询效率，确保系统的稳定性和数据一致性。",
+                "本项目采用了 前后端分离架构，大幅提升了系统的可拓展性。在前端开发中，采用了 MPA（多页应用） 模式，使得页面切换更加流畅，并优化了用户体验。在后端，使用 Java + Spring Boot + MVC 进行开发，确保 API 交互逻辑高效且清晰。",
+                "通过 AJAX 进行数据的异步交互，减少了页面刷新次数，提高了系统的响应速度，使用户体验更加流畅和高效。",
+                "本项目部署在阿里云服务器上，并针对 Linux 服务器环境进行了优化，进一步提升了系统的安全性与稳定性。",
+                "采用 GitHub & GitLab 进行代码管理，并严格遵循 Git 分支管理策略（如 Feature Branch、Main Branch），确保代码的可维护性和可追溯性。此外，通过 Pull Request + Code Review 机制，提升代码质量，增强团队协作效率。"
+            ]
+        }
     }]
 }
