@@ -291,5 +291,82 @@
                 "⚡ 提升文件管理能力，支持拖拽导入 & 批量播放，提高播放便利性。"
             ]
         }
+    }, {
+        "en": {
+            "title": "C++ LAN chat software based on QT",
+            "position": "Team Leader, Client Developer, UI/UX Designer.",
+            "time": "Nov 2021 - Dec 2021",
+            "desc": "This project is a two-person team assignment, where I was primarily responsible for designing core features, implementing the code, and creating the UI. The project was developed using Java with JFoenix components for the interface and SQLite for database storage.",
+            "impl": [{
+                "title": "UI Design",
+                "content": "Built with JFoenix for a modern and interactive user experience."
+            }, {
+                "title": "Media Playback",
+                "content": "Utilized Java's multimedia API for streaming audio and video playback."
+            }, {
+                "title": "Database Management",
+                "content": "ntegrated SQLite to store playback history and user preferences."
+            }, {
+                "title": "File Management",
+                "content": "Supported importing and dragging multiple files for seamless episodic playback."
+            }],
+            "features": [{
+                "title": "🎵 Full-Featured Media Player",
+                "content": "Supports common video & audio formats with basic playback controls (play, pause, seek, volume)."
+            }, {
+                "title": "📝 Viewing History Tracking",
+                "content": "Automatically records watched content for quick access."
+            }, {
+                "title": "📂 Batch Import & Drag-to-Play",
+                "content": "Allows dragging multiple files for automatic ordering & episodic playback."
+            }, {
+                "title": "🎨 Smooth & Modern UI",
+                "content": "Built with JFoenix for an intuitive and visually appealing interface."
+            }],
+            "key-achievements": [
+                "🚀 Successfully developed & optimized core player functionalities for a smooth multimedia experience.",
+                "🔍 Implemented viewing history management for a more personalized experience.",
+                "🎭 Enhanced UI design & interaction using JFoenix for a modern, user-friendly interface.",
+                "⚡ Improved file management, supporting drag-and-drop imports & batch playback for convenience."
+            ]
+        },
+        "zh": {
+            "title": "基于 QT 的局域网聊天软件",
+            "position": "组长，客户端开发，UI/UX 设计。",
+            "time": "2021 年 11 月 - 2021 年 12 月",
+            "desc": "本项目为两人团队合作开发，我主要负责核心功能设计、代码实现以及 UI 设计。项目采用 Java 进行开发，使用 JFoenix 组件构建界面，并采用 SQLite 作为数据库进行数据存储。",
+            "impl": [{
+                "title": "界面设计",
+                "content": "基于 JFoenix 构建现代化 UI，使界面更具交互性和美观性。"
+            }, {
+                "title": "视频 & 音频播放",
+                "content": "使用 Java 提供的 多媒体 API 处理流媒体播放，支持常见的视频与音频格式。"
+            }, {
+                "title": "数据库管理",
+                "content": "采用 SQLite 进行数据存储，支持播放记录、用户偏好设置等个性化功能。"
+            }, {
+                "title": "文件管理",
+                "content": "支持文件导入 & 拖拽，可批量导入多个文件，并实现连续剧模式播放。"
+            }],
+            "features": [{
+                "title": "🎵 全功能媒体播放器",
+                "content": "支持常见视频 & 音频格式播放，并提供基础播放控制（播放、暂停、快进、音量调节等）。"
+            }, {
+                "title": "📝 播放历史记录",
+                "content": "播放器自动记录用户观看历史，并提供快捷访问入口。"
+            }, {
+                "title": "📂 批量导入 & 拖拽播放",
+                "content": "支持直接拖拽多个文件，实现自动排序 & 连续播放，适用于剧集播放。"
+            }, {
+                "title": "🎨 流畅 & 现代化 UI",
+                "content": "采用 JFoenix 组件 提供美观、响应式界面，增强用户体验。"
+            }],
+            "key-achievements": [
+                "🚀 成功开发并优化播放器核心功能，确保稳定流畅的多媒体播放体验。",
+                "🔍 实现播放历史管理功能，为用户提供更个性化的观看体验。",
+                "🎭 优化 UI 设计 & 交互体验，采用 JFoenix 组件，使界面更加美观和易用。",
+                "⚡ 提升文件管理能力，支持拖拽导入 & 批量播放，提高播放便利性。"
+            ]
+        }
     }]
 }
