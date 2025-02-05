@@ -294,7 +294,7 @@
     }, {
         "en": {
             "title": "C++ LAN chat software based on QT",
-            "position": "Team Leader, Client Developer, UI/UX Designer.",
+            "position": "Team Leader, Client & Server Developer, System Architect.",
             "time": "Nov 2021 - Dec 2021",
             "desc": "This project is a two-person team assignment, where I was primarily responsible for designing core features, implementing the code, and creating the UI. The project was developed using Java with JFoenix components for the interface and SQLite for database storage.",
             "impl": [{
@@ -332,7 +332,7 @@
         },
         "zh": {
             "title": "基于 QT 的局域网聊天软件",
-            "position": "组长，客户端开发，UI/UX 设计。",
+            "position": "组长，客户端 & 服务器开发，系统架构设计。",
             "time": "2021 年 11 月 - 2021 年 12 月",
             "desc": "本项目为两人团队合作开发，我主要负责核心功能设计、代码实现以及 UI 设计。项目采用 Java 进行开发，使用 JFoenix 组件构建界面，并采用 SQLite 作为数据库进行数据存储。",
             "impl": [{
