@@ -1302,3 +1302,48 @@ div.aboutMe_Resume_Session_Projects ol li {
 div.aboutMe_Resume_Session_Projects .non-to-display {
     display: none !important;
 }
+
+div#aboutMe_MyLife {
+
+    position: absolute;
+
+    width: 100vw;
+    height: 80dvh;
+
+    overflow: scroll hidden;
+
+    white-space: nowrap;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    margin: auto;
+    padding-left: 5dvh;
+    padding-right: 5dvh;
+
+    box-sizing: border-box;
+}
+
+div#aboutMe_MyLife::-webkit-scrollbar {
+    display: none;
+}
+
+div#aboutMe_MyLife > div:nth-child(1) {
+    height: 80dvh;
+    width: 90vw;
+
+    background: red;
+    
+    display: inline-block;
+}
+
+div#aboutMe_MyLife > div:nth-child(2) {
+    height: 60dvh;
+    width: 80vw;
+
+    background: green;
+
+    display: inline-block;
+}

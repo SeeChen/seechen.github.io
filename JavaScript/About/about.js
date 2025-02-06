@@ -809,7 +809,7 @@ const SeeChen_AboutPage_AboutMe = {
             var targetContent = e.target.id.split("-")[1];
             var targetDetails = `/Layout/Webpages/About/Session/AboutMe/${e.target.id.split("-")[1]}.json`;
 
-            // console.log(targetDetails);
+            console.log(targetDetails);
             targetDetails = await window.myTools.getJson(targetDetails);
 
             const template_AboutMe = await window.myTools.getJson("/Layout/Webpages/About/Session/AboutMe.json");
