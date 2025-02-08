@@ -781,6 +781,18 @@ const SeeChen_AboutPage_AboutMe = {
         document.body.removeChild(downloadLink);
     },
 
+    loadingMyLife: async () => {
+
+        document.querySelector("#aboutMe_MyLife").addEventListener("wheel", (e) => {
+
+            e.preventDefault();
+
+            document.querySelector("#aboutMe_MyLife").scrollLeft += 3 * e.deltaY;
+        }, {
+            passive: false
+        });
+    },
+
     closeClick: async ( 
         event
     ) => {
@@ -837,6 +849,7 @@ const SeeChen_AboutPage_AboutMe = {
             await new Promise(r => setTimeout(r, 100));
             document.querySelector("#about_ExpandContent").classList.add("expanded");
 
+            // console.log(targetContent);
             await SeeChen_AboutPage_AboutMe[`loading${targetContent}`]?.();
 
             document.querySelector("#aboutMe_Content_Close").addEventListener("click", (e) => {
