@@ -6,13 +6,33 @@
     "lang": "",
     "children": [{
         "tag": "div",
-        "props": {},
+        "props": {
+            "class": "mylife-session-year"
+        },
         "lang": "",
-        "children": []
+        "children": [{
+            "tag": "p",
+            "props": {
+                "class": "mylife-session-year-num"
+            },
+            "lang": "",
+            "children": ["2024"]
+        }, {
+            
+        }]
     }, {
         "tag": "div",
-        "props": {},
+        "props": {
+            "class": "mylife-session-year"
+        },
         "lang": "",
-        "children": []
+        "children": [{
+            "tag": "p",
+            "props": {
+                "class": "mylife-session-year-num"
+            },
+            "lang": "",
+            "children": ["2025"]
+        }]
     }]
 }]

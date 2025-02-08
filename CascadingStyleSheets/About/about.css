@@ -1330,20 +1330,35 @@ div#aboutMe_MyLife::-webkit-scrollbar {
     display: none;
 }
 
-div#aboutMe_MyLife > div:nth-child(1) {
-    height: 80dvh;
-    width: 90vw;
+div#aboutMe_MyLife > div.mylife-session-year {
 
-    background: red;
-    
+    position: relative;
+
+    height: 70dvh;
+    min-width: 60vw;
+
+    padding: 0.15em;
+    margin: 10dvh 0.15em;
+    margin-left: 1.5em;
+
+    box-sizing: border-box;
+
+    border: 0.15em solid #000;
+    border-radius: 1em;
+
     display: inline-block;
 }
 
-div#aboutMe_MyLife > div:nth-child(2) {
-    height: 60dvh;
-    width: 80vw;
+div#aboutMe_MyLife > div.mylife-session-year > p.mylife-session-year-num {
 
-    background: green;
+    position: sticky;
 
+    left: 1vw;
     display: inline-block;
+
+    transform: translate(-0.5em, -1.25em);
+
+    color: var(--font-color-title);
+    font-family: var(--fontface-title);
+    font-size: calc(2 * var(--font-size-1em));
 }
