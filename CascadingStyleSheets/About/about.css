@@ -1362,3 +1362,12 @@ div#aboutMe_MyLife > div.mylife-session-year > p.mylife-session-year-num {
     font-family: var(--fontface-title);
     font-size: calc(2 * var(--font-size-1em));
 }
+
+div#aboutMe_MyLife > div.mylife-session-year > div:nth-child(2) {
+
+    display: flex;
+
+    background: red;
+    height: 100%;
+    width: 100%;
+}
