@@ -19,23 +19,11 @@
             "children": ["2024"]
         }, {
             "tag": "div",
-            "props": {},
-            "lang": "",
-            "children": []
-        }]
-    }, {
-        "tag": "div",
-        "props": {
-            "class": "mylife-session-year"
-        },
-        "lang": "",
-        "children": [{
-            "tag": "p",
             "props": {
-                "class": "mylife-session-year-num"
+                "class": "mylife-session-year-content"
             },
             "lang": "",
-            "children": ["2025"]
+            "children": []
         }]
     }]
 }]
