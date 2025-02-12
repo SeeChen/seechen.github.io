@@ -1333,6 +1333,7 @@ div#aboutMe_MyLife::-webkit-scrollbar {
 div#aboutMe_MyLife > div.mylife-session-year {
 
     position: relative;
+    display: inline-block;
 
     height: 70dvh;
     min-width: 60vw;
@@ -1342,11 +1343,6 @@ div#aboutMe_MyLife > div.mylife-session-year {
     margin-left: 1.5em;
 
     box-sizing: border-box;
-
-    border: 0.15em solid #000;
-    border-radius: 1em;
-
-    display: inline-block;
 }
 
 div#aboutMe_MyLife > div.mylife-session-year > p.mylife-session-year-num {
@@ -1363,11 +1359,19 @@ div#aboutMe_MyLife > div.mylife-session-year > p.mylife-session-year-num {
     font-size: calc(2 * var(--font-size-1em));
 }
 
-div#aboutMe_MyLife > div.mylife-session-year > div:nth-child(2) {
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box {
 
+    position: absolute;
     display: flex;
 
-    background: red;
+    top: 0;
+    left: 0;
+
+    border: 0.15em solid #000;
+    border-radius: 1em;
+    
     height: 100%;
     width: 100%;
+
+    box-sizing: border-box;
 }

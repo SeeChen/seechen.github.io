@@ -20,10 +20,29 @@
         }, {
             "tag": "div",
             "props": {
-                "class": "mylife-session-year-content"
+                "class": "mylife-session-year-box"
             },
             "lang": "",
-            "children": []
+            "children": [{
+                "tag": "div",
+                "props": {
+                    "class": "mylife-session-month"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "div",
+                    "props": {
+                        "class": "mylife-session-month-num"
+                    },
+                    "lang": "",
+                    "children": ["Jan"]
+                }, {
+                    "tag": "div",
+                    "props": {},
+                    "lang": "",
+                    "children": []
+                }]
+            }]
         }]
     }]
 }]
