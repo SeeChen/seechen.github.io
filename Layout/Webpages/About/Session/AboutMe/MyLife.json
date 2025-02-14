@@ -16,7 +16,7 @@
                 "class": "mylife-session-year-num"
             },
             "lang": "",
-            "children": ["2024"]
+            "children": ["2000"]
         }, {
             "tag": "div",
             "props": {
@@ -38,7 +38,9 @@
                     "children": ["Jan"]
                 }, {
                     "tag": "div",
-                    "props": {},
+                    "props": {
+                        "class": "mylife-session-month-box"
+                    },
                     "lang": "",
                     "children": []
                 }]
