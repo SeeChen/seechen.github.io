@@ -25,25 +25,9 @@
             "lang": "",
             "children": [{
                 "tag": "div",
-                "props": {
-                    "class": "mylife-session-month"
-                },
+                "props": {},
                 "lang": "",
-                "children": [{
-                    "tag": "div",
-                    "props": {
-                        "class": "mylife-session-month-num"
-                    },
-                    "lang": "",
-                    "children": ["Jan"]
-                }, {
-                    "tag": "div",
-                    "props": {
-                        "class": "mylife-session-month-box"
-                    },
-                    "lang": "",
-                    "children": []
-                }]
+                "children": []
             }]
         }]
     }]
