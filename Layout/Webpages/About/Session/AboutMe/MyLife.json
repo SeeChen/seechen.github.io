@@ -30,5 +30,31 @@
                 "children": []
             }]
         }]
+    }, {
+        "tag": "div",
+        "props": {
+            "class": "mylife-session-year"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "p",
+            "props": {
+                "class": "mylife-session-year-num"
+            },
+            "lang": "",
+            "children": ["2000"]
+        }, {
+            "tag": "div",
+            "props": {
+                "class": "mylife-session-year-box"
+            },
+            "lang": "",
+            "children": [{
+                "tag": "div",
+                "props": {},
+                "lang": "",
+                "children": []
+            }]
+        }]
     }]
 }]
