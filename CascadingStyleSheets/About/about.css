@@ -1313,7 +1313,7 @@ div#aboutMe_MyLife {
     width: 100vw;
     height: 80dvh;
 
-    overflow: scroll hidden;
+    overflow: scroll visible;
 
     white-space: nowrap;
 
@@ -1339,10 +1339,9 @@ div#aboutMe_MyLife > div.mylife-session-year {
 
     height: 70dvh;
     width: auto;
-    min-width: 60vw;
 
     padding: 0.15em;
-    margin: 10dvh 0.15em;
+    margin: 5dvh 0.15em;
     margin-left: 1.5em;
 
     box-sizing: border-box;
@@ -1362,8 +1361,53 @@ div#aboutMe_MyLife > div.mylife-session-year > p.mylife-session-year-num {
 
 div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box {
 
+    position: relative;
+    display: flex;
+
+    flex-direction: row;
+
     width: 100%;
     height: 100%;
 
-    background: green;
+    /* border: 0.15em solid #CCC; */
+}
+
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div.mylife-session-month {
+
+    height: calc(100% - 2em);
+    min-width: 20vw;
+
+    margin: 1em;
+
+    /* border: 0.15em solid #000; */
+    box-sizing: border-box;
+}
+
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div.mylife-session-month > p.mylife-session-month-num {
+
+    position: sticky;
+    display: inline-block;
+    
+    left: 1em;
+    margin-top: -5em;
+
+    font-size: calc(2 * var(--font-size-1em));
+    font-family: var(--fontface-title-4);
+
+    padding: 0 1em;
+    color: var(--font-color-title);
+}
+
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div.mylife-session-month > div.mylife-session-month-box {
+
+    width: 120vw;
+    height: 100%;
+}
+
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div.mylife-session-month > div.mylife-session-month-box > div.mylife-session-days {
+
+    width: 10vw;
+    height: 100%;
+
+    background: red;
 }
