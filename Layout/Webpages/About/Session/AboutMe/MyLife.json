@@ -48,7 +48,19 @@
                             "class": "mylife-session-days"
                         },
                         "lang": "",
-                        "children": []
+                        "children": [{
+                            "tag": "div",
+                            "props": {},
+                            "lang": "",
+                            "children": []
+                        }, {
+                            "tag": "p",
+                            "props": {
+                                "class": "mylife-session-days-num"
+                            },
+                            "lang": "",
+                            "children": ["12"]
+                        }]
                     }]
                 }]
             }]
