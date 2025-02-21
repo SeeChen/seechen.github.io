@@ -50,7 +50,9 @@
                         "lang": "",
                         "children": [{
                             "tag": "div",
-                            "props": {},
+                            "props": {
+                                "class": "mylife-session-days-content"
+                            },
                             "lang": "",
                             "children": []
                         }, {
