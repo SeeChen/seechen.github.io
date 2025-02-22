@@ -54,7 +54,12 @@
                                 "class": "mylife-session-days-content"
                             },
                             "lang": "",
-                            "children": []
+                            "children": [{
+                                "tag": "p",
+                                "props": {},
+                                "lang": "",
+                                "children": ["test 1234 测试"]
+                            }]
                         }, {
                             "tag": "p",
                             "props": {

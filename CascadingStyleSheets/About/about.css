@@ -1421,3 +1421,11 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     font-size: calc(3 * var(--font-size-1em));
     font-family: var(--fontface-art-2);
 }
+
+div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div.mylife-session-month > div.mylife-session-month-box > div.mylife-session-days > div.mylife-session-days-content {
+
+    height: 100%;
+    width: 100%;
+
+    background: red;
+}
