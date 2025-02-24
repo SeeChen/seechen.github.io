@@ -791,6 +791,10 @@ const SeeChen_AboutPage_AboutMe = {
         }, {
             passive: false
         });
+
+
+        const MyLifeData = await window.myTools.getJson("/Data/About/AboutMe/MyLife/MyLife.json");
+        console.log(MyLifeData);
     },
 
     closeClick: async ( 
