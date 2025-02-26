@@ -792,7 +792,7 @@ const SeeChen_AboutPage_AboutMe = {
             passive: false
         });
 
-        // const Template_Layout_MyLife_Year = {
+        // {
         //     "tag": "div",
         //     "props": {
         //         "class": "mylife-session-year"
@@ -811,64 +811,166 @@ const SeeChen_AboutPage_AboutMe = {
         //             "class": "mylife-session-year-box"
         //         },
         //         "lang": "",
-        //         "children": [{
-        //             "tag": "div",
-        //             "props": {
-        //                 "class": "mylife-session-month"
-        //             },
-        //             "lang": "",
-        //             "children": [{
-        //                 "tag": "p",
-        //                 "props": {
-        //                     "class": "mylife-session-month-num"
-        //                 },
-        //                 "lang": "",
-        //                 "children": ["Jan"]
-        //             }, {
-        //                 "tag": "div",
-        //                 "props": {
-        //                     "class": "mylife-session-month-box"
-        //                 },
-        //                 "lang": "",
-        //                 "children": [{
-        //                     "tag": "div",
-        //                     "props": {
-        //                         "class": "mylife-session-days"
-        //                     },
-        //                     "lang": "",
-        //                     "children": [{
-        //                         "tag": "div",
-        //                         "props": {
-        //                             "class": "mylife-session-days-content"
-        //                         },
-        //                         "lang": "",
-        //                         "children": [{
-        //                             "tag": "p",
-        //                             "props": {},
-        //                             "lang": "",
-        //                             "children": ["test 1234 测试, thsi is a test, testting 123 哈哈哈哈 测试换行的效果哟"]
-        //                         }]
-        //                     }, {
-        //                         "tag": "p",
-        //                         "props": {
-        //                             "class": "mylife-session-days-num"
-        //                         },
-        //                         "lang": "",
-        //                         "children": ["12"]
-        //                     }]
-        //                 }]
-        //             }]
-        //         }]
+        //         "children": []
         //     }]
         // }
 
+        // {
+        //     "tag": "div",
+        //     "props": {
+        //         "class": "mylife-session-month"
+        //     },
+        //     "lang": "",
+        //     "children": [{
+        //         "tag": "p",
+        //         "props": {
+        //             "class": "mylife-session-month-num"
+        //         },
+        //         "lang": "",
+        //         "children": ["Jan"]
+        //     }, {
+        //         "tag": "div",
+        //         "props": {
+        //             "class": "mylife-session-month-box"
+        //         },
+        //         "lang": "",
+        //         "children": []
+        //     }]
+        // }
+
+
+        // {
+        //     "tag": "div",
+        //     "props": {
+        //         "class": "mylife-session-days"
+        //     },
+        //     "lang": "",
+        //     "children": [{
+        //         "tag": "div",
+        //         "props": {
+        //             "class": "mylife-session-days-content"
+        //         },
+        //         "lang": "",
+        //         "children": [{
+        //             "tag": "p",
+        //             "props": {},
+        //             "lang": "",
+        //             "children": ["test 1234 测试, thsi is a test, testting 123 哈哈哈哈 测试换行的效果哟"]
+        //         }]
+        //     }, {
+        //         "tag": "p",
+        //         "props": {
+        //             "class": "mylife-session-days-num"
+        //         },
+        //         "lang": "",
+        //         "children": ["12"]
+        //     }]
+        // }
+
+        let old_MyLife = window.myTools.deepCopy(window.myData.about.contentExpand);
         const MyLifeData = await window.myTools.getJson("/Data/About/AboutMe/MyLife/MyLife.json");
 
-        console.log(MyLifeData);
-        for (let eachYear in MyLifeData) {
+        const yearList = [];
+        Object.entries(MyLifeData).forEach(([year, DataYearly]) => {
 
-            console.log(eachYear);
-        }
+            const monthList = [];
+            Object.entries(DataYearly).forEach(([month, DataMonthly]) => {
+
+                const dayList = [];
+                Object.entries(DataMonthly).forEach(([day, DataDaily]) => {
+
+                    dayList.push({
+                        "tag": "div",
+                        "props": {
+                            "class": "mylife-session-days"
+                        },
+                        "lang": "",
+                        "children": [{
+                            "tag": "div",
+                            "props": {
+                                "class": "mylife-session-days-content"
+                            },
+                            "lang": "",
+                            "children": [{
+                                "tag": "p",
+                                "props": {},
+                                "lang": "",
+                                "children": [DataDaily["ctx"][window.globalValues.language]]
+                            }]
+                        }, {
+                            "tag": "p",
+                            "props": {
+                                "class": "mylife-session-days-num"
+                            },
+                            "lang": "",
+                            "children": [day]
+                        }]
+                    });
+                });
+
+                monthList.push({
+                    "tag": "div",
+                    "props": {
+                        "class": "mylife-session-month"
+                    },
+                    "lang": "",
+                    "children": [{
+                        "tag": "p",
+                        "props": {
+                            "class": "mylife-session-month-num"
+                        },
+                        "lang": "",
+                        "children": [month]
+                    }, {
+                        "tag": "div",
+                        "props": {
+                            "class": "mylife-session-month-box"
+                        },
+                        "lang": "",
+                        "children": dayList
+                    }]
+                });
+            });
+
+            yearList.push({
+                "tag": "div",
+                "props": {
+                    "class": "mylife-session-year"
+                },
+                "lang": "",
+                "children": [{
+                    "tag": "p",
+                    "props": {
+                        "class": "mylife-session-year-num"
+                    },
+                    "lang": "",
+                    "children": [year]
+                }, {
+                    "tag": "div",
+                    "props": {
+                        "class": "mylife-session-year-box"
+                    },
+                    "lang": "",
+                    "children": monthList
+                }]
+            });
+        });
+
+        window.myData.about.contentExpand.children[1].children[0].children = yearList;
+
+        window.vDom.Patch(
+            document.querySelector("#about_ExpandContent"),
+            window.vDom.Diff(
+                old_MyLife,
+                window.myData.about.contentExpand
+            )
+        );
+        window.globalValues.nodeToRemove.forEach(({ parent, el }) => {
+
+            if (!el) return;
+            el.parentNode.removeChild(el)
+        });
+        window.globalValues.nodeToRemove = [];
     },
 
     closeClick: async ( 
