@@ -877,8 +877,10 @@ const SeeChen_AboutPage_AboutMe = {
             Object.entries(DataYearly).forEach(([month, DataMonthly]) => {
 
                 const dayList = [];
-                Object.entries(DataMonthly).forEach(([day, DataDaily]) => {
+                for (let day of Object.keys(DataMonthly).sort()) {
+                    let DataDaily = DataMonthly[day];
 
+                    let ctxBg = DataDaily["img"] == "" ? "yellow" : `url(${DataDaily["img"]})`
                     dayList.push({
                         "tag": "div",
                         "props": {
@@ -888,7 +890,8 @@ const SeeChen_AboutPage_AboutMe = {
                         "children": [{
                             "tag": "div",
                             "props": {
-                                "class": "mylife-session-days-content"
+                                "class": "mylife-session-days-content",
+                                "style": `background: ${ctxBg} center/contain no-repeat;`
                             },
                             "lang": "",
                             "children": [{
@@ -906,7 +909,7 @@ const SeeChen_AboutPage_AboutMe = {
                             "children": [day]
                         }]
                     });
-                });
+                }
 
                 monthList.push({
                     "tag": "div",
@@ -919,7 +922,7 @@ const SeeChen_AboutPage_AboutMe = {
                         "props": {
                             "class": "mylife-session-month-num"
                         },
-                        "lang": "",
+                        "lang": "month",
                         "children": [month]
                     }, {
                         "tag": "div",
