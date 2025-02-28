@@ -1473,3 +1473,10 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     font-family: var(--fontface-art-2);
     font-size: calc(1.25 * var(--font-size-1em));
 }
+
+#aboutMe_Photography {
+    width: 100vw;
+    height: 100dvh;
+
+    background: red;
+}

@@ -784,88 +784,10 @@ const SeeChen_AboutPage_AboutMe = {
     loadingMyLife: async () => {
 
         document.querySelector("#aboutMe_MyLife").addEventListener("wheel", (e) => {
-
-            e.preventDefault();
-
-            document.querySelector("#aboutMe_MyLife").scrollLeft += 3 * e.deltaY;
+            SeeChen_AboutPage_AboutMe.myLifeScroll(e);
         }, {
             passive: false
         });
-
-        // {
-        //     "tag": "div",
-        //     "props": {
-        //         "class": "mylife-session-year"
-        //     },
-        //     "lang": "",
-        //     "children": [{
-        //         "tag": "p",
-        //         "props": {
-        //             "class": "mylife-session-year-num"
-        //         },
-        //         "lang": "",
-        //         "children": ["2000"]
-        //     }, {
-        //         "tag": "div",
-        //         "props": {
-        //             "class": "mylife-session-year-box"
-        //         },
-        //         "lang": "",
-        //         "children": []
-        //     }]
-        // }
-
-        // {
-        //     "tag": "div",
-        //     "props": {
-        //         "class": "mylife-session-month"
-        //     },
-        //     "lang": "",
-        //     "children": [{
-        //         "tag": "p",
-        //         "props": {
-        //             "class": "mylife-session-month-num"
-        //         },
-        //         "lang": "",
-        //         "children": ["Jan"]
-        //     }, {
-        //         "tag": "div",
-        //         "props": {
-        //             "class": "mylife-session-month-box"
-        //         },
-        //         "lang": "",
-        //         "children": []
-        //     }]
-        // }
-
-
-        // {
-        //     "tag": "div",
-        //     "props": {
-        //         "class": "mylife-session-days"
-        //     },
-        //     "lang": "",
-        //     "children": [{
-        //         "tag": "div",
-        //         "props": {
-        //             "class": "mylife-session-days-content"
-        //         },
-        //         "lang": "",
-        //         "children": [{
-        //             "tag": "p",
-        //             "props": {},
-        //             "lang": "",
-        //             "children": ["test 1234 测试, thsi is a test, testting 123 哈哈哈哈 测试换行的效果哟"]
-        //         }]
-        //     }, {
-        //         "tag": "p",
-        //         "props": {
-        //             "class": "mylife-session-days-num"
-        //         },
-        //         "lang": "",
-        //         "children": ["12"]
-        //     }]
-        // }
 
         let old_MyLife = window.myTools.deepCopy(window.myData.about.contentExpand);
         const MyLifeData = await window.myTools.getJson("/Data/About/AboutMe/MyLife/MyLife.json");
@@ -974,6 +896,20 @@ const SeeChen_AboutPage_AboutMe = {
             el.parentNode.removeChild(el)
         });
         window.globalValues.nodeToRemove = [];
+    },
+    myLifeScroll: async (
+        e
+    ) => {
+        // e.preventDefault();
+        document.querySelector("#aboutMe_MyLife").scrollLeft += 3 * e.deltaY;
+    },
+    closeMyLife: async () => {
+
+        document.querySelector("#aboutMe_MyLife").removeEventListener("wheel", (e) => {
+            SeeChen_AboutPage_AboutMe.myLifeScroll(e);
+        }, {
+            passive: false
+        });
     },
 
     closeClick: async ( 
