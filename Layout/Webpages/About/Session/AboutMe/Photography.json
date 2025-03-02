@@ -10,6 +10,14 @@
             "class": "photography_session"
         },
         "lang": "",
-        "children": []
+        "children": [{
+            "tag": "img",
+            "props": {
+                "src": "/File/Image/Travel/CN/BeiJing/0.avif",
+                "class": "photography_session_img photography_session_img_left"
+            },
+            "lang": "",
+            "children": []
+        }]
     }]
 }]

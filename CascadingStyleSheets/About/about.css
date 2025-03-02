@@ -1478,16 +1478,48 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     width: 100vw;
     height: 100dvh;
 
-    /* background: red; */
+    padding-top: 35dvh;
 }
 
 #aboutMe_Photography div.photography_session {
 
-    min-height: 20dvh;
-    max-height: 80dvh;
+    position: relative;
+
+    height: 60dvh;
     width: 80vw;
 
     margin: auto;
 
-    background: red;
+    /* background: red; */
+}
+
+#aboutMe_Photography div.photography_session:hover img.photography_session_img {
+
+    opacity: 0.5;
+}
+
+#aboutMe_Photography div.photography_session:hover img.photography_session_img_left {
+    left: -35vw;
+}
+
+#aboutMe_Photography div.photography_session:hover img.photography_session_img_right {
+    right: -35vw;
+}
+
+#aboutMe_Photography div.photography_session img.photography_session_img {
+
+    position: absolute;
+
+    max-width: 80vw;
+    max-height: 60dvh;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    margin: auto;
+    opacity: 1;
+
+    transition: 0.5s opacity, 1s right, 1s left;
 }
