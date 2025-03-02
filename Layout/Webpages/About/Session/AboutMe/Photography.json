@@ -4,5 +4,12 @@
         "id": "aboutMe_Photography"   
     },
     "lang": "",
-    "children": []
+    "children": [{
+        "tag": "div",
+        "props": {
+            "class": "photography_session"
+        },
+        "lang": "",
+        "children": []
+    }]
 }]

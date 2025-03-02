@@ -1478,5 +1478,16 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     width: 100vw;
     height: 100dvh;
 
+    /* background: red; */
+}
+
+#aboutMe_Photography div.photography_session {
+
+    min-height: 20dvh;
+    max-height: 80dvh;
+    width: 80vw;
+
+    margin: auto;
+
     background: red;
 }
