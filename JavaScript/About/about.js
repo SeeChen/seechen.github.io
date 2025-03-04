@@ -912,6 +912,11 @@ const SeeChen_AboutPage_AboutMe = {
         });
     },
 
+    loadingPhotography: async => {
+
+        
+    },
+
     closeClick: async ( 
         event
     ) => {
