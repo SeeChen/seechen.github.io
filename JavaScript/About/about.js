@@ -912,9 +912,15 @@ const SeeChen_AboutPage_AboutMe = {
         });
     },
 
-    loadingPhotography: async => {
+    loadingPhotography: async () => {
 
-        
+        let old_Photography = window.myTools.deepCopy(window.myData.about.contentExpand);
+
+
+        let template_Photography = {
+            
+        };
+        // const MyLifeData = await window.myTools.getJson("/Data/About/AboutMe/MyLife/MyLife.json");
     },
 
     closeClick: async ( 

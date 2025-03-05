@@ -18,6 +18,13 @@
             },
             "lang": "",
             "children": []
+        }, {
+            "tag": "p",
+            "props": {
+                "class": "photography_session_desc"
+            },
+            "lang": "",
+            "children": ["this is a test"]
         }]
     }]
 }]

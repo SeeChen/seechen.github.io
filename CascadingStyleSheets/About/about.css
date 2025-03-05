@@ -1523,3 +1523,16 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
 
     transition: 0.5s opacity, 1s right, 1s left;
 }
+
+#aboutMe_Photography div.photography_session p.photography_session_desc {
+
+    text-align: right;
+
+    /* height: 100%; */
+    width: 80%;
+
+    margin: auto;
+    padding-top: 2em;
+
+    background: red;
+}
