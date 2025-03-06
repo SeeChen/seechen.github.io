@@ -1479,6 +1479,14 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     height: 100dvh;
 
     padding-top: 35dvh;
+    padding-bottom: 10dvh;
+
+    overflow: hidden 
+    
+    scroll;
+}
+#aboutMe_Photography::-webkit-scrollbar {
+    display: none;
 }
 
 #aboutMe_Photography div.photography_session {
@@ -1489,6 +1497,7 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     width: 80vw;
 
     margin: auto;
+    margin-bottom: 2em;
 
     /* background: red; */
 }
@@ -1506,12 +1515,16 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     right: -35vw;
 }
 
+#aboutMe_Photography div.photography_session:hover p {
+    opacity: 1 !important;
+}
+
 #aboutMe_Photography div.photography_session img.photography_session_img {
 
     position: absolute;
 
     max-width: 80vw;
-    max-height: 60dvh;
+    max-height: 50dvh;
 
     left: 0;
     right: 0;
@@ -1524,15 +1537,24 @@ div#aboutMe_MyLife > div.mylife-session-year > div.mylife-session-year-box > div
     transition: 0.5s opacity, 1s right, 1s left;
 }
 
-#aboutMe_Photography div.photography_session p.photography_session_desc {
+#aboutMe_Photography div.photography_session p {
 
-    text-align: right;
-
-    /* height: 100%; */
     width: 80%;
 
     margin: auto;
     padding-top: 2em;
 
-    background: red;
+    font-size: calc(1.2 * var(--font-size-1em));
+    font-family: var(--fontface-art-2);
+
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#aboutMe_Photography div.photography_session p.photography_session_desc_left {
+    text-align: right;
+}
+
+#aboutMe_Photography div.photography_session p.photography_session_desc_right {
+    text-align: left;
 }

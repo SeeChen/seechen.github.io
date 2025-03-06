@@ -21,7 +21,29 @@
         }, {
             "tag": "p",
             "props": {
-                "class": "photography_session_desc"
+                "class": "photography_session_desc_left"
+            },
+            "lang": "",
+            "children": ["this is a test"]
+        }]
+    }, {
+        "tag": "div",
+        "props": {
+            "class": "photography_session"
+        },
+        "lang": "",
+        "children": [{
+            "tag": "img",
+            "props": {
+                "src": "/File/Image/Travel/CN/BeiJing/2.avif",
+                "class": "photography_session_img photography_session_img_right"
+            },
+            "lang": "",
+            "children": []
+        }, {
+            "tag": "p",
+            "props": {
+                "class": "photography_session_desc_right"
             },
             "lang": "",
             "children": ["this is a test"]

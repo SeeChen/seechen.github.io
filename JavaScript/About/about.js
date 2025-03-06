@@ -920,7 +920,9 @@ const SeeChen_AboutPage_AboutMe = {
         let template_Photography = {
             
         };
-        // const MyLifeData = await window.myTools.getJson("/Data/About/AboutMe/MyLife/MyLife.json");
+        const MyPhotography = await window.myTools.getJson("/Data/About/AboutMe/Photography/Photography.json");
+
+        console.log(MyPhotography);
     },
 
     closeClick: async ( 
