@@ -129,9 +129,12 @@ class BaseDatabase {
 
 class databaseJson extends BaseDatabase {
 
-    #DatabaseCollection = new Set();
+    #DatabaseCollection         = new Set();
+    #DatabaseCollcetionDocument = new Map();
 
-    get collection() {
+    collection (
+        collectionName = null
+    ) {
         return {
             set: (
                 ListCollection,
@@ -160,33 +163,54 @@ class databaseJson extends BaseDatabase {
                 CollectionName = null
             ) => {
                 if (!CollectionName) {
-                    return [...this.#DatabaseCollection].map(key => ({
-                        name: key,
-                        path: `${super.config.get("dir")}/${key}.${super.config.get("type")}`,
-                        status: super.status.get().byName(key)
-                    }));
+                    return [...this.#DatabaseCollection].map(name => this.collection().get(name));
                 }
 
                 if (typeof CollectionName === "string") {
+
+                    if (!this.#DatabaseCollection.has(CollectionName)) {
+                        throw new Error(`Collection "${CollectionName}" does not exist!`);
+                    }
+
                     return {
-                        name: CollectionName,
-                        path: `${super.config.get("dir")}/${CollectionName}.${super.config.get("type")}`,
-                        status: super.status.get().byName(CollectionName)
+                        name    : CollectionName,
+                        path    : `${super.config.get("dir")}/${CollectionName}.${super.config.get("type")}`,
+                        status  : super.status.get().byName(CollectionName)
                     }
                 }
                 
                 if (Array.isArray(CollectionName)) {
-                    return CollectionName.map(name => this.collection.get(name));
+                    return CollectionName.map(name => this.collection().get(name));
                 }
 
                 throw new TypeError(`Invalid argument: CollectionName must be <string> or <array>. Received value: "${CollectionName}" (type: <${typeof CollectionName}>)`);
+            },
+
+            document: (
+                documentName = null
+            ) => {
+                if (typeof collectionName !== "string" || !collectionName.trim()) {
+                    throw new Error("Collection name is required and must be a non-empty string.");
+                }
+
+                if (!this.#DatabaseCollection.has(collectionName)) {
+                    throw new Error(`Collection "${collectionName}" does not exist!`);
+                }
+
+                return {
+                    set: () => {
+
+                    },
+
+                    get: () => {
+
+                    },
+
+                    load: () => {
+                        
+                    }
+                }
             }
-        }
-    }
-
-    get document() {
-        return {
-
         }
     }
 }
