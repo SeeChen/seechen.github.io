@@ -128,6 +128,7 @@ window.onload = async function() {
 
     await testLoad();
     window.webpages.loadingPage.pageLoaded();
+    console.log(caches);
 }
 
 async function testLoad() {
