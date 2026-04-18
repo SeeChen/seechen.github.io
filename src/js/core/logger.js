@@ -25,7 +25,7 @@ class Logger {
         this.isProduction = hostname === 'seechen.com' || hostname === 'www.seechen.com';
 
         // It is considered "Dev" on localhost, 127.0.0.1, or seechen.github.io
-        this.isDev = !this.isProduction;
+        this.level = !this.isProduction ? "DEBUG" : "INFO";
     }
 
     /**
@@ -81,7 +81,7 @@ class Logger {
      * @param  {...any} args 
      */
     debug(message, ...args) {
-        if (this.isDev) {
+        if ("DEBUG" === this.level) {
             console.log(this.#getFormat("DEBUG", message), 'color: #808080; font-weight: bold;', 'color: inherit;', ...args);
         }
     }

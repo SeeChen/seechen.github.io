@@ -6,6 +6,8 @@
  * @license MIT
  */
 
+import { SEECHEN_WEBPAGE_VALUES } from "./app-context.js";
+
 /**
  * @typedef  {Object} layoutConfig
  * @property {string} tag
@@ -21,6 +23,9 @@
  * @property {string} lang
  * @property {Array<vNode|string>} children
  */
+
+const language = SEECHEN_WEBPAGE_VALUES.LANGUAGE.LANGUAGE;
+const translateData = SEECHEN_WEBPAGE_VALUES.LANGUAGE.OBJECT;
 
 /**
  * Lightweight Virtual DOM for seechen.github.io
@@ -42,19 +47,17 @@ export const vDom = {
 
         const { tag, props = {}, lang = "", children = [] } = layoutConfig;
 
-        let LanguageObj = window.globalValues.translateData;
-
-        return vDom.CreateElement(
+        return vDom.createElement(
             tag,
             props,
             lang,
             children.length === 1 && typeof children[0] === "string"
-                ? [LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][children[0]] : children[0]]
+                ? [translateData[lang] ? translateData[lang][language][children[0]] : children[0]]
                 : children.map(child => vDom.create(child))
         );
     },
 
-    CreateElement: (
+    createElement: (
         tag,
         props,
         lang,
@@ -69,7 +72,7 @@ export const vDom = {
         }
     },
 
-    Render: (
+    render: (
         vNode
     ) => {
         if (typeof vNode === "string") {
@@ -84,18 +87,17 @@ export const vDom = {
         vNode.children.forEach(child => {
 
             if (typeof child === "string") {
-                let LanguageObj = window.globalValues.translateData;
-                let text = LanguageObj[vNode.lang] ? LanguageObj[vNode.lang][window.globalValues.language][child] || child : child;
+                let text = translateData[vNode.lang] ? translateData[vNode.lang][language][child] || child : child;
                 el.appendChild(document.createTextNode(text));
             } else {
-                el.appendChild(vDom.Render(child));
+                el.appendChild(vDom.render(child));
             }
         });
 
         return el;
     },
 
-    Diff: (
+    diff: (
         oldNode,
         newNode,
         lang
@@ -113,8 +115,7 @@ export const vDom = {
 
         else if (typeof oldNode === "string" && typeof newNode === "string") {
 
-            let LanguageObj = window.globalValues.translateData;
-            let newText = LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][newNode] || newNode : newNode;
+            let newText = translateData[lang] ? translateData[lang][language][newNode] || newNode : newNode;
 
             if (oldNode !== newNode) {
                 patches.push({ type: "TEXT", text: newText });
@@ -146,7 +147,7 @@ export const vDom = {
             const childPatch = []
             const maxChildrenLength = Math.max(oldNode.children.length, newNode.children.length);
             for (let i = 0; i < maxChildrenLength; i++) {
-                childPatch.push(vDom.Diff(oldNode.children[i], newNode.children[i], newNode.lang));
+                childPatch.push(vDom.diff(oldNode.children[i], newNode.children[i], newNode.lang));
             }
             patches.push({ type: "CHILDREN", children: childPatch });
         }
@@ -154,7 +155,7 @@ export const vDom = {
         return patches;
     },
 
-    Patch: (
+    patch: (
         parent,
         patches,
         index = 0
@@ -165,7 +166,7 @@ export const vDom = {
         patches.forEach(patch => {
             switch (patch.type) {
                 case "ADD":
-                    parent.appendChild(vDom.Render(patch.newNode));
+                    parent.appendChild(vDom.render(patch.newNode));
                     break;
                 case "REMOVE":
                     window.globalValues.nodeToRemove.push({
@@ -177,7 +178,7 @@ export const vDom = {
                     parent.textContent = patch.text;
                     break;
                 case "REPLACE":
-                    parent.replaceChild(vDom.Render(patch.newNode), el);
+                    parent.replaceChild(vDom.render(patch.newNode), el);
                     break;
                 case "PROPS":
                     patch.props.forEach(({ key, value }) => {

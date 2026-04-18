@@ -12,17 +12,18 @@
 
 import { logger } from "./core/logger.js";
 import { vDom } from "./core/vDom.js";
+import { UserLanguage } from "./util/language.js";
+import { EventAgent } from "./core/eventAgent.js";
+// import { loading } from "./components/loading.js";
 
-window.REGISTRY = {
-    PAGES_LAYOUT: {
-        LOADING: "/public/layouts/global/loading.json"
-    }
-}
+import { SEECHEN_WEBPAGE_VALUES } from "./core/app-context.js";
 
 window.onload = async function () {
     logger.info(`Websites URL: ${window.location.href}`);
 
-    const loadingLayout = await fetch(window.REGISTRY.PAGES_LAYOUT.LOADING).then(res => res.json());
+    SEECHEN_WEBPAGE_VALUES.LANGUAGE.LANGUAGE = new UserLanguage().getLanguage();
+
+    const loadingLayout = await fetch(SEECHEN_WEBPAGE_VALUES.REGISTERY.PAGES_LAYOUT.LOADING).then(res => res.json());
     const loadingVDom = vDom.create(loadingLayout);
     const loadingElement = vDom.render(loadingVDom);
     document.getElementById("componentLoading").appendChild(loadingElement);
