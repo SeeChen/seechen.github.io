@@ -1,109 +1,75 @@
-<!-- https://seechen.github.io -->
 <!--
-    File: index.html (https://github.com/SeeChen/seechen.github.io/blob/main/index.html).
-    Part of [seechen.github.io] (https://github.com/SeeChen/seechen.github.io).
-
-    Copyright (C) 2024 LEE SEE CHEN.
-
-    This file is licensed under the GNU General Public License v3.0 (GPLv3).
-    You can redistribute it and/or modify it under the terms of the GPLv3.
-    For more details, see <https://www.gnu.org/licenses/>.
--->
+  ~ seechen.github.io
+  ~ https://github.com/SeeChen/seechen.github.io
+  ~
+  ~ Copyright (c) 2024-2026 LEE SEE CHEN. All rights reserved.
+  ~
+  ~ This source code is licensed under the MIT license found in the
+  ~ LICENSE file in the root directory of this source tree.
+  ~
+  ~ SPDX-License-Identifier: MIT
+  -->
 <!DOCTYPE html>
 <html>
-    <head>
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-C522VVXBTT"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-C522VVXBTT');
-        </script>
 
-        <title>SEECHEN's Website</title>
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C522VVXBTT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-C522VVXBTT');
+    </script>
 
-        <!-- Meta -->
-        <meta charset = "UTF-8" />
-        <meta name = "author"   content = "SeeChen Lee" />
-        <meta name = "viewport" content = "width=device-width, initial-scale=1" />
-        <meta name="mobile-web-app-capable" content="yes" />
-        <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
+    <!-- Default Title, will change during loading -->
+    <title>SEECHEN's Website</title>
 
-        <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="author" content="SeeChen Lee" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
 
-        <!-- Caseading Style Sheet -->
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/fontface.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/global.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/navigation.css" type="text/css">
+    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
 
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/loading.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/loadingAnimation.css" type="text/css">
+    <!-- Core -->
+    <script src="/src/js/core/route.js" type="module"></script>
+    <script src="/src/js/core/logger.js" type="module"></script>
+    <script src="/src/js/core/vDom.js" type="module"></script>
 
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/footer.css" type="text/css">
+    <!-- Launch App -->
+    <script src="/src/js/app.js" type="module"></script>
+</head>
 
-        <link rel="stylesheet" href="/CascadingStyleSheets/General/Page404.css" type="text/css">
+<body>
 
-        <link rel="stylesheet" href="/CascadingStyleSheets/Markdown/style01.css" type="text/css">
+    <div id="box_LoadingAnimation"><img src="/assets/images/share/loading.png" alt=""></div>
+    <div id="box_loading"></div>
 
-        <link rel="stylesheet" href="/CascadingStyleSheets/Home/home.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/Travel/travel.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/Index/index.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/Lens/lens.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/Services/services.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/Projects/projects.css" type="text/css">
-        <link rel="stylesheet" href="/CascadingStyleSheets/About/about.css" type="text/css">
-
-        <!-- JavaScript -->
-        <script src = "/JavaScript/General/VirtualDOM.js" type = "module"></script>
-        <script src = "/JavaScript/General/route.js" type = "module"></script>
-        <script src = "/JavaScript/General/language.js" type = "module"></script>
-        <script src = "/JavaScript/General/eventBus.js" type = "module"></script>
-        <script src = "/JavaScript/General/optimization.js" type = "module"></script>
-        <script src = "/JavaScript/General/Page404.js" type = "module"></script>
-
-        <script src = "/JavaScript/General/loading.js" type = "module"></script>
-
-        <script src = "/JavaScript/Home/home.js" type = "module"></script>
-        <script src = "/JavaScript/Index/index.js" type = "module"></script>
-        <script src = "/JavaScript/Travel/travel.js" type = "module"></script>
-        <script src = "/JavaScript/Lens/lens.js" type = "module"></script>
-        <script src = "/JavaScript/Services/services.js" type = "module"></script>
-        <script src = "/JavaScript/Projects/projects.js" type = "module"></script>
-        <script src = "/JavaScript/About/about.js" type = "module"></script>
-    </head>
-
-    <body>
-
-        <div id="box_LoadingAnimation">
-            <img src="/File/Image/loading.png" alt="">
-        </div>
-        <!-- Loading Pages -->
-        <div id="box_loading"></div>
-
-        <div id="contentArea" class="scrollBarNotDisplay">
-        <!-- Navigation Bar -->
+    <div id="contentArea" class="scrollBarNotDisplay">
         <div id="box_navBar" class="navHide">
             <div id="nav_Menu" onclick="window.clickEvent.navigation.expandMenu(this)">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
                     <g stroke-width="6.5" stroke-linecap="round">
                         <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                        <path d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554" fill="none" stroke="#888"></path>
+                        <path
+                            d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
+                            fill="none" stroke="#888"></path>
                         <path d="M72 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                        <path d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554" fill="none" stroke="#888"></path>
+                        <path
+                            d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
+                            fill="none" stroke="#888"></path>
                         <path d="M100.75 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
                         <path d="M100.75 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
                     </g>
                 </svg>
             </div>
         </div>
-
-        <!-- Content Area -->
         <div id="box_contentArea"></div>
-
-        <!-- Footer Area -->
         <div id="box_footerArea" class="notInDisplay"></div>
-        </div>
-    </body>
-</html>
+    </div>
+</body>
 
+</html>

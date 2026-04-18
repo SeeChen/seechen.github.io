@@ -1,11 +1,46 @@
+/**
+ * @fileoverview Lightweight Virtual DOM for seechen.github.io
+ * Handles i18n resolution via window.globalValues.translateData.
+ * 
+ * @author LEE SEE CHEN
+ * @license MIT
+ */
 
+/**
+ * @typedef  {Object} layoutConfig
+ * @property {string} tag
+ * @property {Object} props
+ * @property {string} lang
+ * @property {Array<layout|string>} children
+ */
+
+/**
+ * @typedef {Object} vNode
+ * @property {string} tag
+ * @property {Object} props
+ * @property {string} lang
+ * @property {Array<vNode|string>} children
+ */
+
+/**
+ * Lightweight Virtual DOM for seechen.github.io
+ * Provides create, render, diff, and patch helpers.
+ * 
+ * @const {!Object}
+ * @namespace
+ */
 export const vDom = {
 
-    Create: (
-        Layout
-    ) => {
+    /**
+     * Creates a virtual DOM node tree from a layout config.
+     * Resolving i18n strings via window.globalValues.translateData.
+     * 
+     * @param {!layoutConfig} layoutConfig
+     * @returns {!vNode}
+     */
+    create: (layoutConfig) => {
 
-        const { tag, props = {}, lang = "", children = [] } = Layout;
+        const { tag, props = {}, lang = "", children = [] } = layoutConfig;
 
         let LanguageObj = window.globalValues.translateData;
 
@@ -14,8 +49,8 @@ export const vDom = {
             props,
             lang,
             children.length === 1 && typeof children[0] === "string"
-            ? [LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][children[0]] : children[0]]
-            : children.map(child => vDom.Create(child))
+                ? [LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][children[0]] : children[0]]
+                : children.map(child => vDom.Create(child))
         );
     },
 
@@ -40,25 +75,23 @@ export const vDom = {
         if (typeof vNode === "string") {
             return document.createTextNode(vNode);
         }
-    
+
         const el = document.createElement(vNode.tag);
-        for (const [ key, value ] of Object.entries(vNode.props)) {
+        for (const [key, value] of Object.entries(vNode.props)) {
             el.setAttribute(key, value);
         }
-    
+
         vNode.children.forEach(child => {
 
             if (typeof child === "string") {
                 let LanguageObj = window.globalValues.translateData;
                 let text = LanguageObj[vNode.lang] ? LanguageObj[vNode.lang][window.globalValues.language][child] || child : child;
-                // [Improved]: Use createTextNode instead of innerHTML += 
-                // This prevents XSS attacks and is significantly faster inside a loop
                 el.appendChild(document.createTextNode(text));
             } else {
                 el.appendChild(vDom.Render(child));
             }
         });
-    
+
         return el;
     },
 
@@ -87,14 +120,14 @@ export const vDom = {
                 patches.push({ type: "TEXT", text: newText });
             }
         }
-        
+
         else if (oldNode.tag !== newNode.tag) {
             patches.push({ type: "REPLACE", newNode });
         }
 
         else {
             const propPatches = [];
-            for (const [ key, value ] of Object.entries(newNode.props)) {
+            for (const [key, value] of Object.entries(newNode.props)) {
                 if (oldNode.props[key] !== value) {
                     propPatches.push({ key, value });
                 }
@@ -130,7 +163,7 @@ export const vDom = {
         const el = parent.children[index];
 
         patches.forEach(patch => {
-            switch(patch.type) {
+            switch (patch.type) {
                 case "ADD":
                     parent.appendChild(vDom.Render(patch.newNode));
                     break;
@@ -141,7 +174,6 @@ export const vDom = {
                     });
                     break;
                 case "TEXT":
-                    // [Improved]: Use textContent instead of innerHTML to prevent XSS attacks
                     parent.textContent = patch.text;
                     break;
                 case "REPLACE":
@@ -149,7 +181,7 @@ export const vDom = {
                     break;
                 case "PROPS":
                     patch.props.forEach(({ key, value }) => {
-                        if (value === undefined){
+                        if (value === undefined) {
                             el.removeAttribute(key);
                         } else {
                             el.setAttribute(key, value);
