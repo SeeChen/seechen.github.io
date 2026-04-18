@@ -50,7 +50,7 @@ export const vDom = {
             lang,
             children.length === 1 && typeof children[0] === "string"
                 ? [LanguageObj[lang] ? LanguageObj[lang][window.globalValues.language][children[0]] : children[0]]
-                : children.map(child => vDom.Create(child))
+                : children.map(child => vDom.create(child))
         );
     },
 

@@ -1,0 +1,13 @@
+{
+    "tag": "div",
+    "porps": {},
+    "children": [
+        {
+            "tag": "img",
+            "props": {
+                "src": "/assets/images/share/loading.png",
+                "alt": ""
+            }
+        }
+    ]
+}

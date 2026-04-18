@@ -32,7 +32,7 @@ class Logger {
      * Helper to get timestamp in format YYYY.MM.DD HH:MM:SS
      * @returns {string} 
      */
-    _getTimestamp() {
+    #getTimestamp() {
         const now = new Date();
         const year = now.getFullYear();
         const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -44,8 +44,8 @@ class Logger {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
-    _getFormat(level, message) {
-        return `%c[${level}] ${this._getTimestamp()}%c ${message}`;
+    #getFormat(level, message) {
+        return `%c[${level}] ${this.#getTimestamp()}%c ${message}`;
     }
 
     /**
@@ -54,7 +54,7 @@ class Logger {
      * @param  {...any} args 
      */
     info(message, ...args) {
-        console.log(this._getFormat("INFO", message), 'color: #1aa260; font-weight: bold;', 'color: inherit;', ...args);
+        console.log(this.#getFormat("INFO", message), 'color: #1aa260; font-weight: bold;', 'color: inherit;', ...args);
     }
 
     /**
@@ -63,7 +63,7 @@ class Logger {
      * @param  {...any} args 
      */
     warn(message, ...args) {
-        console.warn(this._getFormat("WARN", message), 'color: #ffc107; font-weight: bold;', 'color: inherit;', ...args);
+        console.warn(this.#getFormat("WARN", message), 'color: #ffc107; font-weight: bold;', 'color: inherit;', ...args);
     }
 
     /**
@@ -72,7 +72,7 @@ class Logger {
      * @param  {...any} args 
      */
     error(message, ...args) {
-        console.error(this._getFormat("ERROR", message), 'color: #dc3545; font-weight: bold;', 'color: inherit;', ...args);
+        console.error(this.#getFormat("ERROR", message), 'color: #dc3545; font-weight: bold;', 'color: inherit;', ...args);
     }
 
     /**
@@ -82,7 +82,7 @@ class Logger {
      */
     debug(message, ...args) {
         if (this.isDev) {
-            console.log(this._getFormat("DEBUG", message), 'color: #808080; font-weight: bold;', 'color: inherit;', ...args);
+            console.log(this.#getFormat("DEBUG", message), 'color: #808080; font-weight: bold;', 'color: inherit;', ...args);
         }
     }
 }

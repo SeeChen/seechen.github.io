@@ -11,7 +11,19 @@
  */
 
 import { logger } from "./core/logger.js";
+import { vDom } from "./core/vDom.js";
+
+window.REGISTRY = {
+    PAGES_LAYOUT: {
+        LOADING: "/public/layouts/global/loading.json"
+    }
+}
 
 window.onload = async function () {
     logger.info(`Websites URL: ${window.location.href}`);
+
+    const loadingLayout = await fetch(window.REGISTRY.PAGES_LAYOUT.LOADING).then(res => res.json());
+    const loadingVDom = vDom.create(loadingLayout);
+    const loadingElement = vDom.render(loadingVDom);
+    document.getElementById("componentLoading").appendChild(loadingElement);
 }
