@@ -10,15 +10,21 @@
  * SPDX-License-Identifier: MIT
  */
 
-import { logger } from "./core/logger.js";
 import { vDom } from "./core/vDom.js";
+import { EventAgent } from "./middleware/eventAgent.js";
+import { logger } from "./util/logger.js";
 import { UserLanguage } from "./util/language.js";
-import { EventAgent } from "./core/eventAgent.js";
+
 // import { loading } from "./components/loading.js";
 
 import { SEECHEN_WEBPAGE_VALUES } from "./core/app-context.js";
 
 window.onload = async function () {
+    const link = this.document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = SEECHEN_WEBPAGE_VALUES.REGISTERY.STYLE_PATH.LOADING;
+    this.document.head.appendChild(link);
+
     logger.info(`Websites URL: ${window.location.href}`);
 
     SEECHEN_WEBPAGE_VALUES.LANGUAGE.LANGUAGE = new UserLanguage().getLanguage();

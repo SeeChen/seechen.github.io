@@ -1,0 +1,38 @@
+:root {
+    --bg-color: #F7F2EA;
+
+    --text-color: #5D5349;
+
+    --font-style-context: 'JetBrainsMono-Regular', 'Chinese-Regular', monospace;
+    --font-style-title: 'English-Title', 'Chinese-Title', sans-serif;
+
+    --color-primary: #B2DFDB;
+    --color-secondary: #ffccbc;
+    --color-tertiary: #fff9c4;
+    --color-quaternary: #cfd8dc;
+    --color-quinary: #f8bbd0;
+    --color-neutral: #f7f2ea;
+}
+
+html,
+body {
+    padding: 0%;
+    margin: 0%;
+    background-color: var(--bg-color);
+}
+
+p.context-normal {
+    color: var(--text-color);
+
+    font-family: var(--font-style-context);
+}
+
+p.title-normal {
+    font-family: var(--font-style-title);
+    background: linear-gradient(90deg, #4284ff 0%, #7affd0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 2px 4px rgba(59, 130, 246, 0.3));
+}

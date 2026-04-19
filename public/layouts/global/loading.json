@@ -1,6 +1,8 @@
 {
     "tag": "div",
-    "porps": {},
+    "props": {
+        "id": "PAGE_LOADING"
+    },
     "children": [
         {
             "tag": "img",
@@ -8,6 +10,59 @@
                 "src": "/assets/images/share/loading.png",
                 "alt": ""
             }
+        },
+        {
+            "tag": "p",
+            "props": {
+                "id": "loading_title",
+                "class": "title-normal"
+            },
+            "children": [
+                "SEECHEN"
+            ]
+        },
+        {
+            "tag": "p",
+            "props": {
+                "id": "loading_bar",
+                "class": "context-normal"
+            },
+            "children": [
+                "LOADING"
+            ]
+        },
+        {
+            "tag": "p",
+            "props": {
+                "id": "loading_dot",
+                "class": "context-normal"
+            },
+            "children": [
+                {
+                    "tag": "span",
+                    "props": {
+                        "id": "loading_dot_1",
+                        "class": "context-normal"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "span",
+                    "props": {
+                        "id": "loading_dot_2",
+                        "class": "context-normal"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "span",
+                    "props": {
+                        "id": "loading_dot_3",
+                        "class": "context-normal"
+                    },
+                    "children": []
+                }
+            ]
         }
     ]
 }

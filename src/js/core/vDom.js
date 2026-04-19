@@ -36,6 +36,11 @@ const translateData = SEECHEN_WEBPAGE_VALUES.LANGUAGE.OBJECT;
  */
 export const vDom = {
 
+    components: {},
+    registerComponent: (name, layout) => {
+        vDom.components[name] = layout;
+    },
+
     /**
      * Creates a virtual DOM node tree from a layout config.
      * Resolving i18n strings via window.globalValues.translateData.
@@ -45,7 +50,19 @@ export const vDom = {
      */
     create: (layoutConfig) => {
 
-        const { tag, props = {}, lang = "", children = [] } = layoutConfig;
+        const { tag, props = {}, component = "", lang = "", children = [] } = layoutConfig;
+
+        if (component && vDom.components[component]) {
+            const compLayout = vDom.components[component];
+            return vDom.createElement(
+                tag,
+                { ...(compLayout.props || {}), ...props },
+                lang || compLayout.lang,
+                [...(compLayout.children || []), ...children].map(child => {
+                    return typeof child === "string" ? child : vDom.create(child);
+                })
+            );
+        }
 
         return vDom.createElement(
             tag,
@@ -191,7 +208,7 @@ export const vDom = {
                     break;
                 case "CHILDREN":
                     patch.children.forEach((childPatch, i) => {
-                        vDom.Patch(el, childPatch, i);
+                        vDom.patch(el, childPatch, i);
                     });
                     break;
             }

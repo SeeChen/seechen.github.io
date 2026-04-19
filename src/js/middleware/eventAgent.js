@@ -17,7 +17,7 @@
  * @date 2026-04-19
  */
 
-import { logger } from "./logger.js";
+import { logger } from "../util/logger.js";
 
 class ClassEventAgent {
 

@@ -23,6 +23,12 @@ export const SEECHEN_WEBPAGE_VALUES = {
 
         LANGUAGE_PATH: {
             LOADING: "/public/i18n/general/loading/"
+        },
+
+        STYLE_PATH: {
+            GLOBAL: "/src/style/global.css",
+            APP: "/src/style/app.css",
+            LOADING: "/src/style/components/loading.css"
         }
     },
 

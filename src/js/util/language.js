@@ -16,7 +16,7 @@
  * @fileoverview Core Language Utility.
  */
 
-import { logger } from "../core/logger.js";
+import { logger } from "./logger.js";
 
 export class UserLanguage {
     /** @private @const {string} */
