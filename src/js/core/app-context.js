@@ -21,6 +21,13 @@ export const SEECHEN_WEBPAGE_VALUES = {
             LOADING: "/public/layouts/global/loading.json"
         },
 
+        COMPONENTS_LAYOUT: {
+            LOADING_DOT: {
+                PATH: "/public/layouts/components/loading-dot.json",
+                SYTLE: "/src/style/components/loading-dot.css"
+            }
+        },
+
         LANGUAGE_PATH: {
             LOADING: "/public/i18n/general/loading/"
         },
@@ -28,7 +35,7 @@ export const SEECHEN_WEBPAGE_VALUES = {
         STYLE_PATH: {
             GLOBAL: "/src/style/global.css",
             APP: "/src/style/app.css",
-            LOADING: "/src/style/components/loading.css"
+            LOADING: "/src/style/pages/loading.css"
         }
     },
 

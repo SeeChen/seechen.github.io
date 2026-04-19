@@ -15,11 +15,11 @@ import { EventAgent } from "./middleware/eventAgent.js";
 import { logger } from "./util/logger.js";
 import { UserLanguage } from "./util/language.js";
 
-// import { loading } from "./components/loading.js";
-
 import { SEECHEN_WEBPAGE_VALUES } from "./core/app-context.js";
 
 window.onload = async function () {
+    registerComponents();
+
     const link = this.document.createElement("link");
     link.rel = "stylesheet";
     link.href = SEECHEN_WEBPAGE_VALUES.REGISTERY.STYLE_PATH.LOADING;
@@ -33,4 +33,18 @@ window.onload = async function () {
     const loadingVDom = vDom.create(loadingLayout);
     const loadingElement = vDom.render(loadingVDom);
     document.getElementById("componentLoading").appendChild(loadingElement);
+}
+
+async function registerComponents() {
+
+    Object.keys(SEECHEN_WEBPAGE_VALUES.REGISTERY.COMPONENTS_LAYOUT).forEach(async element => {
+        logger.debug(`Registering component: ${element}`);
+        const layout = await fetch(SEECHEN_WEBPAGE_VALUES.REGISTERY.COMPONENTS_LAYOUT[element].PATH).then(res => res.json());
+        vDom.registerComponent(element, layout);
+
+        const link = window.document.createElement("link");
+        link.rel = "stylesheet";
+        link.href = SEECHEN_WEBPAGE_VALUES.REGISTERY.COMPONENTS_LAYOUT[element].SYTLE;
+        window.document.head.appendChild(link);
+    });
 }

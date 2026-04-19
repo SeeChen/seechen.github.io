@@ -34,35 +34,10 @@
         {
             "tag": "p",
             "props": {
-                "id": "loading_dot",
-                "class": "context-normal"
+                "class": "context-normal loading_dot"
             },
-            "children": [
-                {
-                    "tag": "span",
-                    "props": {
-                        "id": "loading_dot_1",
-                        "class": "context-normal"
-                    },
-                    "children": []
-                },
-                {
-                    "tag": "span",
-                    "props": {
-                        "id": "loading_dot_2",
-                        "class": "context-normal"
-                    },
-                    "children": []
-                },
-                {
-                    "tag": "span",
-                    "props": {
-                        "id": "loading_dot_3",
-                        "class": "context-normal"
-                    },
-                    "children": []
-                }
-            ]
+            "component": "LOADING_DOT",
+            "children": []
         }
     ]
 }

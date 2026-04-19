@@ -1,0 +1,29 @@
+{
+    "tag": "p",
+    "props": {
+        "class": "loading-dot"
+    },
+    "children": [
+        {
+            "tag": "span",
+            "props": {
+                "class": "loading-dot-1"
+            },
+            "children": []
+        },
+        {
+            "tag": "span",
+            "props": {
+                "class": "loading-dot-2"
+            },
+            "children": []
+        },
+        {
+            "tag": "span",
+            "props": {
+                "class": "loading-dot-3"
+            },
+            "children": []
+        }
+    ]
+}
