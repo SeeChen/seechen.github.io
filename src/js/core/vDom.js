@@ -54,9 +54,19 @@ export const vDom = {
 
         if (component && vDom.components[component]) {
             const compLayout = vDom.components[component];
+
+            let mergeProps = { ...(compLayout.props || {}), ...props }
+            Object.keys(compLayout.props).forEach(key => {
+                if (props.hasOwnProperty(key)) {
+                    const combinedArray = `${compLayout.props[key]} ${props[key]}`.split(/\s+/);
+                    const uniqueArray = [...new Set(combinedArray)].filter(Boolean);
+                    mergeProps[key] = uniqueArray.join(" ");
+                }
+            });
+
             return vDom.createElement(
                 tag,
-                { ...(compLayout.props || {}), ...props },
+                mergeProps,
                 lang || compLayout.lang,
                 [...(compLayout.children || []), ...children].map(child => {
                     return typeof child === "string" ? child : vDom.create(child);

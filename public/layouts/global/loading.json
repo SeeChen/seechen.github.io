@@ -34,7 +34,7 @@
         {
             "tag": "p",
             "props": {
-                "class": "context-normal loading_dot"
+                "class": "context-normal"
             },
             "component": "LOADING_DOT",
             "children": []

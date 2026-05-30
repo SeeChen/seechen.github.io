@@ -64,7 +64,7 @@
     font-size: 3dvh;
 }
 
-.loading_dot {
+.loading-dot {
     position: fixed;
     top: 70dvh;
     left: 50%;
