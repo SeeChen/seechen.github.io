@@ -11,36 +11,48 @@
  */
 
 /**
- * @filename src/js/core/app-context.js
- * @fileoverview Application Context
+ * @fileoverview Runtime application context for SeeChen Website.
  */
 
-export const SEECHEN_WEBPAGE_VALUES = {
-    REGISTERY: {
-        PAGES_LAYOUT: {
-            LOADING: "/public/layouts/global/loading.json"
-        },
+import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 
-        COMPONENTS_LAYOUT: {
-            LOADING_DOT: {
-                PATH: "/public/layouts/components/loading-dot.json",
-                SYTLE: "/src/style/components/loading-dot.css"
-            }
-        },
-
-        LANGUAGE_PATH: {
-            LOADING: "/public/i18n/general/loading/"
-        },
-
-        STYLE_PATH: {
-            GLOBAL: "/src/style/global.css",
-            APP: "/src/style/app.css",
-            LOADING: "/src/style/pages/loading.css"
-        }
+export const SEECHEN_WEBPAGE_CONTEXT = {
+    LANGUAGE: {
+        CURRENT: '',
+        TRANSLATIONS: {},
     },
 
+    PAGE: {
+        CURRENT: null,
+        CURRENT_VDOM: null,
+    },
+
+    COMPONENTS: {
+        REGISTERED: {},
+    },
+};
+
+export const SEECHEN_WEBPAGE_VALUES = {
+    REGISTRY: SEECHEN_WEBPAGE_CONFIG.REGISTRY,
+
+    // TODO: Remove after all legacy references use REGISTRY.
+    REGISTERY: SEECHEN_WEBPAGE_CONFIG.REGISTRY,
+
     LANGUAGE: {
-        LANGUAGE: '',
-        OBJECT: ''
-    }
-}
+        get LANGUAGE() {
+            return SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.CURRENT;
+        },
+
+        set LANGUAGE(locale) {
+            SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.CURRENT = locale;
+        },
+
+        get OBJECT() {
+            return SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.TRANSLATIONS;
+        },
+
+        set OBJECT(translations) {
+            SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.TRANSLATIONS = translations;
+        },
+    },
+};
