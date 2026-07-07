@@ -2,35 +2,48 @@
  * seechen.github.io
  * https://github.com/SeeChen/seechen.github.io
  *
- * Copyright (c) 2024-2026 LEE SEE CHEN. All rights reserved.
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
  *
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 
 /**
  * @fileoverview Core Logging Utility.
- * Environment-aware logger that suppresses logs in production (seechen.com), 
- * but allows them in local development and GitHub Pages (seechen.github.io).
+ * Environment-aware logger that suppresses debug logs in production
+ * (seechen.com), but allows them in local development and GitHub Pages
+ * (seechen.github.io).
  */
+
+const LOG_LEVEL = Object.freeze({
+    DEBUG: 'DEBUG',
+    INFO: 'INFO',
+});
 
 class Logger {
     constructor() {
-        // Detect the environment based on the URL hostname
         const hostname = window.location.hostname;
 
-        // It is considered "Production" if the URL is your final live domain
-        this.isProduction = hostname === 'seechen.com' || hostname === 'www.seechen.com';
+        this.isProduction =
+            hostname === 'seechen.com' || hostname === 'www.seechen.com';
 
-        // It is considered "Dev" on localhost, 127.0.0.1, or seechen.github.io
-        this.level = !this.isProduction ? "DEBUG" : "INFO";
+        this.level = this.isProduction ? LOG_LEVEL.INFO : LOG_LEVEL.DEBUG;
     }
 
     /**
-     * Helper to get timestamp in format YYYY.MM.DD HH:MM:SS
-     * @returns {string} 
+     * Checks whether debug logging is enabled.
+     * @return {boolean}
+     */
+    isDebugEnabled() {
+        return this.level === LOG_LEVEL.DEBUG;
+    }
+
+    /**
+     * Gets the current timestamp in YYYY-MM-DD HH:MM:SS format.
+     * @return {string}
      */
     #getTimestamp() {
         const now = new Date();
@@ -44,48 +57,75 @@ class Logger {
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     }
 
+    /**
+     * Formats a console message.
+     * @param {string} level
+     * @param {string} message
+     * @return {string}
+     */
     #getFormat(level, message) {
         return `%c[${level}] ${this.#getTimestamp()}%c ${message}`;
     }
 
     /**
-     * Standard Information Log (Blue)
-     * @param {string} message 
-     * @param  {...any} args 
+     * Logs an information message.
+     * @param {string} message
+     * @param {...*} args
      */
     info(message, ...args) {
-        console.log(this.#getFormat("INFO", message), 'color: #1aa260; font-weight: bold;', 'color: inherit;', ...args);
+        console.log(
+            this.#getFormat('INFO', message),
+            'color: #1aa260; font-weight: bold;',
+            'color: inherit;',
+            ...args,
+        );
     }
 
     /**
-     * Warning Log (Yellow)
-     * @param {string} message 
-     * @param  {...any} args 
+     * Logs a warning message.
+     * @param {string} message
+     * @param {...*} args
      */
     warn(message, ...args) {
-        console.warn(this.#getFormat("WARN", message), 'color: #ffc107; font-weight: bold;', 'color: inherit;', ...args);
+        console.warn(
+            this.#getFormat('WARN', message),
+            'color: #ffc107; font-weight: bold;',
+            'color: inherit;',
+            ...args,
+        );
     }
 
     /**
-     * Error Log (Red)
-     * @param {string} message 
-     * @param  {...any} args 
+     * Logs an error message.
+     * @param {string} message
+     * @param {...*} args
      */
     error(message, ...args) {
-        console.error(this.#getFormat("ERROR", message), 'color: #dc3545; font-weight: bold;', 'color: inherit;', ...args);
+        console.error(
+            this.#getFormat('ERROR', message),
+            'color: #dc3545; font-weight: bold;',
+            'color: inherit;',
+            ...args,
+        );
     }
 
     /**
-     * Debug/Trace Log (Gray)
-     * @param {string} message 
-     * @param  {...any} args 
+     * Logs a debug message.
+     * @param {string} message
+     * @param {...*} args
      */
     debug(message, ...args) {
-        if ("DEBUG" === this.level) {
-            console.log(this.#getFormat("DEBUG", message), 'color: #808080; font-weight: bold;', 'color: inherit;', ...args);
+        if (!this.isDebugEnabled()) {
+            return;
         }
+
+        console.log(
+            this.#getFormat('DEBUG', message),
+            'color: #808080; font-weight: bold;',
+            'color: inherit;',
+            ...args,
+        );
     }
 }
 
-// Export a single instance to be used globally across modules
 export const logger = new Logger();
