@@ -4,82 +4,90 @@
  * 
  * @file language.js
  *
- * Copyright (c) 2024-2026 LEE SEE CHEN. All rights reserved.
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
  *
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 
 /**
  * @fileoverview Core Language Utility.
  */
 
-import { logger } from "./logger.js";
+import { logger } from './logger.js';
+
+const DEFAULT_LOCALE = 'en_US';
+const SUPPORTED_LOCALES = Object.freeze(['zh_CN', 'en_US']);
+const LANGUAGE_COOKIE_NAME = 'userLanguage';
+const COOKIE_MAX_AGE_SECONDS = 30 * 24 * 60 * 60;
 
 export class UserLanguage {
-    /** @private @const {string} */
-    #defaultLocale = 'en_US';
-
-    /** @private @const {!Array<string>} */
-    #supportLocales = ['zh_CN', 'en_US'];
-
-    constructor() { }
-
     /**
-     * Format the browser language to the supported locale
+     * Formats the browser language to a supported locale.
      * @param {string} browserLanguage
-     * @returns {string}
+     * @return {string}
      */
     #formatLocale(browserLanguage) {
-        // 1. From en-US to en_US
-        let locale = browserLanguage.replace('-', '_');
+        let locale = browserLanguage.replaceAll('-', '_');
         logger.debug(`Browser language: ${browserLanguage} | Locale: ${locale}`);
 
-        // 2. Format the locale to en_US
         const parts = locale.split('_');
         if (parts.length === 2) {
             locale = `${parts[0]}_${parts[1].toUpperCase()}`;
         }
 
-        // 3. Check if the language is supported
-        const supported = this.#supportLocales.includes(locale) ? locale : this.#defaultLocale;
+        const supported = this.#isSupportedLocale(locale) ? locale : DEFAULT_LOCALE;
         logger.debug(`Formatted locale: ${supported}`);
         return supported;
     }
 
     /**
-     * Get the user language from the cookie
-     * @returns {string}
+     * Checks whether a locale is supported.
+     * @param {string} locale
+     * @return {boolean}
+     */
+    #isSupportedLocale(locale) {
+        return SUPPORTED_LOCALES.includes(locale);
+    }
+
+    /**
+     * Gets the user language from the cookie or browser settings.
+     * @return {string}
      */
     getLanguage() {
-        const cookieMatch = document.cookie.match(/userLanguage=([^;]+)/);
+        const cookieMatch = document.cookie.match(
+            new RegExp(`${LANGUAGE_COOKIE_NAME}=([^;]+)`),
+        );
 
         let detected;
         if (cookieMatch) {
             logger.info(`User language from cookie: ${cookieMatch[1]}`);
-            if (this.#supportLocales.includes(cookieMatch[1])) {
+            if (this.#isSupportedLocale(cookieMatch[1])) {
                 logger.debug(`User language is supported: ${cookieMatch[1]}`);
                 return cookieMatch[1];
             }
             logger.warn(`User language is not supported: ${cookieMatch[1]}`);
-            detected = this.#defaultLocale;
+            detected = DEFAULT_LOCALE;
         } else {
             detected = this.#formatLocale(navigator.language);
             logger.info(`User language from browser: ${detected}`);
         }
+
         this.setLanguage(detected);
         return detected;
     }
 
     /**
-     * Set the user language
+     * Sets the user language.
      * @param {string} language
      */
     setLanguage(language) {
-        logger.debug(`Setting user language: ${language}`);
-        const maxAge = 30 * 24 * 60 * 60;
-        document.cookie = `userLanguage=${language};max-age=${maxAge};path=/`;
+        const locale = this.#isSupportedLocale(language) ? language : DEFAULT_LOCALE;
+        logger.debug(`Setting user language: ${locale}`);
+        document.cookie =
+            `${LANGUAGE_COOKIE_NAME}=${locale};max-age=${COOKIE_MAX_AGE_SECONDS};path=/`;
     }
 }
