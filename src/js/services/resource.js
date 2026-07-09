@@ -15,11 +15,13 @@
  * @fileoverview Resource loading service for SeeChen Website.
  */
 
+import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { logger } from '../util/logger.js';
 
 const LOADED_STYLES = new Set();
 const STYLE_LOADERS = new Map();
 const MODULE_LOADERS = new Map();
+const ABSOLUTE_URL_PATTERN = /^[a-z][a-z\d+\-.]*:/i;
 
 /**
  * Validates a resource path.
@@ -32,32 +34,205 @@ function validatePath(path) {
 }
 
 /**
- * Fetches a resource and checks the HTTP response status.
- * @param {string} path
- * @return {!Promise<!Response>}
+ * Checks whether a value is a plain object.
+ * @param {*} value
+ * @return {boolean}
  */
-async function fetchResource(path) {
+function isPlainObject(value) {
+    return Boolean(
+        value &&
+        typeof value === 'object' &&
+        Object.getPrototypeOf(value) === Object.prototype,
+    );
+}
+
+/**
+ * Checks whether a resource path is absolute.
+ * @param {string} path
+ * @return {boolean}
+ */
+function isAbsoluteUrl(path) {
+    return ABSOLUTE_URL_PATTERN.test(path);
+}
+
+/**
+ * Appends query parameters to a URL.
+ * @param {!URL} url
+ * @param {!Object=} query
+ */
+function appendQuery(url, query = {}) {
+    Object.entries(query).forEach(([key, value]) => {
+        if (value === undefined || value === null || value === '') {
+            return;
+        }
+
+        if (Array.isArray(value)) {
+            value.forEach((item) => {
+                url.searchParams.append(key, String(item));
+            });
+            return;
+        }
+
+        url.searchParams.set(key, String(value));
+    });
+}
+
+/**
+ * Creates the final request URL for static and API resources.
+ * @param {string} path
+ * @param {!Object=} query
+ * @param {string=} baseUrl
+ * @return {string}
+ */
+function createResourceUrl(path, query = {}, baseUrl = '') {
     validatePath(path);
 
-    logger.debug(`Fetching resource: ${path}`);
-    const response = await fetch(path);
+    const trimmedPath = path.trim();
+    const resolvedBaseUrl = baseUrl || '';
+    const urlBase = resolvedBaseUrl || window.location.origin;
+    const url = new URL(
+        trimmedPath,
+        isAbsoluteUrl(trimmedPath) ? window.location.href : urlBase,
+    );
 
-    if (!response.ok) {
-        throw new Error(`Failed to fetch ${path}. HTTP status: ${response.status}`);
+    appendQuery(url, query);
+
+    if (resolvedBaseUrl || isAbsoluteUrl(trimmedPath)) {
+        return url.href;
     }
 
-    return response;
+    return `${url.pathname}${url.search}${url.hash}`;
+}
+
+/**
+ * Creates an abort signal for request timeout and caller cancellation.
+ * @param {?AbortSignal=} signal
+ * @param {number=} timeoutMs
+ * @return {{signal: ?AbortSignal, cleanup: function(): void}}
+ */
+function createRequestSignal(
+    signal = null,
+    timeoutMs = SEECHEN_WEBPAGE_CONFIG.API.TIMEOUT_MS,
+) {
+    if (!signal && !timeoutMs) {
+        return {
+            signal: null,
+            cleanup() {},
+        };
+    }
+
+    const controller = new AbortController();
+    let timeoutId = null;
+
+    const abortRequest = () => {
+        controller.abort();
+    };
+
+    if (signal) {
+        if (signal.aborted) {
+            controller.abort();
+        } else {
+            signal.addEventListener('abort', abortRequest, { once: true });
+        }
+    }
+
+    if (timeoutMs > 0) {
+        timeoutId = window.setTimeout(abortRequest, timeoutMs);
+    }
+
+    return {
+        signal: controller.signal,
+        cleanup() {
+            if (timeoutId !== null) {
+                window.clearTimeout(timeoutId);
+            }
+
+            if (signal) {
+                signal.removeEventListener('abort', abortRequest);
+            }
+        },
+    };
+}
+
+/**
+ * Normalizes fetch options before sending the request.
+ * @param {!Object} options
+ * @return {!Object}
+ */
+function createFetchOptions(options) {
+    const headers = new Headers(options.headers || {});
+    let body = options.body;
+
+    if (isPlainObject(body)) {
+        if (!headers.has('Content-Type')) {
+            headers.set('Content-Type', 'application/json');
+        }
+
+        body = JSON.stringify(body);
+    }
+
+    return {
+        ...options,
+        headers,
+        body,
+    };
+}
+
+/**
+ * Fetches a resource and checks the HTTP response status.
+ * @param {string} path
+ * @param {!Object=} options
+ * @return {!Promise<!Response>}
+ */
+async function fetchResource(path, options = {}) {
+    const {
+        baseUrl = '',
+        query = {},
+        timeoutMs = SEECHEN_WEBPAGE_CONFIG.API.TIMEOUT_MS,
+        ...fetchOptions
+    } = options;
+    const url = createResourceUrl(path, query, baseUrl);
+    const requestSignal = createRequestSignal(fetchOptions.signal || null, timeoutMs);
+    const normalizedOptions = createFetchOptions({
+        ...fetchOptions,
+        signal: requestSignal.signal || undefined,
+    });
+
+    logger.debug(`Fetching resource: ${url}`);
+
+    try {
+        const response = await fetch(url, normalizedOptions);
+
+        if (!response.ok) {
+            throw new Error(`Failed to fetch ${url}. HTTP status: ${response.status}`);
+        }
+
+        return response;
+    } finally {
+        requestSignal.cleanup();
+    }
 }
 
 export const SEECHEN_RESOURCE = {
     /**
+     * Requests a resource and returns the raw HTTP response.
+     * @param {string} path
+     * @param {!Object=} options
+     * @return {!Promise<!Response>}
+     */
+    request(path, options = {}) {
+        return fetchResource(path, options);
+    },
+
+    /**
      * Loads a JSON resource.
      * @param {string} path
+     * @param {!Object=} options
      * @return {!Promise<*>}
      */
-    async getJson(path) {
+    async getJson(path, options = {}) {
         try {
-            const response = await fetchResource(path);
+            const response = await fetchResource(path, options);
             return await response.json();
         } catch (error) {
             logger.error(`Failed to load JSON resource: ${path}`, error);
@@ -68,11 +243,12 @@ export const SEECHEN_RESOURCE = {
     /**
      * Loads a text resource.
      * @param {string} path
+     * @param {!Object=} options
      * @return {!Promise<string>}
      */
-    async getText(path) {
+    async getText(path, options = {}) {
         try {
-            const response = await fetchResource(path);
+            const response = await fetchResource(path, options);
             return await response.text();
         } catch (error) {
             logger.error(`Failed to load text resource: ${path}`, error);

@@ -31,18 +31,26 @@ function freezeSeeChenConfig(target) {
 }
 
 export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
+    API: {
+        BASE_URL: '',
+        TIMEOUT_MS: 15000,
+    },
+
+    DATA: {
+        DEFAULT_PAGE_LIMIT: 10,
+    },
+
     REGISTRY: {
         PAGES_LAYOUT: {
             LOADING: '/public/layouts/global/loading.json',
+            TRAVEL: '/public/layouts/global/loading.json',
+            NOT_FOUND: '/public/layouts/global/loading.json',
         },
 
         COMPONENTS_LAYOUT: {
             LOADING_DOT: {
                 PATH: '/public/layouts/components/loading-dot.json',
                 STYLE: '/src/style/components/loading-dot.css',
-
-                // TODO: Remove after all legacy references use STYLE.
-                SYTLE: '/src/style/components/loading-dot.css',
             },
         },
 
@@ -55,6 +63,139 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
             GLOBAL: '/src/style/core/global.css',
             APP: '/src/style/app.css',
             LOADING: '/src/style/pages/loading.css',
+        },
+    },
+
+    PAGES: {
+        ROOT_SELECTOR: '#componentLoading',
+
+        LOADING: {
+            LAYOUT: 'LOADING',
+            STYLE: '/src/style/pages/loading.css',
+            SCRIPT: '',
+            I18N: ['LOADING'],
+            EVENT_SCOPE: 'PAGE:LOADING',
+        },
+
+        TRAVEL: {
+            LAYOUT: 'TRAVEL',
+            STYLE: '',
+            SCRIPT: '',
+            I18N: [],
+            EVENT_SCOPE: 'PAGE:TRAVEL',
+        },
+
+        NOT_FOUND: {
+            LAYOUT: 'NOT_FOUND',
+            STYLE: '/src/style/pages/loading.css',
+            SCRIPT: '',
+            I18N: ['LOADING'],
+            EVENT_SCOPE: 'PAGE:NOT_FOUND',
+        },
+    },
+
+    ROUTER: {
+        PRESERVE_ORIGINAL_URL: true,
+        NOT_FOUND_ROUTE: 'NOT_FOUND',
+
+        ROUTES: [
+            {
+                NAME: 'HOME',
+                PATH: '/',
+                PAGE: 'LOADING',
+                LAYOUT: 'LOADING',
+                TITLE: {
+                    NAMESPACE: 'LOADING',
+                    KEY: 'SEECHEN',
+                },
+            },
+            {
+                NAME: 'TRAVEL',
+                PATH: '/travel',
+                PAGE: 'TRAVEL',
+                LAYOUT: 'TRAVEL',
+                TITLE: {
+                    NAMESPACE: 'NAVIGATION',
+                    KEY: 'TRAVEL',
+                },
+            },
+            {
+                NAME: 'TRAVEL_COUNTRY',
+                PATH: '/travel/:countryId',
+                PAGE: 'TRAVEL',
+                LAYOUT: 'TRAVEL',
+                PARAMS: {
+                    countryId: 'COUNTRY',
+                },
+                TITLE: {
+                    NAMESPACE: 'NAVIGATION',
+                    KEY: 'TRAVEL',
+                },
+            },
+            {
+                NAME: 'TRAVEL_REGION',
+                PATH: '/travel/:countryId/:regionId',
+                PAGE: 'TRAVEL',
+                LAYOUT: 'TRAVEL',
+                PARAMS: {
+                    countryId: 'COUNTRY',
+                    regionId: 'REGION',
+                },
+                TITLE: {
+                    NAMESPACE: 'NAVIGATION',
+                    KEY: 'TRAVEL',
+                },
+            },
+            {
+                NAME: 'NOT_FOUND',
+                PATH: '*',
+                PAGE: 'NOT_FOUND',
+                LAYOUT: 'NOT_FOUND',
+                TITLE: {
+                    NAMESPACE: 'GENERAL',
+                    KEY: 'NOT_FOUND',
+                },
+            },
+        ],
+
+        PATH_ALIASES: {
+            '/home': '/',
+            '/index': '/',
+            '/index.html': '/',
+            '/主页': '/',
+            '/我的主页': '/',
+            '/travel': '/travel',
+            '/trip': '/travel',
+            '/journey': '/travel',
+            '/traveling': '/travel',
+            '/旅行': '/travel',
+            '/旅游': '/travel',
+            '/我的旅行': '/travel',
+        },
+
+        PARAM_ALIASES: {
+            COUNTRY: {
+                CN: 'CN',
+                CHINA: 'CN',
+                中国: 'CN',
+                中國: 'CN',
+                MY: 'MY',
+                MALAYSIA: 'MY',
+                马来西亚: 'MY',
+                馬來西亞: 'MY',
+                SG: 'SG',
+                SINGAPORE: 'SG',
+                新加坡: 'SG',
+            },
+            REGION: {
+                BEIJING: 'BeiJing',
+                北京: 'BeiJing',
+                SHANGHAI: 'ShangHai',
+                上海: 'ShangHai',
+                KL: 'KL',
+                KUALA_LUMPUR: 'KL',
+                吉隆坡: 'KL',
+            },
         },
     },
 });
