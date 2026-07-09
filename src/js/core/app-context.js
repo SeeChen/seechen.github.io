@@ -25,7 +25,11 @@ export const SEECHEN_WEBPAGE_CONTEXT = {
 
     PAGE: {
         CURRENT: null,
+        CURRENT_ROUTE: null,
         CURRENT_VDOM: null,
+        STATE: null,
+        ABORT_CONTROLLER: null,
+        EVENT_SCOPE: '',
     },
 
     COMPONENTS: {
