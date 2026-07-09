@@ -15,20 +15,23 @@
     color-scheme: light;
 
     /* Color tokens */
-    --seechen-color-canvas       : #f7f2ea;
-    --seechen-color-surface      : #fffaf2;
-    --seechen-color-surface-muted: #ece6dc;
-    --seechen-color-text         : #5d5349;
-    --seechen-color-text-muted   : #7a6d60;
-    --seechen-color-border       : #d8cfc2;
-    --seechen-color-primary      : #4284ff;
-    --seechen-color-primary-soft : #c2dcff;
-    --seechen-color-accent       : #7affd0;
-    --seechen-color-accent-soft  : #b9fff7;
-    --seechen-color-warm         : #ffccbc;
-    --seechen-color-highlight    : #fff9c4;
+    --seechen-color-canvas       : #f5f7f8;
+    --seechen-color-surface      : #ffffff;
+    --seechen-color-surface-muted: #e8edf0;
+    --seechen-color-text         : #182026;
+    --seechen-color-text-muted   : #5f6b73;
+    --seechen-color-border       : #d2d9dd;
+    --seechen-color-primary      : #2d6a4f;
+    --seechen-color-primary-soft : #d9eee4;
+    --seechen-color-accent       : #38a3a5;
+    --seechen-color-accent-soft  : #d7f1ef;
+    --seechen-color-amber        : #6f8f2f;
+    --seechen-color-amber-soft   : #e6edbf;
+    --seechen-color-amber-deep   : #3f531c;
+    --seechen-color-warm         : #e88d67;
+    --seechen-color-highlight    : #fff3c4;
     --seechen-color-neutral      : #cfd8dc;
-    --seechen-color-rose         : #f8bbd0;
+    --seechen-color-rose         : #d96c75;
 
     /* Typography tokens */
     --seechen-font-body         : 'JetBrainsMono-Regular', 'Chinese-Regular', monospace;
@@ -78,22 +81,22 @@
     --seechen-z-loading-content: 1001;
 
     /* Loading page tokens */
-    --seechen-loading-logo-size       : 10dvh                             ;
-    --seechen-loading-logo-offset-y   : 30dvh                             ;
-    --seechen-loading-title-size      : 8dvh                              ;
-    --seechen-loading-title-height    : 10dvh                             ;
-    --seechen-loading-status-size     : 3dvh                              ;
-    --seechen-loading-status-height   : 10dvh                             ;
-    --seechen-loading-status-offset-y : 20dvh                             ;
-    --seechen-loading-dot-top         : 70dvh                             ;
-    --seechen-loading-dot-size        : 1.25rem                           ;
-    --seechen-loading-dot-gap         : 1.25rem                           ;
-    --seechen-loading-dot-jump        : 1.25rem                           ;
-    --seechen-loading-dot-color       : var(--seechen-color-highlight)    ;
+    --seechen-loading-logo-size       : 10dvh                              ;
+    --seechen-loading-logo-offset-y   : 30dvh                              ;
+    --seechen-loading-title-size      : 8dvh                               ;
+    --seechen-loading-title-height    : 10dvh                              ;
+    --seechen-loading-status-size     : 3dvh                               ;
+    --seechen-loading-status-height   : 10dvh                              ;
+    --seechen-loading-status-offset-y : 20dvh                              ;
+    --seechen-loading-dot-top         : 70dvh                              ;
+    --seechen-loading-dot-size        : 1.25rem                            ;
+    --seechen-loading-dot-gap         : 1.25rem                            ;
+    --seechen-loading-dot-jump        : 1.25rem                            ;
+    --seechen-loading-dot-color       : var(--seechen-color-amber)         ;
     --seechen-loading-bg-start        : var(--seechen-color-primary-soft)  ;
-    --seechen-loading-bg-end          : #e2e8f0                           ;
+    --seechen-loading-bg-end          : var(--seechen-color-canvas)        ;
     --seechen-loading-bg-pulse-start  : var(--seechen-color-accent-soft)   ;
-    --seechen-loading-bg-pulse-end    : #cbd5e1                           ;
+    --seechen-loading-bg-pulse-end    : var(--seechen-color-amber-soft)    ;
 }
 
 @media (min-width: 768px) {
