@@ -2,232 +2,448 @@
  * seechen.github.io
  * https://github.com/SeeChen/seechen.github.io
  *
- * Copyright (c) 2024-2026 LEE SEE CHEN. All rights reserved.
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
  *
- * SPDX-License-Identifier: MIT
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 
 /**
- * @file src/js/core/eventAgent.js
- * @description Event Agent for managing event listeners and event emissions.
- * @author Lee See Chen
- * @date 2026-04-19
+ * @fileoverview Event broker for managing SeeChen Website listeners.
  */
 
-import { logger } from "../util/logger.js";
+import { logger } from '../util/logger.js';
+
+const DEFAULT_SENDER = 'Unknown';
+const DEFAULT_SCOPE = 'GLOBAL';
 
 class ClassEventAgent {
-
-    /** @type {Map<string, Array<Function>>} */
+    /** @type {Map<string, Array<!Object>>} */
     #events = new Map();
 
-    /** @type {Map<string, Array<Function>>} */
-    #timer = new Map();
+    /** @type {number} */
+    #nextSubscriptionId = 1;
 
     constructor() {
-        logger.info("EventAgent Initialized");
+        logger.info('EventAgent initialized');
     }
 
-    #formatEventAgentLog(eventName) {
-        return `[EVENT AGENT] ${eventName} | ${logger.level === 'debug' ? this.#getCallerInfo() : ''}`;
+    /**
+     * Formats a debug log message.
+     * @param {string} message
+     * @return {string}
+     */
+    #formatEventAgentLog(message) {
+        const callerInfo = logger.isDebugEnabled() ? this.#getCallerInfo() : '';
+        return `[EVENT AGENT] ${message}${callerInfo ? ` | ${callerInfo}` : ''}`;
     }
 
+    /**
+     * Gets caller information for debug logs.
+     * @return {string}
+     */
     #getCallerInfo() {
         const err = new Error();
-        const stack = err.stack.split("\n");
-        // stack[0] Error Message
+        const stack = (err.stack || '').split('\n');
+        // stack[0] Error
         // stack[1] #getCallerInfo
-        // stack[2] emit function
-        // stack[3] caller
-        const callerLine = stack[3] || "";
+        // stack[2] #formatEventAgentLog
+        // stack[3] real EventAgent method, such as emit/on/off
+        // stack[4] external caller
+        const callerLine = stack[3] || '';
         const match = callerLine.match(/at\s+(.*)\s+\((.*):(\d+):(\d+)\)/) ||
             callerLine.match(/at\s+(.*):(\d+):(\d+)/);
 
         if (match) {
             return match[1] || match[2];
         }
-        return "SeeChen";
+
+        return 'SeeChen'; // SeeChen is the BEST!!!!
     }
 
     /**
-     * 
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {string} sender 
+     * Normalizes subscription options.
+     * @param {string|!Object=} options
+     * @return {{sender: string, scope: string}}
      */
-    on(eventName, listener, sender = "Unknown") {
-        sender = sender;
-        if (!this.#events.has(eventName)) {
-            logger.debug(this.#formatEventAgentLog(`Event ${eventName} not found, initializing...`));
-            this.#events.set(eventName, []);
+    #normalizeOptions(options = {}) {
+        if (typeof options === 'string') {
+            return {
+                sender: options,
+                scope: DEFAULT_SCOPE,
+            };
         }
 
-        this.#events.get(eventName).push(listener);
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} registered by ${sender}`));
+        if (!options) {
+            return {
+                sender: DEFAULT_SENDER,
+                scope: DEFAULT_SCOPE,
+            };
+        }
+
+        return {
+            sender: options.sender || DEFAULT_SENDER,
+            scope: options.scope || DEFAULT_SCOPE,
+        };
     }
 
     /**
-     * 
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {string} sender 
+     * Creates a subscription record.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {Function} runner
+     * @param {{sender: string, scope: string}} options
+     * @return {!Object}
      */
-    off(eventName, listener, sender = "Unknown") {
-        sender = sender;
-        if (!this.#events.has(eventName)) {
+    #createSubscription(eventName, listener, runner, options) {
+        return {
+            id: this.#nextSubscriptionId++,
+            eventName,
+            listener,
+            runner,
+            sender: options.sender,
+            scope: options.scope,
+            timers: new Set(),
+            active: true,
+        };
+    }
+
+    /**
+     * Adds a subscription to the event registry.
+     * @param {!Object} subscription
+     */
+    #addSubscription(subscription) {
+        if (!this.#events.has(subscription.eventName)) {
+            logger.debug(
+                this.#formatEventAgentLog(
+                    `Event ${subscription.eventName} not found, initializing...`,
+                ),
+            );
+            this.#events.set(subscription.eventName, []);
+        }
+
+        this.#events.get(subscription.eventName).push(subscription);
+        logger.info(
+            this.#formatEventAgentLog(
+                `Event ${subscription.eventName} registered by ${subscription.sender}`,
+            ),
+        );
+    }
+
+    /**
+     * Clears timers owned by a subscription.
+     * @param {!Object} subscription
+     */
+    #clearSubscriptionTimers(subscription) {
+        subscription.timers.forEach((timerId) => clearTimeout(timerId));
+        subscription.timers.clear();
+    }
+
+    /**
+     * Removes a subscription.
+     * @param {!Object} subscription
+     * @param {string=} sender
+     */
+    #removeSubscription(subscription, sender = DEFAULT_SENDER) {
+        if (!subscription.active) {
+            return;
+        }
+
+        const subscriptions = this.#events.get(subscription.eventName);
+        if (!subscriptions) {
+            return;
+        }
+
+        this.#clearSubscriptionTimers(subscription);
+        subscription.active = false;
+
+        const nextSubscriptions = subscriptions.filter((item) => {
+            return item.id !== subscription.id;
+        });
+
+        if (nextSubscriptions.length > 0) {
+            this.#events.set(subscription.eventName, nextSubscriptions);
+        } else {
+            this.#events.delete(subscription.eventName);
+        }
+
+        logger.info(
+            this.#formatEventAgentLog(
+                `Event ${subscription.eventName} subscription removed by ${sender}`,
+            ),
+        );
+    }
+
+    /**
+     * Creates an unsubscribe callback.
+     * @param {!Object} subscription
+     * @return {Function}
+     */
+    #createUnsubscribe(subscription) {
+        return () => {
+            this.#removeSubscription(subscription, subscription.sender);
+        };
+    }
+
+    /**
+     * Registers an event listener.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {string|!Object=} options
+     * @return {Function}
+     */
+    on(eventName, listener, options = {}) {
+        const normalizedOptions = this.#normalizeOptions(options);
+        const subscription = this.#createSubscription(
+            eventName,
+            listener,
+            listener,
+            normalizedOptions,
+        );
+
+        this.#addSubscription(subscription);
+        return this.#createUnsubscribe(subscription);
+    }
+
+    /**
+     * Removes event listeners that match the original listener.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {string=} sender
+     */
+    off(eventName, listener, sender = DEFAULT_SENDER) {
+        const subscriptions = this.#events.get(eventName);
+        if (!subscriptions) {
             logger.debug(this.#formatEventAgentLog(`Event ${eventName} not found to remove.`));
             return;
         }
-        this.#events.set(eventName, this.#events.get(eventName).filter(l => l !== listener));
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} listener removed by ${sender}`));
+
+        subscriptions
+            .filter((subscription) => subscription.listener === listener)
+            .forEach((subscription) => {
+                this.#removeSubscription(subscription, sender);
+            });
     }
 
     /**
-     * 
-     * @param {string} eventName 
-     * @param {*} data 
-     * @param {string} sender 
+     * Emits an event.
+     * @param {string} eventName
+     * @param {*=} data
+     * @param {string=} sender
      */
-    emit(eventName, data, sender = "Unknown") {
-        sender = sender;
-        const listeners = this.#events.get(eventName);
-        if (!listeners) {
+    emit(eventName, data = undefined, sender = DEFAULT_SENDER) {
+        const subscriptions = this.#events.get(eventName);
+        if (!subscriptions) {
             logger.debug(this.#formatEventAgentLog(`Event ${eventName} not found, cannot emit.`));
             return;
         }
 
-        [...listeners].forEach(listener => {
+        [...subscriptions].forEach((subscription) => {
+            if (!subscription.active) {
+                return;
+            }
+
             try {
-                logger.debug(this.#formatEventAgentLog(`Event ${eventName} emitted by ${sender}`));
-                listener(data);
+                subscription.runner(data);
             } catch (error) {
-                logger.error(this.#formatEventAgentLog(`Error in listener for event ${eventName}, ${error}`));
+                logger.error(
+                    this.#formatEventAgentLog(
+                        `Error in listener for event ${eventName} emitted by ${sender}`,
+                    ),
+                    error,
+                );
             }
         });
     }
 
     /**
-     * Listen to an event exactly once, then remove the listener automatically.
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {string} sender 
+     * Registers an event listener that runs once.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {string|!Object=} options
+     * @return {Function}
      */
-    once(eventName, listener, sender = "Unknown") {
-        sender = sender;
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} once configured by ${sender}`));
-        const wrapper = (data) => {
+    once(eventName, listener, options = {}) {
+        const normalizedOptions = this.#normalizeOptions(options);
+        let subscription;
+
+        const runner = (data) => {
             listener(data);
-            this.off(eventName, wrapper, "EventAgent-Once-Wrapper");
+            this.#removeSubscription(subscription, 'EventAgent.once');
         };
-        this.on(eventName, wrapper, sender);
+
+        subscription = this.#createSubscription(
+            eventName,
+            listener,
+            runner,
+            normalizedOptions,
+        );
+
+        this.#addSubscription(subscription);
+        return this.#createUnsubscribe(subscription);
     }
 
     /**
-     * Listen to an event but delay its execution by `wait` milliseconds.
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {number} wait 
-     * @param {string} sender 
+     * Registers an event listener that runs after a delay.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {number=} wait
+     * @param {string|!Object=} options
+     * @return {Function}
      */
-    delay(eventName, listener, wait = 1000, sender = "Unknown") {
-        sender = sender;
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} delayed ${wait}ms by ${sender}`));
-        const wrapper = (data) => {
+    delay(eventName, listener, wait = 1000, options = {}) {
+        const normalizedOptions = this.#normalizeOptions(options);
+        let subscription;
+
+        const runner = (data) => {
             const timerId = setTimeout(() => {
-                logger.debug(this.#formatEventAgentLog(`Event ${eventName} executed after delay`));
+                subscription.timers.delete(timerId);
                 listener(data);
             }, wait);
 
-            if (!this.#timer.has(eventName)) this.#timer.set(eventName, []);
-            this.#timer.get(eventName).push(timerId);
+            subscription.timers.add(timerId);
         };
-        this.on(eventName, wrapper, sender);
+
+        subscription = this.#createSubscription(
+            eventName,
+            listener,
+            runner,
+            normalizedOptions,
+        );
+
+        this.#addSubscription(subscription);
+        return this.#createUnsubscribe(subscription);
     }
 
     /**
-     * Cancel all active delayed/debounced executions for a specific event
-     * @param {string} eventName 
-     * @param {string} sender 
+     * Cancels active delayed executions for an event.
+     * @param {string} eventName
+     * @param {string=} sender
      */
-    cancelDelay(eventName, sender = "Unknown") {
-        sender = sender;
+    cancelDelay(eventName, sender = DEFAULT_SENDER) {
+        const subscriptions = this.#events.get(eventName) || [];
+
+        subscriptions.forEach((subscription) => {
+            this.#clearSubscriptionTimers(subscription);
+        });
+
         logger.info(this.#formatEventAgentLog(`Event ${eventName} delays cancelled by ${sender}`));
-        if (this.#timer.has(eventName)) {
-            this.#timer.get(eventName).forEach(timerId => clearTimeout(timerId));
-            this.#timer.delete(eventName);
-        }
     }
 
     /**
-     * Limit how often a listener can be called (executes at most once every `wait` ms)
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {number} wait 
-     * @param {string} sender 
+     * Registers a throttled event listener.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {number=} wait
+     * @param {string|!Object=} options
+     * @return {Function}
      */
-    throttle(eventName, listener, wait = 300, sender = "Unknown") {
-        sender = sender;
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} throttle ${wait}ms configured by ${sender}`));
-        let timer = null;
+    throttle(eventName, listener, wait = 300, options = {}) {
+        const normalizedOptions = this.#normalizeOptions(options);
+        let subscription;
         let lastTime = 0;
-        const wrapper = (data) => {
+
+        const runner = (data) => {
             const now = Date.now();
-            if (now - lastTime >= wait) {
-                if (timer) clearTimeout(timer);
+            const remaining = wait - (now - lastTime);
+
+            if (remaining <= 0) {
+                this.#clearSubscriptionTimers(subscription);
                 lastTime = now;
                 listener(data);
-            } else {
-                if (timer) clearTimeout(timer);
-                timer = setTimeout(() => {
-                    lastTime = Date.now();
-                    listener(data);
-                }, wait);
+                return;
             }
-        };
-        this.on(eventName, wrapper, sender);
-    }
 
-    /**
-     * Delay execution until it has been `wait` ms since the last event emit
-     * Useful for Search Bars, Window Resizing, etc.
-     * @param {string} eventName 
-     * @param {Function} listener 
-     * @param {number} wait 
-     * @param {string} sender 
-     */
-    debounce(eventName, listener, wait = 300, sender = "Unknown") {
-        sender = sender;
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} debounce ${wait}ms configured by ${sender}`));
-        const wrapper = (data) => {
-            this.cancelDelay(eventName, "EventAgent-Debounce-Wrapper");
+            if (subscription.timers.size > 0) {
+                return;
+            }
 
             const timerId = setTimeout(() => {
-                logger.debug(this.#formatEventAgentLog(`Event ${eventName} executed after debounce`));
+                subscription.timers.delete(timerId);
+                lastTime = Date.now();
                 listener(data);
-                this.#timer.delete(eventName);
-            }, wait);
+            }, remaining);
 
-            if (!this.#timer.has(eventName)) this.#timer.set(eventName, []);
-            this.#timer.get(eventName).push(timerId);
+            subscription.timers.add(timerId);
         };
-        this.on(eventName, wrapper, sender);
+
+        subscription = this.#createSubscription(
+            eventName,
+            listener,
+            runner,
+            normalizedOptions,
+        );
+
+        this.#addSubscription(subscription);
+        return this.#createUnsubscribe(subscription);
     }
 
     /**
-     * Remove entirely all listeners and clear timers for a specific event
-     * @param {string} eventName 
-     * @param {string} sender
+     * Registers a debounced event listener.
+     * @param {string} eventName
+     * @param {Function} listener
+     * @param {number=} wait
+     * @param {string|!Object=} options
+     * @return {Function}
      */
-    clear(eventName, sender = "Unknown") {
-        sender = sender;
-        logger.info(this.#formatEventAgentLog(`Event ${eventName} cleared entirely by ${sender}`));
-        this.#events.delete(eventName);
-        this.cancelDelay(eventName, sender);
+    debounce(eventName, listener, wait = 300, options = {}) {
+        const normalizedOptions = this.#normalizeOptions(options);
+        let subscription;
+
+        const runner = (data) => {
+            this.#clearSubscriptionTimers(subscription);
+
+            const timerId = setTimeout(() => {
+                subscription.timers.delete(timerId);
+                listener(data);
+            }, wait);
+
+            subscription.timers.add(timerId);
+        };
+
+        subscription = this.#createSubscription(
+            eventName,
+            listener,
+            runner,
+            normalizedOptions,
+        );
+
+        this.#addSubscription(subscription);
+        return this.#createUnsubscribe(subscription);
     }
 
+    /**
+     * Removes all listeners for an event.
+     * @param {string} eventName
+     * @param {string=} sender
+     */
+    clear(eventName, sender = DEFAULT_SENDER) {
+        const subscriptions = [...(this.#events.get(eventName) || [])];
+
+        subscriptions.forEach((subscription) => {
+            this.#removeSubscription(subscription, sender);
+        });
+
+        logger.info(this.#formatEventAgentLog(`Event ${eventName} cleared by ${sender}`));
+    }
+
+    /**
+     * Removes all listeners registered under a scope.
+     * @param {string} scope
+     * @param {string=} sender
+     */
+    clearScope(scope, sender = DEFAULT_SENDER) {
+        [...this.#events.values()].flat().forEach((subscription) => {
+            if (subscription.scope === scope) {
+                this.#removeSubscription(subscription, sender);
+            }
+        });
+
+        logger.info(this.#formatEventAgentLog(`Scope ${scope} cleared by ${sender}`));
+    }
 }
 
 export const EventAgent = new ClassEventAgent();

@@ -144,6 +144,8 @@ export const SEECHEN_COMPONENTS = {
         });
 
         COMPONENT_LOADERS.clear();
-        vDom.components = {};
+        Object.keys(vDom.components).forEach((name) => {
+            delete vDom.components[name];
+        });
     },
 };
