@@ -35,6 +35,7 @@ import { SEECHEN_I18N } from '../services/i18n-service.js';
  */
 
 const COMPONENTS = {};
+const SVG_NAMESPACE = 'http://www.w3.org/2000/svg';
 
 /**
  * Checks whether a value is a plain object.
@@ -52,6 +53,47 @@ function isObject(value) {
  */
 function isVNode(value) {
     return isObject(value) && typeof value.tag === 'string';
+}
+
+/**
+ * Resolves the DOM namespace for an element.
+ * @param {string} tag
+ * @param {string=} currentNamespace
+ * @return {string}
+ */
+function resolveDomNamespace(tag, currentNamespace = '') {
+    if (tag === 'svg') {
+        return SVG_NAMESPACE;
+    }
+
+    if (currentNamespace === SVG_NAMESPACE && tag !== 'foreignObject') {
+        return SVG_NAMESPACE;
+    }
+
+    return '';
+}
+
+/**
+ * Creates a DOM element with the correct namespace.
+ * @param {string} tag
+ * @param {string=} namespace
+ * @return {!Element}
+ */
+function createDomElement(tag, namespace = '') {
+    if (namespace) {
+        return document.createElementNS(namespace, tag);
+    }
+
+    return document.createElement(tag);
+}
+
+/**
+ * Gets the DOM namespace from a parent node.
+ * @param {!Node} parent
+ * @return {string}
+ */
+function getParentDomNamespace(parent) {
+    return parent.namespaceURI === SVG_NAMESPACE ? SVG_NAMESPACE : '';
 }
 
 /**
@@ -237,19 +279,25 @@ export const vDom = {
     /**
      * Renders a virtual DOM node into a real DOM node.
      * @param {VNode|string} vNode
-     * @param {string=} namespace
+     * @param {string=} textNamespace
+     * @param {string=} domNamespace
      * @return {!Node}
      */
-    render(vNode, namespace = '') {
+    render(vNode, textNamespace = '', domNamespace = '') {
         if (typeof vNode === 'string') {
-            return document.createTextNode(resolveText(namespace, vNode));
+            return document.createTextNode(resolveText(textNamespace, vNode));
         }
 
-        const element = document.createElement(vNode.tag);
+        const nodeNamespace = resolveDomNamespace(vNode.tag, domNamespace);
+        const childTextNamespace = vNode.lang || textNamespace;
+        const element = createDomElement(vNode.tag, nodeNamespace);
+
         renderProps(element, vNode.props);
 
         vNode.children.forEach((child) => {
-            element.appendChild(vDom.render(child, vNode.lang));
+            element.appendChild(
+                vDom.render(child, childTextNamespace, nodeNamespace),
+            );
         });
 
         return element;
@@ -304,7 +352,11 @@ export const vDom = {
 
         for (let i = 0; i < maxChildrenLength; i++) {
             childPatches.push(
-                vDom.diff(oldNode.children[i], newNode.children[i], newNode.lang),
+                vDom.diff(
+                    oldNode.children[i],
+                    newNode.children[i],
+                    newNode.lang || namespace,
+                ),
             );
         }
 
@@ -320,11 +372,12 @@ export const vDom = {
      */
     patch(parent, patches, index = 0) {
         const target = parent.childNodes[index];
+        const domNamespace = getParentDomNamespace(parent);
 
         patches.forEach((patch) => {
             switch (patch.type) {
                 case 'ADD':
-                    parent.appendChild(vDom.render(patch.newNode));
+                    parent.appendChild(vDom.render(patch.newNode, '', domNamespace));
                     break;
 
                 case 'REMOVE':
@@ -341,7 +394,10 @@ export const vDom = {
 
                 case 'REPLACE':
                     if (target) {
-                        parent.replaceChild(vDom.render(patch.newNode), target);
+                        parent.replaceChild(
+                            vDom.render(patch.newNode, '', domNamespace),
+                            target,
+                        );
                     }
                     break;
 
