@@ -15,8 +15,6 @@
  * @fileoverview Runtime application context for SeeChen Website.
  */
 
-import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
-
 export const SEECHEN_WEBPAGE_CONTEXT = {
     LANGUAGE: {
         CURRENT: '',
@@ -27,37 +25,18 @@ export const SEECHEN_WEBPAGE_CONTEXT = {
         CURRENT: null,
         CURRENT_ROUTE: null,
         CURRENT_VDOM: null,
+        CURRENT_REGION: '',
         STATE: null,
         ABORT_CONTROLLER: null,
         EVENT_SCOPE: '',
     },
 
+    REGIONS: {
+        ELEMENTS: {},
+        CURRENT_VDOM: {},
+    },
+
     COMPONENTS: {
         REGISTERED: {},
-    },
-};
-
-export const SEECHEN_WEBPAGE_VALUES = {
-    REGISTRY: SEECHEN_WEBPAGE_CONFIG.REGISTRY,
-
-    // TODO: Remove after all legacy references use REGISTRY.
-    REGISTERY: SEECHEN_WEBPAGE_CONFIG.REGISTRY,
-
-    LANGUAGE: {
-        get LANGUAGE() {
-            return SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.CURRENT;
-        },
-
-        set LANGUAGE(locale) {
-            SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.CURRENT = locale;
-        },
-
-        get OBJECT() {
-            return SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.TRANSLATIONS;
-        },
-
-        set OBJECT(translations) {
-            SEECHEN_WEBPAGE_CONTEXT.LANGUAGE.TRANSLATIONS = translations;
-        },
     },
 };

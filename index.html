@@ -2,82 +2,75 @@
   ~ seechen.github.io
   ~ https://github.com/SeeChen/seechen.github.io
   ~
-  ~ Copyright (c) 2024-2026 LEE SEE CHEN. All rights reserved.
+  ~ Copyright (C) 2024-2026 LEE SEE CHEN.
   ~
-  ~ This source code is licensed under the MIT license found in the
-  ~ LICENSE file in the root directory of this source tree.
+  ~ This file is licensed under the GNU General Public License v3.0 (GPLv3).
+  ~ You can redistribute it and/or modify it under the terms of the GPLv3.
+  ~ For more details, see <https://www.gnu.org/licenses/>.
   ~
-  ~ SPDX-License-Identifier: MIT
+  ~ SPDX-License-Identifier: GPL-3.0-only
   -->
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-C522VVXBTT"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
         gtag('js', new Date());
         gtag('config', 'G-C522VVXBTT');
     </script>
 
-    <!-- Default Title, will change during loading -->
     <title>SEECHEN's Website</title>
 
-    <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="author" content="SeeChen Lee" />
+    <meta name="description" content="SEECHEN's personal website." />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-status-bar-style" content="black-translucent" />
 
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="/src/style/core/fontface.css" />
+    <link rel="stylesheet" href="/src/style/core/global.css" />
+    <link rel="stylesheet" href="/src/style/app.css" />
 
-    <!-- Core -->
-    <script src="/src/js/core/vDom.js" type="module"></script>
-    <script src="/src/js/core/route.js" type="module"></script>
-
-    <!-- Components -->
-    <!-- <script src="/src/js/components/loading.js" type="module"></script> -->
-
-    <!-- Util -->
-    <script src="/src/js/util/logger.js" type="module"></script>
-    <script src="/src/js/util/language.js" type="module"></script>
-
-    <!-- App -->
     <script src="/src/js/app.js" type="module"></script>
-
-    <!-- Style -->
-    <link rel="stylesheet" href="/src/style/core/fontface.css">
-    <link rel="stylesheet" href="/src/style/core/global.css">
 </head>
 
 <body>
-    <div id="componentLoading"></div>
+    <div id="seechenApp" class="seechen-app">
+        <div
+            id="componentLoading"
+            data-seechen-region="loading"
+            aria-live="polite"
+        ></div>
 
-    <div id="componentContainer" class="scrollBarNotDisplay">
-        <div id="componentNavigation" class="navHide">
-            <div id="nav_Menu" onclick="window.clickEvent.navigation.expandMenu(this)">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
-                    <g stroke-width="6.5" stroke-linecap="round">
-                        <path d="M72 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                        <path
-                            d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
-                            fill="none" stroke="#888"></path>
-                        <path d="M72 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                        <path
-                            d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
-                            fill="none" stroke="#888"></path>
-                        <path d="M100.75 82.286h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                        <path d="M100.75 125.143h28.75" fill="#009100" fill-rule="evenodd" stroke="#888"></path>
-                    </g>
-                </svg>
-            </div>
+        <div
+            id="componentContainer"
+            class="scrollBarNotDisplay"
+            data-seechen-region="shell"
+        >
+            <header
+                id="componentNavigation"
+                class="notInDisplay"
+                data-seechen-region="navigation"
+            ></header>
+
+            <main
+                id="componentBody"
+                data-seechen-region="body"
+            ></main>
+
+            <footer
+                id="componentFooter"
+                class="notInDisplay"
+                data-seechen-region="footer"
+            ></footer>
         </div>
-        <div id="componentBody"></div>
-        <div id="componentFooter" class="notInDisplay"></div>
     </div>
 </body>
-
 </html>

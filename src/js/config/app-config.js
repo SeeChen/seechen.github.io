@@ -66,10 +66,33 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
         },
     },
 
+    APP_SHELL: {
+        REGIONS: {
+            LOADING: {
+                SELECTOR: '#componentLoading',
+            },
+
+            NAVIGATION: {
+                SELECTOR: '#componentNavigation',
+                HIDE_WHEN_EMPTY: true,
+            },
+
+            BODY: {
+                SELECTOR: '#componentBody',
+            },
+
+            FOOTER: {
+                SELECTOR: '#componentFooter',
+                HIDE_WHEN_EMPTY: true,
+            },
+        },
+    },
+
     PAGES: {
-        ROOT_SELECTOR: '#componentLoading',
+        DEFAULT_REGION: 'BODY',
 
         LOADING: {
+            REGION: 'LOADING',
             LAYOUT: 'LOADING',
             STYLE: '/src/style/pages/loading.css',
             SCRIPT: '',
@@ -78,6 +101,7 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
         },
 
         TRAVEL: {
+            REGION: 'BODY',
             LAYOUT: 'TRAVEL',
             STYLE: '',
             SCRIPT: '',
@@ -86,6 +110,7 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
         },
 
         NOT_FOUND: {
+            REGION: 'BODY',
             LAYOUT: 'NOT_FOUND',
             STYLE: '/src/style/pages/loading.css',
             SCRIPT: '',
