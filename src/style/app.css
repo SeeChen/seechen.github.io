@@ -1,3 +1,62 @@
-/** 
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
 
-*/
+#componentLoading {
+    min-height: 100dvh;
+    width     : 100%  ;
+}
+
+#componentContainer {
+    min-height      : 100dvh                       ;
+    width           : 100%                         ;
+    background-color: var(--seechen-color-canvas)  ;
+    color           : var(--seechen-color-text)    ;
+}
+
+#componentNavigation {
+    position  : sticky                                ;
+    top       : 0                                     ;
+    z-index   : var(--seechen-z-navigation)           ;
+    min-height: var(--seechen-layout-header-height)   ;
+}
+
+#componentBody {
+    width     : 100%                                                ;
+    min-height: calc(100dvh - var(--seechen-layout-header-height))  ;
+}
+
+#componentFooter {
+    min-height: var(--seechen-layout-footer-height);
+}
+
+#nav_Menu {
+    width : 3rem   ;
+    height: 3rem   ;
+    cursor: pointer;
+}
+
+#nav_Menu svg {
+    width : 100%;
+    height: 100%;
+}
+
+.seechen-page {
+    width         : 100%                                  ;
+    min-height    : 100dvh                                ;
+    padding-inline: var(--seechen-layout-page-padding)    ;
+}
+
+.seechen-content {
+    width        : min(100%, var(--seechen-layout-content-width));
+    margin-inline: auto                                         ;
+}

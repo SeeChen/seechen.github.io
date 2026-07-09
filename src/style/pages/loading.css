@@ -1,25 +1,49 @@
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 #PAGE_LOADING {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1000;
-    background: radial-gradient(circle at center, #c2dcff 0%, #e2e8f0 100%);
+    position  : fixed                  ;
+    inset     : 0                      ;
+    z-index   : var(--seechen-z-loading);
+    width     : 100%                   ;
+    min-height: 100dvh                 ;
+    overflow  : hidden                 ;
+    background: radial-gradient(
+        circle at center,
+        var(--seechen-loading-bg-start) 0%,
+        var(--seechen-loading-bg-end) 100%
+    );
 }
 
 #PAGE_LOADING::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, #b9fff7 0%, #cbd5e1 100%);
-    opacity: 0;
-    z-index: -1;
-    animation: pulseGradient 3s ease-in-out infinite alternate;
+    content   : ''      ;
+    position  : absolute;
+    inset     : 0       ;
+    z-index   : -1      ;
+    background: radial-gradient(
+        circle at center,
+        var(--seechen-loading-bg-pulse-start) 0%,
+        var(--seechen-loading-bg-pulse-end) 100%
+    );
+    opacity   : 0       ;
+    animation : seechen-loading-gradient-pulse
+        var(--seechen-motion-slow)
+        ease-in-out
+        infinite
+        alternate;
 }
 
-@keyframes pulseGradient {
+@keyframes seechen-loading-gradient-pulse {
     from {
         opacity: 0;
     }
@@ -30,44 +54,44 @@
 }
 
 #PAGE_LOADING img {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 30dvh;
-    margin: auto;
-    height: 10dvh;
+    position : fixed                                 ;
+    top      : 0                                     ;
+    left     : 0                                     ;
+    right    : 0                                     ;
+    bottom   : var(--seechen-loading-logo-offset-y)  ;
+    max-width: 50vw                                  ;
+    height   : var(--seechen-loading-logo-size)      ;
+    margin   : auto                                  ;
 }
 
 #loading_title {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 10dvh;
-    text-align: center;
-    font-size: 8dvh;
-    font-weight: bold;
+    position   : fixed                                ;
+    top        : 0                                    ;
+    left       : 0                                    ;
+    right      : 0                                    ;
+    bottom     : 0                                    ;
+    height     : var(--seechen-loading-title-height)  ;
+    margin     : auto                                 ;
+    font-size  : var(--seechen-loading-title-size)    ;
+    font-weight: bold                                 ;
+    text-align : center                               ;
 }
 
 #loading_bar {
-    position: fixed;
-    top: 20dvh;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    height: 10dvh;
-    text-align: center;
-    font-size: 3dvh;
+    position  : fixed                                ;
+    top       : var(--seechen-loading-status-offset-y);
+    left      : 0                                    ;
+    right     : 0                                    ;
+    bottom    : 0                                    ;
+    height    : var(--seechen-loading-status-height)  ;
+    margin    : auto                                 ;
+    font-size : var(--seechen-loading-status-size)    ;
+    text-align: center                               ;
 }
 
 .loading-dot {
-    position: fixed;
-    top: 70dvh;
-    left: 50%;
-
-    z-index: 1001;
+    position: fixed                                 ;
+    top     : var(--seechen-loading-dot-top)        ;
+    left    : 50%                                   ;
+    z-index : var(--seechen-z-loading-content)      ;
 }

@@ -1,38 +1,202 @@
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
 :root {
-    --bg-color: #F7F2EA;
+    color-scheme: light;
 
-    --text-color: #5D5349;
+    /* Color tokens */
+    --seechen-color-canvas       : #f7f2ea;
+    --seechen-color-surface      : #fffaf2;
+    --seechen-color-surface-muted: #ece6dc;
+    --seechen-color-text         : #5d5349;
+    --seechen-color-text-muted   : #7a6d60;
+    --seechen-color-border       : #d8cfc2;
+    --seechen-color-primary      : #4284ff;
+    --seechen-color-primary-soft : #c2dcff;
+    --seechen-color-accent       : #7affd0;
+    --seechen-color-accent-soft  : #b9fff7;
+    --seechen-color-warm         : #ffccbc;
+    --seechen-color-highlight    : #fff9c4;
+    --seechen-color-neutral      : #cfd8dc;
+    --seechen-color-rose         : #f8bbd0;
 
-    --font-style-context: 'JetBrainsMono-Regular', 'Chinese-Regular', monospace;
-    --font-style-title: 'English-Title', 'Chinese-Title', sans-serif;
+    /* Typography tokens */
+    --seechen-font-body         : 'JetBrainsMono-Regular', 'Chinese-Regular', monospace;
+    --seechen-font-title        : 'English-Title', 'Chinese-Title', sans-serif         ;
+    --seechen-font-size-xs      : 0.75rem                                              ;
+    --seechen-font-size-sm      : 0.875rem                                             ;
+    --seechen-font-size-md      : 1rem                                                 ;
+    --seechen-font-size-lg      : 1.125rem                                             ;
+    --seechen-font-size-xl      : 1.5rem                                               ;
+    --seechen-font-size-display : 3rem                                                 ;
+    --seechen-line-height-tight : 1.15                                                 ;
+    --seechen-line-height-normal: 1.6                                                  ;
 
-    --color-primary: #B2DFDB;
-    --color-secondary: #ffccbc;
-    --color-tertiary: #fff9c4;
-    --color-quaternary: #cfd8dc;
-    --color-quinary: #f8bbd0;
-    --color-neutral: #f7f2ea;
+    /* Spacing tokens */
+    --seechen-space-2xs: 0.25rem;
+    --seechen-space-xs : 0.5rem ;
+    --seechen-space-sm : 0.75rem;
+    --seechen-space-md : 1rem   ;
+    --seechen-space-lg : 1.5rem ;
+    --seechen-space-xl : 2rem   ;
+    --seechen-space-2xl: 3rem   ;
+
+    /* Layout tokens */
+    --seechen-layout-page-padding : 1rem;
+    --seechen-layout-content-width: 100% ;
+    --seechen-layout-header-height: 4rem ;
+    --seechen-layout-footer-height: 4rem ;
+
+    /* Shape and elevation tokens */
+    --seechen-radius-xs   : 0.125rem                                      ;
+    --seechen-radius-sm   : 0.25rem                                       ;
+    --seechen-radius-md   : 0.5rem                                        ;
+    --seechen-radius-round: 999px                                         ;
+    --seechen-shadow-soft : 0 0.5rem 1.5rem rgba(66, 132, 255, 0.16)      ;
+    --seechen-shadow-title: 0 0.125rem 0.25rem rgba(59, 130, 246, 0.3)    ;
+
+    /* Motion tokens */
+    --seechen-motion-fast  : 160ms;
+    --seechen-motion-normal: 240ms;
+    --seechen-motion-slow  : 3s   ;
+
+    /* Layer tokens */
+    --seechen-z-base           : 0   ;
+    --seechen-z-navigation     : 100 ;
+    --seechen-z-overlay        : 900 ;
+    --seechen-z-loading        : 1000;
+    --seechen-z-loading-content: 1001;
+
+    /* Loading page tokens */
+    --seechen-loading-logo-size       : 10dvh                             ;
+    --seechen-loading-logo-offset-y   : 30dvh                             ;
+    --seechen-loading-title-size      : 8dvh                              ;
+    --seechen-loading-title-height    : 10dvh                             ;
+    --seechen-loading-status-size     : 3dvh                              ;
+    --seechen-loading-status-height   : 10dvh                             ;
+    --seechen-loading-status-offset-y : 20dvh                             ;
+    --seechen-loading-dot-top         : 70dvh                             ;
+    --seechen-loading-dot-size        : 1.25rem                           ;
+    --seechen-loading-dot-gap         : 1.25rem                           ;
+    --seechen-loading-dot-jump        : 1.25rem                           ;
+    --seechen-loading-dot-color       : var(--seechen-color-highlight)    ;
+    --seechen-loading-bg-start        : var(--seechen-color-primary-soft)  ;
+    --seechen-loading-bg-end          : #e2e8f0                           ;
+    --seechen-loading-bg-pulse-start  : var(--seechen-color-accent-soft)   ;
+    --seechen-loading-bg-pulse-end    : #cbd5e1                           ;
 }
 
-html,
+@media (min-width: 768px) {
+    :root {
+        --seechen-layout-page-padding : 2rem;
+        --seechen-layout-content-width: 45rem;
+        --seechen-font-size-display   : 4rem ;
+    }
+}
+
+@media (min-width: 1200px) {
+    :root {
+        --seechen-layout-page-padding : 3rem   ;
+        --seechen-layout-content-width: 67.5rem;
+        --seechen-font-size-display   : 5rem   ;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-height      : 100%                       ;
+    background-color: var(--seechen-color-canvas);
+    font-size       : 100%                       ;
+    text-size-adjust: 100%                       ;
+}
+
 body {
-    padding: 0%;
-    margin: 0%;
-    background-color: var(--bg-color);
+    min-height      : 100%                             ;
+    margin          : 0                                ;
+    background-color: var(--seechen-color-canvas)      ;
+    color           : var(--seechen-color-text)        ;
+    font-family     : var(--seechen-font-body)         ;
+    font-size       : var(--seechen-font-size-md)      ;
+    line-height     : var(--seechen-line-height-normal);
+    text-rendering  : optimizeLegibility              ;
 }
 
-p.context-normal {
-    color: var(--text-color);
-
-    font-family: var(--font-style-context);
+img,
+svg {
+    display  : block;
+    max-width: 100% ;
 }
 
-p.title-normal {
-    font-family: var(--font-style-title);
-    background: linear-gradient(90deg, #4284ff 0%, #7affd0 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0px 2px 4px rgba(59, 130, 246, 0.3));
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+a {
+    color          : inherit;
+    text-decoration: none   ;
+}
+
+p {
+    margin-block: 0;
+}
+
+.context-normal {
+    color      : var(--seechen-color-text);
+    font-family: var(--seechen-font-body) ;
+}
+
+.title-normal {
+    background             : linear-gradient(
+        90deg,
+        var(--seechen-color-primary) 0%,
+        var(--seechen-color-accent) 100%
+    );
+    background-clip        : text                           ;
+    color                  : transparent                    ;
+    filter                 : drop-shadow(var(--seechen-shadow-title));
+    font-family            : var(--seechen-font-title)      ;
+    line-height            : var(--seechen-line-height-tight);
+    -webkit-background-clip: text                           ;
+    -webkit-text-fill-color: transparent                    ;
+}
+
+.notInDisplay {
+    display: none !important;
+}
+
+.scrollBarNotDisplay {
+    scrollbar-width: none;
+}
+
+.scrollBarNotDisplay::-webkit-scrollbar {
+    display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration       : 1ms !important ;
+        animation-iteration-count: 1 !important   ;
+        scroll-behavior          : auto !important;
+        transition-duration      : 1ms !important ;
+    }
 }
