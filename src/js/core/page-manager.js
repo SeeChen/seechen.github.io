@@ -19,39 +19,14 @@ import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { SEECHEN_WEBPAGE_CONTEXT } from './app-context.js';
 import { EventAgent } from '../middleware/eventAgent.js';
 import { logger } from '../util/logger.js';
+import { isNonEmptyString } from '../util/type.js';
 import { SEECHEN_LAYOUT } from '../repositories/layout-repository.js';
 import { SEECHEN_RESOURCE } from '../services/resource.js';
 import { SEECHEN_I18N } from '../services/i18n-service.js';
 import { vDom } from './vDom.js';
+import { SEECHEN_REGION_MANAGER } from './region-manager.js';
 
-let currentPageModule = null;
-let currentPageConfig = null;
-let currentPageState = null;
-let currentLifecycleContext = null;
-
-/**
- * Checks whether a value is a non-empty string.
- * @param {*} value
- * @return {boolean}
- */
-function isNonEmptyString(value) {
-    return typeof value === 'string' && value.trim() !== '';
-}
-
-/**
- * Gets the current page root element.
- * @return {!Element}
- */
-function getRootElement() {
-    const selector = SEECHEN_WEBPAGE_CONFIG.PAGES.ROOT_SELECTOR;
-    const root = document.querySelector(selector);
-
-    if (!root) {
-        throw new Error(`Page root element not found: ${selector}`);
-    }
-
-    return root;
-}
+let activePage = null;
 
 /**
  * Gets page config by page name.
@@ -105,6 +80,18 @@ function resolveLayoutName(routeResult, pageConfig) {
 }
 
 /**
+ * Resolves the region name for a route and page config.
+ * @param {!Object} routeResult
+ * @param {!Object} pageConfig
+ * @return {string}
+ */
+function resolveRegionName(routeResult, pageConfig) {
+    return routeResult.region ||
+        pageConfig.REGION ||
+        SEECHEN_WEBPAGE_CONFIG.PAGES.DEFAULT_REGION;
+}
+
+/**
  * Clones a layout before page modules transform it.
  * @param {!Object} layout
  * @return {!Object}
@@ -121,17 +108,80 @@ function cloneLayout(layout) {
  * Creates the lifecycle context passed into page modules.
  * @param {!Object} routeResult
  * @param {string} eventScope
+ * @param {string} regionName
  * @return {!Object}
  */
-function createLifecycleContext(routeResult, eventScope) {
+function createLifecycleContext(routeResult, eventScope, regionName) {
     const abortController = new AbortController();
 
     return {
         routeResult,
         eventScope,
+        regionName,
         abortController,
         signal: abortController.signal,
+        updateRegion(nextVDom) {
+            const updatedVDom = SEECHEN_REGION_MANAGER.update(regionName, nextVDom);
+
+            if (SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION === regionName) {
+                SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = updatedVDom;
+            }
+
+            return updatedVDom;
+        },
     };
+}
+
+/**
+ * Creates an active page state object.
+ * @param {!Object} options
+ * @return {!Object}
+ */
+function createActivePage(options) {
+    return {
+        module: options.module || null,
+        config: options.config || null,
+        region: options.region || '',
+        state: options.state || null,
+        lifecycleContext: options.lifecycleContext || null,
+    };
+}
+
+/**
+ * Resets the public page context snapshot.
+ */
+function resetPageContext() {
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = null;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER = null;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = '';
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION = '';
+}
+
+/**
+ * Updates the public page context snapshot.
+ * @param {!Object} routeResult
+ * @param {string} regionName
+ * @param {import('./vDom.js').VNode|string} pageVDom
+ * @param {*} pageState
+ * @param {!Object} lifecycleContext
+ * @param {string} eventScope
+ */
+function updatePageContext(
+    routeResult,
+    regionName,
+    pageVDom,
+    pageState,
+    lifecycleContext,
+    eventScope,
+) {
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT = routeResult.page;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_ROUTE = routeResult;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = pageVDom;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION = regionName;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = pageState;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER =
+        lifecycleContext.abortController;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = eventScope;
 }
 
 /**
@@ -139,32 +189,32 @@ function createLifecycleContext(routeResult, eventScope) {
  * @return {!Promise<void>}
  */
 async function destroyCurrentPage() {
-    const pageModule = currentPageModule;
-    const pageConfig = currentPageConfig;
-    const pageState = currentPageState;
-    const lifecycleContext = currentLifecycleContext;
+    const page = activePage;
 
-    if (lifecycleContext?.abortController) {
-        lifecycleContext.abortController.abort();
+    if (!page) {
+        return;
+    }
+
+    if (page.lifecycleContext?.abortController) {
+        page.lifecycleContext.abortController.abort();
     }
 
     try {
-        if (pageModule?.unmount) {
-            await pageModule.unmount(pageState, lifecycleContext);
+        if (page.module?.unmount) {
+            await page.module.unmount(page.state, page.lifecycleContext);
         }
     } finally {
-        if (pageConfig?.EVENT_SCOPE) {
-            EventAgent.clearScope(pageConfig.EVENT_SCOPE, 'PageManager');
+        if (page.config?.EVENT_SCOPE) {
+            EventAgent.clearScope(page.config.EVENT_SCOPE, 'PageManager');
         }
 
-        currentPageModule = null;
-        currentPageConfig = null;
-        currentPageState = null;
-        currentLifecycleContext = null;
+        activePage = null;
 
-        SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = null;
-        SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER = null;
-        SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = '';
+        if (page.region) {
+            SEECHEN_REGION_MANAGER.clear(page.region);
+        }
+
+        resetPageContext();
     }
 }
 
@@ -195,12 +245,20 @@ export const SEECHEN_PAGE_MANAGER = {
      */
     async navigate(routeResult) {
         const pageConfig = getPageConfig(routeResult.page);
+        const regionName = resolveRegionName(routeResult, pageConfig);
         const eventScope = pageConfig.EVENT_SCOPE || `PAGE:${routeResult.page}`;
-        const lifecycleContext = createLifecycleContext(routeResult, eventScope);
+        const lifecycleContext = createLifecycleContext(
+            routeResult,
+            eventScope,
+            regionName,
+        );
 
         await destroyCurrentPage();
-        currentPageConfig = pageConfig;
-        currentLifecycleContext = lifecycleContext;
+        activePage = createActivePage({
+            config: pageConfig,
+            region: regionName,
+            lifecycleContext,
+        });
 
         try {
             await loadNamespaces(pageConfig.I18N || []);
@@ -220,9 +278,13 @@ export const SEECHEN_PAGE_MANAGER = {
             const pageModule = await loadPageModule(pageConfig);
             let pageState = null;
 
+            activePage.module = pageModule;
+
             if (pageModule?.load) {
                 pageState = await pageModule.load(routeResult, lifecycleContext);
             }
+
+            activePage.state = pageState;
 
             if (lifecycleContext.signal.aborted) {
                 return;
@@ -245,54 +307,40 @@ export const SEECHEN_PAGE_MANAGER = {
             }
 
             const pageVDom = vDom.create(layout);
-            const pageElement = vDom.render(pageVDom);
-            const root = getRootElement();
-
-            root.replaceChildren(pageElement);
+            SEECHEN_REGION_MANAGER.render(regionName, pageVDom);
 
             if (pageModule?.mount) {
                 await pageModule.mount(routeResult, pageState, lifecycleContext);
             }
 
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT = routeResult.page;
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_ROUTE = routeResult;
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = pageVDom;
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = pageState;
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER =
-                lifecycleContext.abortController;
-            SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = eventScope;
+            activePage = createActivePage({
+                module: pageModule,
+                config: pageConfig,
+                region: regionName,
+                state: pageState,
+                lifecycleContext,
+            });
 
-            currentPageModule = pageModule;
-            currentPageConfig = pageConfig;
-            currentPageState = pageState;
-            currentLifecycleContext = lifecycleContext;
-
+            updatePageContext(
+                routeResult,
+                regionName,
+                pageVDom,
+                pageState,
+                lifecycleContext,
+                eventScope,
+            );
             updateDocumentTitle(routeResult);
             logger.info(`Page rendered: ${routeResult.page}`);
         } catch (error) {
             lifecycleContext.abortController.abort();
 
-            if (currentLifecycleContext === lifecycleContext) {
-                currentPageModule = null;
-                currentPageConfig = null;
-                currentPageState = null;
-                currentLifecycleContext = null;
-                SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = null;
-                SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER = null;
-                SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = '';
+            if (activePage?.lifecycleContext === lifecycleContext) {
+                activePage = null;
+                resetPageContext();
             }
 
             throw error;
         }
-    },
-
-    /**
-     * Renders a route result into the configured page root.
-     * @param {!Object} routeResult
-     * @return {!Promise<void>}
-     */
-    render(routeResult) {
-        return this.navigate(routeResult);
     },
 
     /**

@@ -20,18 +20,10 @@ import { SEECHEN_WEBPAGE_CONTEXT } from './app-context.js';
 import { SEECHEN_LAYOUT } from '../repositories/layout-repository.js';
 import { SEECHEN_RESOURCE } from '../services/resource.js';
 import { logger } from '../util/logger.js';
+import { isNonEmptyString } from '../util/type.js';
 import { vDom } from './vDom.js';
 
 const COMPONENT_LOADERS = new Map();
-
-/**
- * Checks whether a value is a non-empty string.
- * @param {*} value
- * @return {boolean}
- */
-function isNonEmptyString(value) {
-    return typeof value === 'string' && value.trim() !== '';
-}
 
 /**
  * Normalizes a component name.

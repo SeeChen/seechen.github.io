@@ -18,19 +18,11 @@
 import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { SEECHEN_WEBPAGE_CONTEXT } from '../core/app-context.js';
 import { logger } from '../util/logger.js';
+import { isNonEmptyString, hasOwn } from '../util/type.js';
 import { SEECHEN_RESOURCE } from './resource.js';
 
 const DEFAULT_LOCALE = 'en_US';
 const NAMESPACE_LOADERS = new Map();
-
-/**
- * Checks whether a value is a non-empty string.
- * @param {*} value
- * @return {boolean}
- */
-function isNonEmptyString(value) {
-    return typeof value === 'string' && value.trim() !== '';
-}
 
 /**
  * Gets the active locale.
@@ -84,18 +76,6 @@ function getLocaleStore(locale) {
     }
 
     return translations[locale];
-}
-
-/**
- * Checks whether an object owns a key.
- * @param {?Object} target
- * @param {string} key
- * @return {boolean}
- */
-function hasOwn(target, key) {
-    return Boolean(
-        target && Object.prototype.hasOwnProperty.call(target, key),
-    );
 }
 
 export const SEECHEN_I18N = {

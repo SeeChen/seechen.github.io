@@ -18,17 +18,9 @@
 import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { logger } from '../util/logger.js';
 import { SEECHEN_RESOURCE } from '../services/resource.js';
+import { isNonEmptyString } from '../util/type.js';
 
 const LAYOUT_CACHE = new Map();
-
-/**
- * Checks whether a value is a non-empty string.
- * @param {*} value
- * @return {boolean}
- */
-function isNonEmptyString(value) {
-    return typeof value === 'string' && value.trim() !== '';
-}
 
 /**
  * Normalizes a registry key.

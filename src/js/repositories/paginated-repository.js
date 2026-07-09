@@ -17,28 +17,7 @@
 
 import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { SEECHEN_RESOURCE } from '../services/resource.js';
-
-/**
- * Checks whether a value is a non-empty string.
- * @param {*} value
- * @return {boolean}
- */
-function isNonEmptyString(value) {
-    return typeof value === 'string' && value.trim() !== '';
-}
-
-/**
- * Checks whether a value is a plain object.
- * @param {*} value
- * @return {boolean}
- */
-function isPlainObject(value) {
-    return Boolean(
-        value &&
-        typeof value === 'object' &&
-        Object.getPrototypeOf(value) === Object.prototype,
-    );
-}
+import { isNonEmptyString, isPlainObject, hasOwn } from '../util/type.js';
 
 /**
  * Gets a response value by trying multiple common field names.
@@ -48,7 +27,7 @@ function isPlainObject(value) {
  */
 function getFirstValue(response, keys) {
     for (const key of keys) {
-        if (Object.prototype.hasOwnProperty.call(response, key)) {
+        if (hasOwn(response, key)) {
             return response[key];
         }
     }

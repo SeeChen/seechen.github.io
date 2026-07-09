@@ -17,6 +17,7 @@
 
 import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { logger } from '../util/logger.js';
+import { isPlainObject } from '../util/type.js';
 
 const LOADED_STYLES = new Set();
 const STYLE_LOADERS = new Map();
@@ -31,19 +32,6 @@ function validatePath(path) {
     if (!path || typeof path !== 'string') {
         throw new TypeError('Resource path must be a non-empty string.');
     }
-}
-
-/**
- * Checks whether a value is a plain object.
- * @param {*} value
- * @return {boolean}
- */
-function isPlainObject(value) {
-    return Boolean(
-        value &&
-        typeof value === 'object' &&
-        Object.getPrototypeOf(value) === Object.prototype,
-    );
 }
 
 /**
