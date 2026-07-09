@@ -141,9 +141,9 @@ export const SEECHEN_LAYOUT = {
         // I don't think this is a good idea
         // because it will clear all the cache
         // which may cause performance issues.
-
-        // Intended for debugging or controlled resets only.
-        // Calling this during normal navigation clears all layout cache.
+        
+        // This is intentionally kept for debugging and controlled resets only.
+        // Clearing all layout cache during normal navigation can hurt performance.
         LAYOUT_CACHE.clear();
     },
 };

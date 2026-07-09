@@ -1,76 +1,211 @@
 /**
- * @fileoverview Lightweight Virtual DOM for seechen.github.io
- * Handles i18n resolution via window.globalValues.translateData.
- * 
- * @author LEE SEE CHEN
- * @license MIT
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
  */
 
-import { SEECHEN_WEBPAGE_VALUES } from "./app-context.js";
+/**
+ * @fileoverview Lightweight Virtual DOM for SeeChen Website.
+ */
+
+import { SEECHEN_I18N } from '../services/i18n-service.js';
 
 /**
- * @typedef  {Object} layoutConfig
+ * @typedef {Object} LayoutConfig
  * @property {string} tag
- * @property {Object} props
- * @property {string} lang
- * @property {Array<layout|string>} children
+ * @property {!Object=} props
+ * @property {string=} component
+ * @property {string=} lang
+ * @property {!Array<LayoutConfig|string>=} children
  */
 
 /**
- * @typedef {Object} vNode
+ * @typedef {Object} VNode
  * @property {string} tag
- * @property {Object} props
+ * @property {!Object} props
  * @property {string} lang
- * @property {Array<vNode|string>} children
+ * @property {!Array<VNode|string>} children
  */
 
-const language = SEECHEN_WEBPAGE_VALUES.LANGUAGE.LANGUAGE;
-const translateData = SEECHEN_WEBPAGE_VALUES.LANGUAGE.OBJECT;
+const COMPONENTS = {};
 
 /**
- * Lightweight Virtual DOM for seechen.github.io
- * Provides create, render, diff, and patch helpers.
- * 
- * @const {!Object}
- * @namespace
+ * Checks whether a value is a plain object.
+ * @param {*} value
+ * @return {boolean}
  */
+function isObject(value) {
+    return Boolean(value && typeof value === 'object' && !Array.isArray(value));
+}
+
+/**
+ * Checks whether a value is a virtual node.
+ * @param {*} value
+ * @return {boolean}
+ */
+function isVNode(value) {
+    return isObject(value) && typeof value.tag === 'string';
+}
+
+/**
+ * Normalizes children into vNode-compatible values.
+ * @param {!Array<LayoutConfig|string>} children
+ * @return {!Array<VNode|string>}
+ */
+function createChildren(children) {
+    return children.map((child) => {
+        return typeof child === 'string' ? child : vDom.create(child);
+    });
+}
+
+/**
+ * Merges component and local props.
+ * @param {!Object} componentProps
+ * @param {!Object} localProps
+ * @return {!Object}
+ */
+function mergeProps(componentProps, localProps) {
+    const mergedProps = {
+        ...componentProps,
+        ...localProps,
+    };
+
+    if (componentProps.class && localProps.class) {
+        const classNames = `${componentProps.class} ${localProps.class}`.split(/\s+/);
+        mergedProps.class = [...new Set(classNames)].filter(Boolean).join(' ');
+    }
+
+    return mergedProps;
+}
+
+/**
+ * Resolves a text key against the active i18n namespace.
+ * @param {string} namespace
+ * @param {string} value
+ * @return {string}
+ */
+function resolveText(namespace, value) {
+    if (!namespace) {
+        return value;
+    }
+
+    return SEECHEN_I18N.t(namespace, value);
+}
+
+/**
+ * Sets or removes a DOM property.
+ * @param {!Element} element
+ * @param {string} key
+ * @param {*} value
+ */
+function setProp(element, key, value) {
+    if (value === undefined || value === null || value === false) {
+        element.removeAttribute(key);
+        return;
+    }
+
+    if (key === 'className') {
+        element.setAttribute('class', value);
+        return;
+    }
+
+    if (value === true) {
+        element.setAttribute(key, '');
+        return;
+    }
+
+    element.setAttribute(key, String(value));
+}
+
+/**
+ * Applies props to a DOM element.
+ * @param {!Element} element
+ * @param {!Object} props
+ */
+function renderProps(element, props) {
+    Object.entries(props).forEach(([key, value]) => {
+        setProp(element, key, value);
+    });
+}
+
+/**
+ * Creates prop patches.
+ * @param {!Object} oldProps
+ * @param {!Object} newProps
+ * @return {!Array<!Object>}
+ */
+function diffProps(oldProps, newProps) {
+    const propPatches = [];
+
+    Object.entries(newProps).forEach(([key, value]) => {
+        if (oldProps[key] !== value) {
+            propPatches.push({ key, value });
+        }
+    });
+
+    Object.keys(oldProps).forEach((key) => {
+        if (!Object.prototype.hasOwnProperty.call(newProps, key)) {
+            propPatches.push({ key });
+        }
+    });
+
+    return propPatches;
+}
+
 export const vDom = {
+    components: COMPONENTS,
 
-    components: {},
-    registerComponent: (name, layout) => {
-        vDom.components[name] = layout;
+    /**
+     * Registers a component layout.
+     * @param {string} name
+     * @param {!LayoutConfig} layout
+     */
+    registerComponent(name, layout) {
+        COMPONENTS[name] = layout;
     },
 
     /**
-     * Creates a virtual DOM node tree from a layout config.
-     * Resolving i18n strings via window.globalValues.translateData.
-     * 
-     * @param {!layoutConfig} layoutConfig
-     * @returns {!vNode}
+     * Creates a virtual DOM tree from layout config.
+     * @param {!LayoutConfig|string} layoutConfig
+     * @return {VNode|string}
      */
-    create: (layoutConfig) => {
+    create(layoutConfig) {
+        if (typeof layoutConfig === 'string') {
+            return layoutConfig;
+        }
 
-        const { tag, props = {}, component = "", lang = "", children = [] } = layoutConfig;
+        const {
+            tag,
+            props = {},
+            component = '',
+            lang = '',
+            children = [],
+        } = layoutConfig;
 
-        if (component && vDom.components[component]) {
-            const compLayout = vDom.components[component];
+        if (!tag) {
+            throw new TypeError('Layout config must include a tag.');
+        }
 
-            let mergeProps = { ...(compLayout.props || {}), ...props }
-            Object.keys(compLayout.props).forEach(key => {
-                if (props.hasOwnProperty(key)) {
-                    const combinedArray = `${compLayout.props[key]} ${props[key]}`.split(/\s+/);
-                    const uniqueArray = [...new Set(combinedArray)].filter(Boolean);
-                    mergeProps[key] = uniqueArray.join(" ");
-                }
-            });
+        if (component && COMPONENTS[component]) {
+            const componentLayout = COMPONENTS[component];
+            const mergedProps = mergeProps(componentLayout.props || {}, props);
+            const mergedChildren = [
+                ...(componentLayout.children || []),
+                ...children,
+            ];
 
             return vDom.createElement(
                 tag,
-                mergeProps,
-                lang || compLayout.lang,
-                [...(compLayout.children || []), ...children].map(child => {
-                    return typeof child === "string" ? child : vDom.create(child);
-                })
+                mergedProps,
+                lang || componentLayout.lang || '',
+                createChildren(mergedChildren),
             );
         }
 
@@ -78,150 +213,167 @@ export const vDom = {
             tag,
             props,
             lang,
-            children.length === 1 && typeof children[0] === "string"
-                ? [translateData[lang] ? translateData[lang][language][children[0]] : children[0]]
-                : children.map(child => vDom.create(child))
+            createChildren(children),
         );
     },
 
-    createElement: (
-        tag,
-        props,
-        lang,
-        children
-    ) => {
-
+    /**
+     * Creates a virtual DOM node.
+     * @param {string} tag
+     * @param {!Object=} props
+     * @param {string=} lang
+     * @param {!Array<VNode|string>=} children
+     * @return {!VNode}
+     */
+    createElement(tag, props = {}, lang = '', children = []) {
         return {
             tag,
-            props: props || {},
-            lang: lang || "",
-            children: children || []
-        }
+            props,
+            lang,
+            children,
+        };
     },
 
-    render: (
-        vNode
-    ) => {
-        if (typeof vNode === "string") {
-            return document.createTextNode(vNode);
+    /**
+     * Renders a virtual DOM node into a real DOM node.
+     * @param {VNode|string} vNode
+     * @param {string=} namespace
+     * @return {!Node}
+     */
+    render(vNode, namespace = '') {
+        if (typeof vNode === 'string') {
+            return document.createTextNode(resolveText(namespace, vNode));
         }
 
-        const el = document.createElement(vNode.tag);
-        for (const [key, value] of Object.entries(vNode.props)) {
-            el.setAttribute(key, value);
-        }
+        const element = document.createElement(vNode.tag);
+        renderProps(element, vNode.props);
 
-        vNode.children.forEach(child => {
-
-            if (typeof child === "string") {
-                let text = translateData[vNode.lang] ? translateData[vNode.lang][language][child] || child : child;
-                el.appendChild(document.createTextNode(text));
-            } else {
-                el.appendChild(vDom.render(child));
-            }
+        vNode.children.forEach((child) => {
+            element.appendChild(vDom.render(child, vNode.lang));
         });
 
-        return el;
+        return element;
     },
 
-    diff: (
-        oldNode,
-        newNode,
-        lang
-    ) => {
+    /**
+     * Diffs two virtual DOM nodes.
+     * @param {VNode|string|undefined} oldNode
+     * @param {VNode|string|undefined} newNode
+     * @param {string=} namespace
+     * @return {!Array<!Object>}
+     */
+    diff(oldNode, newNode, namespace = '') {
         const patches = [];
 
         if (oldNode === undefined || newNode === undefined) {
-
             if (newNode !== undefined) {
-                patches.push({ type: "ADD", newNode });
+                patches.push({ type: 'ADD', newNode });
             } else if (oldNode !== undefined) {
-                patches.push({ type: "REMOVE" });
+                patches.push({ type: 'REMOVE' });
             }
+
+            return patches;
         }
 
-        else if (typeof oldNode === "string" && typeof newNode === "string") {
-
-            let newText = translateData[lang] ? translateData[lang][language][newNode] || newNode : newNode;
-
+        if (typeof oldNode === 'string' || typeof newNode === 'string') {
             if (oldNode !== newNode) {
-                patches.push({ type: "TEXT", text: newText });
+                patches.push({
+                    type: 'TEXT',
+                    text: resolveText(namespace, String(newNode)),
+                });
             }
+
+            return patches;
         }
 
-        else if (oldNode.tag !== newNode.tag) {
-            patches.push({ type: "REPLACE", newNode });
+        if (!isVNode(oldNode) || !isVNode(newNode) || oldNode.tag !== newNode.tag) {
+            patches.push({ type: 'REPLACE', newNode });
+            return patches;
         }
 
-        else {
-            const propPatches = [];
-            for (const [key, value] of Object.entries(newNode.props)) {
-                if (oldNode.props[key] !== value) {
-                    propPatches.push({ key, value });
-                }
-            }
-
-            for (const key in oldNode.props) {
-                if (!(key in newNode.props)) {
-                    propPatches.push({ key });
-                }
-            }
-
-            if (propPatches.length > 0) {
-                patches.push({ type: "PROPS", props: propPatches })
-            }
-
-            const childPatch = []
-            const maxChildrenLength = Math.max(oldNode.children.length, newNode.children.length);
-            for (let i = 0; i < maxChildrenLength; i++) {
-                childPatch.push(vDom.diff(oldNode.children[i], newNode.children[i], newNode.lang));
-            }
-            patches.push({ type: "CHILDREN", children: childPatch });
+        const propPatches = diffProps(oldNode.props, newNode.props);
+        if (propPatches.length > 0) {
+            patches.push({ type: 'PROPS', props: propPatches });
         }
 
+        const childPatches = [];
+        const maxChildrenLength = Math.max(
+            oldNode.children.length,
+            newNode.children.length,
+        );
+
+        for (let i = 0; i < maxChildrenLength; i++) {
+            childPatches.push(
+                vDom.diff(oldNode.children[i], newNode.children[i], newNode.lang),
+            );
+        }
+
+        patches.push({ type: 'CHILDREN', children: childPatches });
         return patches;
     },
 
-    patch: (
-        parent,
-        patches,
-        index = 0
-    ) => {
+    /**
+     * Applies patches to real DOM.
+     * @param {!Node} parent
+     * @param {!Array<!Object>} patches
+     * @param {number=} index
+     */
+    patch(parent, patches, index = 0) {
+        const target = parent.childNodes[index];
 
-        const el = parent.children[index];
-
-        patches.forEach(patch => {
+        patches.forEach((patch) => {
             switch (patch.type) {
-                case "ADD":
+                case 'ADD':
                     parent.appendChild(vDom.render(patch.newNode));
                     break;
-                case "REMOVE":
-                    window.globalValues.nodeToRemove.push({
-                        parent: parent.id,
-                        el
-                    });
+
+                case 'REMOVE':
+                    if (target) {
+                        parent.removeChild(target);
+                    }
                     break;
-                case "TEXT":
-                    parent.textContent = patch.text;
+
+                case 'TEXT':
+                    if (target) {
+                        target.textContent = patch.text;
+                    }
                     break;
-                case "REPLACE":
-                    parent.replaceChild(vDom.render(patch.newNode), el);
+
+                case 'REPLACE':
+                    if (target) {
+                        parent.replaceChild(vDom.render(patch.newNode), target);
+                    }
                     break;
-                case "PROPS":
-                    patch.props.forEach(({ key, value }) => {
-                        if (value === undefined) {
-                            el.removeAttribute(key);
-                        } else {
-                            el.setAttribute(key, value);
-                        }
-                    });
+
+                case 'PROPS':
+                    if (target && target.nodeType === Node.ELEMENT_NODE) {
+                        patch.props.forEach(({ key, value }) => {
+                            setProp(target, key, value);
+                        });
+                    }
                     break;
-                case "CHILDREN":
-                    patch.children.forEach((childPatch, i) => {
-                        vDom.patch(el, childPatch, i);
-                    });
+
+                case 'CHILDREN':
+                    if (target) {
+                        patch.children.forEach((childPatch, childIndex) => {
+                            vDom.patch(target, childPatch, childIndex);
+                        });
+                    }
                     break;
             }
         });
-    }
-}
+    },
+
+    /**
+     * Updates a rendered virtual DOM tree and returns the new tree.
+     * @param {!Node} parent
+     * @param {VNode|string|undefined} oldNode
+     * @param {VNode|string} newNode
+     * @param {number=} index
+     * @return {VNode|string}
+     */
+    update(parent, oldNode, newNode, index = 0) {
+        vDom.patch(parent, vDom.diff(oldNode, newNode), index);
+        return newNode;
+    },
+};
