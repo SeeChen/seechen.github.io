@@ -12,21 +12,33 @@
  */
 
 @font-face {
-    font-family: "JetBrainsMono-Regular"                 ;
-    src        : url(/assets/fonts/JetBrainsMono-Regular.ttf);
+    font-display: swap                                                              ;
+    font-family : 'SeeChen Brand'                                                   ;
+    font-style  : normal                                                            ;
+    font-weight : 400 900                                                           ;
+    src         : url('/assets/fonts/BodoniModa-Variable.woff2') format('woff2')    ;
 }
 
 @font-face {
-    font-family: "Chinese-Regular"                       ;
-    src        : url(/assets/fonts/hanyiyongzixiachan45f.ttf);
+    font-display: swap                                                                  ;
+    font-family : 'SeeChen Mono'                                                       ;
+    font-style  : normal                                                               ;
+    font-weight : 400                                                                  ;
+    src         : url('/assets/fonts/JetBrainsMono-Regular.woff2') format('woff2')     ;
 }
 
 @font-face {
-    font-family: "English-Title"                ;
-    src        : url(/assets/fonts/PPAcma-Black.otf);
+    font-display: swap                                                           ;
+    font-family : 'SeeChen Pixel'                                               ;
+    font-style  : normal                                                        ;
+    font-weight : 400                                                           ;
+    src         : url('/assets/fonts/GNUUnifont-CJK.woff2') format('woff2')     ;
 }
 
 @font-face {
-    font-family: "Chinese-Title"                              ;
-    src        : url(/assets/fonts/YeZiGongChangTangYingHei-2.ttf);
+    font-display: swap                                                                    ;
+    font-family : 'SeeChen Amber'                                                          ;
+    font-style  : normal                                                                   ;
+    font-weight : 400                                                                      ;
+    src         : url('/assets/fonts/QuanHengDuLiang-Amber.woff2') format('woff2')         ;
 }

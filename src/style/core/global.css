@@ -34,8 +34,12 @@
     --seechen-color-rose         : #d96c75;
 
     /* Typography tokens */
-    --seechen-font-body         : 'JetBrainsMono-Regular', 'Chinese-Regular', monospace;
-    --seechen-font-title        : 'English-Title', 'Chinese-Title', sans-serif         ;
+    --seechen-font-body         : system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    --seechen-font-title        : var(--seechen-font-brand)                                                                              ;
+    --seechen-font-brand        : 'SeeChen Brand', Georgia, serif                                                                        ;
+    --seechen-font-mono         : 'SeeChen Mono', 'SFMono-Regular', Consolas, monospace                                                   ;
+    --seechen-font-pixel        : 'SeeChen Pixel', 'SeeChen Mono', monospace                                                              ;
+    --seechen-font-accent       : 'SeeChen Amber', 'STKaiti', 'KaiTi', serif                                                              ;
     --seechen-font-size-xs      : 0.75rem                                              ;
     --seechen-font-size-sm      : 0.875rem                                             ;
     --seechen-font-size-md      : 1rem                                                 ;

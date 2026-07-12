@@ -50,33 +50,8 @@
 }
 
 @font-face {
-    font-family: "hanyiyongzixiachan45f";
-    src: url(/File/Font/hanyiyongzixiachan45f.ttf);
-}
-
-@font-face {
     font-family: "lipinhuiziyoulixiangti";
     src: url(/File/Font/lipinhuiziyoulixiangti.ttf);
-}
-
-@font-face {
-    font-family: "PPAcma-Black";
-    src: url(/File/Font/PPAcma-Black.otf);
-}
-
-@font-face {
-    font-family: "PPAcma-Light";
-    src: url(/File/Font/PPAcma-Light.otf);
-}
-
-@font-face {
-    font-family: "PPAcma-Semibold";
-    src: url(/File/Font/PPAcma-Semibold.otf);
-}
-
-@font-face {
-    font-family: "PPAcma-Thin";
-    src: url(/File/Font/PPAcma-Thin.otf);
 }
 
 @font-face {
@@ -89,7 +64,3 @@
     src: url(/File/Font/unifontdianzhenhei.ttf);
 }
 
-@font-face {
-    font-family: "YeZiGongChangTangYingHei-2";
-    src: url(/File/Font/YeZiGongChangTangYingHei-2.ttf);
-}
