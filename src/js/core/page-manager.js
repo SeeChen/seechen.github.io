@@ -19,14 +19,23 @@ import { SEECHEN_WEBPAGE_CONFIG } from '../config/app-config.js';
 import { SEECHEN_WEBPAGE_CONTEXT } from './app-context.js';
 import { EventAgent } from '../middleware/eventAgent.js';
 import { logger } from '../util/logger.js';
-import { isNonEmptyString } from '../util/type.js';
+import { cloneSeeChenObject, isNonEmptyString } from '../util/type.js';
 import { SEECHEN_LAYOUT } from '../repositories/layout-repository.js';
 import { SEECHEN_RESOURCE } from '../services/resource.js';
 import { SEECHEN_I18N } from '../services/i18n-service.js';
 import { vDom } from './vDom.js';
 import { SEECHEN_REGION_MANAGER } from './region-manager.js';
 
+const PAGE_STATUS = Object.freeze({
+    ERROR: 'ERROR',
+    LOADING: 'LOADING',
+    READY: 'READY',
+});
+
 let activePage = null;
+let pendingPage = null;
+let retainedRegion = '';
+let navigationSequence = 0;
 
 /**
  * Gets page config by page name.
@@ -92,56 +101,60 @@ function resolveRegionName(routeResult, pageConfig) {
 }
 
 /**
- * Clones a layout before page modules transform it.
- * @param {!Object} layout
- * @return {!Object}
- */
-function cloneLayout(layout) {
-    if (typeof structuredClone === 'function') {
-        return structuredClone(layout);
-    }
-
-    return JSON.parse(JSON.stringify(layout));
-}
-
-/**
  * Creates the lifecycle context passed into page modules.
  * @param {!Object} routeResult
  * @param {string} eventScope
  * @param {string} regionName
+ * @param {number} navigationId
  * @return {!Object}
  */
-function createLifecycleContext(routeResult, eventScope, regionName) {
+function createLifecycleContext(
+    routeResult,
+    eventScope,
+    regionName,
+    navigationId,
+) {
     const abortController = new AbortController();
-
-    return {
+    const lifecycleContext = {
         routeResult,
         eventScope,
         regionName,
+        navigationId,
         abortController,
         signal: abortController.signal,
+        isActive() {
+            return activePage?.lifecycleContext === lifecycleContext &&
+                !lifecycleContext.signal.aborted;
+        },
         updateRegion(nextVDom) {
+            if (!lifecycleContext.isActive()) {
+                logger.debug('Ignored an update from an inactive page.');
+                return null;
+            }
+
             const updatedVDom = SEECHEN_REGION_MANAGER.update(regionName, nextVDom);
 
-            if (SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION === regionName) {
-                SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = updatedVDom;
-            }
+            SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = updatedVDom;
 
             return updatedVDom;
         },
     };
+
+    return lifecycleContext;
 }
 
 /**
- * Creates an active page state object.
+ * Creates a page lifecycle record.
  * @param {!Object} options
  * @return {!Object}
  */
-function createActivePage(options) {
+function createPageRecord(options) {
     return {
         module: options.module || null,
         config: options.config || null,
+        layout: options.layout || null,
         region: options.region || '',
+        routeResult: options.routeResult || null,
         state: options.state || null,
         lifecycleContext: options.lifecycleContext || null,
     };
@@ -151,10 +164,29 @@ function createActivePage(options) {
  * Resets the public page context snapshot.
  */
 function resetPageContext() {
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT = null;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_ROUTE = null;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_VDOM = null;
+    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION = '';
     SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = null;
     SEECHEN_WEBPAGE_CONTEXT.PAGE.ABORT_CONTROLLER = null;
     SEECHEN_WEBPAGE_CONTEXT.PAGE.EVENT_SCOPE = '';
-    SEECHEN_WEBPAGE_CONTEXT.PAGE.CURRENT_REGION = '';
+}
+
+/**
+ * Updates a page region's observable loading state.
+ * @param {string} regionName
+ * @param {string} status
+ */
+function setPageStatus(regionName, status) {
+    const root = SEECHEN_REGION_MANAGER.getRoot(regionName);
+    const normalizedStatus = status.toLowerCase();
+
+    root.dataset.seechenPageStatus = normalizedStatus;
+    root.setAttribute(
+        'aria-busy',
+        String(status === PAGE_STATUS.LOADING),
+    );
 }
 
 /**
@@ -186,14 +218,17 @@ function updatePageContext(
 
 /**
  * Stops the current page before navigating to another page.
+ * @param {boolean=} clearRegion
  * @return {!Promise<void>}
  */
-async function destroyCurrentPage() {
+async function destroyCurrentPage(clearRegion = true) {
     const page = activePage;
 
     if (!page) {
         return;
     }
+
+    activePage = null;
 
     if (page.lifecycleContext?.abortController) {
         page.lifecycleContext.abortController.abort();
@@ -204,17 +239,102 @@ async function destroyCurrentPage() {
             await page.module.unmount(page.state, page.lifecycleContext);
         }
     } finally {
-        if (page.config?.EVENT_SCOPE) {
-            EventAgent.clearScope(page.config.EVENT_SCOPE, 'PageManager');
+        if (page.lifecycleContext?.eventScope) {
+            EventAgent.clearScope(
+                page.lifecycleContext.eventScope,
+                'PageManager',
+            );
         }
 
-        activePage = null;
-
         if (page.region) {
-            SEECHEN_REGION_MANAGER.clear(page.region);
+            setPageStatus(page.region, PAGE_STATUS.READY);
+
+            if (clearRegion) {
+                SEECHEN_REGION_MANAGER.clear(page.region);
+            } else {
+                retainedRegion = page.region;
+            }
         }
 
         resetPageContext();
+    }
+}
+
+/**
+ * Cancels a page that has not reached the render phase yet.
+ */
+function cancelPendingPage() {
+    pendingPage?.lifecycleContext.abortController.abort();
+    pendingPage = null;
+}
+
+/**
+ * Checks whether a prepared page still owns the latest navigation.
+ * @param {!Object} page
+ * @return {boolean}
+ */
+function isCurrentNavigation(page) {
+    return page.lifecycleContext.navigationId === navigationSequence &&
+        !page.lifecycleContext.signal.aborted;
+}
+
+/**
+ * Loads the resources required to render a page shell.
+ * @param {!Object} page
+ * @return {!Promise<!Object>}
+ */
+async function preparePage(page) {
+    const routeResult = page.routeResult;
+    const pageConfig = page.config;
+    const layoutName = resolveLayoutName(routeResult, pageConfig);
+    const styleLoader = isNonEmptyString(pageConfig.STYLE) ?
+        SEECHEN_RESOURCE.loadStyle(pageConfig.STYLE) :
+        Promise.resolve();
+    const [pageModule, layout] = await Promise.all([
+        loadPageModule(pageConfig),
+        SEECHEN_LAYOUT.getPageLayout(layoutName),
+        loadNamespaces(pageConfig.I18N || []),
+        styleLoader,
+    ]);
+
+    page.module = pageModule;
+    page.layout = cloneSeeChenObject(layout);
+    return page;
+}
+
+/**
+ * Removes a previous page region after the next shell is ready to render.
+ * @param {string} nextRegion
+ */
+function releaseRetainedRegion(nextRegion) {
+    if (retainedRegion && retainedRegion !== nextRegion) {
+        SEECHEN_REGION_MANAGER.clear(retainedRegion);
+    }
+
+    retainedRegion = '';
+}
+
+/**
+ * Moves every committed page navigation to the top immediately.
+ */
+function scrollPageToTop() {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'auto',
+    });
+}
+
+/**
+ * Stores page state in both the owner and public context.
+ * @param {!Object} page
+ * @param {*} pageState
+ */
+function updatePageState(page, pageState) {
+    page.state = pageState;
+
+    if (activePage === page) {
+        SEECHEN_WEBPAGE_CONTEXT.PAGE.STATE = pageState;
     }
 }
 
@@ -244,6 +364,7 @@ export const SEECHEN_PAGE_MANAGER = {
      * @return {!Promise<void>}
      */
     async navigate(routeResult) {
+        const navigationId = ++navigationSequence;
         const pageConfig = getPageConfig(routeResult.page);
         const regionName = resolveRegionName(routeResult, pageConfig);
         const eventScope = pageConfig.EVENT_SCOPE || `PAGE:${routeResult.page}`;
@@ -251,92 +372,111 @@ export const SEECHEN_PAGE_MANAGER = {
             routeResult,
             eventScope,
             regionName,
+            navigationId,
         );
-
-        await destroyCurrentPage();
-        activePage = createActivePage({
+        const page = createPageRecord({
             config: pageConfig,
             region: regionName,
+            routeResult,
             lifecycleContext,
         });
 
+        cancelPendingPage();
+        pendingPage = page;
+
         try {
-            await loadNamespaces(pageConfig.I18N || []);
+            await preparePage(page);
 
-            if (lifecycleContext.signal.aborted) {
+            if (!isCurrentNavigation(page)) {
                 return;
             }
 
-            if (isNonEmptyString(pageConfig.STYLE)) {
-                await SEECHEN_RESOURCE.loadStyle(pageConfig.STYLE);
-            }
+            await destroyCurrentPage(false);
 
-            if (lifecycleContext.signal.aborted) {
+            if (!isCurrentNavigation(page)) {
                 return;
             }
 
-            const pageModule = await loadPageModule(pageConfig);
+            scrollPageToTop();
+            const pageVDom = vDom.create(page.layout);
+            SEECHEN_REGION_MANAGER.render(regionName, pageVDom);
+            releaseRetainedRegion(regionName);
+            activePage = page;
+            pendingPage = null;
+
+            updatePageContext(
+                routeResult,
+                regionName,
+                pageVDom,
+                null,
+                lifecycleContext,
+                eventScope,
+            );
+            updateDocumentTitle(routeResult);
+            setPageStatus(regionName, PAGE_STATUS.LOADING);
+
+            // The page shell stays visible while load() resolves data.
             let pageState = null;
 
-            activePage.module = pageModule;
-
-            if (pageModule?.load) {
-                pageState = await pageModule.load(routeResult, lifecycleContext);
+            if (page.module?.load) {
+                pageState = await page.module.load(
+                    routeResult,
+                    lifecycleContext,
+                );
             }
 
-            activePage.state = pageState;
-
-            if (lifecycleContext.signal.aborted) {
+            if (!lifecycleContext.isActive()) {
                 return;
             }
 
-            const layoutName = resolveLayoutName(routeResult, pageConfig);
-            let layout = cloneLayout(await SEECHEN_LAYOUT.getPageLayout(layoutName));
+            updatePageState(page, pageState);
 
-            if (pageModule?.transformLayout) {
-                layout = await pageModule.transformLayout(
-                    layout,
+            if (page.module?.transformLayout) {
+                const transformedLayout = await page.module.transformLayout(
+                    cloneSeeChenObject(page.layout),
+                    routeResult,
+                    pageState,
+                    lifecycleContext,
+                );
+
+                if (!lifecycleContext.isActive()) {
+                    return;
+                }
+
+                lifecycleContext.updateRegion(vDom.create(transformedLayout));
+            }
+
+            if (page.module?.mount) {
+                await page.module.mount(
                     routeResult,
                     pageState,
                     lifecycleContext,
                 );
             }
 
-            if (lifecycleContext.signal.aborted) {
+            if (!lifecycleContext.isActive()) {
                 return;
             }
 
-            const pageVDom = vDom.create(layout);
-            SEECHEN_REGION_MANAGER.render(regionName, pageVDom);
-
-            if (pageModule?.mount) {
-                await pageModule.mount(routeResult, pageState, lifecycleContext);
-            }
-
-            activePage = createActivePage({
-                module: pageModule,
-                config: pageConfig,
-                region: regionName,
-                state: pageState,
-                lifecycleContext,
-            });
-
-            updatePageContext(
-                routeResult,
-                regionName,
-                pageVDom,
-                pageState,
-                lifecycleContext,
-                eventScope,
-            );
-            updateDocumentTitle(routeResult);
+            setPageStatus(regionName, PAGE_STATUS.READY);
             logger.info(`Page rendered: ${routeResult.page}`);
         } catch (error) {
+            const wasCancelled = lifecycleContext.signal.aborted ||
+                navigationId !== navigationSequence;
+
             lifecycleContext.abortController.abort();
 
-            if (activePage?.lifecycleContext === lifecycleContext) {
-                activePage = null;
-                resetPageContext();
+            if (pendingPage === page) {
+                pendingPage = null;
+            }
+
+            if (activePage === page) {
+                setPageStatus(regionName, PAGE_STATUS.ERROR);
+            }
+
+            if (wasCancelled) {
+                logger.debug(`Page navigation cancelled: ${routeResult.page}`);
+                return;
             }
 
             throw error;
@@ -347,7 +487,14 @@ export const SEECHEN_PAGE_MANAGER = {
      * Destroys the current page lifecycle.
      * @return {!Promise<void>}
      */
-    destroy() {
-        return destroyCurrentPage();
+    async destroy() {
+        navigationSequence++;
+        cancelPendingPage();
+        await destroyCurrentPage();
+
+        if (retainedRegion) {
+            SEECHEN_REGION_MANAGER.clear(retainedRegion);
+            retainedRegion = '';
+        }
     },
 };

@@ -15,22 +15,9 @@
  * @fileoverview Static application configuration for SeeChen Website.
  */
 
-/**
- * Deeply freezes a configuration object.
- * @param {!Object} target
- * @return {!Object}
- */
-function freezeSeeChenConfig(target) {
-    Object.values(target).forEach((value) => {
-        if (value && typeof value === 'object') {
-            freezeSeeChenConfig(value);
-        }
-    });
+import { freezeSeeChenObject } from '../util/type.js';
 
-    return Object.freeze(target);
-}
-
-export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
+export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenObject({
     API: {
         BASE_URL: '',
         TIMEOUT_MS: 15000,
@@ -40,11 +27,21 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
         DEFAULT_PAGE_LIMIT: 10,
     },
 
+    RESPONSIVE: {
+        BREAKPOINTS: {
+            TABLET_MIN_WIDTH: 768,
+            DESKTOP_MIN_WIDTH: 1200,
+        },
+    },
+
     REGISTRY: {
+        SITE_MANIFEST: '/public/config/site-manifest.json',
+
         PAGES_LAYOUT: {
             LOADING: '/public/layouts/global/loading.json',
-            TRAVEL: '/public/layouts/global/loading.json',
-            NOT_FOUND: '/public/layouts/global/loading.json',
+            HOME: '/public/layouts/pages/home.json',
+            TRAVEL: '/public/layouts/pages/travel.json',
+            NOT_FOUND: '/public/layouts/pages/not-found.json',
         },
 
         COMPONENTS_LAYOUT: {
@@ -52,11 +49,21 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
                 PATH: '/public/layouts/components/loading-dot.json',
                 STYLE: '/src/style/components/loading-dot.css',
             },
+            NAVIGATION: {
+                PATH: '/public/layouts/components/navigation.json',
+                STYLE: '/src/style/components/navigation.css',
+            },
+            FOOTER: {
+                PATH: '/public/layouts/components/footer.json',
+                STYLE: '/src/style/components/footer.css',
+            },
         },
 
         LANGUAGE_PATH: {
             ROOT: '/public/i18n',
             LOADING: 'general/loading',
+            SHELL: 'general/shell',
+            FOOTER: 'general/footer',
         },
 
         STYLE_PATH: {
@@ -91,6 +98,15 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
     PAGES: {
         DEFAULT_REGION: 'BODY',
 
+        HOME: {
+            REGION: 'BODY',
+            LAYOUT: 'HOME',
+            STYLE: '',
+            SCRIPT: '',
+            I18N: [],
+            EVENT_SCOPE: 'PAGE:HOME',
+        },
+
         LOADING: {
             REGION: 'LOADING',
             LAYOUT: 'LOADING',
@@ -112,9 +128,9 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
         NOT_FOUND: {
             REGION: 'BODY',
             LAYOUT: 'NOT_FOUND',
-            STYLE: '/src/style/pages/loading.css',
+            STYLE: '',
             SCRIPT: '',
-            I18N: ['LOADING'],
+            I18N: [],
             EVENT_SCOPE: 'PAGE:NOT_FOUND',
         },
     },
@@ -122,105 +138,5 @@ export const SEECHEN_WEBPAGE_CONFIG = freezeSeeChenConfig({
     ROUTER: {
         PRESERVE_ORIGINAL_URL: true,
         NOT_FOUND_ROUTE: 'NOT_FOUND',
-
-        ROUTES: [
-            {
-                NAME: 'HOME',
-                PATH: '/',
-                PAGE: 'LOADING',
-                LAYOUT: 'LOADING',
-                TITLE: {
-                    NAMESPACE: 'LOADING',
-                    KEY: 'SEECHEN',
-                },
-            },
-            {
-                NAME: 'TRAVEL',
-                PATH: '/travel',
-                PAGE: 'TRAVEL',
-                LAYOUT: 'TRAVEL',
-                TITLE: {
-                    NAMESPACE: 'NAVIGATION',
-                    KEY: 'TRAVEL',
-                },
-            },
-            {
-                NAME: 'TRAVEL_COUNTRY',
-                PATH: '/travel/:countryId',
-                PAGE: 'TRAVEL',
-                LAYOUT: 'TRAVEL',
-                PARAMS: {
-                    countryId: 'COUNTRY',
-                },
-                TITLE: {
-                    NAMESPACE: 'NAVIGATION',
-                    KEY: 'TRAVEL',
-                },
-            },
-            {
-                NAME: 'TRAVEL_REGION',
-                PATH: '/travel/:countryId/:regionId',
-                PAGE: 'TRAVEL',
-                LAYOUT: 'TRAVEL',
-                PARAMS: {
-                    countryId: 'COUNTRY',
-                    regionId: 'REGION',
-                },
-                TITLE: {
-                    NAMESPACE: 'NAVIGATION',
-                    KEY: 'TRAVEL',
-                },
-            },
-            {
-                NAME: 'NOT_FOUND',
-                PATH: '*',
-                PAGE: 'NOT_FOUND',
-                LAYOUT: 'NOT_FOUND',
-                TITLE: {
-                    NAMESPACE: 'GENERAL',
-                    KEY: 'NOT_FOUND',
-                },
-            },
-        ],
-
-        PATH_ALIASES: {
-            '/home': '/',
-            '/index': '/',
-            '/index.html': '/',
-            '/主页': '/',
-            '/我的主页': '/',
-            '/travel': '/travel',
-            '/trip': '/travel',
-            '/journey': '/travel',
-            '/traveling': '/travel',
-            '/旅行': '/travel',
-            '/旅游': '/travel',
-            '/我的旅行': '/travel',
-        },
-
-        PARAM_ALIASES: {
-            COUNTRY: {
-                CN: 'CN',
-                CHINA: 'CN',
-                中国: 'CN',
-                中國: 'CN',
-                MY: 'MY',
-                MALAYSIA: 'MY',
-                马来西亚: 'MY',
-                馬來西亞: 'MY',
-                SG: 'SG',
-                SINGAPORE: 'SG',
-                新加坡: 'SG',
-            },
-            REGION: {
-                BEIJING: 'BeiJing',
-                北京: 'BeiJing',
-                SHANGHAI: 'ShangHai',
-                上海: 'ShangHai',
-                KL: 'KL',
-                KUALA_LUMPUR: 'KL',
-                吉隆坡: 'KL',
-            },
-        },
     },
 });

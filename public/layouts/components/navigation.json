@@ -1,0 +1,149 @@
+{
+    "tag": "nav",
+    "props": {
+        "class": "seechen-navigation",
+        "data-seechen-component": "navigation"
+    },
+    "children": [
+        {
+            "tag": "div",
+            "props": {
+                "class": "seechen-navigation__inner"
+            },
+            "children": [
+                {
+                    "tag": "a",
+                    "props": {
+                        "class": "seechen-navigation__brand",
+                        "href": "/",
+                        "data-seechen-route": "/",
+                        "data-seechen-slot": "brand"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "p",
+                    "props": {
+                        "class": "seechen-navigation__release",
+                        "data-seechen-slot": "release"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-navigation__desktop-menu",
+                        "data-seechen-slot": "desktop-menu"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-navigation__current",
+                        "data-seechen-slot": "current"
+                    },
+                    "children": []
+                },
+                {
+                    "tag": "button",
+                    "props": {
+                        "class": "seechen-navigation__toggle",
+                        "type": "button",
+                        "aria-expanded": "false",
+                        "aria-controls": "seechenNavigationMenu",
+                        "data-seechen-action": "toggle-menu",
+                        "data-seechen-slot": "toggle"
+                    },
+                    "children": [
+                        {
+                            "tag": "svg",
+                            "props": {
+                                "class": "seechen-navigation__toggle-icon",
+                                "viewBox": "0 0 200 200",
+                                "aria-hidden": "true",
+                                "focusable": "false"
+                            },
+                            "children": [
+                                {
+                                    "tag": "g",
+                                    "props": {
+                                        "class": "seechen-navigation__toggle-paths",
+                                        "fill": "none",
+                                        "stroke": "currentColor",
+                                        "stroke-width": "6.5",
+                                        "stroke-linecap": "round"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M72 82.286h28.75"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M72 125.143h28.75"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M100.75 82.286h28.75"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "path",
+                                            "props": {
+                                                "d": "M100.75 125.143h28.75"
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "div",
+            "props": {
+                "id": "seechenNavigationMenu",
+                "class": "seechen-navigation__panel",
+                "aria-hidden": "true",
+                "data-seechen-open": "false",
+                "data-seechen-slot": "panel"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-navigation__mobile-menu",
+                        "data-seechen-slot": "mobile-menu"
+                    },
+                    "children": []
+                }
+            ]
+        }
+    ]
+}

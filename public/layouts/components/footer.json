@@ -1,0 +1,445 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "seechen-footer",
+        "data-seechen-component": "footer"
+    },
+    "children": [
+        {
+            "tag": "div",
+            "props": {
+                "class": "seechen-footer__inner"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-footer__masthead"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__identity"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__eyebrow"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "CLOSING_NOTE"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__brand",
+                                        "data-seechen-slot": "brand"
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__tagline"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "TAGLINE"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__release",
+                                "data-seechen-slot": "release"
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-footer__content"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__section seechen-footer__subscribe"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-index"
+                                    },
+                                    "children": [
+                                        "01"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-title"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "SUBSCRIBE_TITLE"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "SUBSCRIBE_DESCRIPTION"
+                                    ]
+                                },
+                                {
+                                    "tag": "button",
+                                    "props": {
+                                        "class": "seechen-footer__action",
+                                        "type": "button",
+                                        "disabled": true,
+                                        "aria-disabled": "true",
+                                        "data-seechen-action": "subscribe"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "SUBSCRIBE_ACTION"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "span",
+                                            "props": {
+                                                "class": "seechen-footer__action-status"
+                                            },
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "COMING_SOON"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__section seechen-footer__menu"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-index"
+                                    },
+                                    "children": [
+                                        "02"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-title"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "MENU_TITLE"
+                                    ]
+                                },
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-footer__menu-list",
+                                        "data-seechen-slot": "menu"
+                                    },
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__section seechen-footer__about"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-index"
+                                    },
+                                    "children": [
+                                        "03"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-title"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "ABOUT_TITLE"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "ABOUT_INTRO"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "ABOUT_PLATFORM_PREFIX"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "a",
+                                            "props": {
+                                                "class": "seechen-footer__inline-link",
+                                                "href": "https://pages.github.com/",
+                                                "target": "_blank",
+                                                "rel": "noreferrer"
+                                            },
+                                            "children": [
+                                                "GitHub Pages"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "ABOUT_PLATFORM_SUFFIX"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "ABOUT_ISSUES_PREFIX"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "a",
+                                            "props": {
+                                                "class": "seechen-footer__inline-link",
+                                                "href": "https://github.com/SeeChen/seechen.github.io/issues",
+                                                "target": "_blank",
+                                                "rel": "noreferrer"
+                                            },
+                                            "children": [
+                                                "GitHub Issues"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "ABOUT_ISSUES_SUFFIX"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__easter-egg"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "ABOUT_EASTER_EGG"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__section seechen-footer__license"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-index"
+                                    },
+                                    "children": [
+                                        "04"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__section-title"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "LICENSE_TITLE"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "LICENSE_CODE_DESCRIPTION"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-footer__copy seechen-footer__copy--muted"
+                                    },
+                                    "lang": "FOOTER",
+                                    "children": [
+                                        "LICENSE_MEDIA_DESCRIPTION"
+                                    ]
+                                },
+                                {
+                                    "tag": "a",
+                                    "props": {
+                                        "class": "seechen-footer__license-link",
+                                        "href": "/LICENSE",
+                                        "target": "_blank",
+                                        "data-seechen-action": "open-license"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "span",
+                                            "props": {},
+                                            "lang": "FOOTER",
+                                            "children": [
+                                                "LICENSE_ACTION"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "span",
+                                            "props": {
+                                                "aria-hidden": "true"
+                                            },
+                                            "children": [
+                                                "↗"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-footer__social"
+                    },
+                    "children": [
+                        {
+                            "tag": "p",
+                            "props": {
+                                "class": "seechen-footer__social-title"
+                            },
+                            "lang": "FOOTER",
+                            "children": [
+                                "SOCIAL_TITLE"
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__social-list",
+                                "data-seechen-slot": "social"
+                            },
+                            "children": []
+                        }
+                    ]
+                },
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-footer__legal"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-footer__signature"
+                            },
+                            "children": [
+                                {
+                                    "tag": "a",
+                                    "props": {
+                                        "class": "seechen-footer__domain",
+                                        "href": "/",
+                                        "data-seechen-route": "/",
+                                        "data-seechen-slot": "domain"
+                                    },
+                                    "children": []
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "p",
+                            "props": {
+                                "class": "seechen-footer__copyright"
+                            },
+                            "lang": "FOOTER",
+                            "children": [
+                                "COPYRIGHT_EN"
+                            ]
+                        },
+                        {
+                            "tag": "p",
+                            "props": {
+                                "class": "seechen-footer__copyright"
+                            },
+                            "lang": "FOOTER",
+                            "children": [
+                                "COPYRIGHT_ZH"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
