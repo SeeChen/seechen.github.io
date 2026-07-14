@@ -59,10 +59,12 @@
     --seechen-space-2xl: 3rem   ;
 
     /* Layout tokens */
-    --seechen-layout-page-padding : 1rem;
-    --seechen-layout-content-width: 100% ;
-    --seechen-layout-header-height: 4rem ;
-    --seechen-layout-footer-height: 4rem ;
+    --seechen-layout-page-padding          : 1rem ;
+    --seechen-layout-content-width         : 100% ;
+    --seechen-layout-wide-content-width    : 90rem;
+    --seechen-layout-header-height         : 4rem ;
+    --seechen-layout-header-expanded-height: 8rem ;
+    --seechen-layout-footer-height         : 4rem ;
 
     /* Shape and elevation tokens */
     --seechen-radius-xs   : 0.125rem                                      ;
@@ -73,9 +75,12 @@
     --seechen-shadow-title: 0 0.125rem 0.25rem rgba(59, 130, 246, 0.3)    ;
 
     /* Motion tokens */
-    --seechen-motion-fast  : 160ms;
-    --seechen-motion-normal: 240ms;
-    --seechen-motion-slow  : 3s   ;
+    --seechen-motion-fast            : 160ms                           ;
+    --seechen-motion-normal          : 240ms                           ;
+    --seechen-motion-panel           : 360ms                           ;
+    --seechen-motion-slow            : 3s                              ;
+    --seechen-motion-ease-standard   : cubic-bezier(0.2, 0, 0, 1)      ;
+    --seechen-motion-ease-emphasized : cubic-bezier(0.4, 0, 0.2, 1)    ;
 
     /* Layer tokens */
     --seechen-z-base           : 0   ;
@@ -113,9 +118,10 @@
 
 @media (min-width: 1200px) {
     :root {
-        --seechen-layout-page-padding : 3rem   ;
-        --seechen-layout-content-width: 67.5rem;
-        --seechen-font-size-display   : 5rem   ;
+        --seechen-layout-page-padding          : 3rem   ;
+        --seechen-layout-content-width         : 67.5rem;
+        --seechen-layout-header-expanded-height: 11rem  ;
+        --seechen-font-size-display            : 5rem   ;
     }
 }
 

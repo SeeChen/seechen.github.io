@@ -31,6 +31,10 @@
     color           : var(--seechen-color-text)    ;
 }
 
+.seechen-shell-content {
+    min-height: 100dvh;
+}
+
 #componentNavigation {
     position  : sticky                                ;
     top       : 0                                     ;

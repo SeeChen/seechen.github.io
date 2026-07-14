@@ -412,7 +412,31 @@ export const vDom = {
                 case 'CHILDREN':
                     if (target) {
                         patch.children.forEach((childPatch, childIndex) => {
-                            vDom.patch(target, childPatch, childIndex);
+                            const changesChildCount = childPatch.some((item) => {
+                                return item.type === 'ADD' || item.type === 'REMOVE';
+                            });
+
+                            if (!changesChildCount) {
+                                vDom.patch(target, childPatch, childIndex);
+                            }
+                        });
+
+                        for (
+                            let childIndex = patch.children.length - 1;
+                            childIndex >= 0;
+                            childIndex--
+                        ) {
+                            const childPatch = patch.children[childIndex];
+
+                            if (childPatch.some((item) => item.type === 'REMOVE')) {
+                                vDom.patch(target, childPatch, childIndex);
+                            }
+                        }
+
+                        patch.children.forEach((childPatch, childIndex) => {
+                            if (childPatch.some((item) => item.type === 'ADD')) {
+                                vDom.patch(target, childPatch, childIndex);
+                            }
                         });
                     }
                     break;

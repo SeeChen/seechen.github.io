@@ -1,0 +1,255 @@
+{
+    "SITE": {
+        "NAME": "SEECHEN",
+        "DOMAIN": "seechen.com"
+    },
+    "RELEASE": {
+        "VERSION": "A",
+        "NAME": "Amber",
+        "YEAR": "2026.07",
+        "LOCALIZED_NAME_KEY": "RELEASE_LOCALIZED_NAME",
+        "DESCRIPTION_KEY": "RELEASE_DESCRIPTION"
+    },
+    "ROUTER": {
+        "ROUTES": [
+            {
+                "NAME": "HOME",
+                "PATH": "/",
+                "PAGE": "HOME",
+                "LAYOUT": "HOME",
+                "ENABLED": true,
+                "NAVIGATION": {
+                    "VARIANT": "EDITORIAL",
+                    "COLLAPSE_AT": 160,
+                    "EXPAND_AT": 16
+                },
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_HOME"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 10,
+                    "LABEL_KEY": "MENU_HOME",
+                    "DESCRIPTION_KEY": "MENU_HOME_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "TRAVEL",
+                "PATH": "/travel",
+                "PAGE": "TRAVEL",
+                "LAYOUT": "TRAVEL",
+                "ENABLED": true,
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_TRAVEL"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 20,
+                    "LABEL_KEY": "MENU_TRAVEL",
+                    "DESCRIPTION_KEY": "MENU_TRAVEL_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "TRAVEL_COUNTRY",
+                "PATH": "/travel/:countryId",
+                "PAGE": "TRAVEL",
+                "LAYOUT": "TRAVEL",
+                "ACTIVE_MENU": "TRAVEL",
+                "PARAMS": {
+                    "countryId": "COUNTRY"
+                },
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_TRAVEL"
+                }
+            },
+            {
+                "NAME": "TRAVEL_REGION",
+                "PATH": "/travel/:countryId/:regionId",
+                "PAGE": "TRAVEL",
+                "LAYOUT": "TRAVEL",
+                "ACTIVE_MENU": "TRAVEL",
+                "PARAMS": {
+                    "countryId": "COUNTRY",
+                    "regionId": "REGION"
+                },
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_TRAVEL"
+                }
+            },
+            {
+                "NAME": "LENS",
+                "PATH": "/lens",
+                "PAGE": "LENS",
+                "LAYOUT": "LENS",
+                "ENABLED": false,
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_LENS"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 30,
+                    "LABEL_KEY": "MENU_LENS",
+                    "DESCRIPTION_KEY": "MENU_LENS_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "SERVICES",
+                "PATH": "/services",
+                "PAGE": "SERVICES",
+                "LAYOUT": "SERVICES",
+                "ENABLED": false,
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_SERVICES"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 40,
+                    "LABEL_KEY": "MENU_SERVICES",
+                    "DESCRIPTION_KEY": "MENU_SERVICES_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "PROJECTS",
+                "PATH": "/projects",
+                "PAGE": "PROJECTS",
+                "LAYOUT": "PROJECTS",
+                "ENABLED": false,
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_PROJECTS"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 50,
+                    "LABEL_KEY": "MENU_PROJECTS",
+                    "DESCRIPTION_KEY": "MENU_PROJECTS_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "ABOUT",
+                "PATH": "/about",
+                "PAGE": "ABOUT",
+                "LAYOUT": "ABOUT",
+                "ENABLED": false,
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "MENU_ABOUT"
+                },
+                "MENU": {
+                    "VISIBLE": true,
+                    "ORDER": 60,
+                    "LABEL_KEY": "MENU_ABOUT",
+                    "DESCRIPTION_KEY": "MENU_ABOUT_DESCRIPTION"
+                }
+            },
+            {
+                "NAME": "NOT_FOUND",
+                "PATH": "*",
+                "PAGE": "NOT_FOUND",
+                "LAYOUT": "NOT_FOUND",
+                "TITLE": {
+                    "NAMESPACE": "SHELL",
+                    "KEY": "NOT_FOUND"
+                }
+            }
+        ],
+        "PATH_ALIASES": {
+            "/home": "/",
+            "/index": "/",
+            "/index.html": "/",
+            "/主页": "/",
+            "/我的主页": "/",
+            "/travel": "/travel",
+            "/trip": "/travel",
+            "/journey": "/travel",
+            "/traveling": "/travel",
+            "/旅行": "/travel",
+            "/旅游": "/travel",
+            "/我的旅行": "/travel"
+        },
+        "PARAM_ALIASES": {
+            "COUNTRY": {
+                "CN": "CN",
+                "CHINA": "CN",
+                "中国": "CN",
+                "中國": "CN",
+                "MY": "MY",
+                "MALAYSIA": "MY",
+                "马来西亚": "MY",
+                "馬來西亞": "MY",
+                "SG": "SG",
+                "SINGAPORE": "SG",
+                "新加坡": "SG"
+            },
+            "REGION": {
+                "BEIJING": "BeiJing",
+                "北京": "BeiJing",
+                "SHANGHAI": "ShangHai",
+                "上海": "ShangHai",
+                "KL": "KL",
+                "KUALA_LUMPUR": "KL",
+                "吉隆坡": "KL"
+            }
+        }
+    },
+    "SOCIAL": {
+        "MAX_VISIBLE": {
+            "MOBILE": 3,
+            "TABLET": 4,
+            "DESKTOP": 5
+        },
+        "ITEMS": [
+            {
+                "ID": "github",
+                "LABEL": "GitHub",
+                "SHORT_LABEL": "GH",
+                "ICON": "/assets/images/icons/ico_github.png",
+                "HREF": "https://github.com/SeeChen",
+                "PRIORITY": 100,
+                "ENABLED": true
+            },
+            {
+                "ID": "instagram",
+                "LABEL": "Instagram",
+                "SHORT_LABEL": "IG",
+                "ICON": "/assets/images/icons/ico_instagram.png",
+                "HREF": "https://www.instagram.com/seechen_lee/",
+                "PRIORITY": 90,
+                "ENABLED": true
+            },
+            {
+                "ID": "facebook",
+                "LABEL": "Facebook",
+                "SHORT_LABEL": "FB",
+                "ICON": "/assets/images/icons/ico_facebook.png",
+                "HREF": "https://www.facebook.com/SeeChen00/",
+                "PRIORITY": 80,
+                "ENABLED": true
+            },
+            {
+                "ID": "email",
+                "LABEL": "Email",
+                "SHORT_LABEL": "@",
+                "ICON": "/assets/images/icons/ico_gmail.png",
+                "HREF": "mailto:leeseechen@gmail.com",
+                "PRIORITY": 70,
+                "ENABLED": true
+            },
+            {
+                "ID": "linkedin",
+                "LABEL": "LinkedIn",
+                "SHORT_LABEL": "IN",
+                "ICON": "/assets/images/icons/ico_linkedin.png",
+                "HREF": "https://www.linkedin.com/in/seechen-lee/",
+                "PRIORITY": 95,
+                "ENABLED": true
+            }
+        ]
+    }
+}

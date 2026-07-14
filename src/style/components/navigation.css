@@ -1,0 +1,512 @@
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+#componentNavigation {
+    min-height      : 0                                  ;
+    background-color: transparent                        ;
+}
+
+.seechen-navigation {
+    --seechen-navigation-toggle-motion: 500ms var(--seechen-motion-ease-emphasized);
+
+    position        : relative                            ;
+    width           : 100%                                ;
+    border-bottom   : 1px solid var(--seechen-color-border);
+    background-color: var(--seechen-color-canvas)         ;
+    color           : var(--seechen-color-text)           ;
+    transition      : background-color var(--seechen-motion-panel)
+            var(--seechen-motion-ease-standard),
+        border-color var(--seechen-motion-panel)
+            var(--seechen-motion-ease-standard)           ;
+}
+
+.seechen-navigation__inner {
+    position             : relative                                         ;
+    display              : grid                                             ;
+    grid-template-columns: auto minmax(0, 1fr) auto                          ;
+    align-items          : center                                           ;
+    gap                  : var(--seechen-space-md)                          ;
+    width                : 100%                                             ;
+    height               : var(--seechen-layout-header-height)              ;
+    margin-inline        : 0                                                ;
+    padding-inline       : var(--seechen-layout-page-padding)               ;
+    transition           : height var(--seechen-motion-panel)
+        var(--seechen-motion-ease-emphasized)                               ;
+}
+
+.seechen-navigation__brand {
+    color              : var(--seechen-color-primary)    ;
+    font-family        : var(--seechen-font-brand)       ;
+    font-optical-sizing: auto                            ;
+    font-size          : var(--seechen-font-size-xl)     ;
+    font-weight        : 900                             ;
+    line-height        : 1                               ;
+    transition         : left var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        top var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        transform var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        font-size var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized)        ;
+}
+
+.seechen-navigation__release {
+    display       : none                                      ;
+    color         : var(--seechen-color-text-muted)           ;
+    font-family   : var(--seechen-font-mono)                  ;
+    font-size     : var(--seechen-font-size-xs)               ;
+    text-transform: uppercase                                 ;
+}
+
+.seechen-navigation__brand:focus-visible,
+.seechen-navigation__desktop-item:focus-visible,
+.seechen-navigation__mobile-item:focus-visible,
+.seechen-navigation__toggle:focus-visible {
+    outline       : 2px solid var(--seechen-color-amber) ;
+    outline-offset: 0.2rem                               ;
+}
+
+.seechen-navigation__desktop-menu {
+    display: none;
+}
+
+.seechen-navigation__current {
+    display        : flex                             ;
+    align-items    : baseline                         ;
+    justify-content: flex-end                         ;
+    gap            : var(--seechen-space-xs)         ;
+    min-width      : 0                                ;
+    color          : var(--seechen-color-primary)    ;
+    font-family    : var(--seechen-font-mono)        ;
+    text-transform : uppercase                        ;
+}
+
+.seechen-navigation__current-number {
+    color    : var(--seechen-color-amber-deep) ;
+    font-size: var(--seechen-font-size-xs)      ;
+}
+
+.seechen-navigation__current-label {
+    overflow     : hidden                        ;
+    font-size    : var(--seechen-font-size-sm)   ;
+    text-overflow: ellipsis                      ;
+    white-space  : nowrap                        ;
+}
+
+.seechen-navigation__toggle {
+    display         : grid                                    ;
+    place-items     : center                                  ;
+    width           : 2.75rem                                 ;
+    height          : 2.75rem                                 ;
+    padding         : 0                                       ;
+    border          : 0                                       ;
+    background-color: transparent                             ;
+    color           : var(--seechen-color-primary)            ;
+    cursor          : pointer                                 ;
+}
+
+.seechen-navigation__toggle:hover {
+    color: var(--seechen-color-amber-deep);
+}
+
+.seechen-navigation__toggle-icon {
+    width     : 2.5rem                            ;
+    height    : 2.5rem                            ;
+    overflow  : visible                           ;
+    transition: transform var(--seechen-navigation-toggle-motion);
+}
+
+.seechen-navigation__toggle-paths path {
+    transition: transform var(--seechen-navigation-toggle-motion),
+        stroke-dasharray var(--seechen-navigation-toggle-motion),
+        stroke-dashoffset var(--seechen-navigation-toggle-motion);
+}
+
+.seechen-navigation__toggle-paths path:nth-child(1) {
+    transform-origin: 36% 40%;
+}
+
+.seechen-navigation__toggle-paths path:nth-child(2) {
+    stroke-dasharray: 29 299;
+}
+
+.seechen-navigation__toggle-paths path:nth-child(3) {
+    transform-origin: 35% 63%;
+}
+
+.seechen-navigation__toggle-paths path:nth-child(4) {
+    stroke-dasharray: 29 299;
+}
+
+.seechen-navigation__toggle-paths path:nth-child(5) {
+    transform-origin: 61% 52%;
+}
+
+.seechen-navigation__toggle-paths path:nth-child(6) {
+    transform-origin: 62% 52%;
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-icon {
+    transform: rotate(90deg);
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(1) {
+    transform: translateX(9px) translateY(1px) rotate(45deg);
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(2) {
+    stroke-dasharray: 225 299;
+    stroke-dashoffset: -72px;
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(3) {
+    transform: translateX(9px) translateY(1px) rotate(-45deg);
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(4) {
+    stroke-dasharray: 225 299;
+    stroke-dashoffset: -72px;
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(5) {
+    transform: translateX(9px) translateY(1px) rotate(-45deg);
+}
+
+.seechen-navigation__toggle[aria-expanded='true']
+    .seechen-navigation__toggle-paths path:nth-child(6) {
+    transform: translateX(9px) translateY(1px) rotate(45deg);
+}
+
+.seechen-navigation__panel {
+    position        : absolute                                          ;
+    top             : 100%                                              ;
+    left            : 0                                                 ;
+    visibility      : hidden                                            ;
+    width           : 100%                                              ;
+    max-height      : calc(100dvh - var(--seechen-layout-header-height));
+    overflow-y      : auto                                              ;
+    border-bottom   : 1px solid var(--seechen-color-primary)            ;
+    background-color: var(--seechen-color-primary-soft)                 ;
+    opacity         : 0                                                 ;
+    pointer-events  : none                                              ;
+    clip-path       : inset(0 0 100% 0)                                 ;
+    transform       : translateY(-0.5rem)                               ;
+    transition      : clip-path var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        opacity var(--seechen-motion-normal)
+            var(--seechen-motion-ease-standard),
+        transform var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        visibility 0s linear var(--seechen-motion-panel)                ;
+}
+
+.seechen-navigation__panel[data-seechen-open='true'] {
+    visibility      : visible      ;
+    opacity         : 1            ;
+    pointer-events  : auto         ;
+    clip-path       : inset(0)     ;
+    transform       : translateY(0);
+    transition-delay: 0s           ;
+}
+
+.seechen-navigation__mobile-menu {
+    width        : min(100%, var(--seechen-layout-wide-content-width));
+    margin-inline: auto                                             ;
+    padding      : var(--seechen-space-md) var(--seechen-layout-page-padding);
+}
+
+.seechen-navigation__mobile-item {
+    display              : grid                                      ;
+    grid-template-columns: 2rem minmax(0, 1fr) auto                    ;
+    align-items          : center                                    ;
+    gap                  : var(--seechen-space-sm)                   ;
+    min-height           : 3.25rem                                   ;
+    border-bottom        : 1px solid var(--seechen-color-border)      ;
+    font-family          : var(--seechen-font-mono)                  ;
+}
+
+a.seechen-navigation__mobile-item:hover {
+    color: var(--seechen-color-primary);
+}
+
+.seechen-navigation__mobile-number,
+.seechen-navigation__desktop-number,
+.seechen-navigation__mobile-status {
+    color      : var(--seechen-color-text-muted)  ;
+    font-size  : var(--seechen-font-size-xs)      ;
+    font-weight: 400                               ;
+}
+
+.seechen-navigation__mobile-label {
+    font-size  : var(--seechen-font-size-md) ;
+    font-weight: 600                          ;
+}
+
+.seechen-navigation__mobile-item--current {
+    color: var(--seechen-color-primary);
+}
+
+.seechen-navigation__mobile-item--current
+    .seechen-navigation__mobile-number {
+    color: var(--seechen-color-amber-deep);
+}
+
+.seechen-navigation__mobile-item--disabled {
+    opacity: 0.45;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__inner {
+    display: block;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__brand {
+    position : absolute                              ;
+    top      : 50%                                   ;
+    left     : var(--seechen-layout-page-padding)    ;
+    transform: translateY(-50%)                      ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__release {
+    position        : absolute                                   ;
+    top             : 3.75rem                                    ;
+    left            : 50%                                        ;
+    display         : block                                      ;
+    visibility      : hidden                                     ;
+    opacity         : 0                                          ;
+    transform       : translate(-50%, -0.5rem)                   ;
+    transition      : opacity var(--seechen-motion-normal)
+            var(--seechen-motion-ease-standard),
+        top var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        transform var(--seechen-motion-panel)
+            var(--seechen-motion-ease-emphasized),
+        visibility 0s linear var(--seechen-motion-panel)         ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__current {
+    position  : absolute                                             ;
+    top       : 50%                                                  ;
+    right     : calc(
+        var(--seechen-layout-page-padding) +
+        2.75rem +
+        var(--seechen-space-md)
+    );
+    max-width : calc(100% - 12rem)                                  ;
+    transform : translateY(-50%)                                    ;
+    transition: top var(--seechen-motion-panel)
+        var(--seechen-motion-ease-emphasized)                        ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__toggle {
+    position  : absolute                              ;
+    top       : 50%                                   ;
+    right     : var(--seechen-layout-page-padding)    ;
+    transform : translateY(-50%)                      ;
+    transition: top var(--seechen-motion-panel)
+        var(--seechen-motion-ease-emphasized)         ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__release,
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__current,
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__toggle {
+    will-change: transform;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__brand {
+    will-change: left, top, transform;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__inner {
+    will-change: height;
+}
+
+.seechen-navigation[data-seechen-variant='editorial']
+    .seechen-navigation__desktop-menu {
+    will-change: right, top, transform;
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded'] {
+    border-bottom-color: transparent;
+    background-color   : transparent;
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+    .seechen-navigation__inner {
+    height: var(--seechen-layout-header-expanded-height);
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+    .seechen-navigation__brand {
+    top      : var(--seechen-space-lg) ;
+    left     : 50%                     ;
+    font-size: 2.25rem                 ;
+    transform: translateX(-50%)       ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+    .seechen-navigation__release {
+    visibility      : visible            ;
+    opacity         : 1                  ;
+    transform       : translate(-50%, 0);
+    transition-delay: 0s                 ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+    .seechen-navigation__current,
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+    .seechen-navigation__toggle {
+    top: calc(100% - 1.5rem);
+}
+
+@media (min-width: 1200px) {
+    .seechen-navigation__inner {
+        grid-template-columns: auto minmax(0, 1fr);
+    }
+
+    .seechen-navigation__desktop-menu {
+        position       : relative                        ;
+        display        : flex                            ;
+        align-items    : stretch                         ;
+        justify-content: flex-end                        ;
+        justify-self   : end                             ;
+        align-self     : stretch                         ;
+        width          : min(72vw, 64rem)                ;
+    }
+
+    .seechen-navigation__desktop-item {
+        position       : relative                         ;
+        display        : inline-flex                      ;
+        flex           : 1 1 0                            ;
+        align-items    : center                           ;
+        justify-content: center                           ;
+        gap            : var(--seechen-space-xs)         ;
+        padding-inline : var(--seechen-space-xs)         ;
+        color          : var(--seechen-color-text-muted) ;
+        font-family    : var(--seechen-font-mono)        ;
+        font-size      : var(--seechen-font-size-sm)     ;
+        text-transform : uppercase                       ;
+        transition     : color var(--seechen-motion-fast);
+    }
+
+    a.seechen-navigation__desktop-item:hover,
+    a.seechen-navigation__desktop-item:focus-visible {
+        color: var(--seechen-color-primary);
+    }
+
+    .seechen-navigation__desktop-item--current {
+        color: var(--seechen-color-primary);
+    }
+
+    .seechen-navigation__desktop-item--disabled {
+        opacity: 0.4;
+    }
+
+    .seechen-navigation__desktop-indicator {
+        position        : absolute                                     ;
+        left            : var(--seechen-navigation-indicator-position) ;
+        bottom          : -1px                                         ;
+        width           : 3rem                                         ;
+        height          : 0.2rem                                       ;
+        background-color: var(--seechen-color-amber)                   ;
+        pointer-events  : none                                         ;
+        transform       : translateX(-50%)                             ;
+        transition      : left var(--seechen-motion-panel)
+                var(--seechen-motion-ease-emphasized),
+            opacity var(--seechen-motion-fast)
+                var(--seechen-motion-ease-standard)                    ;
+    }
+
+    .seechen-navigation__desktop-indicator--hidden {
+        opacity: 0;
+    }
+
+    .seechen-navigation[data-seechen-variant='editorial']
+        .seechen-navigation__inner {
+        display: block;
+    }
+
+    .seechen-navigation[data-seechen-variant='editorial']
+        .seechen-navigation__desktop-menu {
+        position  : absolute                                      ;
+        top       : 0                                             ;
+        right     : var(--seechen-layout-page-padding)            ;
+        height    : var(--seechen-layout-header-height)           ;
+        transform : translateX(0)                                 ;
+        transition: right var(--seechen-motion-panel)
+                var(--seechen-motion-ease-emphasized),
+            top var(--seechen-motion-panel)
+                var(--seechen-motion-ease-emphasized),
+            transform var(--seechen-motion-panel)
+                var(--seechen-motion-ease-emphasized)             ;
+    }
+
+    .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+        .seechen-navigation__brand {
+        top      : var(--seechen-space-lg)          ;
+        left     : 50%                              ;
+        font-size: var(--seechen-font-size-display) ;
+        transform: translateX(-50%)                 ;
+    }
+
+    .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+        .seechen-navigation__release {
+        top: 6.25rem;
+    }
+
+    .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
+        .seechen-navigation__desktop-menu {
+        top      : 7rem          ;
+        right    : 50%           ;
+        transform: translateX(50%);
+    }
+
+    .seechen-navigation__current,
+    .seechen-navigation__toggle,
+    .seechen-navigation__panel {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .seechen-navigation,
+    .seechen-navigation__inner,
+    .seechen-navigation__brand,
+    .seechen-navigation__release,
+    .seechen-navigation__current,
+    .seechen-navigation__toggle,
+    .seechen-navigation__toggle-icon,
+    .seechen-navigation__toggle-paths path,
+    .seechen-navigation__panel,
+    .seechen-navigation__desktop-menu,
+    .seechen-navigation__desktop-indicator {
+        animation : none;
+        transition: none;
+    }
+}

@@ -1,0 +1,450 @@
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+#componentFooter {
+    min-height          : 100dvh                                ;
+    background-color    : var(--seechen-color-primary-soft)     ;
+    view-timeline-axis  : block                                 ;
+    view-timeline-name  : --seechen-footer                      ;
+}
+
+.seechen-footer {
+    min-height      : 100dvh                                        ;
+    padding         : var(--seechen-space-xl) var(--seechen-layout-page-padding);
+    background-color: var(--seechen-color-primary-soft)             ;
+    color           : var(--seechen-color-text)                     ;
+}
+
+.seechen-footer__inner {
+    display       : flex                                             ;
+    flex-direction: column                                           ;
+    gap           : var(--seechen-space-2xl)                         ;
+    width         : min(100%, var(--seechen-layout-wide-content-width));
+    min-height    : calc(100dvh - (2 * var(--seechen-space-xl)))     ;
+    margin-inline : auto                                             ;
+}
+
+.seechen-footer__masthead {
+    display              : grid                               ;
+    grid-template-columns: minmax(0, 1fr)                     ;
+    gap                  : var(--seechen-space-xl)            ;
+    padding-block        : var(--seechen-space-lg)            ;
+    border-block         : 1px solid var(--seechen-color-primary);
+}
+
+.seechen-footer__identity,
+.seechen-footer__release,
+.seechen-footer__section {
+    min-width: 0;
+}
+
+.seechen-footer__eyebrow,
+.seechen-footer__section-index,
+.seechen-footer__release-meta,
+.seechen-footer__menu-number,
+.seechen-footer__social-title,
+.seechen-footer__copyright,
+.seechen-footer__domain {
+    font-family: var(--seechen-font-mono);
+}
+
+.seechen-footer__eyebrow,
+.seechen-footer__section-index,
+.seechen-footer__release-meta,
+.seechen-footer__social-title {
+    color      : var(--seechen-color-primary) ;
+    font-size  : var(--seechen-font-size-xs)  ;
+    font-weight: 400                           ;
+    text-transform: uppercase                  ;
+}
+
+.seechen-footer__brand {
+    max-width          : 100%                               ;
+    color              : var(--seechen-color-text)          ;
+    font-family        : var(--seechen-font-brand)          ;
+    font-optical-sizing: auto                               ;
+    font-size          : var(--seechen-font-size-display)   ;
+    font-weight        : 900                                ;
+    line-height        : 0.9                                ;
+    overflow-wrap      : anywhere                           ;
+}
+
+.seechen-footer__tagline {
+    max-width  : 38rem                                  ;
+    margin-top : var(--seechen-space-sm)                ;
+    color      : var(--seechen-color-text-muted)        ;
+    font-size  : var(--seechen-font-size-md)            ;
+    line-height: var(--seechen-line-height-normal)      ;
+}
+
+.seechen-footer__release {
+    display            : grid                               ;
+    align-content      : end                                ;
+    padding-inline-start: var(--seechen-space-lg)           ;
+    border-inline-start: 0.25rem solid var(--seechen-color-amber);
+}
+
+.seechen-footer__release-name {
+    color              : var(--seechen-color-primary)       ;
+    font-family        : var(--seechen-font-brand)          ;
+    font-optical-sizing: auto                               ;
+    font-size          : var(--seechen-font-size-xl)        ;
+    font-weight        : 800                                ;
+    line-height        : var(--seechen-line-height-tight)   ;
+}
+
+.seechen-footer__release-localized {
+    color      : var(--seechen-color-amber-deep)        ;
+    font-family: var(--seechen-font-accent)             ;
+    font-size  : var(--seechen-font-size-xl)            ;
+    line-height: var(--seechen-line-height-tight)       ;
+}
+
+.seechen-footer__release-description {
+    max-width  : 28rem                                  ;
+    margin-top : var(--seechen-space-sm)                ;
+    color      : var(--seechen-color-text-muted)        ;
+    font-size  : var(--seechen-font-size-sm)            ;
+    line-height: var(--seechen-line-height-normal)      ;
+}
+
+.seechen-footer__content {
+    display              : grid                           ;
+    grid-template-columns: minmax(0, 1fr)                 ;
+    gap                  : var(--seechen-space-2xl)       ;
+}
+
+.seechen-footer__section {
+    padding-top     : var(--seechen-space-md)         ;
+    border-top      : 1px solid var(--seechen-color-border);
+}
+
+.seechen-footer__section-title {
+    margin-top         : var(--seechen-space-xs)             ;
+    color              : var(--seechen-color-text)           ;
+    font-family        : var(--seechen-font-brand)           ;
+    font-optical-sizing: auto                                ;
+    font-size          : var(--seechen-font-size-xl)         ;
+    font-weight        : 700                                 ;
+    line-height        : var(--seechen-line-height-tight)    ;
+}
+
+.seechen-footer__copy {
+    margin-top : var(--seechen-space-sm)                ;
+    color      : var(--seechen-color-text-muted)        ;
+    font-size  : var(--seechen-font-size-sm)            ;
+    line-height: var(--seechen-line-height-normal)      ;
+}
+
+.seechen-footer__copy--muted {
+    font-size: var(--seechen-font-size-xs);
+}
+
+.seechen-footer__action {
+    display         : inline-flex                                 ;
+    align-items     : center                                      ;
+    gap             : var(--seechen-space-sm)                     ;
+    min-height      : 2.75rem                                     ;
+    margin-top      : var(--seechen-space-lg)                     ;
+    padding-inline  : var(--seechen-space-md)                     ;
+    border          : 1px solid var(--seechen-color-primary)      ;
+    border-radius   : var(--seechen-radius-sm)                    ;
+    background-color: transparent                                 ;
+    color           : var(--seechen-color-primary)                ;
+    font-family     : var(--seechen-font-mono)                    ;
+    font-size       : var(--seechen-font-size-sm)                 ;
+}
+
+.seechen-footer__action:disabled {
+    cursor : not-allowed;
+    opacity: 0.58       ;
+}
+
+.seechen-footer__action-status {
+    padding-inline-start: var(--seechen-space-sm)              ;
+    border-inline-start : 1px solid var(--seechen-color-border);
+    color               : var(--seechen-color-text-muted)      ;
+    font-family         : var(--seechen-font-pixel)            ;
+    font-size           : var(--seechen-font-size-xs)          ;
+}
+
+.seechen-footer__menu-list {
+    margin-top: var(--seechen-space-sm);
+}
+
+.seechen-footer__menu-item {
+    display              : grid                                      ;
+    grid-template-columns: 2rem minmax(0, 1fr)                        ;
+    gap                  : var(--seechen-space-xs)                    ;
+    padding-block        : var(--seechen-space-xs)                    ;
+    border-bottom        : 1px solid var(--seechen-color-border)      ;
+    transition           : color var(--seechen-motion-fast), transform var(--seechen-motion-fast);
+}
+
+a.seechen-footer__menu-item:hover,
+a.seechen-footer__menu-item:focus-visible {
+    color    : var(--seechen-color-primary);
+    transform: translateX(var(--seechen-space-2xs));
+}
+
+.seechen-footer__menu-item--current {
+    color: var(--seechen-color-primary);
+}
+
+.seechen-footer__menu-item--disabled {
+    opacity: 0.4;
+}
+
+.seechen-footer__menu-number {
+    padding-top: 0.2rem                           ;
+    color      : var(--seechen-color-text-muted) ;
+    font-size  : var(--seechen-font-size-xs)     ;
+}
+
+.seechen-footer__menu-label {
+    font-size  : var(--seechen-font-size-md)  ;
+    font-weight: 600                           ;
+    line-height: var(--seechen-line-height-tight);
+}
+
+.seechen-footer__menu-description {
+    display    : none                                  ;
+    margin-top : var(--seechen-space-2xs)             ;
+    color      : var(--seechen-color-text-muted)      ;
+    font-size  : var(--seechen-font-size-xs)          ;
+    line-height: var(--seechen-line-height-normal)    ;
+}
+
+.seechen-footer__inline-link,
+.seechen-footer__license-link {
+    color                  : var(--seechen-color-primary) ;
+    text-decoration        : underline                    ;
+    text-decoration-color  : var(--seechen-color-amber)   ;
+    text-decoration-thickness: 0.1rem                     ;
+    text-underline-offset  : 0.2rem                       ;
+}
+
+.seechen-footer__inline-link:hover,
+.seechen-footer__inline-link:focus-visible,
+.seechen-footer__license-link:hover,
+.seechen-footer__license-link:focus-visible {
+    color: var(--seechen-color-amber-deep);
+}
+
+.seechen-footer__easter-egg {
+    margin-top : var(--seechen-space-sm)           ;
+    color      : var(--seechen-color-primary)      ;
+    font-family: var(--seechen-font-pixel)         ;
+    font-size  : var(--seechen-font-size-xs)       ;
+    line-height: var(--seechen-line-height-normal) ;
+}
+
+.seechen-footer__license-link {
+    display    : inline-flex                     ;
+    gap        : var(--seechen-space-xs)         ;
+    margin-top : var(--seechen-space-md)         ;
+    font-family: var(--seechen-font-mono)        ;
+    font-size  : var(--seechen-font-size-xs)     ;
+}
+
+.seechen-footer__social {
+    display        : flex                                      ;
+    flex-wrap      : wrap                                      ;
+    align-items    : center                                    ;
+    justify-content: space-between                             ;
+    gap            : var(--seechen-space-md)                  ;
+    padding-block  : var(--seechen-space-md)                  ;
+    border-block   : 1px solid var(--seechen-color-primary)   ;
+}
+
+.seechen-footer__social-list {
+    display  : flex                          ;
+    flex-wrap: wrap                          ;
+    gap      : var(--seechen-space-xs)       ;
+}
+
+.seechen-footer__social-link {
+    display         : grid                                      ;
+    place-items     : center                                    ;
+    width           : 2.75rem                                   ;
+    height          : 2.75rem                                   ;
+    border          : 0px solid var(--seechen-color-primary)    ;
+    border-radius   : var(--seechen-radius-round)               ;
+    color           : var(--seechen-color-primary)              ;
+    transition      : background-color var(--seechen-motion-fast), color var(--seechen-motion-fast), transform var(--seechen-motion-fast);
+}
+
+.seechen-footer__social-link:hover,
+.seechen-footer__social-link:focus-visible {
+    background-color: var(--seechen-color-primary) ;
+    color           : var(--seechen-color-surface) ;
+    transform       : translateY(-0.15rem)          ;
+}
+
+.seechen-footer__social-mark {
+    display    : grid                         ;
+    place-items: center                       ;
+    width      : 100%                         ;
+    height     : 100%                         ;
+    font-family: var(--seechen-font-mono)     ;
+    font-size  : var(--seechen-font-size-xs)  ;
+}
+
+.seechen-footer__social-mark--icon {
+    background-color     : currentColor                       ;
+    mask-image           : var(--seechen-social-icon)          ;
+    mask-position        : center                              ;
+    mask-repeat          : no-repeat                           ;
+    mask-size            : cover                               ;
+    -webkit-mask-image   : var(--seechen-social-icon)          ;
+    -webkit-mask-position: center                              ;
+    -webkit-mask-repeat  : no-repeat                           ;
+    -webkit-mask-size    : cover                               ;
+}
+
+.seechen-footer__legal {
+    margin-top : auto                         ;
+    padding-top: var(--seechen-space-lg)      ;
+    text-align : center                       ;
+}
+
+.seechen-footer__signature {
+    display              : grid                                      ;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr)         ;
+    align-items          : center                                    ;
+    gap                  : var(--seechen-space-sm)                   ;
+    margin-bottom        : var(--seechen-space-sm)                   ;
+}
+
+.seechen-footer__signature::before,
+.seechen-footer__signature::after {
+    height          : 1px                         ;
+    background-color: var(--seechen-color-border);
+    content         : ''                          ;
+}
+
+.seechen-footer__domain {
+    color    : var(--seechen-color-primary)     ;
+    font-size: var(--seechen-font-size-xs)      ;
+}
+
+.seechen-footer__copyright {
+    color      : var(--seechen-color-text-muted)    ;
+    font-size  : var(--seechen-font-size-xs)        ;
+    line-height: var(--seechen-line-height-normal)  ;
+}
+
+@media (min-width: 768px) {
+    .seechen-footer {
+        padding-block: var(--seechen-space-2xl);
+    }
+
+    .seechen-footer__inner {
+        min-height: calc(100dvh - (2 * var(--seechen-space-2xl)));
+    }
+
+    .seechen-footer__masthead {
+        grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.5fr);
+        align-items          : end                                  ;
+    }
+
+    .seechen-footer__content {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .seechen-footer__menu-description {
+        display: block;
+    }
+}
+
+@media (min-width: 1200px) {
+    .seechen-footer__content {
+        grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .seechen-footer__subscribe,
+    .seechen-footer__menu,
+    .seechen-footer__license {
+        grid-column: span 3;
+    }
+
+    .seechen-footer__about {
+        grid-column: span 3;
+    }
+}
+
+@keyframes seechen-footer-surface-reveal {
+    from {
+        background-color: var(--seechen-color-canvas);
+    }
+
+    to {
+        background-color: var(--seechen-color-primary-soft);
+    }
+}
+
+@keyframes seechen-footer-content-reveal {
+    from {
+        opacity  : 0               ;
+        transform: translateY(2rem);
+    }
+
+    to {
+        opacity  : 1;
+        transform: none;
+    }
+}
+
+@supports (animation-timeline: view()) {
+    .seechen-footer {
+        animation         : seechen-footer-surface-reveal 1ms linear both;
+        animation-timeline: --seechen-footer                            ;
+        animation-range   : entry 0% entry 100%                         ;
+    }
+
+    .seechen-footer__masthead {
+        animation         : seechen-footer-content-reveal 1ms linear both;
+        animation-timeline: --seechen-footer                            ;
+        animation-range   : entry 0% entry 55%                          ;
+    }
+
+    .seechen-footer__content {
+        animation         : seechen-footer-content-reveal 1ms linear both;
+        animation-timeline: --seechen-footer                            ;
+        animation-range   : entry 20% entry 82%                         ;
+    }
+
+    .seechen-footer__social {
+        animation         : seechen-footer-content-reveal 1ms linear both;
+        animation-timeline: --seechen-footer                            ;
+        animation-range   : entry 45% entry 92%                         ;
+    }
+
+    .seechen-footer__legal {
+        animation         : seechen-footer-content-reveal 1ms linear both;
+        animation-timeline: --seechen-footer                            ;
+        animation-range   : entry 60% entry 100%                        ;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .seechen-footer,
+    .seechen-footer__masthead,
+    .seechen-footer__content,
+    .seechen-footer__social,
+    .seechen-footer__legal {
+        animation: none !important;
+        opacity  : 1 !important   ;
+        transform: none !important;
+    }
+}

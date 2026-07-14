@@ -49,3 +49,33 @@ export function hasOwn(target, key) {
         Object.prototype.hasOwnProperty.call(target, key),
     );
 }
+
+/**
+ * Deeply freezes a SeeChen configuration or manifest value.
+ * @param {*} target
+ * @return {*}
+ */
+export function freezeSeeChenObject(target) {
+    if (!target || typeof target !== 'object' || Object.isFrozen(target)) {
+        return target;
+    }
+
+    Object.values(target).forEach((value) => {
+        freezeSeeChenObject(value);
+    });
+
+    return Object.freeze(target);
+}
+
+/**
+ * Clones a JSON-compatible SeeChen object.
+ * @param {*} target
+ * @return {*}
+ */
+export function cloneSeeChenObject(target) {
+    if (typeof structuredClone === 'function') {
+        return structuredClone(target);
+    }
+
+    return JSON.parse(JSON.stringify(target));
+}
