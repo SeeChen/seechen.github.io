@@ -1,0 +1,20 @@
+{
+    "IDLE": "",
+    "READY": "",
+    "LOADING": "Loading media...",
+    "UNSUPPORTED": "This browser cannot play this media.",
+    "ERROR": "The media could not be loaded.",
+    "VIDEO_LABEL": "Media player",
+    "PLAY": "Play video",
+    "REPLAY": "Replay video",
+    "PAUSE": "Pause video",
+    "MUTE": "Mute video",
+    "UNMUTE": "Unmute video",
+    "SEEK": "Video progress",
+    "VOLUME": "Video volume",
+    "FULLSCREEN": "Enter fullscreen",
+    "EXIT_FULLSCREEN": "Exit fullscreen",
+    "PLAYBACK_RATE": "Playback speed",
+    "PICTURE_IN_PICTURE": "Enter picture in picture",
+    "EXIT_PICTURE_IN_PICTURE": "Exit picture in picture"
+}

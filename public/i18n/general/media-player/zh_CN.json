@@ -1,0 +1,20 @@
+{
+    "IDLE": "",
+    "READY": "",
+    "LOADING": "正在加载媒体……",
+    "UNSUPPORTED": "当前浏览器无法播放此媒体。",
+    "ERROR": "媒体加载失败。",
+    "VIDEO_LABEL": "媒体播放器",
+    "PLAY": "播放视频",
+    "REPLAY": "重新播放",
+    "PAUSE": "暂停视频",
+    "MUTE": "静音",
+    "UNMUTE": "取消静音",
+    "SEEK": "视频进度",
+    "VOLUME": "视频音量",
+    "FULLSCREEN": "进入全屏",
+    "EXIT_FULLSCREEN": "退出全屏",
+    "PLAYBACK_RATE": "播放速度",
+    "PICTURE_IN_PICTURE": "进入画中画",
+    "EXIT_PICTURE_IN_PICTURE": "退出画中画"
+}

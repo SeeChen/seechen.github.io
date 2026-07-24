@@ -1,0 +1,812 @@
+/**
+ * seechen.github.io
+ * https://github.com/SeeChen/seechen.github.io
+ *
+ * Copyright (C) 2024-2026 LEE SEE CHEN.
+ *
+ * This file is licensed under the GNU General Public License v3.0 (GPLv3).
+ * You can redistribute it and/or modify it under the terms of the GPLv3.
+ * For more details, see <https://www.gnu.org/licenses/>.
+ *
+ * SPDX-License-Identifier: GPL-3.0-only
+ */
+
+.seechen-media-player {
+    position        : relative                          ;
+    isolation       : isolate                           ;
+    aspect-ratio    : 16 / 9                            ;
+    width           : 100%                              ;
+    height          : auto                              ;
+    min-height      : 0                                 ;
+    overflow        : hidden                            ;
+    background-color: var(--seechen-color-surface-dark) ;
+    color           : var(--seechen-color-surface)      ;
+    border-radius   : var(--seechen-radius-xl)          ;
+}
+
+.seechen-media-player.is-playing:not(.are-controls-visible) {
+    cursor: none ;
+}
+
+.seechen-media-player__video {
+    display         : block                             ;
+    width           : 100%                              ;
+    height          : 100%                              ;
+    border          : 0                                 ;
+    background-color: var(--seechen-color-surface-dark) ;
+    object-fit      : contain                           ;
+    touch-action    : manipulation                      ;
+}
+
+.seechen-media-player__watermark {
+    position           : absolute                         ;
+    right              : var(--seechen-space-md)          ;
+    bottom             : var(--seechen-space-sm)          ;
+    z-index            : 2                                ;
+    aspect-ratio       : 2048 / 1125                      ;
+    width              : clamp(5rem, 13%, 9rem)           ;
+    background-position: center                           ;
+    background-repeat  : no-repeat                        ;
+    background-size    : contain                          ;
+    opacity            : 0.62                             ;
+    pointer-events     : none                             ;
+    transition         : bottom var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard),
+        opacity var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard)                ;
+}
+
+.seechen-media-player.are-controls-visible
+    .seechen-media-player__watermark {
+    bottom: calc(
+        var(--seechen-media-control-height) + var(--seechen-space-sm)
+    ) ;
+}
+
+.seechen-media-player__loading {
+    position        : absolute                           ;
+    inset           : 0                                  ;
+    z-index         : 4                                  ;
+    display         : grid                               ;
+    place-content   : center                             ;
+    gap             : var(--seechen-space-sm)            ;
+    background-color: var(--seechen-color-on-dark-hover) ;
+    color           : var(--seechen-color-surface)       ;
+    backdrop-filter : blur(0.125rem)                     ;
+}
+
+.seechen-media-player__loading[hidden],
+.seechen-media-player__preview[hidden],
+.seechen-media-player__control[hidden] {
+    display: none ;
+}
+
+.seechen-media-player__loading .loading-dot {
+    position : static ;
+    top      : auto   ;
+    left     : auto   ;
+    z-index  : auto   ;
+    transform: none   ;
+}
+
+.seechen-media-player__loading .loading-dot span {
+    width : calc(var(--seechen-loading-dot-size) * 0.5) ;
+    height: calc(var(--seechen-loading-dot-size) * 0.5) ;
+}
+
+.seechen-media-player__status {
+    max-width     : 28rem                         ;
+    color         : var(--seechen-color-surface) ;
+    font-family   : var(--seechen-font-mono)     ;
+    font-size     : var(--seechen-font-size-xs)  ;
+    text-align    : center                       ;
+    text-transform: uppercase                    ;
+}
+
+.seechen-media-player__center-control {
+    position           : absolute                                     ;
+    top                : 50%                                          ;
+    left               : 50%                                          ;
+    z-index            : 3                                            ;
+    display            : grid                                         ;
+    place-items        : center                                       ;
+    width              : var(--seechen-media-center-control-size)     ;
+    height             : var(--seechen-media-center-control-size)     ;
+    padding            : 0                                            ;
+    overflow           : hidden                                       ;
+    border             : 1px solid var(--seechen-color-on-dark-border);
+    border-radius      : var(--seechen-radius-round)                  ;
+    background-color   : transparent                                  ;
+    background-position: center                                 ;
+    background-repeat  : no-repeat                              ;
+    background-size    : contain                                ;
+    color              : var(--seechen-color-surface)                 ;
+    cursor             : pointer                                      ;
+    transform          : translate(-50%, -50%)                        ;
+    transition         : border-color var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard),
+        opacity var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard),
+        transform var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard)                           ;
+    backdrop-filter    : blur(0.5rem)                                 ;
+}
+
+.seechen-media-player__center-control::before {
+    content            : ''                                      ;
+    position           : absolute                                ;
+    inset              : 0                                       ;
+    background-image   : var(--seechen-media-control-artwork)    ;
+    background-position: center                                 ;
+    background-repeat  : no-repeat                              ;
+    background-size    : contain                                ;
+    opacity            : 0.2                                     ;
+}
+
+.seechen-media-player__center-control:hover,
+.seechen-media-player__center-control:focus-visible {
+    border-color: var(--seechen-color-primary)          ;
+    outline     : 0                                     ;
+    transform   : translate(-50%, -50%) scale(1.04)    ;
+}
+
+.seechen-media-player__center-icon {
+    position     : relative                  ;
+    z-index      : 1                         ;
+    width        : 0                         ;
+    height       : 0                         ;
+    margin-left  : 0.25rem                   ;
+    border-top   : 0.7rem solid transparent ;
+    border-bottom: 0.7rem solid transparent ;
+    border-left  : 1rem solid currentcolor   ;
+    filter       : drop-shadow(0 0 0.2rem var(--seechen-color-surface-dark));
+}
+
+.seechen-media-player.is-ended .seechen-media-player__center-icon,
+.seechen-media-player.is-ended .seechen-media-player__control--toggle
+    .seechen-media-player__control-icon {
+    width        : 1.35rem                             ;
+    height       : 1.35rem                             ;
+    margin-left  : 0                                   ;
+    border       : 0                                   ;
+}
+
+.seechen-media-player.is-ended .seechen-media-player__center-icon::before,
+.seechen-media-player.is-ended .seechen-media-player__control--toggle
+    .seechen-media-player__control-icon::before {
+    content          : ''                           ;
+    position         : absolute                     ;
+    inset            : 0.1rem                       ;
+    border           : 0.15rem solid currentcolor   ;
+    border-left-color: transparent                   ;
+    border-radius    : var(--seechen-radius-round)  ;
+    transform        : rotate(-35deg)               ;
+}
+
+.seechen-media-player.is-ended .seechen-media-player__center-icon::after,
+.seechen-media-player.is-ended .seechen-media-player__control--toggle
+    .seechen-media-player__control-icon::after {
+    content      : ''                         ;
+    position     : absolute                   ;
+    top          : 0                          ;
+    left         : 0.05rem                    ;
+    width        : 0                          ;
+    height       : 0                          ;
+    border-top   : 0.25rem solid transparent ;
+    border-bottom: 0.25rem solid transparent ;
+    border-right : 0.4rem solid currentcolor ;
+    transform    : rotate(20deg)              ;
+}
+
+.seechen-media-player.is-playing .seechen-media-player__center-control {
+    opacity       : 0                                 ;
+    pointer-events: none                              ;
+    transform     : translate(-50%, -50%) scale(0.9) ;
+}
+
+.seechen-media-player.uses-touch-controls.is-playing.are-controls-visible
+    .seechen-media-player__center-control {
+    opacity       : 1                          ;
+    pointer-events: auto                       ;
+    transform     : translate(-50%, -50%)      ;
+}
+
+.seechen-media-player.uses-touch-controls.is-playing.are-controls-visible
+    .seechen-media-player__center-icon {
+    width        : 1rem                       ;
+    height       : 1.35rem                    ;
+    margin-left  : 0                          ;
+    border-top   : 0                          ;
+    border-right : 0.3rem solid currentcolor ;
+    border-bottom: 0                          ;
+    border-left  : 0.3rem solid currentcolor ;
+}
+
+.seechen-media-player__controls {
+    position      : absolute                              ;
+    right         : 0                                     ;
+    bottom        : 0                                     ;
+    left          : 0                                     ;
+    z-index       : 6                                     ;
+    display       : grid                                  ;
+    gap           : var(--seechen-space-2xs)              ;
+    min-height    : var(--seechen-media-control-height)   ;
+    padding       : var(--seechen-space-xl) var(--seechen-space-md)
+        var(--seechen-space-xs)                           ;
+    background    : linear-gradient(
+        transparent,
+        var(--seechen-color-surface-dark)
+    )                                                     ;
+    opacity       : 0                                     ;
+    pointer-events: none                                  ;
+    transform     : translateY(var(--seechen-space-xs))   ;
+    transition    : opacity var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard),
+        transform var(--seechen-motion-normal)
+        var(--seechen-motion-ease-standard)                ;
+}
+
+.seechen-media-player.are-controls-visible
+    .seechen-media-player__controls {
+    opacity       : 1         ;
+    pointer-events: auto      ;
+    transform     : none      ;
+}
+
+.seechen-media-player__timeline {
+    position: relative ;
+    width   : 100%     ;
+}
+
+.seechen-media-player__preview {
+    position        : absolute                           ;
+    bottom          : calc(100% + var(--seechen-space-xs));
+    width           : var(--seechen-media-preview-width) ;
+    overflow        : hidden                             ;
+    border          : 1px solid var(--seechen-color-on-dark-border);
+    border-radius   : var(--seechen-radius-xs)           ;
+    background-color: var(--seechen-color-surface-dark)  ;
+    color           : var(--seechen-color-surface)       ;
+    pointer-events  : none                               ;
+    transform       : translateX(-50%)                   ;
+    box-shadow      : var(--seechen-shadow-soft)         ;
+}
+
+.seechen-media-player__preview-image {
+    aspect-ratio       : 16 / 9                          ;
+    width              : 100%                            ;
+    background-position: center                          ;
+    background-repeat  : no-repeat                       ;
+    background-size    : cover                           ;
+}
+
+.seechen-media-player__preview-time {
+    padding         : var(--seechen-space-2xs) var(--seechen-space-xs);
+    color           : var(--seechen-color-neutral)       ;
+    font-family     : var(--seechen-font-mono)           ;
+    font-size       : var(--seechen-font-size-2xs)       ;
+    text-align      : right                              ;
+    background-color: var(--seechen-color-surface-dark)  ;
+}
+
+.seechen-media-player__command-row {
+    display              : grid                               ;
+    grid-template-columns: auto auto minmax(0, 1fr) auto auto auto auto;
+    align-items          : center                             ;
+    gap                  : var(--seechen-space-xs)            ;
+}
+
+.seechen-media-player__command-spacer {
+    min-width: 0 ;
+}
+
+.seechen-media-player__control {
+    position        : relative                           ;
+    display         : grid                               ;
+    place-items     : center                             ;
+    width           : 2rem                               ;
+    height          : 2rem                               ;
+    padding         : 0                                  ;
+    border          : 1px solid transparent              ;
+    border-radius   : var(--seechen-radius-xs)           ;
+    background-color: transparent                       ;
+    color           : var(--seechen-color-surface)       ;
+    cursor          : pointer                            ;
+}
+
+.seechen-media-player__control:hover,
+.seechen-media-player__control:focus-visible {
+    border-color    : var(--seechen-color-on-dark-border) ;
+    background-color: var(--seechen-color-on-dark-hover)  ;
+    outline         : 0                                   ;
+}
+
+.seechen-media-player__control-icon {
+    position: relative ;
+    display : block    ;
+}
+
+.seechen-media-player__control--toggle .seechen-media-player__control-icon {
+    width        : 0                          ;
+    height       : 0                          ;
+    margin-left  : 0.125rem                   ;
+    border-top   : 0.35rem solid transparent ;
+    border-bottom: 0.35rem solid transparent ;
+    border-left  : 0.55rem solid currentcolor;
+}
+
+.seechen-media-player.is-playing .seechen-media-player__control--toggle
+    .seechen-media-player__control-icon {
+    width        : 0.55rem                   ;
+    height       : 0.75rem                   ;
+    margin-left  : 0                         ;
+    border-top   : 0                         ;
+    border-right : 0.2rem solid currentcolor;
+    border-bottom: 0                         ;
+    border-left  : 0.2rem solid currentcolor;
+}
+
+.seechen-media-player__time {
+    min-width  : 5.2rem                         ;
+    color      : var(--seechen-color-neutral)   ;
+    font-family: var(--seechen-font-mono)       ;
+    font-size  : var(--seechen-font-size-2xs)   ;
+    text-align : center                         ;
+    white-space: nowrap                         ;
+}
+
+.seechen-media-player__rate {
+    height            : 2rem                              ;
+    padding           : 0 var(--seechen-space-xs)         ;
+    border            : 1px solid transparent             ;
+    border-radius     : var(--seechen-radius-xs)          ;
+    background-color  : transparent                       ;
+    color             : var(--seechen-color-surface)      ;
+    font-family       : var(--seechen-font-mono)          ;
+    font-size         : var(--seechen-font-size-2xs)      ;
+    cursor            : pointer                           ;
+    appearance        : none                              ;
+    -webkit-appearance: none                              ;
+}
+
+.seechen-media-player__rate:hover,
+.seechen-media-player__rate:focus-visible {
+    border-color    : var(--seechen-color-on-dark-border) ;
+    background-color: var(--seechen-color-on-dark-hover)  ;
+    outline         : 0                                   ;
+}
+
+.seechen-media-player__rate option {
+    background-color: var(--seechen-color-surface-dark) ;
+    color           : var(--seechen-color-surface)      ;
+}
+
+.seechen-media-player__progress,
+.seechen-media-player__volume {
+    width             : 100%        ;
+    height            : 1rem        ;
+    margin            : 0           ;
+    padding           : 0           ;
+    border            : 0           ;
+    background        : transparent ;
+    cursor            : pointer     ;
+    appearance        : none        ;
+    -webkit-appearance: none        ;
+}
+
+.seechen-media-player__progress::-webkit-slider-runnable-track,
+.seechen-media-player__volume::-webkit-slider-runnable-track {
+    height    : 0.125rem ;
+    background: linear-gradient(
+        to right,
+        var(--seechen-color-primary-soft) 0%,
+        var(--seechen-color-primary-soft) var(--seechen-media-progress, 0%),
+        var(--seechen-color-on-dark-border) var(--seechen-media-progress, 0%),
+        var(--seechen-color-on-dark-border) var(--seechen-media-buffered, 0%),
+        var(--seechen-color-on-dark-hover) var(--seechen-media-buffered, 0%),
+        var(--seechen-color-on-dark-hover) 100%
+    ) ;
+}
+
+.seechen-media-player__volume::-webkit-slider-runnable-track {
+    background: linear-gradient(
+        to right,
+        var(--seechen-color-primary-soft) 0%,
+        var(--seechen-color-primary-soft) var(--seechen-media-volume, 100%),
+        var(--seechen-color-on-dark-border) var(--seechen-media-volume, 100%),
+        var(--seechen-color-on-dark-border) 100%
+    ) ;
+}
+
+.seechen-media-player__progress::-moz-range-track,
+.seechen-media-player__volume::-moz-range-track {
+    height    : 0.125rem                            ;
+    background: var(--seechen-color-on-dark-border) ;
+}
+
+.seechen-media-player__progress::-moz-range-progress,
+.seechen-media-player__volume::-moz-range-progress {
+    height    : 0.125rem                          ;
+    background: var(--seechen-color-primary-soft) ;
+}
+
+.seechen-media-player__progress::-webkit-slider-thumb {
+    width             : var(--seechen-media-seek-thumb-size) ;
+    height            : var(--seechen-media-seek-thumb-size) ;
+    margin-top        : calc(
+        (0.125rem - var(--seechen-media-seek-thumb-size)) / 2
+    )                                                       ;
+    border             : 0                                      ;
+    border-radius      : var(--seechen-radius-round)            ;
+    background-color   : transparent                            ;
+    background-image   : var(--seechen-media-control-artwork)   ;
+    background-position: center                                 ;
+    background-repeat  : no-repeat                              ;
+    background-size    : contain                                ;
+    appearance         : none                                   ;
+    -webkit-appearance : none                                   ;
+}
+
+.seechen-media-player__progress::-moz-range-thumb {
+    width              : var(--seechen-media-seek-thumb-size)  ;
+    height             : var(--seechen-media-seek-thumb-size)  ;
+    border             : 0                                      ;
+    border-radius      : var(--seechen-radius-round)            ;
+    background-color   : transparent                            ;
+    background-image   : var(--seechen-media-control-artwork)   ;
+    background-position: center                                 ;
+    background-repeat  : no-repeat                              ;
+    background-size    : contain                                ;
+}
+
+.seechen-media-player__volume::-webkit-slider-thumb {
+    width             : 0.625rem                       ;
+    height            : 0.625rem                       ;
+    margin-top        : -0.25rem                       ;
+    border            : 0                              ;
+    border-radius     : var(--seechen-radius-round)    ;
+    background-color  : var(--seechen-color-surface)   ;
+    appearance        : none                           ;
+    -webkit-appearance: none                           ;
+}
+
+.seechen-media-player__volume::-moz-range-thumb {
+    width           : 0.625rem                    ;
+    height          : 0.625rem                    ;
+    border          : 0                           ;
+    border-radius   : var(--seechen-radius-round) ;
+    background-color: var(--seechen-color-surface);
+}
+
+.seechen-media-player__progress:focus-visible,
+.seechen-media-player__volume:focus-visible {
+    outline       : 1px solid var(--seechen-color-primary-soft) ;
+    outline-offset: 0.25rem                                    ;
+}
+
+.seechen-media-player__volume-control {
+    --seechen-media-volume-safe-apex: 50%      ;
+
+    position                         : relative ;
+}
+
+.seechen-media-player__volume-icon {
+    font-size  : var(--seechen-font-size-md) ;
+    line-height: 1                           ;
+}
+
+.seechen-media-player__volume-panel {
+    position        : absolute                                ;
+    right           : 50%                                     ;
+    bottom          : calc(100% + var(--seechen-space-xs))    ;
+    display         : grid                                    ;
+    gap             : var(--seechen-space-xs)                 ;
+    width           : 8rem                                    ;
+    padding         : var(--seechen-space-xs)                 ;
+    border          : 1px solid var(--seechen-color-on-dark-border);
+    border-radius   : var(--seechen-radius-sm)                ;
+    background-color: var(--seechen-color-surface-dark)       ;
+    opacity         : 0                                       ;
+    pointer-events  : none                                    ;
+    transform       : translate(50%, var(--seechen-space-xs)) ;
+    transition      : opacity var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard),
+        transform var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard)                    ;
+}
+
+.seechen-media-player__volume-panel::after {
+    content   : ''                                             ;
+    position  : absolute                                       ;
+    top       : 100%                                           ;
+    right     : 0                                              ;
+    width     : 100%                                           ;
+    height    : var(--seechen-media-volume-safe-zone-height)   ;
+    clip-path : polygon(
+        0 0,
+        100% 0,
+        var(--seechen-media-volume-safe-apex) 100%
+    )                                                          ;
+}
+
+.seechen-media-player__volume-control.is-volume-panel-open
+    .seechen-media-player__volume-panel {
+    opacity       : 1                  ;
+    pointer-events: auto               ;
+    transform     : translate(50%, 0)  ;
+}
+
+.seechen-media-player__volume-value {
+    color      : var(--seechen-color-neutral)  ;
+    font-family: var(--seechen-font-mono)      ;
+    font-size  : var(--seechen-font-size-2xs)  ;
+    text-align : center                        ;
+}
+
+.seechen-media-player__control--pip .seechen-media-player__control-icon {
+    width : 0.85rem                   ;
+    height: 0.65rem                   ;
+    border: 0.1rem solid currentcolor;
+}
+
+.seechen-media-player__control--pip
+    .seechen-media-player__control-icon::after {
+    content         : ''                                  ;
+    position        : absolute                            ;
+    right           : 0.08rem                             ;
+    bottom          : 0.08rem                             ;
+    width           : 0.38rem                             ;
+    height          : 0.28rem                             ;
+    background-color: currentcolor                        ;
+}
+
+.seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon {
+    --seechen-fullscreen-corner-length   : 0.3rem  ;
+    --seechen-fullscreen-corner-thickness: 0.1rem  ;
+    --seechen-fullscreen-exit-length     : 0.18rem ;
+    --seechen-fullscreen-exit-inset      : 0.14rem ;
+
+    width                                  : 0.85rem ;
+    height                                 : 0.85rem ;
+}
+
+.seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::before,
+.seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::after {
+    content              : ''                                   ;
+    position             : absolute                             ;
+    inset                : 0                                    ;
+    background-repeat    : no-repeat                            ;
+    transition           : opacity var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard),
+        transform var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard)                      ;
+}
+
+.seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::before {
+    background-image     : linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0)                        ;
+    background-position  : left top,
+        left top,
+        right top,
+        right top,
+        left bottom,
+        left bottom,
+        right bottom,
+        right bottom                                              ;
+    background-size      : var(--seechen-fullscreen-corner-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-corner-length),
+        var(--seechen-fullscreen-corner-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-corner-length),
+        var(--seechen-fullscreen-corner-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-corner-length),
+        var(--seechen-fullscreen-corner-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-corner-length)                   ;
+    opacity              : 1                                      ;
+    transform            : scale(1)                               ;
+}
+
+.seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::after {
+    inset                : var(--seechen-fullscreen-exit-inset)        ;
+    background-image     : linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0),
+        linear-gradient(currentcolor 0 0)                         ;
+    background-position  : left top,
+        left top,
+        right top,
+        right top,
+        left bottom,
+        left bottom,
+        right bottom,
+        right bottom                                             ;
+    background-size      : var(--seechen-fullscreen-exit-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-exit-length),
+        var(--seechen-fullscreen-exit-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-exit-length),
+        var(--seechen-fullscreen-exit-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-exit-length),
+        var(--seechen-fullscreen-exit-length)
+        var(--seechen-fullscreen-corner-thickness),
+        var(--seechen-fullscreen-corner-thickness)
+        var(--seechen-fullscreen-exit-length)                      ;
+    opacity              : 0                                      ;
+    transform            : scale(0.7)                             ;
+}
+
+.seechen-media-player.is-fullscreen
+    .seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::before {
+    opacity  : 0          ;
+    transform: scale(1.2) ;
+}
+
+.seechen-media-player.is-fullscreen
+    .seechen-media-player__control--fullscreen
+    .seechen-media-player__control-icon::after {
+    opacity  : 1        ;
+    transform: scale(1) ;
+}
+
+.seechen-media-player__passive-progress {
+    position        : absolute                          ;
+    right           : 0                                 ;
+    bottom          : 0                                 ;
+    left            : 0                                 ;
+    z-index         : 5                                 ;
+    height          : var(--seechen-media-passive-progress-height);
+    overflow        : hidden                            ;
+    background-color: var(--seechen-color-on-dark-border);
+    opacity         : 1                                 ;
+    pointer-events  : none                              ;
+    transition      : opacity var(--seechen-motion-fast)
+        var(--seechen-motion-ease-standard)              ;
+}
+
+.seechen-media-player__passive-progress::after {
+    content         : ''                                    ;
+    position        : absolute                              ;
+    top             : 0                                     ;
+    bottom          : 0                                     ;
+    left            : 0                                     ;
+    width           : var(--seechen-media-progress, 0%)     ;
+    background-color: var(--seechen-color-primary-soft)     ;
+}
+
+.seechen-media-player.are-controls-visible
+    .seechen-media-player__passive-progress {
+    opacity: 0 ;
+}
+
+.seechen-media-player:fullscreen {
+    aspect-ratio: auto ;
+    height      : 100% ;
+}
+
+@media (max-width: 767px) {
+    .seechen-media-player__watermark {
+        right: var(--seechen-space-xs)     ;
+        width: clamp(4rem, 20%, 6rem)      ;
+    }
+
+    .seechen-media-player.are-controls-visible
+        .seechen-media-player__watermark {
+        bottom: calc(
+            var(--seechen-media-control-height) + var(--seechen-space-xs)
+        ) ;
+    }
+
+    .seechen-media-player__controls {
+        padding-inline: var(--seechen-space-xs) ;
+    }
+
+    .seechen-media-player__control {
+        width : 2.25rem ;
+        height: 2.25rem ;
+    }
+
+    .seechen-media-player__command-row {
+        grid-template-columns: auto auto minmax(0, 1fr) auto auto auto auto;
+        gap                  : var(--seechen-space-2xs)                  ;
+    }
+
+    .seechen-media-player__time {
+        min-width: 4.6rem                        ;
+        font-size: var(--seechen-font-size-2xs)  ;
+    }
+
+    .seechen-media-player__rate {
+        width  : 2.5rem ;
+        padding: 0       ;
+    }
+
+    .seechen-media-player__center-control {
+        width : calc(var(--seechen-media-center-control-size) * 0.8) ;
+        height: calc(var(--seechen-media-center-control-size) * 0.8) ;
+    }
+
+    .seechen-media-player__preview {
+        width: min(var(--seechen-media-preview-width), 42vw) ;
+    }
+
+    .seechen-media-player__volume-panel {
+        right    : 0                                     ;
+        bottom   : calc(100% + var(--seechen-space-sm))  ;
+        width    : 10rem                                 ;
+        padding  : var(--seechen-space-sm)               ;
+        transform: translate(0, var(--seechen-space-xs)) ;
+    }
+
+    .seechen-media-player__volume {
+        height: 2rem ;
+    }
+
+    .seechen-media-player__volume::-webkit-slider-thumb {
+        width     : var(--seechen-space-md) ;
+        height    : var(--seechen-space-md) ;
+        margin-top: calc(
+            (0.125rem - var(--seechen-space-md)) / 2
+        )                                      ;
+    }
+
+    .seechen-media-player__volume::-moz-range-thumb {
+        width : var(--seechen-space-md) ;
+        height: var(--seechen-space-md) ;
+    }
+
+    .seechen-media-player__volume-control {
+        --seechen-media-volume-safe-apex: calc(100% - 1rem) ;
+    }
+
+    .seechen-media-player__volume-control.is-volume-panel-open
+        .seechen-media-player__volume-panel {
+        transform: none ;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .seechen-media-player__controls,
+    .seechen-media-player__watermark,
+    .seechen-media-player__volume-panel,
+    .seechen-media-player__control--fullscreen
+        .seechen-media-player__control-icon::before,
+    .seechen-media-player__control--fullscreen
+        .seechen-media-player__control-icon::after {
+        transition: none ;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .seechen-media-player__center-control,
+    .seechen-media-player__loading {
+        backdrop-filter: none ;
+    }
+}
