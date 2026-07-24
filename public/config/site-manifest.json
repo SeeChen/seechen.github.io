@@ -1,6 +1,7 @@
 {
     "SITE": {
         "NAME": "SEECHEN",
+        "EDITORIAL_NAME": "SEECHEN LEE",
         "DOMAIN": "seechen.com"
     },
     "RELEASE": {
@@ -22,6 +23,12 @@
                     "VARIANT": "EDITORIAL",
                     "COLLAPSE_AT": 160,
                     "EXPAND_AT": 16
+                },
+                "DATA": {
+                    "WORK_PROJECTS": "/public/data/pages/home/work-projects.json",
+                    "TRAVEL_HIGHLIGHTS": "/public/data/pages/home/travel-highlights.json",
+                    "YEAR_CHRONICLE": "/public/data/pages/home/year-chronicle.json",
+                    "CURRENT_STATE": "/public/data/pages/home/current-state.json"
                 },
                 "TITLE": {
                     "NAMESPACE": "SHELL",
