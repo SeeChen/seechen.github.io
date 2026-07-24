@@ -1,0 +1,77 @@
+{
+    "MAX_VISIBLE": {
+        "MOBILE": 4,
+        "TABLET": 4,
+        "DESKTOP": 8
+    },
+    "ITEMS": [
+        {
+            "ID": "current-focus",
+            "ICON": "FOCUS",
+            "VARIANT": "COMPACT",
+            "IMAGE": "/assets/images/pages/home/hero.avif",
+            "LABEL_KEY": "NARRATIVE_FOCUS_LABEL",
+            "TITLE_KEY": "NARRATIVE_FOCUS_TITLE",
+            "META_KEY": "NARRATIVE_FOCUS_META",
+            "DESCRIPTION_KEY": "NARRATIVE_FOCUS_DESCRIPTION",
+            "ALT_KEY": "NARRATIVE_FOCUS_ALT",
+            "ORDER": 10,
+            "ENABLED": {
+                "MOBILE": true,
+                "TABLET": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "building-now",
+            "ICON": "BUILD",
+            "VARIANT": "STANDARD",
+            "IMAGE": "/assets/images/pages/home/workspace.png",
+            "LABEL_KEY": "NARRATIVE_BUILD_LABEL",
+            "TITLE_KEY": "NARRATIVE_BUILD_TITLE",
+            "META_KEY": "NARRATIVE_BUILD_META",
+            "DESCRIPTION_KEY": "NARRATIVE_BUILD_DESCRIPTION",
+            "ALT_KEY": "NARRATIVE_BUILD_ALT",
+            "ORDER": 20,
+            "ENABLED": {
+                "MOBILE": true,
+                "TABLET": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "current-base",
+            "ICON": "LOCATION",
+            "VARIANT": "STANDARD",
+            "IMAGE": "/assets/images/travel/highlights/kuala-lumpur-city-fragments.avif",
+            "LABEL_KEY": "NARRATIVE_LOCATION_LABEL",
+            "TITLE_KEY": "NARRATIVE_LOCATION_TITLE",
+            "META_KEY": "NARRATIVE_LOCATION_META",
+            "DESCRIPTION_KEY": "NARRATIVE_LOCATION_DESCRIPTION",
+            "ALT_KEY": "NARRATIVE_LOCATION_ALT",
+            "ORDER": 30,
+            "ENABLED": {
+                "MOBILE": true,
+                "TABLET": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "beyond-screen",
+            "ICON": "TRAVEL",
+            "VARIANT": "STANDARD",
+            "IMAGE": "/assets/images/travel/highlights/yunnan-mountain-road.avif",
+            "LABEL_KEY": "NARRATIVE_JOURNEY_LABEL",
+            "TITLE_KEY": "NARRATIVE_JOURNEY_TITLE",
+            "META_KEY": "NARRATIVE_JOURNEY_META",
+            "DESCRIPTION_KEY": "NARRATIVE_JOURNEY_DESCRIPTION",
+            "ALT_KEY": "NARRATIVE_JOURNEY_ALT",
+            "ORDER": 40,
+            "ENABLED": {
+                "MOBILE": true,
+                "TABLET": true,
+                "DESKTOP": true
+            }
+        }
+    ]
+}
