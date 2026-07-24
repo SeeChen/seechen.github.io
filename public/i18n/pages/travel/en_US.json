@@ -1,0 +1,78 @@
+{
+    "VIEW_JOURNEY": "ALONG THE WAY",
+
+    "HIGHLIGHT_YUNNAN_LOCATION"   : "ESHAN YI AUTONOMOUS COUNTY, YUXI, YUNNAN, CHINA",
+    "HIGHLIGHT_YUNNAN_TITLE"      : "Where the Wind Crosses the Yi Mountains",
+    "HIGHLIGHT_YUNNAN_DESCRIPTION": "I follow the road until the landscapes caught by the lens slowly become the warmth of memory.",
+    "HIGHLIGHT_YUNNAN_ALT"        : "A road winding through the mountains of Yunnan",
+
+    "HIGHLIGHT_BEIJING_WINTER_LOCATION"   : "THE PALACE MUSEUM, BEIJING, CHINA",
+    "HIGHLIGHT_BEIJING_WINTER_TITLE"      : "A Winter Sunset Softens the Forbidden City",
+    "HIGHLIGHT_BEIJING_WINTER_DESCRIPTION": "From the top of Jingshan, the usually imposing Forbidden City feels unusually gentle and still in the warm winter light.",
+    "HIGHLIGHT_BEIJING_WINTER_ALT"        : "The Forbidden City resting quietly beneath a warm winter sunset",
+    
+    "HIGHLIGHT_BEIJING_MOON_LOCATION"   : "FANGSHAN, BEIJING, CHINA",
+    "HIGHLIGHT_BEIJING_MOON_TITLE"      : "Moonrise over Fangshan Tonight",
+    "HIGHLIGHT_BEIJING_MOON_DESCRIPTION": "At the quiet edge of the city, I steal a little time for the night, somewhere between the moon and the stars.",
+    "HIGHLIGHT_BEIJING_MOON_ALT"        : "A bright moon rising over the night sky in Fangshan, Beijing",
+
+    "HIGHLIGHT_KL_CITY_LOCATION"   : "KUALA LUMPUR, MALAYSIA",
+    "HIGHLIGHT_KL_CITY_TITLE"      : "Fragments of Kuala Lumpur",
+    "HIGHLIGHT_KL_CITY_DESCRIPTION": "Moving between towers, noisy streets, and passing trains, I quietly collect fragments of everyday life in the city.",
+    "HIGHLIGHT_KL_CITY_ALT"        : "An everyday street scene full of life in Kuala Lumpur",
+
+    "HIGHLIGHT_KL_NIGHT_LOCATION"   : "KUALA LUMPUR, MALAYSIA",
+    "HIGHLIGHT_KL_NIGHT_TITLE"      : "Night Deepens, the City Stays Awake",
+    "HIGHLIGHT_KL_NIGHT_DESCRIPTION": "As darkness settles over the streets and the lamps come on, the stories of the night are only beginning.",
+    "HIGHLIGHT_KL_NIGHT_ALT"        : "Kuala Lumpur glowing with light, still awake late at night",
+
+    "HIGHLIGHT_PENANG_BRIDGE_LOCATION"   : "PENANG HILL, PENANG, MALAYSIA",
+    "HIGHLIGHT_PENANG_BRIDGE_TITLE"      : "Meeting the Second Bridge in the Mist",
+    "HIGHLIGHT_PENANG_BRIDGE_DESCRIPTION": "From the top of Penang Hill, the Second Bridge appears through the morning mist, a gentle line drawn between sea and sky.",
+    "HIGHLIGHT_PENANG_BRIDGE_ALT"        : "Penang Second Bridge seen through mist from the top of Penang Hill",
+    
+    "HIGHLIGHT_QIGUANDING_LOCATION"   : "QIGUANDING, FUJIAN, CHINA",
+    "HIGHLIGHT_QIGUANDING_TITLE"      : "Where the Mountains Embrace the Sea",
+    "HIGHLIGHT_QIGUANDING_DESCRIPTION": "From the summit of Qiguanding, fishing villages and offshore farms unfold naturally along the blue coastline.",
+    "HIGHLIGHT_QIGUANDING_ALT"        : "Blue coastline and fishing villages seen from Qiguanding",
+    
+    "HIGHLIGHT_YANTAI_LOCATION"   : "YANTAI, SHANDONG, CHINA",
+    "HIGHLIGHT_YANTAI_TITLE"      : "Riding to the Sound of the Sea",
+    "HIGHLIGHT_YANTAI_DESCRIPTION": "Cyclists take their time along a quiet coastal road, with the open sea beside them, gulls overhead, and only the soft sound of waves.",
+    "HIGHLIGHT_YANTAI_ALT"        : "Cyclists beside the open sea in Yantai",
+    
+    "HIGHLIGHT_KUBUQI_LOCATION"   : "KUBUQI DESERT, INNER MONGOLIA, CHINA",
+    "HIGHLIGHT_KUBUQI_TITLE"      : "Solitude and Freedom in the Desert",
+    "HIGHLIGHT_KUBUQI_DESCRIPTION": "Between endless sand and an open sky, one small figure gives the vast windblown desert a place to stand.",
+    "HIGHLIGHT_KUBUQI_ALT"        : "A lone figure standing on a dune in the Kubuqi Desert",
+
+    "HIGHLIGHT_XIAMEN_TEMPLE_LOCATION"   : "CHAOTIAN TEMPLE, XIAMEN, FUJIAN, CHINA",
+    "HIGHLIGHT_XIAMEN_TEMPLE_TITLE"      : "Where Incense and the Sky Intersect",
+    "HIGHLIGHT_XIAMEN_TEMPLE_DESCRIPTION": "Above the upturned eaves and curling incense of a Minnan temple, a passenger jet roars past. Old faith and modern flight overlap for one striking instant.",
+    "HIGHLIGHT_XIAMEN_TEMPLE_ALT"        : "A passenger jet flying over the traditional roof of Chaotian Temple in Xiamen",
+    
+    "HIGHLIGHT_CHILECHUAN_LOCATION"   : "CHILECHUAN, INNER MONGOLIA, CHINA",
+    "HIGHLIGHT_CHILECHUAN_TITLE"      : "Wind over the Grass, Sky without End",
+    "HIGHLIGHT_CHILECHUAN_DESCRIPTION": "Rolling highland grass stretches beneath my feet as drifting clouds carry every thought toward an unknown horizon.",
+    "HIGHLIGHT_CHILECHUAN_ALT"        : "Vast green grassland beneath drifting clouds in Chilechuan",
+    
+    "HIGHLIGHT_KL_SKYLINE_LOCATION"   : "KUALA LUMPUR, MALAYSIA",
+    "HIGHLIGHT_KL_SKYLINE_TITLE"      : "Tracing the Shape of Night",
+    "HIGHLIGHT_KL_SKYLINE_DESCRIPTION": "As night falls, lights come on window by window, redrawing the city's distinctive bones with a gentler glow.",
+    "HIGHLIGHT_KL_SKYLINE_ALT"        : "The Kuala Lumpur skyline as its lights come on at night",
+
+    "HIGHLIGHT_PUTRAJAYA_LOCATION"    : "PUTRAJAYA, MALAYSIA",
+    "HIGHLIGHT_PUTRAJAYA_TITLE"       : "Stillness at the End of the Avenue",
+    "HIGHLIGHT_PUTRAJAYA_DESCRIPTION" : "Walking along the broad, solemn avenue, the eye is naturally drawn toward the stately green dome in the distance.",
+    "HIGHLIGHT_PUTRAJAYA_ALT"         : "A broad avenue in Putrajaya leading toward a distant green dome",
+    
+    "HIGHLIGHT_HONG_KONG_TRAM_LOCATION"   : "HONG KONG, CHINA",
+    "HIGHLIGHT_HONG_KONG_TRAM_TITLE"      : "Time Sways with the Ding Ding Tram",
+    "HIGHLIGHT_HONG_KONG_TRAM_DESCRIPTION": "A double-decker tram sways around the corner, carrying the light of another era through streets where bustle and memory overlap.",
+    "HIGHLIGHT_HONG_KONG_TRAM_ALT"        : "A double-decker Ding Ding tram traveling through an old Hong Kong street",
+    
+    "HIGHLIGHT_WEIHAI_LOCATION"   : "WEIHAI, SHANDONG, CHINA",
+    "HIGHLIGHT_WEIHAI_TITLE"      : "One Curve across the Sea",
+    "HIGHLIGHT_WEIHAI_DESCRIPTION": "A small boat cuts through the still sea, leaving behind a bright curve that belongs to it alone.",
+    "HIGHLIGHT_WEIHAI_ALT"        : "A small boat leaving a curved white wake across the blue sea in Weihai"
+}

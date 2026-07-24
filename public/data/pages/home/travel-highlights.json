@@ -1,0 +1,410 @@
+{
+    "MAX_VISIBLE": {
+        "MOBILE": 10,
+        "TABLET": 20,
+        "DESKTOP": 20
+    },
+    "ITEMS": [
+        {
+            "ID": "flight-over-temple",
+            "IMAGE": "/assets/images/travel/highlights/flight-over-temple.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_XIAMEN_TEMPLE_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_XIAMEN_TEMPLE_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_XIAMEN_TEMPLE_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_XIAMEN_TEMPLE_ALT",
+            "HREF": "/travel/CN/FuJian",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 1,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "beijing-winter-light",
+            "IMAGE": "/assets/images/travel/highlights/beijing-winter-light.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_BEIJING_WINTER_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_BEIJING_WINTER_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_BEIJING_WINTER_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_BEIJING_WINTER_ALT",
+            "HREF": "/travel/CN/BeiJing",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 2,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "figure-on-sand-dune",
+            "IMAGE": "/assets/images/travel/highlights/figure-on-sand-dune.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "BOTTOM"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_KUBUQI_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_KUBUQI_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_KUBUQI_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_KUBUQI_ALT",
+            "HREF": "/travel/CN/InnerMongolia",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 3,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "wake-across-open-water",
+            "IMAGE": "/assets/images/travel/highlights/wake-across-open-water.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_WEIHAI_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_WEIHAI_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_WEIHAI_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_WEIHAI_ALT",
+            "HREF": "/travel/CN/ShanDong",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 6,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "beijing-moonrise",
+            "IMAGE": "/assets/images/travel/highlights/beijing-moonrise.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_BEIJING_MOON_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_BEIJING_MOON_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_BEIJING_MOON_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_BEIJING_MOON_ALT",
+            "HREF": "/travel/CN/BeiJing",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 5,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "kuala-lumpur-nightfall",
+            "IMAGE": "/assets/images/travel/highlights/kuala-lumpur-nightfall.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_KL_NIGHT_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_KL_NIGHT_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_KL_NIGHT_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_KL_NIGHT_ALT",
+            "HREF": "/travel/MY/KL",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 10,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "coastal-aquaculture-from-above",
+            "IMAGE": "/assets/images/travel/highlights/coastal-aquaculture-from-above.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "RIGHT",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_QIGUANDING_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_QIGUANDING_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_QIGUANDING_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_QIGUANDING_ALT",
+            "HREF": "/travel/CN/FuJian",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 15,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "green-mountain-ridges",
+            "IMAGE": "/assets/images/travel/highlights/green-mountain-ridges.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_CHILECHUAN_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_CHILECHUAN_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_CHILECHUAN_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_CHILECHUAN_ALT",
+            "HREF": "/travel/CN/InnerMongolia",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 20,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "kuala-lumpur-night-skyline",
+            "IMAGE": "/assets/images/travel/highlights/kuala-lumpur-night-skyline.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_KL_SKYLINE_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_KL_SKYLINE_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_KL_SKYLINE_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_KL_SKYLINE_ALT",
+            "HREF": "/travel/MY/KL",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 23,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": true
+            }
+        },
+        {
+            "ID": "tram-through-city-streets",
+            "IMAGE": "/assets/images/travel/highlights/tram-through-city-streets.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_HONG_KONG_TRAM_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_HONG_KONG_TRAM_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_HONG_KONG_TRAM_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_HONG_KONG_TRAM_ALT",
+            "HREF": "/travel/CN/HongKong",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 25,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": true
+            }
+        },
+
+        {
+            "ID": "yunnan-mountain-road",
+            "IMAGE": "/assets/images/travel/highlights/yunnan-mountain-road.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "LEFT",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_YUNNAN_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_YUNNAN_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_YUNNAN_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_YUNNAN_ALT",
+            "HREF": "/travel/CN/YunNan",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 100,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "kuala-lumpur-city-fragments",
+            "IMAGE": "/assets/images/travel/highlights/kuala-lumpur-city-fragments.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_KL_CITY_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_KL_CITY_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_KL_CITY_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_KL_CITY_ALT",
+            "HREF": "/travel/MY/KL",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 40,
+            "ENABLED": {
+                "MOBILE": false,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "bridge-through-blue-haze",
+            "IMAGE": "/assets/images/travel/highlights/bridge-through-blue-haze.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_PENANG_BRIDGE_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_PENANG_BRIDGE_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_PENANG_BRIDGE_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_PENANG_BRIDGE_ALT",
+            "HREF": "/travel/MY/Pinang",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 70,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "cyclists-by-the-sea",
+            "IMAGE": "/assets/images/travel/highlights/cyclists-by-the-sea.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_YANTAI_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_YANTAI_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_YANTAI_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_YANTAI_ALT",
+            "HREF": "/travel/CN/ShanDong",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 90,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "putrajaya-ceremonial-boulevard",
+            "IMAGE": "/assets/images/travel/highlights/putrajaya-ceremonial-boulevard.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_PUTRAJAYA_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_PUTRAJAYA_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_PUTRAJAYA_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_PUTRAJAYA_ALT",
+            "HREF": "/travel/MY/Putrajaya",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 140,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": false
+            }
+        },
+        {
+            "ID": "tram-beneath-colonnade",
+            "IMAGE": "/assets/images/travel/highlights/tram-beneath-colonnade.avif",
+            "IMAGE_POSITION": {
+                "MOBILE": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "CENTER"
+                },
+                "DESKTOP": {
+                    "HORIZONTAL": "CENTER",
+                    "VERTICAL": "BOTTOM"
+                }
+            },
+            "LOCATION_KEY": "HIGHLIGHT_HONG_KONG_TRAM_LOCATION",
+            "TITLE_KEY": "HIGHLIGHT_HONG_KONG_TRAM_TITLE",
+            "DESCRIPTION_KEY": "HIGHLIGHT_HONG_KONG_TRAM_DESCRIPTION",
+            "ALT_KEY": "HIGHLIGHT_HONG_KONG_TRAM_ALT",
+            "HREF": "/travel/CN/HongKong",
+            "LINK_TEXT_KEY": "VIEW_JOURNEY",
+            "ORDER": 150,
+            "ENABLED": {
+                "MOBILE": true,
+                "DESKTOP": false
+            }
+        }
+    ]
+}

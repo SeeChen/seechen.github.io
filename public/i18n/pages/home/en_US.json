@@ -1,0 +1,72 @@
+{
+    "INTRO_GREETING"     : "HIIIIII THERE~ I AM:",
+    "INTRO_NAME"         : "SEECHEN LEE",
+    "INTRO_ROLE_LABEL"   : "Role",
+    "INTRO_ROLE"         : "Brick-Moving Enthusiast",
+    "INTRO_COMPANY_LABEL": "Working @",
+
+    "WORK_COPYRIGHT": "© 2024–2026 LEE SEE CHEN",
+    "WORK_SUBTITLE" : "seechen.com",
+    "WORK_LOCATION" : "TRX EXCHANGE 106, KUALA LUMPUR, MALAYSIA.",
+
+    "WORK_PROJECT_AMBER_CATEGORY"   : "WEB ARCHITECTURE",
+    "WORK_PROJECT_AMBER_TITLE"      : "SeeChen / Amber",
+    "WORK_PROJECT_AMBER_DESCRIPTION": "Learning makes me happy~ This single-page application exists so I can study web architecture. I reinvent nearly every wheel, but doing so helps me understand how each component works and why it is designed that way.",
+
+    "WORK_PROJECT_CODETRACE_AI_CATEGORY"   : "ARTIFICIAL INTELLIGENCE",
+    "WORK_PROJECT_CODETRACE_AI_TITLE"      : "CodeTrace - by AI",
+    "WORK_PROJECT_CODETRACE_AI_DESCRIPTION": "To free up my hands, I tried using Claude Code to automate the entire development pipeline, from a single requirements document all the way to delivery. AI really is badass!",
+
+    "WORK_PROJECT_ROUTING_CATEGORY"   : "ALGORITHM DESIGN",
+    "WORK_PROJECT_ROUTING_TITLE"      : "Multilevel Transport Routing",
+    "WORK_PROJECT_ROUTING_DESCRIPTION": "A graph-based routing study combining constraints, dynamic models, and shortest-path strategies. It is still in progress; I will share it whenever I finally figure it out~ At this point, it may come down to luck~",
+
+    "WORK_PROJECT_WEBPAGE_CORE_CATEGORY"   : "FOUNDATION STUDY",
+    "WORK_PROJECT_WEBPAGE_CORE_TITLE"      : "Core of This Website",
+    "WORK_PROJECT_WEBPAGE_CORE_DESCRIPTION": "A set of framework-free foundation services that connects page data, rendering, and interaction responsibilities. (It is also here because I needed a fourth item for the Stitch layout.)",
+
+    "WORK_PROJECT_VIEW_PROJECT": "VIEW PROJECT",
+    "WORK_PROJECT_VIEW_PROFILE": "VIEW PROFILE",
+    "WORK_PROJECT_VIEW_SOURCE" : "VIEW SOURCE",
+    "WORK_PROJECT_VIEW_REPO"   : "VIEW REPOSITORY",
+
+    "TRAVEL_KICKER"        : "Travel notes",
+    "TRAVEL_TITLE"         : "I come to know a place only by moving through it.",
+    "TRAVEL_STATEMENT"     : "Routes, light, and chance encounters become the traces that time leaves behind.",
+    "TRAVEL_CAROUSEL_LABEL": "Selected travel journeys",
+    "TRAVEL_PREVIOUS"      : "Previous journey",
+    "TRAVEL_NEXT"          : "Next journey",
+
+    "CHRONICLE_KICKER"     : "Traces of time",
+    "CHRONICLE_TITLE"      : "As If It Were Yesterday",
+    "CHRONICLE_STATEMENT"  : "Visual Journal 2025: Life, code, the poetry, and the paperwork.",
+    "CHRONICLE_VIDEO_LABEL": "My visual chronicle of 2025",
+    "CHRONICLE_TIMESTAMP"  : "AS IF YESTERDAY / 2025",
+
+    "NARRATIVE_KICKER"      : "Here and now",
+    "NARRATIVE_REGION_LABEL": "SeeChen's current state and focus",
+
+    "NARRATIVE_FOCUS_LABEL"      : "Focus",
+    "NARRATIVE_FOCUS_TITLE"      : "Version A / Amber",
+    "NARRATIVE_FOCUS_META"       : "CURRENT RELEASE",
+    "NARRATIVE_FOCUS_DESCRIPTION": "Continuing to refine this personal web system, pursue the questions behind it, bring it closer to completion, and record the stories it preserves.",
+    "NARRATIVE_FOCUS_ALT"        : "SeeChen standing beside a bridge at night",
+
+    "NARRATIVE_BUILD_LABEL"      : "Building",
+    "NARRATIVE_BUILD_TITLE"      : "Personal Website",
+    "NARRATIVE_BUILD_META"       : "SYSTEM DESIGN",
+    "NARRATIVE_BUILD_DESCRIPTION": "Learning by building a framework-free interface system around explicit lifecycle, data, rendering, and interaction boundaries.",
+    "NARRATIVE_BUILD_ALT"        : "A software development workspace with code and data on screen",
+
+    "NARRATIVE_LOCATION_LABEL"      : "Location",
+    "NARRATIVE_LOCATION_TITLE"      : "Kuala Lumpur, Malaysia",
+    "NARRATIVE_LOCATION_META"       : "BETWEEN SYSTEMS AND STORIES",
+    "NARRATIVE_LOCATION_DESCRIPTION": "The weather in Kuala Lumpur is always changing its mind, though most days seem to settle into a soft shade of gray~",
+    "NARRATIVE_LOCATION_ALT"        : "A view across Kuala Lumpur after rain",
+
+    "NARRATIVE_JOURNEY_LABEL"      : "On the road",
+    "NARRATIVE_JOURNEY_TITLE"      : "Places in Motion",
+    "NARRATIVE_JOURNEY_META"       : "TRAVEL & PHOTOGRAPHY",
+    "NARRATIVE_JOURNEY_DESCRIPTION": "Recording routes, light, and the quieter details that remain in memory long after I leave a place.",
+    "NARRATIVE_JOURNEY_ALT"        : "A green mountain road and village in Yunnan"
+}

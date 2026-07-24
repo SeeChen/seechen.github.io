@@ -1,0 +1,38 @@
+{
+    "PLAYLIST": "/assets/videos/pages/home/2025-chronicle/index.m3u8",
+    "POSTER": "/assets/videos/pages/home/2025-chronicle/poster.jpg",
+    "WATERMARK": "/assets/images/share/media/lens-of-seechen-watermark.png",
+    "CONTROL_ARTWORK": "/assets/images/share/loading.png",
+    "MIME_TYPE": "video/mp4; codecs=\"avc1.640029, mp4a.40.2\"",
+    "PRELOAD_MARGIN": "100% 0px",
+    "AUTOPLAY": {
+        "ENABLED": true,
+        "MUTED": true,
+        "START_RATIO": 0.62,
+        "PAUSE_RATIO": 0.18
+    },
+    "CONTROLS": {
+        "HIDE_DELAY_MS": 1800,
+        "DOUBLE_CLICK_DELAY_MS": 240,
+        "VOLUME_PANEL_HIDE_DELAY_MS": 180
+    },
+    "PLAYBACK_RATES": [
+        0.5,
+        1,
+        1.25,
+        1.5,
+        2
+    ],
+    "PREVIEW": {
+        "ENABLED": true,
+        "DIRECTORY": "/assets/videos/pages/home/2025-chronicle/previews",
+        "EXTENSION": "jpg",
+        "INTERVAL_SECONDS": 5,
+        "COUNT": 18
+    },
+    "BUFFER": {
+        "LOW_WATER_SECONDS": 8,
+        "HIGH_WATER_SECONDS": 20,
+        "BACK_BUFFER_SECONDS": 12
+    }
+}

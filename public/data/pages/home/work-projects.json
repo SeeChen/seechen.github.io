@@ -1,0 +1,49 @@
+{
+    "MAX_VISIBLE": {
+        "MOBILE": 2,
+        "TABLET": 3,
+        "DESKTOP": 4
+    },
+    "ITEMS": [
+        {
+            "ID": "seechen-amber",
+            "CATEGORY_KEY": "WORK_PROJECT_AMBER_CATEGORY",
+            "TITLE_KEY": "WORK_PROJECT_AMBER_TITLE",
+            "DESCRIPTION_KEY": "WORK_PROJECT_AMBER_DESCRIPTION",
+            "HREF": "https://github.com/SeeChen/seechen.github.io",
+            "LINK_TEXT_KEY": "WORK_PROJECT_VIEW_REPO",
+            "WEIGHT": 100,
+            "ENABLED": true
+        },
+        {
+            "ID": "code-trace-ai",
+            "CATEGORY_KEY": "WORK_PROJECT_CODETRACE_AI_CATEGORY",
+            "TITLE_KEY": "WORK_PROJECT_CODETRACE_AI_TITLE",
+            "DESCRIPTION_KEY": "WORK_PROJECT_CODETRACE_AI_DESCRIPTION",
+            "HREF": "https://github.com/SeeChen/CodeTrace",
+            "LINK_TEXT_KEY": "WORK_PROJECT_VIEW_PROJECT",
+            "WEIGHT": 95,
+            "ENABLED": true
+        },
+        {
+            "ID": "traffic-routing",
+            "CATEGORY_KEY": "WORK_PROJECT_ROUTING_CATEGORY",
+            "TITLE_KEY": "WORK_PROJECT_ROUTING_TITLE",
+            "DESCRIPTION_KEY": "WORK_PROJECT_ROUTING_DESCRIPTION",
+            "HREF": "https://github.com/SeeChen",
+            "LINK_TEXT_KEY": "WORK_PROJECT_VIEW_PROFILE",
+            "WEIGHT": 90,
+            "ENABLED": true
+        },
+        {
+            "ID": "webpage-core",
+            "CATEGORY_KEY": "WORK_PROJECT_WEBPAGE_CORE_CATEGORY",
+            "TITLE_KEY": "WORK_PROJECT_WEBPAGE_CORE_TITLE",
+            "DESCRIPTION_KEY": "WORK_PROJECT_WEBPAGE_CORE_DESCRIPTION",
+            "HREF": "https://github.com/SeeChen/seechen.github.io/tree/dev/src/js/core",
+            "LINK_TEXT_KEY": "WORK_PROJECT_VIEW_SOURCE",
+            "WEIGHT": 70,
+            "ENABLED": true
+        }
+    ]
+}

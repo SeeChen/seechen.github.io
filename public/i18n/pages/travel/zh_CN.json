@@ -1,0 +1,78 @@
+{
+    "VIEW_JOURNEY": "沿途风景",
+
+    "HIGHLIGHT_YUNNAN_LOCATION"   : "中国 · 云南 · 玉溪 · 峨山彝族自治县",
+    "HIGHLIGHT_YUNNAN_TITLE"      : "风吹过彝乡的群山",
+    "HIGHLIGHT_YUNNAN_DESCRIPTION": "沿着公路一直开，直到镜头里的风景，渐渐变成记忆里的温度。",
+    "HIGHLIGHT_YUNNAN_ALT"        : "云南群山间的公路风景",
+
+    "HIGHLIGHT_BEIJING_WINTER_LOCATION"   : "中国 · 北京 · 故宫博物院",
+    "HIGHLIGHT_BEIJING_WINTER_TITLE"      : "故宫落日，冬日温情",
+    "HIGHLIGHT_BEIJING_WINTER_DESCRIPTION": "站在景山顶上俯瞰，平日磅礴的紫禁城，在冬日的暖阳里显得格外温柔安静。",
+    "HIGHLIGHT_BEIJING_WINTER_ALT"        : "冬日夕阳下安静温情的北京故宫",
+
+    "HIGHLIGHT_BEIJING_MOON_LOCATION"   : "中国 · 北京 · 房山",
+    "HIGHLIGHT_BEIJING_MOON_TITLE"      : "今夜月升房山",
+    "HIGHLIGHT_BEIJING_MOON_DESCRIPTION": "逃离喧嚣的城市边缘，只想在月亮与星空之间，分给夜晚一点点闲暇。",
+    "HIGHLIGHT_BEIJING_MOON_ALT"        : "北京房山夜空上升起的皎洁明月",
+
+    "HIGHLIGHT_KL_CITY_LOCATION"   : "马来西亚 · 吉隆坡",
+    "HIGHLIGHT_KL_CITY_TITLE"      : "收集吉隆坡的碎片",
+    "HIGHLIGHT_KL_CITY_DESCRIPTION": "穿梭在高楼、喧闹街道与呼啸而过的列车间，悄悄存下这座城市的生活片段。",
+    "HIGHLIGHT_KL_CITY_ALT"        : "充满生活气息的吉隆坡街景",
+
+    "HIGHLIGHT_KL_NIGHT_LOCATION"   : "马来西亚 · 吉隆坡",
+    "HIGHLIGHT_KL_NIGHT_TITLE"      : "夜深了，城市未眠",
+    "HIGHLIGHT_KL_NIGHT_DESCRIPTION": "当夜幕铺满街巷，路灯亮起，属于夜行者的故事才刚刚开始。",
+    "HIGHLIGHT_KL_NIGHT_ALT"        : "灯火通明、未曾入睡的吉隆坡夜晚",
+
+    "HIGHLIGHT_PENANG_BRIDGE_LOCATION"   : "马来西亚 · 槟城 · 升旗山",
+    "HIGHLIGHT_PENANG_BRIDGE_TITLE"      : "云雾里，遇见二桥",
+    "HIGHLIGHT_PENANG_BRIDGE_DESCRIPTION": "站在升旗山顶远眺，晨雾朦胧间，槟城二桥就像温柔勾勒在海天边缘的一笔划线。",
+    "HIGHLIGHT_PENANG_BRIDGE_ALT"        : "升旗山顶俯瞰雾气笼罩的槟城二桥",
+
+    "HIGHLIGHT_QIGUANDING_LOCATION"   : "中国 · 福建 · 旗冠顶",
+    "HIGHLIGHT_QIGUANDING_TITLE"      : "山海拥抱的地方",
+    "HIGHLIGHT_QIGUANDING_DESCRIPTION": "登顶旗冠顶，看人间烟火与海上渔排在湛蓝海岸线上自然舒展。",
+    "HIGHLIGHT_QIGUANDING_ALT"        : "旗冠顶俯瞰下的蓝色海岸与沿海渔村",
+
+    "HIGHLIGHT_YANTAI_LOCATION"   : "中国 · 山东 · 烟台",
+    "HIGHLIGHT_YANTAI_TITLE"      : "听着海浪骑行",
+    "HIGHLIGHT_YANTAI_DESCRIPTION": "人、单车，漫步在安静的沿海公路上。身旁是辽阔的大海，头顶是飞过的海鸥，耳边只有温柔的海浪声。",
+    "HIGHLIGHT_YANTAI_ALT"        : "烟台海边骑行者与辽阔海面",
+
+    "HIGHLIGHT_KUBUQI_LOCATION"   : "中国 · 内蒙古 · 鄂尔多斯市 · 库布其沙漠",
+    "HIGHLIGHT_KUBUQI_TITLE"      : "大漠里的孤独与自由",
+    "HIGHLIGHT_KUBUQI_DESCRIPTION": "漫天黄沙与无垠天空之间，这道渺小的身影，让辽阔的风沙有了真实的落脚点。",
+    "HIGHLIGHT_KUBUQI_ALT"        : "库布其沙漠中立于沙丘上的独行身影",
+
+    "HIGHLIGHT_XIAMEN_TEMPLE_LOCATION"   : "中国 · 福建 · 厦门 · 朝天宫",
+    "HIGHLIGHT_XIAMEN_TEMPLE_TITLE"      : "人间烟火与天际交错",
+    "HIGHLIGHT_XIAMEN_TEMPLE_DESCRIPTION": "闽南古厝的飞檐翘角与袅袅香火之上，庞大的客机呼啸而过。古老信仰与现代文明在此奇迹般重合，极具视觉震撼。",
+    "HIGHLIGHT_XIAMEN_TEMPLE_ALT"        : "飞跃厦门朝天宫古朴屋檐的航班",
+
+    "HIGHLIGHT_CHILECHUAN_LOCATION"   : "中国 · 内蒙古 · 敕勒川",
+    "HIGHLIGHT_CHILECHUAN_TITLE"      : "风吹草低，长空万里",
+    "HIGHLIGHT_CHILECHUAN_DESCRIPTION": "连绵的高山草原在脚下延伸，流动的云朵带走思绪，一直通往未知的远方。",
+    "HIGHLIGHT_CHILECHUAN_ALT"        : "敕勒川流云之下的广袤绿色草原",
+
+    "HIGHLIGHT_KL_SKYLINE_LOCATION"   : "马来西亚 · 吉隆坡",
+    "HIGHLIGHT_KL_SKYLINE_TITLE"      : "勾勒夜晚的轮廓",
+    "HIGHLIGHT_KL_SKYLINE_DESCRIPTION": "夜幕降临，万家灯火缓缓亮起，重新描绘出这座城市独特的骨骼与温柔。",
+    "HIGHLIGHT_KL_SKYLINE_ALT"        : "华灯初上时的吉隆坡天际线",
+
+    "HIGHLIGHT_PUTRAJAYA_LOCATION"   : "马来西亚 · 布城",
+    "HIGHLIGHT_PUTRAJAYA_TITLE"      : "大道尽头的宁静",
+    "HIGHLIGHT_PUTRAJAYA_DESCRIPTION": "走在宽阔肃穆的大道上，视线自然被吸引向远方那抹庄严而宁静的绿色穹顶。",
+    "HIGHLIGHT_PUTRAJAYA_ALT"        : "布城宽阔大道通往远方的绿色穹顶",
+
+    "HIGHLIGHT_HONG_KONG_TRAM_LOCATION"   : "中国 · 香港",
+    "HIGHLIGHT_HONG_KONG_TRAM_TITLE"      : "叮叮车摇晃的光阴",
+    "HIGHLIGHT_HONG_KONG_TRAM_DESCRIPTION": "双层叮叮车摇摇晃晃转过街角，带着旧时光里的光影，驶过繁华与岁月交织的街巷。",
+    "HIGHLIGHT_HONG_KONG_TRAM_ALT"        : "行驶在香港旧街区里的双层叮叮车",
+
+    "HIGHLIGHT_WEIHAI_LOCATION"   : "中国 · 山东 · 威海",
+    "HIGHLIGHT_WEIHAI_TITLE"      : "在大海留下一道弧线",
+    "HIGHLIGHT_WEIHAI_DESCRIPTION": "一艘小船划破沉静的大海，在蓝色的浪花里，划出一条独属于它的痕迹。",
+    "HIGHLIGHT_WEIHAI_ALT"        : "威海蔚蓝海面上小船驶过的弧形白浪"
+}

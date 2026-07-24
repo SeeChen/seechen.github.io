@@ -1,0 +1,72 @@
+{
+    "INTRO_GREETING"     : "您好呀~ 我是：",
+    "INTRO_NAME"         : "SEECHEN LEE",
+    "INTRO_ROLE_LABEL"   : "职位",
+    "INTRO_ROLE"         : "搬砖爱好者",
+    "INTRO_COMPANY_LABEL": "就职于 ",
+
+    "WORK_COPYRIGHT": "© 2024–2026 LEE SEE CHEN",
+    "WORK_SUBTITLE" : "seechen.com",
+    "WORK_LOCATION" : "马来西亚吉隆坡 - 106 交易塔",
+
+    "WORK_PROJECT_AMBER_CATEGORY"   : "网页架构",
+    "WORK_PROJECT_AMBER_TITLE"      : "SEECHEN / 琥珀",
+    "WORK_PROJECT_AMBER_DESCRIPTION": "学习使我快乐~ 一个为了学习网页架构而构建的单应用网页，一切组件都属于重复造轮子，但可以较好的理解一些组件的设计与原理。",
+
+    "WORK_PROJECT_CODETRACE_AI_CATEGORY"   : "人工智能",
+    "WORK_PROJECT_CODETRACE_AI_TITLE"      : "CodeTrace - by AI",
+    "WORK_PROJECT_CODETRACE_AI_DESCRIPTION": "为了解放双手，尝试使用 ClaudeCode 完成了从一份需求文档到交付的流水线的自动化开发。AI 真的牛逼！",
+
+    "WORK_PROJECT_ROUTING_CATEGORY"   : "算法设计",
+    "WORK_PROJECT_ROUTING_TITLE"      : "多层级交通路由",
+    "WORK_PROJECT_ROUTING_DESCRIPTION": "基于图结构的路由研究，结合约束条件、动态模型与最短路径策略。还在研究中，什么时候研究出来了再分享吧~ 全靠运气吧~",
+
+    "WORK_PROJECT_WEBPAGE_CORE_CATEGORY"   : "基础学习",
+    "WORK_PROJECT_WEBPAGE_CORE_TITLE"      : "本网页核心",
+    "WORK_PROJECT_WEBPAGE_CORE_DESCRIPTION": "一组不依赖框架的基础服务，用于连接页面数据、渲染与交互职责。（为了凑齐 Stitch 的四个内容设计，所以加上来了）",
+
+    "WORK_PROJECT_VIEW_PROJECT": "查看项目",
+    "WORK_PROJECT_VIEW_PROFILE": "查看主页",
+    "WORK_PROJECT_VIEW_SOURCE" : "查看源码",
+    "WORK_PROJECT_VIEW_REPO"   : "查看仓库",
+
+    "TRAVEL_KICKER"        : "旅途札记",
+    "TRAVEL_TITLE"         : "脚履所至，方识一地。",
+    "TRAVEL_STATEMENT"     : "轨迹、光影与偶遇，皆成岁月留痕。",
+    "TRAVEL_CAROUSEL_LABEL": "精选旅行记录",
+    "TRAVEL_PREVIOUS"      : "上一段旅程",
+    "TRAVEL_NEXT"          : "下一段旅程",
+
+    "CHRONICLE_KICKER"     : "时光履痕",
+    "CHRONICLE_TITLE"      : "往事如昨",
+    "CHRONICLE_STATEMENT"  : "一些关于 2025 年的影像记录 —— 生活、代码、远方与苟且。",
+    "CHRONICLE_VIDEO_LABEL": "我的 2025 年度影像",
+    "CHRONICLE_TIMESTAMP"  : "时光如昔 / 2025",
+
+    "NARRATIVE_KICKER"      : "此时此刻",
+    "NARRATIVE_REGION_LABEL": "See Chen 当前的状态与重心",
+
+    "NARRATIVE_FOCUS_LABEL"      : "重心",
+    "NARRATIVE_FOCUS_TITLE"      : "Version A / Amber",
+    "NARRATIVE_FOCUS_META"       : "当前版本",
+    "NARRATIVE_FOCUS_DESCRIPTION": "继续打磨优化这个个人网页系统，坚持自己的研究，完善它，并记录被它保存下来的故事。",
+    "NARRATIVE_FOCUS_ALT"        : "夜色中站在桥边的 SeeChen",
+    
+    "NARRATIVE_BUILD_LABEL"      : "构建",
+    "NARRATIVE_BUILD_TITLE"      : "个人网页",
+    "NARRATIVE_BUILD_META"       : "系统设计",
+    "NARRATIVE_BUILD_DESCRIPTION": "以明确的生命周期、数据、渲染与交互边界，学习并构建一个不依赖框架的界面系统。",
+    "NARRATIVE_BUILD_ALT"        : "屏幕上展示代码与数据的软件开发工作区",
+
+    "NARRATIVE_LOCATION_LABEL"      : "位置",
+    "NARRATIVE_LOCATION_TITLE"      : "马来西亚 · 吉隆坡",
+    "NARRATIVE_LOCATION_META"       : "系统与故事之间",
+    "NARRATIVE_LOCATION_DESCRIPTION": "吉隆坡的天气总是翻云又覆雨，灰蒙蒙的天气~",
+    "NARRATIVE_LOCATION_ALT"        : "雨后眺望吉隆坡的城市景色",
+
+    "NARRATIVE_JOURNEY_LABEL"      : "在路上",
+    "NARRATIVE_JOURNEY_TITLE"      : "行走中的地方",
+    "NARRATIVE_JOURNEY_META"       : "旅行与摄影",
+    "NARRATIVE_JOURNEY_DESCRIPTION": "记录路线、光线，以及离开一个地方以后仍然留在记忆中的安静细节。",
+    "NARRATIVE_JOURNEY_ALT"        : "云南山路旁绿色的村庄景色"
+}

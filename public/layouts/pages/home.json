@@ -1,0 +1,505 @@
+{
+    "tag": "div",
+    "props": {
+        "class": "seechen-page seechen-home",
+        "data-seechen-page": "home"
+    },
+    "children": [
+        {
+            "tag": "section",
+            "props": {
+                "class": "seechen-home__chapter seechen-home__chapter--intro",
+                "data-seechen-scroll-target": "true",
+                "aria-labelledby": "seechenHomeIntroTitle"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-home__stage seechen-home__stage--portrait"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__portrait-media",
+                                "role": "img",
+                                "aria-label": "SEECHEN LEE"
+                            },
+                            "children": []
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__identity"
+                            },
+                            "children": [
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__identity-panel"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__identity-number"
+                                            },
+                                            "children": [
+                                                "00 / PERSONAL"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__identity-introduction"
+                                            },
+                                            "children": [
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__identity-greeting"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "INTRO_GREETING"
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "h1",
+                                                    "props": {
+                                                        "id": "seechenHomeIntroTitle",
+                                                        "class": "seechen-home__identity-title"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "INTRO_NAME"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__identity-role"
+                                            },
+                                            "children": [
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__identity-role-label"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "INTRO_ROLE_LABEL"
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__identity-role-value"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "INTRO_ROLE"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__identity-company"
+                                            },
+                                            "children": [
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__identity-company-label"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "INTRO_COMPANY_LABEL"
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "img",
+                                                    "props": {
+                                                        "class": "seechen-home__identity-company-logo",
+                                                        "src": "/assets/images/brands/ant-group.svg",
+                                                        "alt": "Ant Group",
+                                                        "decoding": "async"
+                                                    },
+                                                    "children": []
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "section",
+            "props": {
+                "id": "seechenHomeWork",
+                "class": "seechen-home__chapter seechen-home__chapter--work",
+                "data-seechen-scroll-target": "true",
+                "aria-labelledby": "seechenHomeWorkLabel"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-home__stage seechen-home__stage--work"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__work"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "id": "seechenHomeWorkLabel",
+                                        "class": "seechen-home__work-number"
+                                    },
+                                    "children": [
+                                        "01 / WORK"
+                                    ]
+                                },
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__work-projects",
+                                        "data-seechen-slot": "work-projects"
+                                    },
+                                    "children": []
+                                },
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__work-meta"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__work-meta-item"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "WORK_COPYRIGHT"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__work-meta-item"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "WORK_SUBTITLE"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__work-meta-item"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "WORK_LOCATION"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "section",
+            "props": {
+                "id": "seechenHomeTravel",
+                "class": "seechen-home__chapter seechen-home__chapter--travel",
+                "data-seechen-scroll-target": "true",
+                "aria-labelledby": "seechenHomeTravelTitle"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-home__stage seechen-home__stage--travel"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__travel"
+                            },
+                            "children": [
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__travel-heading"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__travel-heading-meta"
+                                            },
+                                            "children": [
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__travel-number"
+                                                    },
+                                                    "children": [
+                                                        "02 / TRAVEL"
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "span",
+                                                    "props": {
+                                                        "class": "seechen-home__travel-heading-line",
+                                                        "aria-hidden": "true"
+                                                    },
+                                                    "children": []
+                                                },
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__travel-kicker"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "TRAVEL_KICKER"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "h2",
+                                            "props": {
+                                                "id": "seechenHomeTravelTitle",
+                                                "class": "seechen-home__travel-title"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "TRAVEL_TITLE"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__travel-statement"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "TRAVEL_STATEMENT"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__travel-carousel",
+                                        "data-seechen-travel-carousel": "true"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__travel-controls",
+                                                "data-seechen-slot": "travel-controls"
+                                            },
+                                            "children": []
+                                        },
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__travel-track",
+                                                "data-seechen-slot": "travel-highlights",
+                                                "data-seechen-travel-track": "true",
+                                                "role": "region",
+                                                "tabindex": "0"
+                                            },
+                                            "children": []
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "section",
+            "props": {
+                "id": "seechenHomeChronicle",
+                "class": "seechen-home__chapter seechen-home__chapter--chronicle",
+                "data-seechen-scroll-target": "true",
+                "aria-labelledby": "seechenHomeChronicleTitle"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-home__stage seechen-home__stage--chronicle"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__chronicle"
+                            },
+                            "children": [
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__chronicle-heading"
+                                    },
+                                    "children": [
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__chronicle-number"
+                                            },
+                                            "children": [
+                                                "03 / CHRONICLES"
+                                            ]
+                                        },
+                                        {
+                                            "tag": "div",
+                                            "props": {
+                                                "class": "seechen-home__chronicle-title-group"
+                                            },
+                                            "children": [
+                                                {
+                                                    "tag": "p",
+                                                    "props": {
+                                                        "class": "seechen-home__chronicle-kicker"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "CHRONICLE_KICKER"
+                                                    ]
+                                                },
+                                                {
+                                                    "tag": "h2",
+                                                    "props": {
+                                                        "id": "seechenHomeChronicleTitle",
+                                                        "class": "seechen-home__chronicle-title"
+                                                    },
+                                                    "lang": "HOME",
+                                                    "children": [
+                                                        "CHRONICLE_TITLE"
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__chronicle-statement"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "CHRONICLE_STATEMENT"
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "tag": "div",
+                                    "props": {
+                                        "class": "seechen-home__chronicle-media"
+                                    },
+                                    "component": "MEDIA_PLAYER",
+                                    "children": [
+                                        {
+                                            "tag": "p",
+                                            "props": {
+                                                "class": "seechen-home__chronicle-timestamp"
+                                            },
+                                            "lang": "HOME",
+                                            "children": [
+                                                "CHRONICLE_TIMESTAMP"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tag": "section",
+            "props": {
+                "id": "seechenHomeNarrative",
+                "class": "seechen-home__flow seechen-home__flow--narrative",
+                "aria-labelledby": "seechenHomeNarrativeLabel"
+            },
+            "children": [
+                {
+                    "tag": "div",
+                    "props": {
+                        "class": "seechen-home__narrative"
+                    },
+                    "children": [
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__narrative-heading"
+                            },
+                            "children": [
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "class": "seechen-home__narrative-number"
+                                    },
+                                    "children": [
+                                        "04 / NARRATIVE"
+                                    ]
+                                },
+                                {
+                                    "tag": "p",
+                                    "props": {
+                                        "id": "seechenHomeNarrativeLabel",
+                                        "class": "seechen-home__narrative-kicker"
+                                    },
+                                    "lang": "HOME",
+                                    "children": [
+                                        "NARRATIVE_KICKER"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "tag": "div",
+                            "props": {
+                                "class": "seechen-home__state-grid",
+                                "data-seechen-slot": "current-state",
+                                "role": "list"
+                            },
+                            "children": []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
