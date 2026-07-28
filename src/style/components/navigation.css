@@ -19,15 +19,31 @@
 .seechen-navigation {
     --seechen-navigation-toggle-motion: 500ms var(--seechen-motion-ease-emphasized);
 
-    position        : relative                            ;
-    width           : 100%                                ;
-    border-bottom   : 1px solid var(--seechen-color-border);
-    background-color: var(--seechen-color-canvas)         ;
-    color           : var(--seechen-color-text)           ;
+    position        : relative                              ;
+    width           : 100%                                  ;
+    border-bottom   : 1px solid var(--seechen-color-border) ;
+    background-color: var(--seechen-color-canvas)           ;
+    color           : var(--seechen-color-text)             ;
+    backdrop-filter : blur(0.25rem)                          ;
     transition      : background-color var(--seechen-motion-panel)
             var(--seechen-motion-ease-standard),
         border-color var(--seechen-motion-panel)
-            var(--seechen-motion-ease-standard)           ;
+            var(--seechen-motion-ease-standard)             ;
+}
+
+.seechen-navigation::after {
+    position        : absolute                              ;
+    top             : 100%                                  ;
+    right           : 0                                     ;
+    left            : 0                                     ;
+    height          : var(--seechen-space-xl)               ;
+    opacity         : 0.65                                  ;
+    pointer-events  : none                                  ;
+    content         : ''                                    ;
+    transition      : height var(--seechen-motion-panel)
+            var(--seechen-motion-ease-standard),
+        opacity var(--seechen-motion-panel)
+            var(--seechen-motion-ease-standard)             ;
 }
 
 .seechen-navigation__inner {
@@ -51,6 +67,7 @@
     font-size          : var(--seechen-font-size-xl)     ;
     font-weight        : 900                             ;
     line-height        : 1                               ;
+    white-space        : nowrap                          ;
     transition         : left var(--seechen-motion-panel)
             var(--seechen-motion-ease-emphasized),
         top var(--seechen-motion-panel)
@@ -272,6 +289,53 @@ a.seechen-navigation__mobile-item:hover {
     opacity: 0.45;
 }
 
+.seechen-navigation[data-seechen-variant='globe'] {
+    border-bottom-color: var(--seechen-color-on-dark-border);
+    background-color   : var(--seechen-color-scrim-dark-start);
+    color              : var(--seechen-color-surface);
+}
+
+.seechen-navigation[data-seechen-variant='globe']::after {
+    background: linear-gradient(
+        to bottom,
+        var(--seechen-color-scrim-dark-start),
+        transparent
+    );
+}
+
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__brand,
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__current,
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__toggle,
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__desktop-item--current {
+    color: var(--seechen-color-primary-soft);
+}
+
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__desktop-item,
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__current-number {
+    color: var(--seechen-color-neutral);
+}
+
+.seechen-navigation[data-seechen-variant='globe']
+    a.seechen-navigation__desktop-item:hover,
+.seechen-navigation[data-seechen-variant='globe']
+    a.seechen-navigation__desktop-item:focus-visible,
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__toggle:hover {
+    color: var(--seechen-color-amber-soft);
+}
+
+.seechen-navigation[data-seechen-variant='globe']
+    .seechen-navigation__panel {
+    border-bottom-color: var(--seechen-color-on-dark-border);
+    background-color   : var(--seechen-color-surface-dark);
+}
+
 .seechen-navigation[data-seechen-variant='editorial']
     .seechen-navigation__inner {
     display: block;
@@ -353,8 +417,13 @@ a.seechen-navigation__mobile-item:hover {
 }
 
 .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded'] {
-    border-bottom-color: transparent;
-    background-color   : transparent;
+    border-bottom-color: transparent                                 ;
+    background-color   : var(--seechen-color-surface-translucent)    ;
+}
+
+.seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']::after {
+    height : var(--seechen-space-2xl);
+    opacity: 1                          ;
 }
 
 .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded']
@@ -508,5 +577,17 @@ a.seechen-navigation__mobile-item:hover {
     .seechen-navigation__desktop-indicator {
         animation : none;
         transition: none;
+    }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+    .seechen-navigation,
+    .seechen-navigation[data-seechen-variant='editorial'][data-seechen-mode='expanded'] {
+        background-color: var(--seechen-color-canvas);
+        backdrop-filter : none                       ;
+    }
+
+    .seechen-navigation::after {
+        display: none;
     }
 }
